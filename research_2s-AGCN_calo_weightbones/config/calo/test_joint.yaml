@@ -1,0 +1,26 @@
+# feeder
+feeder: feeders.feeder.Feeder
+test_feeder_args:
+  data_path: ./data/calo/test_data_joint.npy
+  label_path: ./data/calo/test_label.pkl
+  debug: False
+
+# model
+model: model.agcn.Model
+model_args:
+  num_class: 11
+  num_point: 18
+  num_person: 1
+  graph: graph.calo.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+
+# test
+phase: test
+device: [0]
+test_batch_size: 256
+weights: ./runs/calo_agcn_joint-3-4.pt
+
+work_dir: ./work_dir/calo/agcn_test_joint
+model_saved_name: ./runs/calo_agcn_test_joint
+save_score: True
