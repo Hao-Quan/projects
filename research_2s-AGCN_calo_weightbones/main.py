@@ -467,7 +467,7 @@ class Processor():
                     output = self.model(data)
                     if isinstance(output, tuple):
                         output, l1 = output
-                        l1 = l1.mean()
+                  l1 = l1.mean()
                     else:
                         l1 = 0
                     # Hao's code to squeeze label dimension

@@ -38,6 +38,8 @@ class Feeder(Dataset):
         if normalization:
             self.get_mean_map()
 
+        self.sample_name = ""
+
     def load_data(self):
         # data: N C V T M
 
@@ -48,6 +50,7 @@ class Feeder(Dataset):
             # for pickle file from python2
             with open(self.label_path, 'rb') as f:
                 self.sample_name, self.label = pickle.load(f, encoding='latin1')
+                #self.label = pickle.load(f, encoding='latin1')
 
         # load data
         if self.use_mmap:
@@ -188,9 +191,15 @@ def test(data_path, label_path, vid=None, graph=None, is_3d=False):
 if __name__ == '__main__':
     import os
 
+    # os.environ['DISPLAY'] = 'localhost:10.0'
+    # data_path = "../data/ntu/xview/val_data_joint.npy"
+    # label_path = "../data/ntu/xview/val_label.pkl"
+    # graph = 'graph.ntu_rgb_d.Graph'
+    # test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
+
     os.environ['DISPLAY'] = 'localhost:10.0'
-    data_path = "../data/ntu/xview/val_data_joint.npy"
-    label_path = "../data/ntu/xview/val_label.pkl"
+    data_path = "../data/ntu/xsub/val_data_joint.npy"
+    label_path = "../data/ntu/xsub/val_label.pkl"
     graph = 'graph.ntu_rgb_d.Graph'
-    test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
+    test(data_path, label_path, vid='S001C001P001R001A002', graph=graph, is_3d=True)
 

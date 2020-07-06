@@ -1,7 +1,7 @@
 import sys
 
 sys.path.extend(['../'])
-from rotation import *
+from data_gen.rotation import *
 from tqdm import tqdm
 
 

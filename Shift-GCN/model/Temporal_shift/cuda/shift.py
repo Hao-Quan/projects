@@ -1,9 +1,9 @@
-import shift_cuda
+#import shift_cuda
 from torch.nn import Module, Parameter
 from torch.autograd import Function
 
 import torch
-#import model.Temporal_shift.cuda.shift_cuda
+import model.Temporal_shift.cuda.shift_cuda
 
 import numpy as np 
 
