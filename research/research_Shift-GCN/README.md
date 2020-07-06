@@ -5,25 +5,9 @@ The implementation for "Skeleton-Based Action Recognition with Shift Graph Convo
 
  - PyTorch 0.4.1
  - Cuda 9.0
- - g++ 5.4.0
+ - g++ 5.4.0 
  
- HAO's setting environment:
- - PyTorch 1.4
- - Cuda(Cudatoolkit; nvcc --version) 10.1
- - Torchvision 0.5
- - gcc/g++ 7.5
- 
-  
-
-## Compile cuda extensions
-
-  Conda environment create:
-  ```
-  conda create -n py36 python=3.6 anaconda
-  conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=10.0 -c pytorch
-  ```
-  
- It should be environment as following, otherwise, does not work!
+  It should be environment as following, otherwise, does not work!
  - Python 3.6
  - PyTorch 1.1
  - Cuda(Cudatoolkit; nvcc --version) 10.0.130
@@ -34,6 +18,14 @@ The implementation for "Skeleton-Based Action Recognition with Shift Graph Convo
 
 Note: PyTorch 1.5 dose not work!
 
+Conda environment create:
+  ```
+  conda create -n py36 python=3.6 anaconda
+  conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=10.0 -c pytorch
+  ```
+  
+## Compile cuda extensions
+  
 Compile shif_cuda.cpp file
 Should run it in command line, don't with PyCharm.
   ```

@@ -1,0 +1,927 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2ec210c3-c134-4d0e-918a-874b2ea97a81" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/Shift-GCN-master.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-subject/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-subject/train_bone_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-subject/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-subject/train_joint_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-view/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-view/train_bone_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-view/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/config/nturgbd-cross-view/train_joint_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xsub/prova_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xsub/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xsub/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xsub/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xsub/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xview/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xview/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xview/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/ntu/xview/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/nturgbd120_raw/NTU_RGBD120_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data/nturgbd_raw/NTU_RGBD_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/gen_bone_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/gen_motion_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/ntu120_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/ntu_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/data_gen/rotation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/ensemble.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/feeders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/feeders/feeder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/feeders/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/flops_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/graph/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/graph/ntu_rgb_d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/graph/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/build/lib.linux-x86_64-3.6/shift_cuda.cpython-36m-x86_64-linux-gnu.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda_kernel.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy).egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/native_libs.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/not-zip-safe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/EGG-INFO/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/shift_cuda.cpython-36m-x86_64-linux-gnu.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64 (copy)/shift_cuda.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64.egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda_kernel.cu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/Temporal_shift/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/model/shift_gcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/readme_img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu120_ShiftGCN_joint_xsetup.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu120_ShiftGCN_joint_xsub.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu_ShiftGCN_joint_xsub-0-240.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu_ShiftGCN_joint_xsub-1-480.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu_ShiftGCN_joint_xsub.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/save_models/ntu_ShiftGCN_joint_xview.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/best_acc.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/epoch_0_0.008333333333333333.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/epoch_1_0.016666666666666666.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/shift_gcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Shift-GCN.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/calo/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/calo/train_bone_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/calo/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/calo/train_joint_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_bone_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_joint_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-view/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-view/train_bone_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-view/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-view/train_joint_motion.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/NTU_RGBD_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/test_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/test_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/test_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/train_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calo/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/prova_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd120_raw/NTU_RGBD120_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R001A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P001R002A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R001A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P002R002A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R001A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A003.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A004.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A005.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A006.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A007.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A008.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A009.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A010.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A011.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A012.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A013.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A014.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A015.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A016.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A017.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A018.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A019.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A020.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A021.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A022.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A023.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A024.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A025.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A026.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A027.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A028.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A029.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A030.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A031.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A032.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A033.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A034.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A035.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A036.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A037.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A038.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A039.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A040.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A041.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A042.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A043.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A044.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A045.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A046.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A047.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A048.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A049.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A050.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A051.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A052.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A053.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A054.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A055.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A056.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A057.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A058.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A059.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/S001C001P003R002A060.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/gen_bone_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/gen_motion_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/ntu120_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/ntu_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_gen/rotation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ensemble.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feeders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feeders/feeder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/feeders/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flops_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/ntu_rgb_d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/graph/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/lib.linux-x86_64-3.6/shift_cuda.cpython-36m-x86_64-linux-gnu.so" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda_kernel.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64.egg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/setup.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_kernel.cu" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/PKG-INFO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/SOURCES.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/dependency_links.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/demo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/readme.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/shift_gcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme_img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu120_ShiftGCN_joint_xsetup.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu120_ShiftGCN_joint_xsub.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu_ShiftGCN_joint_xsub-0-0.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu_ShiftGCN_joint_xsub.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu_ShiftGCN_joint_xview.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/shift_gcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/calo/test_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/calo/test_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/calo/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/calo/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/calo/train_joint_aagcn.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/kinetics-skeleton/test_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/kinetics-skeleton/test_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/kinetics-skeleton/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/kinetics-skeleton/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-subject/test_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-subject/test_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-subject/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-subject/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-subject/train_joint_aagcn.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-view/test_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-view/test_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-view/train_bone.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/config/nturgbd-cross-view/train_joint.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/calo_data_load.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/calo_data_save.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/data_training_test_without_shuffle.h5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/test_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/test_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/test_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/train_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/calo/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/prova_xsub.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/train_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/val_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xsub/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/train_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/val_data_bone.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/ntu/xview/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/nturgbd_raw/nturgb+d_skeletons/S001C001P001R001A001.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/nturgbd_raw/nturgb+d_skeletons/S001C001P001R001A002.skeleton" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data/nturgbd_raw/samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/gen_bone_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/gen_motion_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/kinetics_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/merge_joint_bone_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/ntu_gendata.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/data_gen/rotation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/ensemble.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/feeders/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/feeders/feeder.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/feeders/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/graph/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/graph/calo.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/graph/kinetics.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/graph/ntu_rgb_d.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/graph/tools.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/model/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/model/aagcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/model/agcn.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../research_2s-AGCN_calo_weightbones/prova.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1eGp9K5tocTJsYqtaGtOuMsoGE2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Shift-GCN-master" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/data/nturgbd_raw/missed" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/calo" />
+      <recent name="$PROJECT_DIR$/config/calo" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Shell Script.run.sh">
+    <configuration name="feeder" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/feeders" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/feeders/feeder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="--config ./config/nturgbd-cross-subject/train_joint.yaml" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ntu_gendata" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_gen" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_gen/ntu_gendata.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prova_data" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data/ntu/xsub" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data/ntu/xsub/prova_data.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run.sh" type="ShConfigurationType" temporary="true">
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/model/Temporal_shift/run.sh" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/model/Temporal_shift" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="/bin/bash" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.ntu_gendata" />
+      <item itemvalue="Python.prova_data" />
+      <item itemvalue="Python.feeder" />
+      <item itemvalue="Shell Script.run.sh" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Shell Script.run.sh" />
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.prova_data" />
+        <item itemvalue="Python.ntu_gendata" />
+        <item itemvalue="Python.feeder" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2ec210c3-c134-4d0e-918a-874b2ea97a81" name="Default Changelist" comment="" />
+      <created>1593957630041</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593957630041</updated>
+      <workItem from="1593957631222" duration="2902000" />
+      <workItem from="1593961358789" duration="12401000" />
+      <workItem from="1593984978252" duration="705000" />
+      <workItem from="1594020658490" duration="3415000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1593973137479">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1593973137479" />
+    <state x="684" y="354" width="608" height="396" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593972053614">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="684" y="354" width="608" height="396" key="#com.intellij.fileTypes.FileTypeChooser/67.27.1853.1053@67.27.1853.1053" timestamp="1593972053614" />
+    <state x="348" y="414" width="424" height="484" key="FileChooserDialogImpl" timestamp="1594021203559">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="348" y="414" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1594021203559" />
+    <state width="1807" height="324" key="GridCell.Tab.0.bottom" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.0.center" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.0.left" timestamp="1593984934819">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934819" />
+    <state width="1807" height="324" key="GridCell.Tab.0.right" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.1.bottom" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.1.center" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.1.left" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state width="1807" height="324" key="GridCell.Tab.1.right" timestamp="1593984934820">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="324" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1593984934820" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1593984315178">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1593984315178" />
+    <state x="682" y="189" width="620" height="783" key="find.popup" timestamp="1593976769006">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="682" y="189" width="620" height="783" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1593976769006" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data/ntu/xsub/prova_data.py</url>
+          <line>10</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>449</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>426</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/shift_gcn.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/Temporal_shift/cuda/shift.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/Temporal_shift/cuda/shift.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>540</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/Temporal_shift/cuda/shift.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/model/shift_gcn.py</url>
+          <line>58</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Shift_GCN$ntu_gendata.coverage" NAME="ntu_gendata Coverage Results" MODIFIED="1593980917484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_gen" />
+    <SUITE FILE_PATH="coverage/Shift_GCN$feeder.coverage" NAME="feeder Coverage Results" MODIFIED="1593976446655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/feeders" />
+    <SUITE FILE_PATH="coverage/Shift_GCN$prova_data.coverage" NAME="prova_data Coverage Results" MODIFIED="1593981132881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data/ntu/xsub" />
+    <SUITE FILE_PATH="coverage/Shift_GCN$main.coverage" NAME="main Coverage Results" MODIFIED="1593981962119" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Shift_GCN$demo.coverage" NAME="demo Coverage Results" MODIFIED="1593963724225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model/Temporal_shift" />
+  </component>
+</project>
