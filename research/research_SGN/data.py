@@ -123,8 +123,8 @@ class NTUDataLoaders(object):
         #load Calo's data and convert it into numpy array
         key_train = 'train'
         key_test = 'test'
-        self.train_X = pd.read_hdf(path + "data_training_test.h5", key=key_train + "_data").to_numpy()  # 35763x300x150
-        self.train_Y = pd.read_hdf(path + "data_training_test.h5", key=key_train + "_label").to_numpy()  # 35763x300x150  # 35763
+        self.train_X = pd.read_hdf(path + "data_training_test_without_shuffle.h5", key=key_train + "_data").to_numpy()  # 35763x300x150
+        self.train_Y = pd.read_hdf(path + "data_training_test_without_shuffle.h5", key=key_train + "_label").to_numpy()  # 35763x300x150  # 35763
         # self.val_X = pd.read_hdf(path + "data_training_test.h5", key=key_test + "_data").to_numpy()  # 35763x300x150
         # self.val_Y = pd.read_hdf(path + "data_training_test.h5", key=key_test + "_label").to_numpy()  # 35763x300x150
 
@@ -135,8 +135,8 @@ class NTUDataLoaders(object):
         # self.val_Y = np.argmax(f['valid_y'][:], -1) #1883
 
         # # Hao version
-        self.test_X = pd.read_hdf(path + "data_training_test.h5", key=key_test + "_data").to_numpy()  # 35763x300x150
-        self.test_Y = pd.read_hdf(path + "data_training_test.h5", key=key_test + "_label").to_numpy()  # 35763x300x150
+        self.test_X = pd.read_hdf(path + "data_training_test_without_shuffle.h5", key=key_test + "_data").to_numpy()  # 35763x300x150
+        self.test_Y = pd.read_hdf(path + "data_training_test_without_shuffle.h5", key=key_test + "_label").to_numpy()  # 35763x300x150
 
         # # Original version
         # self.test_X = f['test_x'][:]                #18932x300x150
