@@ -42,13 +42,14 @@ parser.set_defaults(
     print_freq = 20,
     train = 0,
     seg = 20,
+    graph = 'graph.calo.Graph'
     )
 args = parser.parse_args()
 
 def main():
 
     args.num_classes = get_num_classes(args.dataset)
-    model = SGN(args.num_classes, args.dataset, args.seg, args)
+    model = SGN(args.num_classes, args.dataset, args.seg, args, graph=args.graph)
 
     total = get_n_params(model)
     print(model)
