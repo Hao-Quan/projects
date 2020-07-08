@@ -33,14 +33,14 @@ parser.set_defaults(
     # dataset = 'Calo',
     case = 0,
     batch_size=32,
-    max_epochs=120,
+    max_epochs=100,
     monitor='val_acc',
     lr=0.001,
     weight_decay=0.0001,
     lr_factor=0.1,
     workers=16,
-    print_freq = 20,
-    train = 0,
+    print_freq = 200,
+    train = 1,
     seg = 20,
     graph = 'graph.calo.Graph'
     )
@@ -166,7 +166,7 @@ def main():
 
     ### Test
     args.train = 0
-    model = SGN(args.num_classes, args.dataset, args.seg, args)
+    #model = SGN(args.num_classes, args.dataset, args.seg, args)
     model = model.cuda()
     test(test_loader, model, checkpoint, lable_path, pred_path)
 
@@ -226,11 +226,12 @@ def validate(val_loader, model, criterion):
 def test(test_loader, model, checkpoint, lable_path, pred_path):
     acces = AverageMeter()
     # load learnt model that obtained best performance on validation set
-    model.load_state_dict(torch.load(checkpoint)['state_dict'])
+    #model.load_state_dict(torch.load(checkpoint)['state_dict'])
     model.eval()
 
     label_output = list()
     pred_output = list()
+    target_final_result = list()
     pred_final_result = list()
 
 
@@ -245,8 +246,9 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
         label_output.append(target.cpu().numpy())
         pred_output.append(output.cpu().numpy())
 
-        acc = accuracy(output.data, target.cuda(), pred_final_result)
-        acces.update(acc[0], inputs.size(0))
+        acc = accuracy_withlist(output.data, target.cuda(), pred_final_result, target_final_result)
+        #acc = accuracy(output.data, target.cuda())
+        #acces.update(acc[0], inputs.size(0))
 
     # prev = pred_final_result[0]
     # for i in range(1, len(pred_final_result)):
@@ -257,6 +259,15 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
         prev = np.concatenate((prev, pred_final_result[i].cpu().detach().numpy()), axis=1)
     prev = np.squeeze(prev)
 
+    targ = target_final_result[0].cpu().detach().numpy()
+    for i in range(1, len(target_final_result)):
+        targ = np.concatenate((targ, target_final_result[i].cpu().detach().numpy()), axis=0)
+    targ = np.squeeze(targ)
+
+    list_index_correct = np.where(prev == targ)
+    test_accuracy = len(list_index_correct[0]) / len(targ) * 100
+
+
     label_output = np.concatenate(label_output, axis=0)
     np.savetxt(lable_path, label_output, fmt='%d')
     pred_output = np.concatenate(pred_output, axis=0)
@@ -264,6 +275,9 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
 
     print('Test: accuracy {:.3f}, time: {:.2f}s'
           .format(acces.avg, time.time() - t_start))
+
+    print('My test: accuracy {:.3f}'
+          .format(test_accuracy))
 
     plot_confusion_matrix(label_output, prev)
 
@@ -294,25 +308,24 @@ def plot_confusion_matrix(target, prediction):
     #plt.savefig("images/test_confusion_matrix_pred.png")
 
 
-
-
-# def accuracy(output, target, pred_final_list):
-#     batch_size = target.size(0)
-#     _, pred = output.topk(1, 1, True, True)
-#     pred = pred.t()
-#     correct = pred.eq(target.view(1, -1).expand_as(pred))
-#     correct = correct.view(-1).float().sum(0, keepdim=True)
-#
-#     pred_final_list.append(pred)
-#
-#     return correct.mul_(100.0 / batch_size)
-
 def accuracy(output, target):
     batch_size = target.size(0)
     _, pred = output.topk(1, 1, True, True)
     pred = pred.t()
     correct = pred.eq(target.view(1, -1).expand_as(pred))
     correct = correct.view(-1).float().sum(0, keepdim=True)
+
+    return correct.mul_(100.0 / batch_size)
+
+def accuracy_withlist(output, target, pred_final_list, target_final_list):
+    batch_size = target.size(0)
+    _, pred = output.topk(1, 1, True, True)
+    pred = pred.t()
+    correct = pred.eq(target.view(1, -1).expand_as(pred))
+    correct = correct.view(-1).float().sum(0, keepdim=True)
+
+    target_final_list.append(target)
+    pred_final_list.append(pred)
 
     return correct.mul_(100.0 / batch_size)
 
@@ -345,6 +358,7 @@ class LabelSmoothingLoss(nn.Module):
             true_dist.fill_(self.smoothing / (self.cls - 1))
             true_dist.scatter_(1, target.data.unsqueeze(1), self.confidence)
         return torch.mean(torch.sum(-true_dist * pred, dim=self.dim))
+
 
 if __name__ == '__main__':
     main()
