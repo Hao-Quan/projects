@@ -166,7 +166,7 @@ def main():
 
     ### Test
     args.train = 0
-    #model = SGN(args.num_classes, args.dataset, args.seg, args)
+    model = SGN(args.num_classes, args.dataset, args.seg, args)
     model = model.cuda()
     test(test_loader, model, checkpoint, lable_path, pred_path)
 
@@ -226,7 +226,7 @@ def validate(val_loader, model, criterion):
 def test(test_loader, model, checkpoint, lable_path, pred_path):
     acces = AverageMeter()
     # load learnt model that obtained best performance on validation set
-    #model.load_state_dict(torch.load(checkpoint)['state_dict'])
+    model.load_state_dict(torch.load(checkpoint)['state_dict'])
     model.eval()
 
     label_output = list()
@@ -262,7 +262,7 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
     targ = target_final_result[0].cpu().detach().numpy()
     for i in range(1, len(target_final_result)):
         targ = np.concatenate((targ, target_final_result[i].cpu().detach().numpy()), axis=0)
-    targ = np.squeeze(targ)
+    targ = np.squeeze(targ).astype('int')
 
     list_index_correct = np.where(prev == targ)
     test_accuracy = len(list_index_correct[0]) / len(targ) * 100
@@ -271,7 +271,7 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
     label_output = np.concatenate(label_output, axis=0)
     np.savetxt(lable_path, label_output, fmt='%d')
     pred_output = np.concatenate(pred_output, axis=0)
-    np.savetxt(pred_path, pred_output, fmt='%f')
+    np.savetxt(pred_path, targ, fmt='%d')
 
     print('Test: accuracy {:.3f}, time: {:.2f}s'
           .format(acces.avg, time.time() - t_start))
@@ -286,27 +286,51 @@ def plot_confusion_matrix(target, prediction):
     y_axis_labels = ["sitting", "walking_slow", "walking_fast", "standing", "standing_phone_talking", "window_shopping", "walking_phone", "wandering", "walking_phone_talking", "walking_cart", "sitting_phone_talking"]
 
     sns.set(font_scale=1.7)
-    #con_mat = confusion_matrix(target, prediction)
-    con_mat = confusion_matrix(target, prediction, normalize='true')
-    #con_mat = confusion_matrix(target, prediction, normalize='pred')
 
+    # Plot without normalization"
+
+    con_mat = confusion_matrix(target, prediction)
 
     plt.figure(figsize=(30, 25))
-    # plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels, fmt=".1f")
     plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
 
     for item in plotted_img.get_xticklabels():
         item.set_rotation(45)
         item.set_size(20)
 
-    # plt.title("Confusion matrix without normalization")
+    plt.title("Confusion matrix without normalization")
+
+    plt.savefig("images/test_confusion_matrix_without_normalization.png")
+
+    # Plot normalized with "target (row)"
+
+    con_mat = confusion_matrix(target, prediction, normalize='true')
+
+    plt.figure(figsize=(30, 25))
+    plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
+
+    for item in plotted_img.get_xticklabels():
+        item.set_rotation(45)
+        item.set_size(20)
+
     plt.title("Confusion matrix normalized by row (target)")
-    #plt.title("Confusion matrix normalized by column (predict)")
 
-    # plt.savefig("images/test_confusion_matrix_without_normalization.png")
     plt.savefig("images/test_confusion_matrix_target.png")
-    #plt.savefig("images/test_confusion_matrix_pred.png")
 
+    # Plot normalized with "pred (column)"
+
+    con_mat = confusion_matrix(target, prediction, normalize='pred')
+
+    plt.figure(figsize=(30, 25))
+    plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
+
+    for item in plotted_img.get_xticklabels():
+        item.set_rotation(45)
+        item.set_size(20)
+
+    plt.title("Confusion matrix normalized by column (predict)")
+
+    plt.savefig("images/test_confusion_matrix_pred.png")
 
 def accuracy(output, target):
     batch_size = target.size(0)

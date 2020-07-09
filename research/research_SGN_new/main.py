@@ -21,7 +21,7 @@ import fit
 from util import make_dir, get_num_classes
 
 from sklearn.metrics import confusion_matrix
-#import seaborn as sns
+import seaborn as sns
 import matplotlib.pyplot as plt
 
 
@@ -231,7 +231,7 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
     label_output = list()
     pred_output = list()
     pred_final_result = list()
-
+    target_final_list = list()
 
     t_start = time.time()
     for i, (inputs, target) in enumerate(test_loader):
@@ -244,7 +244,7 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
         label_output.append(target.cpu().numpy())
         pred_output.append(output.cpu().numpy())
 
-        acc = accuracy(output.data, target.cuda(), pred_final_result)
+        acc = accuracy_withlist(output.data, target.cuda(), pred_final_result, target_final_list)
         acces.update(acc[0], inputs.size(0))
 
     # prev = pred_final_result[0]
@@ -312,6 +312,18 @@ def accuracy(output, target):
     pred = pred.t()
     correct = pred.eq(target.view(1, -1).expand_as(pred))
     correct = correct.view(-1).float().sum(0, keepdim=True)
+
+    return correct.mul_(100.0 / batch_size)
+
+def accuracy_withlist(output, target, pred_final_list, target_final_list):
+    batch_size = target.size(0)
+    _, pred = output.topk(1, 1, True, True)
+    pred = pred.t()
+    correct = pred.eq(target.view(1, -1).expand_as(pred))
+    correct = correct.view(-1).float().sum(0, keepdim=True)
+
+    target_final_list.append(target)
+    pred_final_list.append(pred)
 
     return correct.mul_(100.0 / batch_size)
 
