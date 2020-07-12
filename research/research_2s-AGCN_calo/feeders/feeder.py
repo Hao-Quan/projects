@@ -52,7 +52,7 @@ class Feeder(Dataset):
         except:
             # for pickle file from python2
             with open(self.label_path, 'rb') as f:
-                #self.sample_name, self.label = pickle.load(f, encoding='latin1')
+                # self.sample_name, self.label = pickle.load(f, encoding='latin1')
                 self.label = pickle.load(f, encoding='latin1')
 
         # load data
@@ -63,7 +63,7 @@ class Feeder(Dataset):
         if self.debug:
             self.label = self.label[0:100]
             self.data = self.data[0:100]
-            self.sample_name = self.sample_name[0:100]
+            #self.sample_name = self.sample_name[0:100]
 
     def get_mean_map(self):
         data = self.data

@@ -370,6 +370,8 @@ class Processor():
             output = self.model(data)
             network_time = time.time()-start
 
+            #Hao version: add torch.squeeze per label
+            label = torch.squeeze(label, 1)
             loss = self.loss(output, label)
 
             # backward
@@ -432,6 +434,8 @@ class Processor():
                 with torch.no_grad():
                     output = self.model(data)
 
+                #Hao version: add torch.squeeze per label
+                label = torch.squeeze(label, 1)
                 loss = self.loss(output, label)
                 score_frag.append(output.data.cpu().numpy())
                 loss_value.append(loss.data.cpu().numpy())

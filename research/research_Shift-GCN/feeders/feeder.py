@@ -3,6 +3,7 @@ import pickle
 import torch
 from torch.utils.data import Dataset
 import sys
+from torchvision import transforms
 
 sys.path.extend(['../'])
 from feeders import tools
@@ -38,6 +39,10 @@ class Feeder(Dataset):
         if normalization:
             self.get_mean_map()
 
+        # self.transform = transforms.Compose([transforms.ToTensor()])
+        self.transform = None
+        self.sample_name = 'calo'
+
     def load_data(self):
         # data: N C V T M
 
@@ -47,7 +52,8 @@ class Feeder(Dataset):
         except:
             # for pickle file from python2
             with open(self.label_path, 'rb') as f:
-                self.sample_name, self.label = pickle.load(f, encoding='latin1')
+                # self.sample_name, self.label = pickle.load(f, encoding='latin1')
+                self.label = pickle.load(f, encoding='latin1')
 
         # load data
         if self.use_mmap:
@@ -57,7 +63,7 @@ class Feeder(Dataset):
         if self.debug:
             self.label = self.label[0:100]
             self.data = self.data[0:100]
-            self.sample_name = self.sample_name[0:100]
+            #self.sample_name = self.sample_name[0:100]
 
     def get_mean_map(self):
         data = self.data
@@ -86,6 +92,8 @@ class Feeder(Dataset):
             data_numpy = tools.auto_pading(data_numpy, self.window_size)
         if self.random_move:
             data_numpy = tools.random_move(data_numpy)
+
+        label = label.astype('int')
 
         return data_numpy, label, index
 
@@ -192,5 +200,5 @@ if __name__ == '__main__':
     data_path = "../data/ntu/xview/val_data_joint.npy"
     label_path = "../data/ntu/xview/val_label.pkl"
     graph = 'graph.ntu_rgb_d.Graph'
-    test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
+    #test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
 
