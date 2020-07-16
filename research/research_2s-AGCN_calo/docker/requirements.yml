@@ -1,0 +1,17 @@
+channels:
+
+  - conda-forge
+  - pytorch
+  - defaults
+dependencies:
+  - matplotlib 
+  - numba
+  - pudb
+  - pytables
+  - cudatoolkit=10.1
+  - mpi4py=3.0 # installs cuda-aware openmpi
+  - pytorch=1.5
+  - torchvision=0.6
+  - pip
+  - pip:
+     - PyYAML

@@ -158,7 +158,7 @@ def train(train_loader, model, criterion, optimizer, epoch):
     for i, (inputs, target) in enumerate(train_loader):
 
         output = model(inputs.cuda())
-        target = target.cuda(async = True)
+        target = target.cuda()
         loss = criterion(output, target)
 
         # measure accuracy and record loss
@@ -188,7 +188,7 @@ def validate(val_loader, model, criterion):
     for i, (inputs, target) in enumerate(val_loader):
         with torch.no_grad():
             output = model(inputs.cuda())
-        target = target.cuda(async=True)
+        target = target.cuda()
         with torch.no_grad():
             loss = criterion(output, target)
 
@@ -219,7 +219,7 @@ def test(test_loader, model, checkpoint, lable_path, pred_path):
         label_output.append(target.cpu().numpy())
         pred_output.append(output.cpu().numpy())
 
-        acc = accuracy(output.data, target.cuda(async=True))
+        acc = accuracy(output.data, target.cuda())
         acces.update(acc[0], inputs.size(0))
 
 

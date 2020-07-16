@@ -52,7 +52,7 @@ class Feeder(Dataset):
         except:
             # for pickle file from python2
             with open(self.label_path, 'rb') as f:
-                #self.sample_name, self.label = pickle.load(f, encoding='latin1')
+                # self.sample_name, self.label = pickle.load(f, encoding='latin1')
                 self.label = pickle.load(f, encoding='latin1')
 
         # load data
@@ -63,7 +63,7 @@ class Feeder(Dataset):
         if self.debug:
             self.label = self.label[0:100]
             self.data = self.data[0:100]
-            self.sample_name = self.sample_name[0:100]
+            #self.sample_name = self.sample_name[0:100]
 
     def get_mean_map(self):
         data = self.data
@@ -197,10 +197,18 @@ if __name__ == '__main__':
     import os
 
     os.environ['DISPLAY'] = 'localhost:10.0'
-    data_path = "../data/ntu/xview/val_data_joint.npy"
-    label_path = "../data/ntu/xview/val_label.pkl"
-    graph = 'graph.ntu_rgb_d.Graph'
-    test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
+
+    data_path = "../data/calo/test_data_joint.npy"
+    label_path = "../data/calo/test_label.pkl"
+    graph = 'graph.calo.Graph'
+    test(data_path, label_path, graph=graph)
+
+
+    # data_path = "../data/ntu/xview/val_data_joint.npy"
+    # label_path = "../data/ntu/xview/val_label.pkl"
+    # graph = 'graph.ntu_rgb_d.Graph'
+    # test(data_path, label_path, vid='S004C001P003R001A032', graph=graph, is_3d=True)
+
     # data_path = "../data/kinetics/val_data.npy"
     # label_path = "../data/kinetics/val_label.pkl"
     # graph = 'graph.Kinetics'
