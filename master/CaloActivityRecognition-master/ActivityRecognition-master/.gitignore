@@ -1,0 +1,50 @@
+
+# ------------ HAR on Lightweight OpenPose  ------------
+
+# Videos
+lstm_openpose/video_tag/video/
+
+# Ignore Intel OpenVINO HPE 'build' folder
+lstm_openpose/pose_estimation/build/
+
+# ------------------------------------------------------
+
+
+# IDE folders
+.idea/
+
+# Python cache
+**/__pycache__/
+
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
