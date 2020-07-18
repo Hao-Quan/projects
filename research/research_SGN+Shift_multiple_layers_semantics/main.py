@@ -80,13 +80,14 @@ def main():
     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
     train_size = calo_loaders.get_train_size()
+    test_size = calo_loaders.get_test_size()
     #val_size = ntu_loaders.get_val_size()
 
 
     test_loader = calo_loaders.get_test_loader(32, args.workers)
 
     # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
-    print('Train on %d samples, test on X samples' % (train_size))
+    print('Train on %d samples, test on %d X samples' % (train_size, test_size))
 
     best_epoch = 0
     output_dir = make_dir(args.dataset)

@@ -24,6 +24,7 @@ import matplotlib.pyplot as plt
 
 class CaloDataset(Dataset):
     def __init__(self, x, y):
+        # All joints
         self.x = x
         self.y = np.array(y, dtype='int')
 
@@ -90,27 +91,15 @@ class CaloDataLoaders(object):
         key_train = 'train'
         key_test = 'test'
 
-        # H5 format
-        self.train_X = pd.read_hdf(path + "data_training_test.h5",
-                                   key=key_train + "_data").to_numpy()  # 35763x300x150
-        self.train_Y = pd.read_hdf(path + "data_training_test.h5",
-                                   key=key_train + "_label").to_numpy()  # 35763x300x150  # 35763
-        print("")
-        self.test_X = pd.read_hdf(path + "data_training_test.h5",
-                                  key=key_test + "_data").to_numpy()  # 35763x300x150
-        self.test_Y = pd.read_hdf(path + "data_training_test.h5",
-                                  key=key_test + "_label").to_numpy()  # 35763x300x150
+        # Numpy for semantic (Upper + Middle partion)
+        self.train_X = np.load(path + "train_data_joint_upper_middle.npy")
+        self.test_X = np.load(path + "test_data_joint_upper_middle.npy")
 
-        # Numpy format
-        train_data = np.load("data/calo/train_data_joint.npy")
-        test_data = np.load("data/calo/test_data_joint.npy")
+        with open(path + 'train_label_upper_middle.pkl', 'rb') as f:
+            self.train_Y = pkl.load(f)
 
-        with open('train_label.pkl', 'rb') as f:
-            train_label = pkl.load(f)
-
-        with open('test_label.pkl', 'rb') as f:
-            test_label = pkl.load(f)
-
+        with open(path + 'test_label_upper_middle.pkl', 'rb') as f:
+            self.test_Y = pkl.load(f)
 
     def collate_fn_fix_train(self, batch):
         """Puts each data field into a tensor with outer dimension batch size

@@ -443,15 +443,8 @@ class gcn_spa_shift_semantic(nn.Module):
 
         # shift1
         x = x.view(n * t, v * c)
-        index_upper_middle = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 22, 23, 28, 29, 30, 31, 32,
-                              33, 34, 35]
-        x_index_upper_middle = torch.stack([x[:, i] for i in index_upper_middle])
-        x_index_upper_middle = x_index_upper_middle.permute(1, 0)
-        v_upper_middle = len(index_upper_middle) // 2
-        x1 = x_index_upper_middle.view(n, c, t, v_upper_middle)
-        x = torch.index_select(x_index_upper_middle, 1, self.shift_in)
-        # x = x.view(n * t, v, c)
-        x = x.view(n * t, v_upper_middle, c)
+        x = torch.index_select(x, 1, self.shift_in)
+        x = x.view(n * t, v, c)
         x = x * (torch.tanh(self.Feature_Mask) + 1)
 
         x = torch.einsum('nwc,cd->nwd', (x, self.Linear_weight)).contiguous()  # nt,v,c
@@ -461,7 +454,7 @@ class gcn_spa_shift_semantic(nn.Module):
         x = x.view(n * t, -1)
         x = torch.index_select(x, 1, self.shift_out)
         x = self.bn(x)
-        x = x.view(n, t, v_upper_middle, self.out_channels).permute(0, 3, 1, 2)  # n,c,t,v
+        x = x.view(n, t, v, self.out_channels).permute(0, 3, 1, 2)  # n,c,t,v
 
         x = x + self.down(x1)
         x = self.relu(x)
