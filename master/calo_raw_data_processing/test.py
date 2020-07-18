@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
-import tensorflow as tf  # Version 1.0.0 (some previous versions are used in past commits)
+import tensorflow as tf  # Version 1_0.0.0 (some previous versions are used in past commits)
 from sklearn import metrics
 import random
 from random import randint
@@ -75,8 +75,8 @@ axis_y = np.zeros([32, 18])
 
 # for j in range (0, 32):
 #     for i in range(0, 18):
-#         axis_x[j][i] = X_train[1][j][i * 2]
-#         axis_y[j][i] = X_train[1][j][i * 2 + 1]
+#         axis_x[j][i] = X_train[1_0][j][i * 2]
+#         axis_y[j][i] = X_train[1_0][j][i * 2 + 1_0]
 #     plt.plot(axis_x[j], axis_y[j], 'ro')
 #     plt.show()
 
