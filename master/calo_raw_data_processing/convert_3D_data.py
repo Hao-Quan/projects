@@ -4,7 +4,7 @@ from os.path import isfile, join
 import pandas as pd
 import os
 
-landmarks_frame = pd.read_hdf("data.h5", key="X")
-labels = pd.read_hdf("data.h5", key="Y")
+landmarks_frame = pd.read_hdf("data/calo/h5/data.h5", key="X")
+labels = pd.read_hdf("data/calo/h5/data.h5", key="Y")
 
 print("")

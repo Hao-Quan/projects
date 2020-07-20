@@ -12,8 +12,8 @@ class_mapping = {"sitting_phone_talking": 10, "standing": 3, "walking_phone": 6,
 activity_class_name = "standing"
 activity_class_number = class_mapping[activity_class_name]
 
-data = pd.read_hdf("data_training_test_without_shuffle.h5", key="train_data")
-labels = pd.read_hdf("data_training_test_without_shuffle.h5", key="train_label")
+data = pd.read_hdf("data/calo/h5/data_training_test_without_shuffle.h5", key="train_data")
+labels = pd.read_hdf("data/calo/h5/data_training_test_without_shuffle.h5", key="train_label")
 
 labels = labels.astype('int')
 
