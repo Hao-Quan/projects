@@ -2,4 +2,3 @@ master/calo_raw_data_processing/data/calo/h5/data_training_test.h5
 research/research_SGN_new/data/calo/data_training_test.h5
 research/research_SGN+Shift/data/calo/data_training_test.h5
 research/research_SGN+Shift_multiple_layers/data/calo/data_training_test.h5
-research/research_SGN+Shift_multiple_layers_semantics/data/calo/data_training_test.h5
