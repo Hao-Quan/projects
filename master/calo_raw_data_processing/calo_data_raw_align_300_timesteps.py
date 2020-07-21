@@ -10,16 +10,16 @@ import pickle
 from data_gen.preprocess import pre_normalization
 root_dir = "./"
 
-load_data_test = True
+load_data_test = False
 process_train_data = False
-# Total folders number 1384
+# Total folders number 1433=1207+226
 # "1_carosello": 178
-# "3_carosello": 402
+# "3_carosello": 451
 # "4_carosello": 469
 # "9_carosello": 226
 # "10_carosello": 109
 
-# We select {1, 3, 4, 10}_carosello as TRAINING data: 1158 = 178+402+469+109
+# We select {1, 3, 4, 10}_carosello as TRAINING data: 1207 = 178+451+469+109
 #           9_carosello as VAL data: 226
 
 if load_data_test == False:
@@ -36,7 +36,7 @@ if load_data_test == False:
         directory_list_carosello = ["1_carosello", "3_carosello", "4_carosello", "10_carosello"]
         path_data = 'data/calo/npy/train_data_joint.npy'
         path_label = 'data/calo/npy/train_label.pkl'
-        dimen_array = 1158
+        dimen_array = 1207
     else:
         directory_list_carosello = ["9_carosello"]
         path_data = 'data/calo/npy/val_data_joint.npy'

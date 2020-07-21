@@ -26,7 +26,10 @@ class CaloDataset(Dataset):
     def __init__(self, x, y):
         # All joints
         self.x = x
-        self.y = np.array(y, dtype='int')
+        self.y = np.array(y[1])
+
+        # with open(self.label_path) as f:
+        #     self.sample_name, self.label = pickle.load(f)
 
     def __len__(self):
         return len(self.y)
@@ -93,12 +96,12 @@ class CaloDataLoaders(object):
 
         # Numpy for semantic (Upper + Middle partion)
         self.train_X = np.load(path + "train_data_joint_upper_middle.npy")
-        self.test_X = np.load(path + "test_data_joint_upper_middle.npy")
+        self.test_X = np.load(path + "val_data_joint_upper_middle.npy")
 
-        with open(path + 'train_label_upper_middle.pkl', 'rb') as f:
+        with open(path + 'train_label.pkl', 'rb') as f:
             self.train_Y = pkl.load(f)
 
-        with open(path + 'test_label_upper_middle.pkl', 'rb') as f:
+        with open(path + 'val_label.pkl', 'rb') as f:
             self.test_Y = pkl.load(f)
 
     def collate_fn_fix_train(self, batch):
