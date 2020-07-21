@@ -34,13 +34,13 @@ if load_data_test == False:
 
     if process_train_data == True:
         directory_list_carosello = ["1_carosello", "3_carosello", "4_carosello", "10_carosello"]
-        path_data = 'data/calo/npy/train_data_joint.npy'
-        path_label = 'data/calo/npy/train_label.pkl'
+        path_data = 'data/calo/npy/300_time_frames/train_data_joint.npy'
+        path_label = 'data/calo/npy/300_time_frames/train_label.pkl'
         dimen_array = 1207
     else:
         directory_list_carosello = ["9_carosello"]
-        path_data = 'data/calo/npy/val_data_joint.npy'
-        path_label = 'data/calo/npy/val_label.pkl'
+        path_data = 'data/calo/npy/300_time_frames/val_data_joint.npy'
+        path_label = 'data/calo/npy/300_time_frames/val_label.pkl'
         dimen_array = 226
     str_x = "/X.txt"
     str_y = "/Y.txt"
@@ -120,12 +120,12 @@ if load_data_test == False:
         pickle.dump((sample_name, list(sample_label)), f)
 
 else:
-    fp = np.load('data/calo/npy/train_data_joint.npy')
-    with open('data/calo/npy/train_label.pkl', 'rb') as f:
+    fp = np.load('data/calo/npy/300_time_frames/train_data_joint.npy')
+    with open('data/calo/npy/300_time_frames/train_label.pkl', 'rb') as f:
         train_label = pickle.load(f)
 
-    val_data = np.load('data/calo/npy/val_data_joint.npy')
-    with open('data/calo/npy/val_label.pkl', 'rb') as f:
+    val_data = np.load('data/calo/npy/300_time_frames/val_data_joint.npy')
+    with open('data/calo/npy/300_time_frames/val_label.pkl', 'rb') as f:
         val_label = pickle.load(f)
 
     #fp = pre_normalization(fp)
