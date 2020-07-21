@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="60ba7cce-26ca-4e32-8076-7c85bf2bc032" name="westworld">
+        <fileTransfer rootFolder="/home/quan" accessType="SFTP" host="10.79.23.17" port="22" sshConfigId="ab3de9db-8c8a-4eb9-a1c5-0dc1a4179123" sshConfig="quan@10.79.23.17:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

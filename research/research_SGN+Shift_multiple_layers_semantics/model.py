@@ -146,6 +146,7 @@ class TCN_GCN_unit(nn.Module):
 
     def forward(self, x):
         x = self.tcn1(self.gcn1(x)) + self.residual(x)
+        #x = self.gcn1(x) + self.residual(x)
         return self.relu(x)
 
 

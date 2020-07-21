@@ -10,7 +10,7 @@ import pickle
 from data_gen.preprocess import pre_normalization
 root_dir = "./"
 
-load_data_test = True
+load_data_test = False
 # Total folders number 1433=1207+226
 # "1_carosello": 178
 # "3_carosello": 451
@@ -120,7 +120,7 @@ if load_data_test == False:
     # with open(path_label, 'wb') as f:
     #     pickle.dump((sample_name, list(sample_label)), f)
 
-    np.save(path_data, fp)
+    np.save(path_data, train_data)
     with open(path_label, 'wb') as f:
         pickle.dump(list(train_label), f)
 
