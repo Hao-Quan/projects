@@ -41,12 +41,12 @@ class CaloDataset(Dataset):
         return [self.x[index], int(self.y[index])]
 
 class CaloDataLoaders(object):
-    def __init__(self, dataset ='NTU', case = 0, aug = 1, seg = 30):
+    def __init__(self, dataset ='NTU', metric='upper', case = 0, aug = 1, seg = 30):
         self.dataset = dataset
         self.case = case
         self.aug = aug
         self.seg = seg
-        self.create_datasets()
+        self.create_datasets(metric)
         self.train_set = CaloDataset(self.train_data, self.train_label) # train_set.x (35763, 300, 150); train_set.y (35763)
         #self.val_set = NTUDataset(self.val_X, self.val_Y)      # (1883)
         self.val_set = CaloDataset(self.val_data, self.val_label)   # ()
@@ -83,7 +83,7 @@ class CaloDataLoaders(object):
     def get_test_size(self):
         return len(self.test_label)
 
-    def create_datasets(self):
+    def create_datasets(self, metric):
         if self.dataset == 'NTU':
             if self.case ==0:
                 self.metric = 'CS'
@@ -96,8 +96,8 @@ class CaloDataLoaders(object):
         key_test = 'test'
 
         # Numpy for semantic (Upper + Middle partion)
-        self.train_data = np.load(path + "train_data_joint_upper_middle.npy")
-        self.val_data = np.load(path + "val_data_joint_upper_middle.npy")
+        self.train_data = np.load(path + "train_data_joint_{}_middle.npy".format(metric))
+        self.val_data = np.load(path + "val_data_joint_{}_middle.npy".format(metric))
 
         with open(path + 'train_label.pkl', 'rb') as f:
             self.train_label = pkl.load(f)

@@ -29,9 +29,9 @@ parser = argparse.ArgumentParser(description='Skeleton-Based Action Recgnition')
 fit.add_fit_args(parser)
 parser.set_defaults(
     network='SGN',
-    #dataset = 'NTU',
-    dataset = 'calo',
-    case = 0,
+    dataset='calo',
+    metric='upper',
+    case=0,
     batch_size=32,
     max_epochs=100,
     monitor='val_acc',
@@ -47,7 +47,6 @@ parser.set_defaults(
 args = parser.parse_args()
 
 def main():
-
     args.num_classes = get_num_classes(args.dataset)
     model = SGN(args.num_classes, args.dataset, args.seg, args, graph=args.graph)
 
@@ -76,7 +75,7 @@ def main():
 
     scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
     # Data loading
-    calo_loaders = CaloDataLoaders(args.dataset, args.case, seg=args.seg)
+    calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg)
     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
     train_size = calo_loaders.get_train_size()

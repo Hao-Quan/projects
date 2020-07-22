@@ -499,9 +499,12 @@ class Processor():
                 self.val_writer.add_scalar('loss', loss, self.global_step)
                 self.val_writer.add_scalar('loss_l1', l1, self.global_step)
                 self.val_writer.add_scalar('acc', accuracy, self.global_step)
+            # Original version for NTU
+            # score_dict = dict(
+            #     zip(self.data_loader[ln].dataset.sample_name, score))
 
-            score_dict = dict(
-                zip(self.data_loader[ln].dataset.sample_name, score))
+            # Hao version
+            score_dict = score  # score.shape = (43829, 11)
             self.print_log('\tMean {} loss of {} batches: {}.'.format(
                 ln, len(self.data_loader[ln]), np.mean(loss_value)))
             for k in self.arg.show_topk:

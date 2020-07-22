@@ -85,10 +85,11 @@ class tcn(nn.Module):
 
 
 class Shift_gcn(nn.Module):
-    def __init__(self, in_channels, out_channels, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
+    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
         super(Shift_gcn, self).__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
+        self.metric = metric
         if in_channels != out_channels:
             self.down = nn.Sequential(
                 nn.Conv2d(in_channels, out_channels, 1),
@@ -97,7 +98,7 @@ class Shift_gcn(nn.Module):
         else:
             self.down = lambda x: x
 
-        self.bn = nn.BatchNorm1d(18 * out_channels)
+        #self.bn = nn.BatchNorm1d(18 * out_channels)
         self.relu = nn.ReLU()
 
         for m in self.modules():
@@ -110,9 +111,9 @@ class Shift_gcn(nn.Module):
         self.dim1 = in_channels
         self.seg = seg
         self.compute_g1 = compute_g_spa(in_channels, self.dim1 // 2, bias=bias)
-        self.gcn1 = gcn_spa_shift_semantic(in_channels, out_channels // 2, bias=bias)
-        self.gcn2 = gcn_spa_shift_semantic(out_channels // 2, out_channels, bias=bias)
-        self.gcn3 = gcn_spa_shift_semantic(out_channels, out_channels, bias=bias)
+        self.gcn1 = gcn_spa_shift_semantic(in_channels, out_channels // 2, self.metric, bias=bias)
+        self.gcn2 = gcn_spa_shift_semantic(out_channels // 2, out_channels, self.metric, bias=bias)
+        self.gcn3 = gcn_spa_shift_semantic(out_channels, out_channels, self.metric, bias=bias)
 
         nn.init.constant_(self.gcn1.w.cnn.weight, 0)
         nn.init.constant_(self.gcn2.w.cnn.weight, 0)
@@ -129,10 +130,10 @@ class Shift_gcn(nn.Module):
 
 
 class TCN_GCN_unit(nn.Module):
-    def __init__(self, in_channels, out_channels, A, stride=1, residual=True, tem=None, seg=1):
+    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
         super(TCN_GCN_unit, self).__init__()
 
-        self.gcn1 = Shift_gcn(in_channels, out_channels, A, seg)
+        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A, seg)
         #self.tcn1 = Shift_tcn(out_channels, out_channels, stride=stride, tem=tem)
         self.relu = nn.ReLU()
 
@@ -161,6 +162,7 @@ class SGN(nn.Module):
         self.dim1 = 64
         self.dataset = dataset
         self.seg = seg
+        self.metric = args.metric
         num_joint = 18
         bs = args.batch_size
         if args.train:
@@ -214,9 +216,9 @@ class SGN(nn.Module):
         # self.l1 = TCN_GCN_unit(128, 64, A, residual=False, tem=self.tem)
         # self.l2 = TCN_GCN_unit(64, 64, A, tem=self.tem)
 
-        self.l1 = TCN_GCN_unit(2, 64, A, residual=False, tem=self.tem)
-        self.l2 = TCN_GCN_unit(64, 128, A, tem=self.tem)
-        self.l3 = TCN_GCN_unit(128, 256, A, tem=self.tem)
+        self.l1 = TCN_GCN_unit(2, 64, self.metric, A, residual=False, tem=self.tem)
+        self.l2 = TCN_GCN_unit(64, 128, self.metric, A, tem=self.tem)
+        self.l3 = TCN_GCN_unit(128, 256, self.metric, A, tem=self.tem)
         # self.l10 = TCN_GCN_unit(256, 256, A, tem=self.tem)
 
         # self.fc = nn.Linear(64, 11)
@@ -380,7 +382,7 @@ class local(nn.Module):
         return x
 
 class gcn_spa_shift_semantic(nn.Module):
-    def __init__(self, in_channels, out_channels, bias = False):
+    def __init__(self, in_channels, out_channels, metric, bias = False):
         super(gcn_spa_shift_semantic, self).__init__()
         # self.bn = nn.BatchNorm2d(out_feature)
         # self.relu = nn.ReLU()
@@ -396,9 +398,12 @@ class gcn_spa_shift_semantic(nn.Module):
             )
         else:
             self.down = lambda x: x
+        if metric == 'upper':
+            self.shift_size = 14
+        else:
+            self.shift_size = 9
 
-
-        self.bn = nn.BatchNorm1d(14*out_channels)
+        self.bn = nn.BatchNorm1d(self.shift_size*out_channels)
         self.bn_semantic = nn.BatchNorm2d(out_channels)
         self.relu = nn.ReLU()
 
@@ -410,21 +415,21 @@ class gcn_spa_shift_semantic(nn.Module):
                                         requires_grad=True)
         nn.init.constant(self.Linear_bias, 0)
 
-        self.Feature_Mask = nn.Parameter(torch.ones(1, 14, in_channels, requires_grad=True, device='cuda'),
+        self.Feature_Mask = nn.Parameter(torch.ones(1, self.shift_size, in_channels, requires_grad=True, device='cuda'),
                                          requires_grad=True)
         nn.init.constant(self.Feature_Mask, 0)
 
         # 14 joints in upper and middle partition
-        index_array = np.empty(14 * in_channels).astype(np.int)
-        for i in range(14):
+        index_array = np.empty(self.shift_size * in_channels).astype(np.int)
+        for i in range(self.shift_size):
             for j in range(in_channels):
-                index_array[i * in_channels + j] = (i * in_channels + j + j * in_channels) % (in_channels * 14)
+                index_array[i * in_channels + j] = (i * in_channels + j + j * in_channels) % (in_channels * self.shift_size)
         self.shift_in = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
 
-        index_array = np.empty(14 * out_channels).astype(np.int)
-        for i in range(14):
+        index_array = np.empty(self.shift_size * out_channels).astype(np.int)
+        for i in range(self.shift_size):
             for j in range(out_channels):
-                index_array[i * out_channels + j] = (i * out_channels + j - j * out_channels) % (out_channels * 14)
+                index_array[i * out_channels + j] = (i * out_channels + j - j * out_channels) % (out_channels * self.shift_size)
         self.shift_out = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
 
         self.w = cnn1x1(self.out_channels, self.out_channels, bias=False)

@@ -20,8 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MS-G3D-master/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../MS-G3D-master/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_2s-AGCN_calo/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_2s-AGCN_calo/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/data.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_300/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_300_WIP/.idea/workspace.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SvnConfiguration">
@@ -55,6 +61,8 @@
       <option name="presentableId" value="Default" />
       <updated>1594110729550</updated>
       <workItem from="1594110731068" duration="1934000" />
+      <workItem from="1595406098854" duration="1898000" />
+      <workItem from="1595447987555" duration="242000" />
     </task>
     <servers />
   </component>
@@ -71,8 +79,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl" timestamp="1595448049864">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1595448049864" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1594110750232">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
