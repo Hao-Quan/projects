@@ -156,27 +156,19 @@ class TCN_GCN_unit(nn.Module):
 
 class SGN(nn.Module):
     # def __init__(self, num_classes, dataset, seg, args, bias = True):
-    def __init__(self, num_classes, dataset, seg, args, bias=True, graph=None, graph_args=dict(), in_channels=None, out_channels=None):
+    def __init__(self, num_classes, seg, args, bias=True, graph=None, graph_args=dict(), in_channels=None, out_channels=None):
         super(SGN, self).__init__()
 
         self.dim1 = 64
-        self.dataset = dataset
         self.seg = seg
         self.metric = args.metric
         num_joint = 18
         bs = args.batch_size
-        if args.train:
-            # spa: spatial; tem: temporal
-            self.spa = self.one_hot(bs, num_joint, self.seg)
-            self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
-            self.tem = self.one_hot(bs, self.seg, num_joint)
-            self.tem = self.tem.permute(0, 3, 1, 2).cuda()  # (64, 20, 25, 20)
-        else:
-            # Versione Hao
-            self.spa = self.one_hot(bs, num_joint, self.seg)
-            self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
-            self.tem = self.one_hot(bs, self.seg, num_joint)
-            self.tem = self.tem.permute(0, 3, 1, 2).cuda()
+        # spa: spatial; tem: temporal
+        self.spa = self.one_hot(bs, num_joint, self.seg)
+        self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
+        self.tem = self.one_hot(bs, self.seg, num_joint)
+        self.tem = self.tem.permute(0, 3, 1, 2).cuda()  # (64, 20, 25, 20)
 
             # #Original version
             # self.spa = self.one_hot(32 * 5, num_joint, self.seg)
