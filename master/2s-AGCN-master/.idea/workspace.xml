@@ -20,28 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SGN-master/.idea/SGN-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../SGN-master/.idea/SGN-master.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SGN-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SGN-master/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/test_lower_middle.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/test_lower_middle.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/test_upper_middle.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/test_upper_middle.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/train_lower_middle.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/config/calo/train_lower_middle.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/0_best.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/0_lable.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/0_log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/0_pred.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/SGN/1_best.pth" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/SGN/1_lable.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/SGN/1_log.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/SGN/1_pred.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/lower_lable.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/lower_lable.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/lower_pred.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/results/calo/lower_pred.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/config.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/lower_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/lower_config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/test_lower_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/test_lower_score.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/test_upper_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30/work_dir/calo/test_upper_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../report/200712/200712_Report.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200712/200712_Report.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../report/200712/200712_Report.synctex.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../report/200726/200726_Report.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200726/200726_Report.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../report/200726/200726_Report.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200726/200726_Report.tex" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_30" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_300_stable" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SvnConfiguration">
@@ -79,6 +61,7 @@
       <workItem from="1595447987555" duration="242000" />
       <workItem from="1595753776409" duration="1226000" />
       <workItem from="1595769785623" duration="69000" />
+      <workItem from="1595778904265" duration="285000" />
     </task>
     <servers />
   </component>
@@ -98,10 +81,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl" timestamp="1595769794872">
+    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl" timestamp="1595778909450">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1595769794872" />
+    <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1595778909450" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1594110750232">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
