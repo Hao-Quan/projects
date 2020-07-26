@@ -62,17 +62,12 @@ class CaloDataLoaders(object):
                               shuffle=True, drop_last=True)
 
     def get_val_loader(self, batch_size, num_workers):
-        if self.dataset == 'NTU' or self.dataset == 'kinetics' or self.dataset == 'NTU120':
             return DataLoader(self.val_set, batch_size=batch_size,
-                              shuffle=True, drop_last=True)
-        else:
-            return DataLoader(self.val_set, batch_size=batch_size,
-                              shuffle=True, drop_last=True)
+                              shuffle=False, drop_last=False)
 
-
-    def get_test_loader(self, batch_size, num_workers):
-        return DataLoader(self.test_set, batch_size=batch_size,
-                          shuffle=True, drop_last=True)
+    # def get_test_loader(self, batch_size, num_workers):
+    #     return DataLoader(self.test_set, batch_size=batch_size,
+    #                       shuffle=False, drop_last=False)
 
     def get_train_size(self):
         return len(self.train_label)

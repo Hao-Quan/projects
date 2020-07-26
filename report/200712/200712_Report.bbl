@@ -1,0 +1,21 @@
+\begin{thebibliography}{1}
+
+\bibitem{Cheng_2020_CVPR}
+K.~Cheng, Y.~Zhang, X.~He, W.~Chen, J.~Cheng, and H.~Lu, ``Skeleton-based
+  action recognition with shift graph convolutional network,'' in {\em
+  Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR 2020)}, June 2020.
+
+\bibitem{Shi_2019_CVPR}
+L.~Shi, Y.~Zhang, J.~Cheng, and H.~Lu, ``Two-stream adaptive graph
+  convolutional networks for skeleton-based action recognition,'' in {\em
+  Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition
+  (CVPR 2019)}, pp.~12026--12035, June 2019.
+
+\bibitem{Zhang_2020_CVPR}
+P.~Zhang, C.~Lan, W.~Zeng, J.~Xing, J.~Xue, and N.~Zheng, ``Semantics-guided
+  neural networks for efficient skeleton-based human action recognition,'' in
+  {\em Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR 2020)}, June 2020.
+
+\end{thebibliography}

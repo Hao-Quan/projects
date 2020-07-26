@@ -182,7 +182,7 @@ def get_parser():
     parser.add_argument(
         '--metric',
         type=str,
-        default='upper_middle',
+        default='upper',
         help='upper or lower semantic space')
     parser.add_argument(
         '--graph',
@@ -355,12 +355,18 @@ class Processor():
                 cw.writerows(log_res)
             print('Save train and validation log into into %s' % csv_file)
 
-        ### Test
-        args.train = 0
-        model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-        #model = SGN(self.args.num_class, args.dataset, args.seg, args)
-        model = model.cuda()
-        self.test(val_loader, model, checkpoint, lable_path, pred_path)
+            # After Training phase, now run Test phase
+            args.train = 0
+            model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+            model = model.cuda()
+            self.test(val_loader, model, checkpoint, lable_path, pred_path)
+
+        # Only run Test
+        else:
+            weights = torch.load(self.arg.weights)
+            model.load_state_dict(weights['state_dict'])
+            model = model.cuda()
+            self.test(val_loader, model, checkpoint, lable_path, pred_path)
 
     def print_log(self, str, print_time=True):
         if print_time:
@@ -487,8 +493,8 @@ class Processor():
         pred_output = np.concatenate(pred_output, axis=0)
         np.savetxt(pred_path, targ, fmt='%d')
 
-        print('Test: accuracy {:.3f}, time: {:.2f}s'
-              .format(acces.avg, time.time() - t_start))
+        # print('Test: accuracy {:.3f}, time: {:.2f}s'
+        #       .format(acces.avg, time.time() - t_start))
 
         print('My test: accuracy {:.3f}'
               .format(test_accuracy))
