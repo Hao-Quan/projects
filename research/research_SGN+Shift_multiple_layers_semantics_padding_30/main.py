@@ -287,19 +287,19 @@ class Processor():
         if not os.path.exists(save_path):
             os.makedirs(save_path)
 
-        checkpoint = osp.join(save_path, '%s_best.pth' % args.case)
+        checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
         earlystop_cnt = 0
-        csv_file = osp.join(save_path, '%s_log.csv' % args.case)
+        csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
         log_res = list()
 
-        lable_path = osp.join(save_path, '%s_lable.txt'% args.case)
-        pred_path = osp.join(save_path, '%s_pred.txt' % args.case)
+        lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
+        pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
 
         # Training
-        if args.train ==1:
+        if args.phase == 'train':
             for epoch in range(args.start_epoch, args.num_epoch):
 
-                print(epoch, optimizer.param_groups[0]['lr'])
+                print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
 
                 t_start = time.time()
                 train_loss, train_acc = self.train(train_loader, model, criterion, optimizer, epoch)
@@ -462,7 +462,8 @@ class Processor():
             with open('{}/test_{}_score.pkl'.format(
                     self.arg.work_dir, self.arg.metric), 'wb') as f:
                 pkl.dump(score_dict, f)
-
+            print("Save 'test_{}_score.pkl' into {} ".format(
+                self.arg.metric, self.arg.work_dir))
         # prev = pred_final_result[0]
         # for i in range(1, len(pred_final_result)):
         #     prev = torch.cat((prev, pred_final_result[i]), axis=0)
@@ -493,7 +494,7 @@ class Processor():
               .format(test_accuracy))
 
 
-        self.plot_confusion_matrix(label_output, prev)
+        #self.plot_confusion_matrix(label_output, prev)
 
     def plot_confusion_matrix(self, target, prediction):
         x_axis_labels = ["sitting", "walking_slow", "walking_fast", "standing", "standing_phone_talking", "window_shopping", "walking_phone", "wandering", "walking_phone_talking", "walking_cart", "sitting_phone_talking"]
@@ -586,7 +587,7 @@ class Processor():
         arg_dict = vars(self.arg)
         if not os.path.exists(self.arg.work_dir):
             os.makedirs(self.arg.work_dir)
-        with open(os.path.join(self.arg.work_dir, 'config.yaml'), 'w') as f:
+        with open(os.path.join(self.arg.work_dir, self.arg.metric + '_config.yaml'), 'w') as f:
             yaml.dump(arg_dict, f)
 
 class LabelSmoothingLoss(nn.Module):

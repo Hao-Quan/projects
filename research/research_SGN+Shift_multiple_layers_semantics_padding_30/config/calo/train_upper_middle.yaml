@@ -26,7 +26,7 @@ model_args:
   num_gcn_scales: 13    # `num_scales` == `K + 1` in the paper
   num_g3d_scales: 6
   seg: 1
-  graph: graph.ntu_rgb_d.AdjMatrixGraph
+  graph: graph.calo.AdjMatrixGraph
 
 # optim
 weight_decay: 0.0005
@@ -34,8 +34,7 @@ base_lr: 0.05
 step: [30, 40]
 
 # training
-train: 1
-num_epoch: 1
+num_epoch: 100
 device: [0]
 batch_size: 32
 test_batch_size: 32

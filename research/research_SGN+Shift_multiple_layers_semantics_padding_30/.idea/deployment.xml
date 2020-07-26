@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="quan@10.79.23.17:22" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="westworld" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="quan@10.79.23.17:22">
+      <paths name="westworld">
         <serverdata>
           <mappings>
-            <mapping deploy="projects/research/research_SGN+Shift_multiple_layers_semantics_padding_300_WIP" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="projects/research/research_SGN+Shift_multiple_layers_semantics_padding_30" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

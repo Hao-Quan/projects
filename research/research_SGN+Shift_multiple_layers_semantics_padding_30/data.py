@@ -92,9 +92,6 @@ class CaloDataLoaders(object):
         elif self.dataset == 'calo':
             path = osp.join('data/calo/')
 
-        key_train = 'train'
-        key_test = 'test'
-
         # Numpy for semantic (Upper + Middle partion)
         self.train_data = np.load(path + "train_data_joint_{}_middle.npy".format(metric))
         self.val_data = np.load(path + "val_data_joint_{}_middle.npy".format(metric))

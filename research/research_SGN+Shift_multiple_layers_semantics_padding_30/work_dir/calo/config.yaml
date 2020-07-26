@@ -1,7 +1,7 @@
 base_lr: 0.05
 batch_size: 32
 case: 0
-config: config/calo/train_upper_middle.yaml
+config: config/calo/train_lower_middle.yaml
 dataset: calo
 device:
 - 0
@@ -10,15 +10,15 @@ feeder: feeders.feeder.Feeder
 graph: calo
 ignore_weights: []
 log_interval: 100
-metric: upper
+metric: lower
 model: model.calo
 model_args:
-  graph: graph.ntu_rgb_d.AdjMatrixGraph
+  graph: graph.calo.AdjMatrixGraph
   num_class: 11
   num_g3d_scales: 6
   num_gcn_scales: 13
   num_person: 1
-  num_point: 14
+  num_point: 9
   seg: 1
 model_saved_name: ''
 monitor: val_acc
@@ -43,11 +43,11 @@ step:
 - 40
 test_batch_size: 32
 test_feeder_args:
-  data_path: ./data/calo/val_data_joint_upper_middle.npy
+  data_path: ./data/calo/val_data_joint_lower_middle.npy
   label_path: ./data/calo/val_label.pkl
 train: 1
 train_feeder_args:
-  data_path: ./data/calo/train_data_joint_upper_middle.npy
+  data_path: ./data/calo/train_data_joint_lower_middle.npy
   debug: false
   label_path: ./data/calo/train_label.pkl
   normalization: false
