@@ -24,6 +24,7 @@ The code is built with the following libraries:
 - Python 3.6
 - [Anaconda](https://www.anaconda.com/)
 - [PyTorch](https://pytorch.org/) 1.3
+- g++ 5.5
 
 ## Data Preparation
 
