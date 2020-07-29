@@ -8,6 +8,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 import os.path as osp
 import csv
 import numpy as np
+import inspect
+from collections import OrderedDict
 
 np.random.seed(1337)
 
@@ -15,10 +17,10 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.optim.lr_scheduler import ReduceLROnPlateau, MultiStepLR
-from model import SGN
+#from model.semantic_shift import SGN
 from data import CaloDataLoaders, AverageMeter
-import fit
-from util import make_dir, get_num_classes
+from util import make_dir
+from utils import count_params, import_class
 
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
@@ -26,6 +28,7 @@ import matplotlib.pyplot as plt
 import pickle as pkl
 
 import yaml
+from tqdm import tqdm
 
 
 def get_parser():
@@ -216,22 +219,22 @@ class Processor():
     def __init__(self, arg):
         self.arg = arg
         self.save_arg()
+        self.load_model()
         self.load_optimizer()
 
     def start(self):
-        model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-
-        total = self.get_n_params(model)
-        print(model)
+        #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+        total = self.get_n_params(self.model)
+        print(self.model)
         print('The number of parameters: ', total)
 
         if torch.cuda.is_available():
             print('It is using GPU!')
-            model = model.cuda()
+            self.model = self.model.cuda()
 
         # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
         criterion = nn.CrossEntropyLoss().cuda(0)
-        optimizer = optim.Adam(model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
+        optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
 
         if args.monitor == 'val_acc':
             mode = 'max'
@@ -275,14 +278,15 @@ class Processor():
 
         # Training
         if args.phase == 'train':
+            self.record_time()
             for epoch in range(args.start_epoch, args.num_epoch):
 
                 print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
 
                 t_start = time.time()
-                train_loss, train_acc = self.train(train_loader, model, criterion, optimizer, epoch)
+                train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
 
-                test_loss, val_acc = self.validate(val_loader, model, criterion)
+                test_loss, val_acc = self.validate(val_loader, self.model, criterion)
                 log_res += [[train_loss, train_acc.cpu().numpy(), \
                              test_loss, val_acc.cpu().numpy()]]
 
@@ -314,7 +318,7 @@ class Processor():
                     best_epoch = epoch + 1
                     self.save_checkpoint({
                         'epoch': epoch + 1,
-                        'state_dict': model.state_dict(),
+                        'state_dict': self.model.state_dict(),
                         'best': best,
                         'monitor': args.monitor,
                         'optimizer': optimizer.state_dict(),
@@ -335,9 +339,9 @@ class Processor():
 
             # After Training phase, now run Test phase
             args.train = 0
-            model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-            model = model.cuda()
-            self.test(val_loader, model, checkpoint, lable_path, pred_path)
+            #self.model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+            self.model =self.model.cuda()
+            self.test(val_loader, self.model, checkpoint, lable_path, pred_path)
 
         # Only run Test
         else:
@@ -355,12 +359,22 @@ class Processor():
             with open('{}/log.txt'.format(self.arg.work_dir), 'a') as f:
                 print(str, file=f)
 
+    def record_time(self):
+        self.cur_time = time.time()
+        return self.cur_time
+
+    def split_time(self):
+        split_time = time.time() - self.cur_time
+        self.record_time()
+        return split_time
+
     def load_model(self):
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
         self.output_device = output_device
         Model = import_class(self.arg.model)
         shutil.copy2(inspect.getfile(Model), self.arg.work_dir)
-        self.model = Model(**self.arg.model_args).cuda(output_device)
+        # self.model = Model(**self.arg.model_args).cuda(output_device)
+        self.model = Model(num_class=self.arg.model_args['num_class'], seg=self.arg.model_args['seg'], args=self.arg).cuda(output_device)
         self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
@@ -368,7 +382,7 @@ class Processor():
             self.print_log('Load weights from {}.'.format(self.arg.weights))
             if '.pkl' in self.arg.weights:
                 with open(self.arg.weights, 'r') as f:
-                    weights = pickle.load(f)
+                    weights = pkl.load(f)
             else:
                 weights = torch.load(self.arg.weights)
 
@@ -444,7 +458,9 @@ class Processor():
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
         model.train()
 
-        for i, (inputs, target) in enumerate(train_loader):     #train_loader.dataset[x]: (35673 x 300 x 150); train_loader.dataset[y]: (35673)
+        process = tqdm(train_loader, dynamic_ncols=True)
+
+        for i, (inputs, target) in enumerate(process):     #train_loader.dataset[x]: (35673 x 300 x 150); train_loader.dataset[y]: (35673))
             inputs = inputs.float()
             output = model(inputs.cuda())   # inputs: torch.Size([64, 20, 75])  -- [batch_size X #segments? X (75=25x3)]; outputs: [batch_size X #classes(60)]
             target = target.cuda()          # target: [batch_size]
@@ -721,7 +737,6 @@ def str2bool(v):
         return False
     else:
         raise argparse.ArgumentTypeError('Boolean value expected.')
-
 
 if __name__ == '__main__':
     parser = get_parser()

@@ -18,7 +18,7 @@ test_feeder_args:
   label_path: ./data/ntu/xsub/val_label.pkl
 
 # model
-model: model.msg3d.Model
+model: model.semantic_shift.Model
 model_args:
   num_class: 60
   num_point: 25
@@ -34,9 +34,9 @@ base_lr: 0.05
 step: [30, 40]
 
 # training
-num_epoch: 100
+num_epoch: 1
 device: [0]
-batch_size: 1
-test_batch_size: 32
+batch_size: 2
+test_batch_size: 2
 nesterov: True
 

@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../report/200712/200712_Report.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200712/200712_Report.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../report/200712/200712_Report.synctex.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../report/200726/200726_Report.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200726/200726_Report.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../report/200726/200726_Report.tex" beforeDir="false" afterPath="$PROJECT_DIR$/../../report/200726/200726_Report.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/2s-AGCN-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/2s-AGCN-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/Shift-GCN-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shift-GCN-master/.idea/Shift-GCN-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shift-GCN-master/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shift-GCN-master/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/config/nturgbd-cross-subject/train_upper.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/config/nturgbd-cross-subject/train_upper.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/model/semantic_shift.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/prova.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/prova.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/upper_config.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +50,37 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../research/research_SGN+Shift_multiple_layers_semantics_padding_300_stable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="2s-AGCN-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -62,6 +98,7 @@
       <workItem from="1595753776409" duration="1226000" />
       <workItem from="1595769785623" duration="69000" />
       <workItem from="1595778904265" duration="285000" />
+      <workItem from="1596012936827" duration="4249000" />
     </task>
     <servers />
   </component>
@@ -85,9 +122,55 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="560" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1595778909450" />
-    <state x="482" y="187" key="SettingsEditor" timestamp="1594110750232">
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom" timestamp="1596017010061">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1594110750232" />
+    <state width="1807" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596017010061" />
+    <state width="1807" height="344" key="GridCell.Tab.0.center" timestamp="1596017010058">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596017010058" />
+    <state width="1807" height="344" key="GridCell.Tab.0.left" timestamp="1596017010057">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596017010057" />
+    <state width="1807" height="344" key="GridCell.Tab.0.right" timestamp="1596017010060">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596017010060" />
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom" timestamp="1596018234142">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1596018234142" />
+    <state width="1807" height="344" key="GridCell.Tab.1.center" timestamp="1596018234141">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1596018234141" />
+    <state width="1807" height="344" key="GridCell.Tab.1.left" timestamp="1596018234140">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1596018234140" />
+    <state width="1807" height="344" key="GridCell.Tab.1.right" timestamp="1596018234141">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="1807" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1596018234141" />
+    <state x="482" y="187" key="SettingsEditor" timestamp="1596016942050">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="482" y="187" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1596016942050" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>552</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/2s_AGCN_master$main.coverage" NAME="main Coverage Results" MODIFIED="1596017002748" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

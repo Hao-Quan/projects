@@ -154,15 +154,15 @@ class TCN_GCN_unit(nn.Module):
 
 
 
-class SGN(nn.Module):
+class Model(nn.Module):
     # def __init__(self, num_classes, dataset, seg, args, bias = True):
-    def __init__(self, num_classes, seg, args, bias=True, graph=None, graph_args=dict(), in_channels=None, out_channels=None):
-        super(SGN, self).__init__()
+    def __init__(self, num_class, seg, args, bias=True, graph=None, graph_args=dict()):
+        super(Model, self).__init__()
 
         self.dim1 = 64
         self.seg = seg
         self.metric = args.metric
-        num_joint = 18
+        num_joint = 19
         bs = args.batch_size
         # spa: spatial; tem: temporal
         self.spa = self.one_hot(bs, num_joint, self.seg)
@@ -184,7 +184,7 @@ class SGN(nn.Module):
         # self.dif_embed = embed(2, 64, norm=True, bias=bias)
         self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
         self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
-        self.fc = nn.Linear(self.dim1 * 2, num_classes)
+        self.fc = nn.Linear(self.dim1 * 2, num_class)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -213,8 +213,7 @@ class SGN(nn.Module):
         self.l3 = TCN_GCN_unit(128, 256, self.metric, A, tem=self.tem)
         # self.l10 = TCN_GCN_unit(256, 256, A, tem=self.tem)
 
-        # self.fc = nn.Linear(64, 11)
-        self.fc = nn.Linear(256, 11)
+        self.fc = nn.Linear(256, args.model_args['num_class'])
         nn.init.normal(self.fc.weight, 0, math.sqrt(2. / 11))
         bn_init(self.data_bn, 1)
 
@@ -222,35 +221,7 @@ class SGN(nn.Module):
 
 
     def forward(self, input):
-        
-        # # Dynamic Representation
-        # #bs, step, dim = input.size()
-        # bs, dim = input.size()
-        # step = 1
-        # # num_joints = dim //3
-        # num_joints = dim // 2
-        # #input = input.view((bs, step, num_joints, 3))
-        # input = input.view((bs, step, num_joints, 2))
-        # input = input.permute(0, 3, 2, 1).contiguous()
-        # dif = input[:, :, :, 1:] - input[:, :, :, 0:-1]
-        # dif = torch.cat([dif.new(bs, dif.size(1), num_joints, 1).zero_(), dif], dim=-1)
-        # pos = self.joint_embed(input)
-        # tem1 = self.tem_embed(self.tem)
-        # spa1 = self.spa_embed(self.spa)
-        # dif = self.dif_embed(dif)
-        # dy = pos + dif
 
-        # Joint-level Module (Spatial)
-        #Version Hao
-        #input= torch.cat([spa1, spa1], 1)
-        #Version Original
-        # input= torch.cat([dy, spa1], 1)
-        # g = self.compute_g1(input)
-
-        # Start: Encapsulate
-        #bs, dim = input.size()
-        # step = 1
-        # input = input.view((bs, 2, step, num_joints))
 
         bs, C, T, dim, H = input.size()
         # C = 2
@@ -284,7 +255,7 @@ class SGN(nn.Module):
         x = x.mean(3).mean(1)
         return self.fc(x)
 
-        return output
+        #return output
     def one_hot(self, bs, spa, tem):
         # spa: number of joints
         y = torch.arange(spa).unsqueeze(-1)

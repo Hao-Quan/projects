@@ -1,7 +1,7 @@
 Experiment_name: ntu_ShiftGCN_joint_xsub
 base_lr: 0.1
 batch_size: 1
-config: ./config/nturgbd-cross-subject/train_joint.yaml
+config: config/nturgbd-cross-subject/train_joint.yaml
 device:
 - 0
 eval_interval: 5
