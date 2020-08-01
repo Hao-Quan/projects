@@ -12,7 +12,7 @@ import inspect
 from collections import OrderedDict
 
 np.random.seed(1337)
-
+import random
 import torch
 import torch.nn as nn
 import torch.optim as optim
@@ -21,15 +21,21 @@ from torch.optim.lr_scheduler import ReduceLROnPlateau, MultiStepLR
 from data import CaloDataLoaders, AverageMeter
 from util import make_dir
 from utils import count_params, import_class
-
+from tensorboardX import SummaryWriter
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle as pkl
+import pprint
 
 import yaml
 from tqdm import tqdm
 
+def init_seed(seed):
+    torch.cuda.manual_seed_all(seed)
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    random.seed(seed)
 
 def get_parser():
     # parameter priority: command line > config > default
@@ -209,6 +215,24 @@ def get_parser():
         default=True,
         help='save test score'
     )
+    parser.add_argument(
+        '--debug',
+        type=str2bool,
+        default=False,
+        help='Debug mode; default false')
+    parser.add_argument(
+        '--assume-yes',
+        action='store_true',
+        help='Say yes to every prompt')
+    parser.add_argument(
+        '--forward-batch-size',
+        type=int,
+        default=1,
+        help='Batch size during forward pass, must be factor of --batch-size')
+    parser.add_argument(
+        '--checkpoint',
+        type=str,
+        help='path of previously saved training checkpoint')
 
     parser.add_argument('--only_train_part', default=False)
     parser.add_argument('--only_train_epoch', default=0)
@@ -219,136 +243,293 @@ class Processor():
     def __init__(self, arg):
         self.arg = arg
         self.save_arg()
+        if arg.phase == 'train':
+            # Added control through the command line
+            arg.train_feeder_args['debug'] = arg.train_feeder_args['debug'] or self.arg.debug
+            logdir = os.path.join(arg.work_dir, 'trainlogs')
+            if not arg.train_feeder_args['debug']:
+                # logdir = arg.model_saved_name
+                if os.path.isdir(logdir):
+                    print(f'log_dir {logdir} already exists')
+                    if arg.assume_yes:
+                        answer = 'y'
+                    else:
+                        answer = input('delete it? [y]/n:')
+                    if answer.lower() in ('y', ''):
+                        shutil.rmtree(logdir)
+                        print('Dir removed:', logdir)
+                    else:
+                        print('Dir not removed:', logdir)
+
+                self.train_writer = SummaryWriter(os.path.join(logdir, 'train'), 'train')
+                self.val_writer = SummaryWriter(os.path.join(logdir, 'val'), 'val')
+            else:
+                self.train_writer = SummaryWriter(os.path.join(logdir, 'debug'), 'debug')
+        self.global_step = 0
         self.load_model()
         self.load_optimizer()
+        self.load_lr_scheduler()
+        self.load_data()
+
+        self.global_step = 0
+        self.lr = self.arg.base_lr
+        self.best_acc = 0
+        self.best_acc_epoch = 0
+
+        # if self.arg.half:
+        #     self.print_log('*************************************')
+        #     self.print_log('*** Using Half Precision Training ***')
+        #     self.print_log('*************************************')
+        #     self.model, self.optimizer = apex.amp.initialize(
+        #         self.model,
+        #         self.optimizer,
+        #         opt_level=f'O{self.arg.amp_opt_level}'
+        #     )
+        #     if self.arg.amp_opt_level != 1:
+        #         self.print_log('[WARN] nn.DataParallel is not yet supported by amp_opt_level != "O1"')
+
+        if type(self.arg.device) is list:
+            if len(self.arg.device) > 1:
+                self.print_log(f'{len(self.arg.device)} GPUs available, using DataParallel')
+                self.model = nn.DataParallel(
+                    self.model,
+                    device_ids=self.arg.device,
+                    output_device=self.output_device
+                )
+
+    # def start(self):
+    #     #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+    #     total = self.get_n_params(self.model)
+    #     print(self.model)
+    #     print('The number of parameters: ', total)
+    #
+    #     if torch.cuda.is_available():
+    #         print('It is using GPU!')
+    #         self.model = self.model.cuda()
+    #
+    #     # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
+    #     criterion = nn.CrossEntropyLoss().cuda(0)
+    #     optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
+    #
+    #     if args.monitor == 'val_acc':
+    #         mode = 'max'
+    #         monitor_op = np.greater
+    #         best = -np.Inf
+    #         str_op = 'improve'
+    #     elif args.monitor == 'val_loss':
+    #         mode = 'min'
+    #         monitor_op = np.less
+    #         best = np.Inf
+    #         str_op = 'reduce'
+    #
+    #     scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
+    #     # Data loading
+    #     calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg, data_path=self.arg.train_feeder_args['data_path'])
+    #     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
+    #     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
+    #     train_size = calo_loaders.get_train_size()
+    #     val_size = calo_loaders.get_val_size()
+    #     #val_size = ntu_loaders.get_val_size()
+    #
+    #     val_loader = calo_loaders.get_val_loader(32, args.workers)
+    #
+    #     # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
+    #     print('Train on %d samples, test on %d X samples' % (train_size, val_size))
+    #
+    #     best_epoch = 0
+    #     output_dir = make_dir(args.dataset)
+    #
+    #     save_path = os.path.join(output_dir)
+    #     if not os.path.exists(save_path):
+    #         os.makedirs(save_path)
+    #
+    #     checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
+    #     earlystop_cnt = 0
+    #     csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
+    #     log_res = list()
+    #
+    #     lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
+    #     pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
+    #
+    #     # Training
+    #     if args.phase == 'train':
+    #         self.record_time()
+    #         for epoch in range(args.start_epoch, args.num_epoch):
+    #
+    #             print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
+    #
+    #             t_start = time.time()
+    #             # train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
+    #             self.train(train_loader, self.model, criterion, optimizer, epoch)
+    #
+    #             test_loss, val_acc = self.validate(val_loader, self.model, criterion)
+    #             log_res += [[train_loss, train_acc.cpu().numpy(), \
+    #                          test_loss, val_acc.cpu().numpy()]]
+    #
+    #             print('Epoch-{:<3d} {:.1f}s\t'
+    #                   'Train: loss {:.4f}\taccu {:.4f}\tValid: loss {:.4f}\taccu {:.4f}'
+    #                   .format(epoch + 1, time.time() - t_start, train_loss, train_acc, test_loss, val_acc))
+    #
+    #             current = test_loss if mode == 'min' else val_acc
+    #
+    #             ####### store tensor in cpu
+    #             current = current.cpu()
+    #
+    #             if monitor_op(current, best):
+    #                 print('Epoch %d: %s %sd from %.4f to %.4f, '
+    #                       'saving model to %s'
+    #                       % (epoch + 1, args.monitor, str_op, best, current, checkpoint))
+    #                 best = current
+    #                 best_epoch = epoch + 1
+    #                 self.save_checkpoint({
+    #                     'epoch': epoch + 1,
+    #                     'state_dict': self.model.state_dict(),
+    #                     'best': best,
+    #                     'monitor': args.monitor,
+    #                     'optimizer': optimizer.state_dict(),
+    #                 }, checkpoint)
+    #                 earlystop_cnt = 0
+    #             else:
+    #                 print('Epoch %d: %s did not %s' % (epoch + 1, args.monitor, str_op))
+    #                 earlystop_cnt += 1
+    #
+    #             scheduler.step()
+    #
+    #         print('Best %s: %.4f from epoch-%d' % (args.monitor, best, best_epoch))
+    #         with open(csv_file, 'w') as fw:
+    #             cw = csv.writer(fw)
+    #             cw.writerow(['loss', 'acc', 'val_loss', 'val_acc'])
+    #             cw.writerows(log_res)
+    #         print('Save train and validation log into into %s' % csv_file)
+    #
+    #         # After Training phase, now run Test phase
+    #         args.train = 0
+    #         #self.model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+    #         self.model =self.model.cuda()
+    #         self.test(val_loader, self.model, checkpoint, lable_path, pred_path)
+    #
+    #     # Only run Test
+    #     else:
+    #         weights = torch.load(self.arg.weights)
+    #         model.load_state_dict(weights['state_dict'])
+    #         model = model.cuda()
+    #         self.test(val_loader, model, checkpoint, lable_path, pred_path)
 
     def start(self):
-        #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-        total = self.get_n_params(self.model)
-        print(self.model)
-        print('The number of parameters: ', total)
+        if self.arg.phase == 'train':
+            self.print_log(f'Parameters:\n{pprint.pformat(vars(self.arg))}\n')
+            self.print_log(f'Model total number of params: {count_params(self.model)}')
+            self.global_step = self.arg.start_epoch * len(self.data_loader['train']) / self.arg.batch_size
+            for epoch in range(self.arg.start_epoch, self.arg.num_epoch):
+                save_model = ((epoch + 1) % self.arg.save_interval == 0) or (epoch + 1 == self.arg.num_epoch)
+                self.train(epoch, save_model=save_model)
+                self.eval(epoch, save_score=self.arg.save_score, loader_name=['test'])
 
-        if torch.cuda.is_available():
-            print('It is using GPU!')
-            self.model = self.model.cuda()
+            num_params = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
+            self.print_log(f'Best accuracy: {self.best_acc}')
+            self.print_log(f'Epoch number: {self.best_acc_epoch}')
+            self.print_log(f'Model name: {self.arg.work_dir}')
+            self.print_log(f'Model total number of params: {num_params}')
+            self.print_log(f'Weight decay: {self.arg.weight_decay}')
+            self.print_log(f'Base LR: {self.arg.base_lr}')
+            self.print_log(f'Batch Size: {self.arg.batch_size}')
+            self.print_log(f'Forward Batch Size: {self.arg.forward_batch_size}')
+            self.print_log(f'Test Batch Size: {self.arg.test_batch_size}')
 
-        # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
-        criterion = nn.CrossEntropyLoss().cuda(0)
-        optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
+        elif self.arg.phase == 'test':
+            if not self.arg.test_feeder_args['debug']:
+                wf = os.path.join(self.arg.work_dir, 'wrong-samples.txt')
+                rf = os.path.join(self.arg.work_dir, 'right-samples.txt')
+            else:
+                wf = rf = None
+            if self.arg.weights is None:
+                raise ValueError('Please appoint --weights.')
 
-        if args.monitor == 'val_acc':
-            mode = 'max'
-            monitor_op = np.greater
-            best = -np.Inf
-            str_op = 'improve'
-        elif args.monitor == 'val_loss':
-            mode = 'min'
-            monitor_op = np.less
-            best = np.Inf
-            str_op = 'reduce'
+            self.print_log(f'Model:   {self.arg.model}')
+            self.print_log(f'Weights: {self.arg.weights}')
 
-        scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
-        # Data loading
-        calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg)
-        train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
-        #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
-        train_size = calo_loaders.get_train_size()
-        val_size = calo_loaders.get_val_size()
-        #val_size = ntu_loaders.get_val_size()
+            self.eval(
+                epoch=0,
+                save_score=self.arg.save_score,
+                loader_name=['test'],
+                wrong_file=wf,
+                result_file=rf
+            )
 
-        val_loader = calo_loaders.get_val_loader(32, args.workers)
-
-        # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
-        print('Train on %d samples, test on %d X samples' % (train_size, val_size))
-
-        best_epoch = 0
-        output_dir = make_dir(args.dataset)
-
-        save_path = os.path.join(output_dir)
-        if not os.path.exists(save_path):
-            os.makedirs(save_path)
-
-        checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
-        earlystop_cnt = 0
-        csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
-        log_res = list()
-
-        lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
-        pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
-
-        # Training
-        if args.phase == 'train':
-            self.record_time()
-            for epoch in range(args.start_epoch, args.num_epoch):
-
-                print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
-
-                t_start = time.time()
-                train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
-
-                test_loss, val_acc = self.validate(val_loader, self.model, criterion)
-                log_res += [[train_loss, train_acc.cpu().numpy(), \
-                             test_loss, val_acc.cpu().numpy()]]
-
-                print('Epoch-{:<3d} {:.1f}s\t'
-                      'Train: loss {:.4f}\taccu {:.4f}\tValid: loss {:.4f}\taccu {:.4f}'
-                      .format(epoch + 1, time.time() - t_start, train_loss, train_acc, test_loss, val_acc))
-
-                current = test_loss if mode == 'min' else val_acc
-
-                # # Original version with VALIDATION
-                # val_loss, val_acc = validate(val_loader, model, criterion)
-                # log_res += [[train_loss, train_acc.cpu().numpy(),\
-                #              val_loss, val_acc.cpu().numpy()]]
-                #
-                # print('Epoch-{:<3d} {:.1f}s\t'
-                #       'Train: loss {:.4f}\taccu {:.4f}\tValid: loss {:.4f}\taccu {:.4f}'
-                #       .format(epoch + 1, time.time() - t_start, train_loss, train_acc, val_loss, val_acc))
-                #
-                # current = val_loss if mode == 'min' else val_acc
-
-                ####### store tensor in cpu
-                current = current.cpu()
-
-                if monitor_op(current, best):
-                    print('Epoch %d: %s %sd from %.4f to %.4f, '
-                          'saving model to %s'
-                          % (epoch + 1, args.monitor, str_op, best, current, checkpoint))
-                    best = current
-                    best_epoch = epoch + 1
-                    self.save_checkpoint({
-                        'epoch': epoch + 1,
-                        'state_dict': self.model.state_dict(),
-                        'best': best,
-                        'monitor': args.monitor,
-                        'optimizer': optimizer.state_dict(),
-                    }, checkpoint)
-                    earlystop_cnt = 0
-                else:
-                    print('Epoch %d: %s did not %s' % (epoch + 1, args.monitor, str_op))
-                    earlystop_cnt += 1
-
-                scheduler.step()
-
-            print('Best %s: %.4f from epoch-%d' % (args.monitor, best, best_epoch))
-            with open(csv_file, 'w') as fw:
-                cw = csv.writer(fw)
-                cw.writerow(['loss', 'acc', 'val_loss', 'val_acc'])
-                cw.writerows(log_res)
-            print('Save train and validation log into into %s' % csv_file)
-
-            # After Training phase, now run Test phase
-            args.train = 0
-            #self.model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-            self.model =self.model.cuda()
-            self.test(val_loader, self.model, checkpoint, lable_path, pred_path)
-
-        # Only run Test
-        else:
-            weights = torch.load(self.arg.weights)
-            model.load_state_dict(weights['state_dict'])
-            model = model.cuda()
-            self.test(val_loader, model, checkpoint, lable_path, pred_path)
+            self.print_log('Done.\n')
+    # def start(self):
+    #     #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
+    #     total = self.get_n_params(self.model)
+    #     print(self.model)
+    #     print('The number of parameters: ', total)
+    #
+    #     if torch.cuda.is_available():
+    #         print('It is using GPU!')
+    #         self.model = self.model.cuda()
+    #
+    #     # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
+    #     criterion = nn.CrossEntropyLoss().cuda(0)
+    #     optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
+    #
+    #     if args.monitor == 'val_acc':
+    #         mode = 'max'
+    #         monitor_op = np.greater
+    #         best = -np.Inf
+    #         str_op = 'improve'
+    #     elif args.monitor == 'val_loss':
+    #         mode = 'min'
+    #         monitor_op = np.less
+    #         best = np.Inf
+    #         str_op = 'reduce'
+    #
+    #     scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
+    #     # Data loading
+    #     calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg, data_path=self.arg.train_feeder_args['data_path'])
+    #     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
+    #     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
+    #     train_size = calo_loaders.get_train_size()
+    #     val_size = calo_loaders.get_val_size()
+    #     #val_size = ntu_loaders.get_val_size()
+    #
+    #     val_loader = calo_loaders.get_val_loader(32, args.workers)
+    #
+    #     # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
+    #     print('Train on %d samples, test on %d X samples' % (train_size, val_size))
+    #
+    #     best_epoch = 0
+    #     output_dir = make_dir(args.dataset)
+    #
+    #     save_path = os.path.join(output_dir)
+    #     if not os.path.exists(save_path):
+    #         os.makedirs(save_path)
+    #
+    #     checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
+    #     earlystop_cnt = 0
+    #     csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
+    #     log_res = list()
+    #
+    #     lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
+    #     pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
+    #
+    #     # Training
+    #     if args.phase == 'train':
+    #         self.record_time()
+    #         for epoch in range(args.start_epoch, args.num_epoch):
+    #
+    #             print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
+    #
+    #             t_start = time.time()
+    #             # train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
+    #             self.train(train_loader, self.model, criterion, optimizer, epoch)
+    #
+    #             self.eval(epoch, save_score=self.arg.save_score, loader_name=['test'])
+    #
+    #     # Only run Test
+    #     else:
+    #         weights = torch.load(self.arg.weights)
+    #         model.load_state_dict(weights['state_dict'])
+    #         model = model.cuda()
+    #         self.test(val_loader, model, checkpoint, lable_path, pred_path)
 
     def print_log(self, str, print_time=True):
         if print_time:
@@ -369,6 +550,7 @@ class Processor():
         return split_time
 
     def load_model(self):
+
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
         self.output_device = output_device
         Model = import_class(self.arg.model)
@@ -378,7 +560,7 @@ class Processor():
         self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
-            # self.global_step = int(arg.weights[:-3].split('-')[-1])
+            self.global_step = int(self.arg.weights[:-3].split('-')[-1])
             self.print_log('Load weights from {}.'.format(self.arg.weights))
             if '.pkl' in self.arg.weights:
                 with open(self.arg.weights, 'r') as f:
@@ -413,6 +595,40 @@ class Processor():
                     self.model,
                     device_ids=self.arg.device,
                     output_device=output_device)
+
+    def load_lr_scheduler(self):
+        self.lr_scheduler = MultiStepLR(self.optimizer, milestones=self.arg.step, gamma=0.1)
+        if self.arg.checkpoint is not None:
+            scheduler_states = torch.load(self.arg.checkpoint)['lr_scheduler_states']
+            self.print_log(f'Loading LR scheduler states from: {self.arg.checkpoint}')
+            self.lr_scheduler.load_state_dict(scheduler_states)
+            self.print_log(f'Starting last epoch: {scheduler_states["last_epoch"]}')
+            self.print_log(f'Loaded milestones: {scheduler_states["last_epoch"]}')
+
+    def load_data(self):
+        Feeder = import_class(self.arg.feeder)
+        self.data_loader = dict()
+
+        def worker_seed_fn(worker_id):
+            # give workers different seeds
+            return init_seed(self.arg.seed + worker_id + 1)
+
+        if self.arg.phase == 'train':
+            self.data_loader['train'] = torch.utils.data.DataLoader(
+                dataset=Feeder(**self.arg.train_feeder_args),
+                batch_size=self.arg.batch_size,
+                shuffle=True,
+                num_workers=self.arg.num_worker,
+                drop_last=True,
+                worker_init_fn=worker_seed_fn)
+
+        self.data_loader['test'] = torch.utils.data.DataLoader(
+            dataset=Feeder(**self.arg.test_feeder_args),
+            batch_size=self.arg.test_batch_size,
+            shuffle=False,
+            num_workers=self.arg.num_worker,
+            drop_last=False,
+            worker_init_fn=worker_seed_fn)
 
     def load_optimizer(self):
         if self.arg.optimizer == 'SGD':
@@ -451,100 +667,179 @@ class Processor():
                                               threshold=1e-4, threshold_mode='rel',
                                               cooldown=0)
 
-    def train(self, train_loader, model, criterion, optimizer, epoch):
-        losses = AverageMeter()
-        acces = AverageMeter()
-        loss_value = []
+    # def train(self, train_loader, model, criterion, optimizer, epoch):
+    #     losses = AverageMeter()
+    #     acces = AverageMeter()
+    #     loss_value = []
+    #     self.train_writer.add_scalar('epoch', epoch, self.global_step)
+    #     timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
+    #     model.train()
+    #
+    #     process = tqdm(train_loader, dynamic_ncols=True)
+    #
+    #     for i, (inputs, target) in enumerate(process):
+    #         self.global_step += 1 #train_loader.dataset[x]: (35673 x 300 x 150); train_loader.dataset[y]: (35673))
+    #         inputs = inputs.float()
+    #         output = model(inputs.cuda())   # inputs: torch.Size([64, 20, 75])  -- [batch_size X #segments? X (75=25x3)]; outputs: [batch_size X #classes(60)]
+    #         target = target.cuda()          # target: [batch_size]
+    #
+    #         if isinstance(output, tuple):
+    #             output, l1 = output
+    #             l1 = l1.mean()
+    #         else:
+    #             l1 = 0
+    #         loss = criterion(output, target) + l1
+    #
+    #         # backward
+    #         self.optimizer.zero_grad()
+    #         loss.backward()
+    #         self.optimizer.step()
+    #         loss_value.append(loss.data.item())
+    #         timer['model'] += self.split_time()
+    #
+    #         value, predict_label = torch.max(output.data, 1)
+    #         acc = torch.mean((predict_label == target.data).float())
+    #         self.train_writer.add_scalar('acc', acc, self.global_step)
+    #         self.train_writer.add_scalar('loss', loss.data.item(), self.global_step)
+    #         self.train_writer.add_scalar('loss_l1', l1, self.global_step)
+    #
+    #         # statistics
+    #         self.lr = self.optimizer.param_groups[0]['lr']
+    #         self.train_writer.add_scalar('lr', self.lr, self.global_step)
+    #         # if self.global_step % self.arg.log_interval == 0:
+    #         #     self.print_log(
+    #         #         '\tBatch({}/{}) done. Loss: {:.4f}  lr:{:.6f}  network_time: {:.4f}'.format(
+    #         #             batch_idx, len(loader), loss.data, self.lr, network_time))
+    #         timer['statistics'] += self.split_time()
+    #
+    #     # statistics of time consumption and loss
+    #     proportion = {
+    #         k: '{:02d}%'.format(int(round(v * 100 / sum(timer.values()))))
+    #         for k, v in timer.items()
+    #     }
+    #
+    #     self.print_log(
+    #         '\tMean training loss: {:.4f}.'.format(np.mean(loss_value)))
+    #     self.print_log(
+    #         '\tTime consumption: [Data]{dataloader}, [Network]{model}'.format(
+    #             **proportion))
+    #
+    #     save_model = True
+    #     if save_model:
+    #         state_dict = self.model.state_dict()
+    #         weights = OrderedDict([[k.split('module.')[-1],
+    #                                 v.cpu()] for k, v in state_dict.items()])
+    #
+    #         torch.save(weights, self.arg.model_saved_name + '-' + str(epoch) + '-' + str(int(self.global_step)) + '.pt')
+
+    def save_weights(self, epoch, out_folder='weights'):
+        state_dict = self.model.state_dict()
+        weights = OrderedDict([
+            [k.split('module.')[-1], v.cpu()]
+            for k, v in state_dict.items()
+        ])
+
+        weights_name = f'weights-{epoch}-{int(self.global_step)}.pt'
+        self.save_states(epoch, weights, out_folder, weights_name)
+
+    def train(self, epoch, save_model=False):
+        self.model.train()
+        loader = self.data_loader['train']
+        loss_values = []
+        self.train_writer.add_scalar('epoch', epoch + 1, self.global_step)
+        self.record_time()
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
-        model.train()
 
-        process = tqdm(train_loader, dynamic_ncols=True)
+        current_lr = self.optimizer.param_groups[0]['lr']
+        self.print_log(f'Training epoch: {epoch + 1}, LR: {current_lr:.4f}')
 
-        for i, (inputs, target) in enumerate(process):     #train_loader.dataset[x]: (35673 x 300 x 150); train_loader.dataset[y]: (35673))
-            inputs = inputs.float()
-            output = model(inputs.cuda())   # inputs: torch.Size([64, 20, 75])  -- [batch_size X #segments? X (75=25x3)]; outputs: [batch_size X #classes(60)]
-            target = target.cuda()          # target: [batch_size]
-
-            if isinstance(output, tuple):
-                output, l1 = output
-                l1 = l1.mean()
-            else:
-                l1 = 0
-            loss = criterion(output, target) + l1
+        process = tqdm(loader, dynamic_ncols=True)
+        for batch_idx, (data, label, index) in enumerate(process):
+            self.global_step += 1
+            # get data
+            with torch.no_grad():
+                data = data.float().cuda(self.output_device)
+                label = label.long().cuda(self.output_device)
+            timer['dataloader'] += self.split_time()
 
             # backward
             self.optimizer.zero_grad()
-            loss.backward()
-            self.optimizer.step()
-            loss_value.append(loss.data)
-            timer['model'] += self.split_time()
 
-            value, predict_label = torch.max(output.data, 1)
-            acc = torch.mean((predict_label == target.data).float())
+            ############## Gradient Accumulation for Smaller Batches ##############
+            real_batch_size = self.arg.forward_batch_size
+            splits = len(data) // real_batch_size
+            assert len(data) % real_batch_size == 0, \
+                'Real batch size should be a factor of arg.batch_size!'
+
+            for i in range(splits):
+                left = i * real_batch_size
+                right = left + real_batch_size
+                batch_data, batch_label = data[left:right], label[left:right]
+
+                # forward
+                output = self.model(batch_data)
+                if isinstance(output, tuple):
+                    output, l1 = output
+                    l1 = l1.mean()
+                else:
+                    l1 = 0
+
+                loss = self.loss(output, batch_label) / splits
+
+                # if self.arg.half:
+                #     with apex.amp.scale_loss(loss, self.optimizer) as scaled_loss:
+                #         scaled_loss.backward()
+                # else:
+                #     loss.backward()
+                loss.backward()
+
+                loss_values.append(loss.item())
+                timer['model'] += self.split_time()
+
+                # Display loss
+                process.set_description(f'(BS {real_batch_size}) loss: {loss.item():.4f}')
+
+                value, predict_label = torch.max(output, 1)
+                acc = torch.mean((predict_label == batch_label).float())
+
+                self.train_writer.add_scalar('acc', acc, self.global_step)
+                self.train_writer.add_scalar('loss', loss.item() * splits, self.global_step)
+                self.train_writer.add_scalar('loss_l1', l1, self.global_step)
+
+            #####################################
+
+            # torch.nn.utils.clip_grad_norm_(self.model.parameters(), 2)
+            self.optimizer.step()
 
             # statistics
             self.lr = self.optimizer.param_groups[0]['lr']
-
-            # if self.global_step % self.arg.log_interval == 0:
-            #     self.print_log(
-            #         '\tBatch({}/{}) done. Loss: {:.4f}  lr:{:.6f}  network_time: {:.4f}'.format(
-            #             batch_idx, len(loader), loss.data, self.lr, network_time))
+            self.train_writer.add_scalar('lr', self.lr, self.global_step)
             timer['statistics'] += self.split_time()
+
+            # Delete output/loss after each batch since it may introduce extra mem during scoping
+            # https://discuss.pytorch.org/t/gpu-memory-consumption-increases-while-training/2770/3
+            del output
+            del loss
 
         # statistics of time consumption and loss
         proportion = {
-            k: '{:02d}%'.format(int(round(v * 100 / sum(timer.values()))))
+            k: f'{int(round(v * 100 / sum(timer.values()))):02d}%'
             for k, v in timer.items()
         }
 
-        # if save_model:
-        #     state_dict = self.model.state_dict()
-        #     weights = OrderedDict([[k.split('module.')[-1],
-        #                             v.cpu()] for k, v in state_dict.items()])
-        #
-        #     torch.save(weights,
-        #                self.arg.model_saved_name + '-' + str(epoch) + '-' + str(int(self.global_step)) + '.pt')
+        mean_loss = np.mean(loss_values)
+        num_splits = self.arg.batch_size // self.arg.forward_batch_size
+        self.print_log(f'\tMean training loss: {mean_loss:.4f} (BS {self.arg.batch_size}: {mean_loss * num_splits:.4f}).')
+        self.print_log('\tTime consumption: [Data]{dataloader}, [Network]{model}'.format(**proportion))
 
-        #return losses.avg, acces.avg
+        # PyTorch > 1.2.0: update LR scheduler here with `.step()`
+        # and make sure to save the `lr_scheduler.state_dict()` as part of checkpoint
+        self.lr_scheduler.step()
 
-        #     # measure accuracy and record loss
-        #     acc = self.accuracy(output.data, target)
-        #     losses.update(loss.item(), inputs.size(0))
-        #     acces.update(acc[0], inputs.size(0))
-        #
-        #     # backward
-        #     optimizer.zero_grad()  # clear gradients out before each mini-batch
-        #     loss.backward()
-        #     optimizer.step()
-        #
-        #     if (i + 1) % 20 == 0:
-        #         print('Epoch-{:<3d} {:3d} batches\t'
-        #               'loss {loss.val:.4f} ({loss.avg:.4f})\t'
-        #               'accu {acc.val:.3f} ({acc.avg:.3f})'.format(
-        #                epoch + 1, i + 1, loss=losses, acc=acces))
-        #
-        # return losses.avg, acces.avg
-
-
-    def validate(self, val_loader, model, criterion):
-        losses = AverageMeter()
-        acces = AverageMeter()
-        model.eval()
-
-        for i, (inputs, target) in enumerate(val_loader):
-            inputs = inputs.float()
-            with torch.no_grad():
-                output = model(inputs.cuda())
-            target = target.cuda()
-            with torch.no_grad():
-                loss = criterion(output, target)
-
-            # measure accuracy and record loss
-            acc = self.accuracy(output.data, target)
-            losses.update(loss.item(), inputs.size(0))
-            acces.update(acc[0], inputs.size(0))
-
-        return losses.avg, acces.avg
+        if save_model:
+            # save training checkpoint & weights
+            self.save_weights(epoch + 1)
+            self.save_checkpoint(epoch + 1)
 
 
     def test(self, test_loader, model, checkpoint, lable_path, pred_path):
@@ -617,8 +912,74 @@ class Processor():
         print('My test: accuracy {:.3f}'
               .format(test_accuracy))
 
+    def eval(self, epoch, save_score=False, loader_name=['test'], wrong_file=None, result_file=None):
+        # Skip evaluation if too early
+        self.arg.eval_start = 1
+        if epoch + 1 < self.arg.eval_start:
+            return
 
-        #self.plot_confusion_matrix(label_output, prev)
+        if wrong_file is not None:
+            f_w = open(wrong_file, 'w')
+        if result_file is not None:
+            f_r = open(result_file, 'w')
+        with torch.no_grad():
+            self.model = self.model.cuda(self.output_device)
+            self.model.eval()
+            self.print_log(f'Eval epoch: {epoch + 1}')
+            for ln in loader_name:
+                loss_values = []
+                score_batches = []
+                step = 0
+                process = tqdm(self.data_loader[ln], dynamic_ncols=True)
+                for batch_idx, (data, label, index) in enumerate(process):
+                    data = data.float().cuda(self.output_device)
+                    label = label.long().cuda(self.output_device)
+                    output = self.model(data)
+                    if isinstance(output, tuple):
+                        output, l1 = output
+                        l1 = l1.mean()
+                    else:
+                        l1 = 0
+                    loss = self.loss(output, label)
+                    score_batches.append(output.data.cpu().numpy())
+                    loss_values.append(loss.item())
+
+                    _, predict_label = torch.max(output.data, 1)
+                    step += 1
+
+                    if wrong_file is not None or result_file is not None:
+                        predict = list(predict_label.cpu().numpy())
+                        true = list(label.data.cpu().numpy())
+                        for i, x in enumerate(predict):
+                            if result_file is not None:
+                                f_r.write(str(x) + ',' + str(true[i]) + '\n')
+                            if x != true[i] and wrong_file is not None:
+                                f_w.write(str(index[i]) + ',' + str(x) + ',' + str(true[i]) + '\n')
+
+            score = np.concatenate(score_batches)
+            loss = np.mean(loss_values)
+            accuracy = self.data_loader[ln].dataset.top_k(score, 1)
+            if accuracy > self.best_acc:
+                self.best_acc = accuracy
+                self.best_acc_epoch = epoch + 1
+
+            print('Accuracy: ', accuracy, ' model: ', self.arg.work_dir)
+            if self.arg.phase == 'train' and not self.arg.debug:
+                self.val_writer.add_scalar('loss', loss, self.global_step)
+                self.val_writer.add_scalar('loss_l1', l1, self.global_step)
+                self.val_writer.add_scalar('acc', accuracy, self.global_step)
+
+            score_dict = dict(zip(self.data_loader[ln].dataset.sample_name, score))
+            self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_values)}.')
+            for k in self.arg.show_topk:
+                self.print_log(f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}%')
+
+            if save_score:
+                with open('{}/epoch{}_{}_score.pkl'.format(self.arg.work_dir, epoch + 1, ln), 'wb') as f:
+                    pkl.dump(score_dict, f)
+
+        # Empty cache after evaluation
+        torch.cuda.empty_cache()
 
     def plot_confusion_matrix(self, target, prediction):
         x_axis_labels = ["sitting", "walking_slow", "walking_fast", "standing", "standing_phone_talking", "window_shopping", "walking_phone", "wandering", "walking_phone_talking", "walking_cart", "sitting_phone_talking"]
@@ -691,6 +1052,12 @@ class Processor():
         pred_final_list.append(pred)
 
         return correct.mul_(100.0 / batch_size)
+
+    def save_states(self, epoch, states, out_folder, out_name):
+        out_folder_path = os.path.join(self.arg.work_dir, out_folder)
+        out_path = os.path.join(out_folder_path, out_name)
+        os.makedirs(out_folder_path, exist_ok=True)
+        torch.save(states, out_path)
 
     def save_checkpoint(self, state, filename='checkpoint.pth.tar', is_best=False):
         torch.save(state, filename)
