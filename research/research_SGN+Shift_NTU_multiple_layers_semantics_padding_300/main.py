@@ -97,7 +97,7 @@ def get_parser():
     parser.add_argument(
         '--num-worker',
         type=int,
-        default=0,
+        default=8,
         help='the number of worker for data loader')
     parser.add_argument(
         '--train-feeder-args',
@@ -265,7 +265,6 @@ class Processor():
                 self.val_writer = SummaryWriter(os.path.join(logdir, 'val'), 'val')
             else:
                 self.train_writer = SummaryWriter(os.path.join(logdir, 'debug'), 'debug')
-        self.global_step = 0
         self.load_model()
         self.load_optimizer()
         self.load_lr_scheduler()
@@ -457,79 +456,6 @@ class Processor():
             )
 
             self.print_log('Done.\n')
-    # def start(self):
-    #     #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-    #     total = self.get_n_params(self.model)
-    #     print(self.model)
-    #     print('The number of parameters: ', total)
-    #
-    #     if torch.cuda.is_available():
-    #         print('It is using GPU!')
-    #         self.model = self.model.cuda()
-    #
-    #     # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
-    #     criterion = nn.CrossEntropyLoss().cuda(0)
-    #     optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
-    #
-    #     if args.monitor == 'val_acc':
-    #         mode = 'max'
-    #         monitor_op = np.greater
-    #         best = -np.Inf
-    #         str_op = 'improve'
-    #     elif args.monitor == 'val_loss':
-    #         mode = 'min'
-    #         monitor_op = np.less
-    #         best = np.Inf
-    #         str_op = 'reduce'
-    #
-    #     scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
-    #     # Data loading
-    #     calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg, data_path=self.arg.train_feeder_args['data_path'])
-    #     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
-    #     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
-    #     train_size = calo_loaders.get_train_size()
-    #     val_size = calo_loaders.get_val_size()
-    #     #val_size = ntu_loaders.get_val_size()
-    #
-    #     val_loader = calo_loaders.get_val_loader(32, args.workers)
-    #
-    #     # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
-    #     print('Train on %d samples, test on %d X samples' % (train_size, val_size))
-    #
-    #     best_epoch = 0
-    #     output_dir = make_dir(args.dataset)
-    #
-    #     save_path = os.path.join(output_dir)
-    #     if not os.path.exists(save_path):
-    #         os.makedirs(save_path)
-    #
-    #     checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
-    #     earlystop_cnt = 0
-    #     csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
-    #     log_res = list()
-    #
-    #     lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
-    #     pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
-    #
-    #     # Training
-    #     if args.phase == 'train':
-    #         self.record_time()
-    #         for epoch in range(args.start_epoch, args.num_epoch):
-    #
-    #             print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
-    #
-    #             t_start = time.time()
-    #             # train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
-    #             self.train(train_loader, self.model, criterion, optimizer, epoch)
-    #
-    #             self.eval(epoch, save_score=self.arg.save_score, loader_name=['test'])
-    #
-    #     # Only run Test
-    #     else:
-    #         weights = torch.load(self.arg.weights)
-    #         model.load_state_dict(weights['state_dict'])
-    #         model = model.cuda()
-    #         self.test(val_loader, model, checkpoint, lable_path, pred_path)
 
     def print_log(self, str, print_time=True):
         if print_time:
@@ -550,7 +476,6 @@ class Processor():
         return split_time
 
     def load_model(self):
-
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
         self.output_device = output_device
         Model = import_class(self.arg.model)
@@ -560,7 +485,8 @@ class Processor():
         self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
-            self.global_step = int(self.arg.weights[:-3].split('-')[-1])
+            # self.global_step = int(self.arg.weights[:-3].split('-')[-1])
+            self.global_step = 111
             self.print_log('Load weights from {}.'.format(self.arg.weights))
             if '.pkl' in self.arg.weights:
                 with open(self.arg.weights, 'r') as f:
@@ -615,6 +541,7 @@ class Processor():
 
         if self.arg.phase == 'train':
             self.data_loader['train'] = torch.utils.data.DataLoader(
+
                 dataset=Feeder(**self.arg.train_feeder_args),
                 batch_size=self.arg.batch_size,
                 shuffle=True,
@@ -842,75 +769,75 @@ class Processor():
             self.save_checkpoint(epoch + 1)
 
 
-    def test(self, test_loader, model, checkpoint, lable_path, pred_path):
-        acces = AverageMeter()
-        # load learnt model that obtained best performance on validation set
-        model.load_state_dict(torch.load(checkpoint)['state_dict'])
-        model.eval()
-
-        label_output = list()
-        pred_output = list()
-        target_final_result = list()
-        pred_final_result = list()
-        score_frag = []
-
-        t_start = time.time()
-        for i, (inputs, target) in enumerate(test_loader):
-            inputs = inputs.float()
-            with torch.no_grad():
-                output = model(inputs.cuda())
-                score_frag.append(output.data.cpu().numpy())
-                output = output.view((-1, inputs.size(0)//target.size(0), output.size(1)))
-                output = output.mean(1)
-
-            label_output.append(target.cpu().numpy())
-            pred_output.append(output.cpu().numpy())
-
-            acc = self.accuracy_withlist(output.data, target.cuda(), pred_final_result, target_final_result)
-            #acc = accuracy(output.data, target.cuda())
-            #acces.update(acc[0], inputs.size(0))
-        score = np.concatenate(score_frag)
-        score_dict = score  # score.shape = (43829, 11)
-        # print_log('\tMean {} loss of {} batches: {}.'.format(
-        #     ln, len(self.data_loader[ln]), np.mean(loss_value)))
-        # for k in self.arg.show_topk:
-        #     self.print_log('\tTop{}: {:.2f}%'.format(
-        #         k, 100 * self.data_loader[ln].dataset.top_k(score, k)))
-        # save_score = True
-        if self.arg.save_score:
-            with open('{}/test_{}_score.pkl'.format(
-                    self.arg.work_dir, self.arg.metric), 'wb') as f:
-                pkl.dump(score_dict, f)
-            print("Save 'test_{}_score.pkl' into {} ".format(
-                self.arg.metric, self.arg.work_dir))
-        # prev = pred_final_result[0]
-        # for i in range(1, len(pred_final_result)):
-        #     prev = torch.cat((prev, pred_final_result[i]), axis=0)
-
-        prev = pred_final_result[0].cpu().detach().numpy()
-        for i in range(1, len(pred_final_result)):
-            prev = np.concatenate((prev, pred_final_result[i].cpu().detach().numpy()), axis=1)
-        prev = np.squeeze(prev)
-
-        targ = target_final_result[0].cpu().detach().numpy()
-        for i in range(1, len(target_final_result)):
-            targ = np.concatenate((targ, target_final_result[i].cpu().detach().numpy()), axis=0)
-        targ = np.squeeze(targ).astype('int')
-
-        list_index_correct = np.where(prev == targ)
-        test_accuracy = len(list_index_correct[0]) / len(targ) * 100
-
-
-        label_output = np.concatenate(label_output, axis=0)
-        np.savetxt(lable_path, label_output, fmt='%d')
-        pred_output = np.concatenate(pred_output, axis=0)
-        np.savetxt(pred_path, targ, fmt='%d')
-
-        # print('Test: accuracy {:.3f}, time: {:.2f}s'
-        #       .format(acces.avg, time.time() - t_start))
-
-        print('My test: accuracy {:.3f}'
-              .format(test_accuracy))
+    # def test(self, test_loader, model, checkpoint, lable_path, pred_path):
+    #     acces = AverageMeter()
+    #     # load learnt model that obtained best performance on validation set
+    #     model.load_state_dict(torch.load(checkpoint)['state_dict'])
+    #     model.eval()
+    #
+    #     label_output = list()
+    #     pred_output = list()
+    #     target_final_result = list()
+    #     pred_final_result = list()
+    #     score_frag = []
+    #
+    #     t_start = time.time()
+    #     for i, (inputs, target) in enumerate(test_loader):
+    #         inputs = inputs.float()
+    #         with torch.no_grad():
+    #             output = model(inputs.cuda())
+    #             score_frag.append(output.data.cpu().numpy())
+    #             output = output.view((-1, inputs.size(0)//target.size(0), output.size(1)))
+    #             output = output.mean(1)
+    #
+    #         label_output.append(target.cpu().numpy())
+    #         pred_output.append(output.cpu().numpy())
+    #
+    #         acc = self.accuracy_withlist(output.data, target.cuda(), pred_final_result, target_final_result)
+    #         #acc = accuracy(output.data, target.cuda())
+    #         #acces.update(acc[0], inputs.size(0))
+    #     score = np.concatenate(score_frag)
+    #     score_dict = score  # score.shape = (43829, 11)
+    #     # print_log('\tMean {} loss of {} batches: {}.'.format(
+    #     #     ln, len(self.data_loader[ln]), np.mean(loss_value)))
+    #     # for k in self.arg.show_topk:
+    #     #     self.print_log('\tTop{}: {:.2f}%'.format(
+    #     #         k, 100 * self.data_loader[ln].dataset.top_k(score, k)))
+    #     # save_score = True
+    #     if self.arg.save_score:
+    #         with open('{}/test_{}_score.pkl'.format(
+    #                 self.arg.work_dir, self.arg.metric), 'wb') as f:
+    #             pkl.dump(score_dict, f)
+    #         print("Save 'test_{}_score.pkl' into {} ".format(
+    #             self.arg.metric, self.arg.work_dir))
+    #     # prev = pred_final_result[0]
+    #     # for i in range(1, len(pred_final_result)):
+    #     #     prev = torch.cat((prev, pred_final_result[i]), axis=0)
+    #
+    #     prev = pred_final_result[0].cpu().detach().numpy()
+    #     for i in range(1, len(pred_final_result)):
+    #         prev = np.concatenate((prev, pred_final_result[i].cpu().detach().numpy()), axis=1)
+    #     prev = np.squeeze(prev)
+    #
+    #     targ = target_final_result[0].cpu().detach().numpy()
+    #     for i in range(1, len(target_final_result)):
+    #         targ = np.concatenate((targ, target_final_result[i].cpu().detach().numpy()), axis=0)
+    #     targ = np.squeeze(targ).astype('int')
+    #
+    #     list_index_correct = np.where(prev == targ)
+    #     test_accuracy = len(list_index_correct[0]) / len(targ) * 100
+    #
+    #
+    #     label_output = np.concatenate(label_output, axis=0)
+    #     np.savetxt(lable_path, label_output, fmt='%d')
+    #     pred_output = np.concatenate(pred_output, axis=0)
+    #     np.savetxt(pred_path, targ, fmt='%d')
+    #
+    #     # print('Test: accuracy {:.3f}, time: {:.2f}s'
+    #     #       .format(acces.avg, time.time() - t_start))
+    #
+    #     print('My test: accuracy {:.3f}'
+    #           .format(test_accuracy))
 
     def eval(self, epoch, save_score=False, loader_name=['test'], wrong_file=None, result_file=None):
         # Skip evaluation if too early
@@ -1059,10 +986,15 @@ class Processor():
         os.makedirs(out_folder_path, exist_ok=True)
         torch.save(states, out_path)
 
-    def save_checkpoint(self, state, filename='checkpoint.pth.tar', is_best=False):
-        torch.save(state, filename)
-        if is_best:
-            shutil.copyfile(filename, 'model_best.pth.tar')
+    def save_checkpoint(self, epoch, out_folder='checkpoints'):
+        state_dict = {
+            'epoch': epoch,
+            'optimizer_states': self.optimizer.state_dict(),
+            'lr_scheduler_states': self.lr_scheduler.state_dict(),
+        }
+
+        checkpoint_name = f'checkpoint-{epoch}-fwbz{self.arg.forward_batch_size}-{int(self.global_step)}.pt'
+        self.save_states(epoch, state_dict, out_folder, checkpoint_name)
 
     def get_n_params(self, model):
         pp=0
