@@ -14,8 +14,10 @@ train_feeder_args:
   normalization: False
 
 test_feeder_args:
-  data_path: ./data/ntu/xsub/val_data_joint.npy
-  label_path: ./data/ntu/xsub/val_label.pkl
+#  data_path: ./data/ntu/xsub/val_data_joint.npy
+#  label_path: ./data/ntu/xsub/val_label.pkl
+  data_path: ./data/ntu/xsub/train_data_joint.npy
+  label_path: ./data/ntu/xsub/train_label.pkl
 
 # model
 model: model.msg3d.Model
@@ -35,8 +37,8 @@ step: [30, 40]
 # training
 num_epoch: 50
 device: [0]
-batch_size: 32
-forward_batch_size: 16
-test_batch_size: 32
+batch_size: 1
+forward_batch_size: 1
+test_batch_size: 1
 nesterov: True
 

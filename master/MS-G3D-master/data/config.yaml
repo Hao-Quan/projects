@@ -25,7 +25,7 @@ model_args:
 model_saved_name: ''
 nesterov: true
 num_epoch: 50
-num_worker: 8
+num_worker: 1
 optimizer: SGD
 optimizer_states: null
 phase: test

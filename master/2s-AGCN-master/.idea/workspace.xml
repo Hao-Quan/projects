@@ -21,11 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MS-G3D-master/config/nturgbd-cross-subject/train_joint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../MS-G3D-master/config/nturgbd-cross-subject/train_joint.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MS-G3D-master/config/nturgbd120-cross-setup/test_joint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../MS-G3D-master/config/nturgbd120-cross-setup/test_joint.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MS-G3D-master/data/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../MS-G3D-master/data/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/config/nturgbd-cross-subject/train_upper.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/config/nturgbd-cross-subject/train_upper.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/prova.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/prova.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/config/nturgbd-cross-subject/train_upper_westworld.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1596297323.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1596297323.hao-TP" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/work_dir/ntu/xsub/upper/upper_config.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MS-G3D-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -102,6 +105,8 @@
       <workItem from="1596092028483" duration="391000" />
       <workItem from="1596139228248" duration="614000" />
       <workItem from="1596266028904" duration="2464000" />
+      <workItem from="1596289215668" duration="977000" />
+      <workItem from="1596353084488" duration="616000" />
     </task>
     <servers />
   </component>

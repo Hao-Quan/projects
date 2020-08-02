@@ -18,7 +18,7 @@ model_args:
 # test
 phase: test
 device: [0]
-test_batch_size: 32
+test_batch_size: 1
 weights: ./pretrained_models/ntu120_xset_joint.pt
 
 work_dir: ./eval/ntu120/xset/joint/
