@@ -13,3 +13,7 @@
 [ Sun Aug  2 11:29:14 2020 ] 	Top 5: 86.00%
 [ Sun Aug  2 11:29:14 2020 ] Done.
 
+[ Mon Aug  3 16:17:30 2020 ] Load weights from ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt.
+[ Mon Aug  3 16:25:42 2020 ] Load weights from ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt.
+[ Mon Aug  3 17:15:37 2020 ] Load weights from ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt.
+[ Mon Aug  3 18:30:43 2020 ] Load weights from ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt.

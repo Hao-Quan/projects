@@ -21,8 +21,8 @@ model_args:
 phase: test
 device: [0]
 test_batch_size: 1
-#weights: ./pretrained_models/ntu60_xsub_joint_upper.pt
 weights: ./pretrained_models/weights-16-20032.pt
+#weights: ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt
 
 work_dir: ./eval/ntu_light/xsub/upper/
 save_score: True
