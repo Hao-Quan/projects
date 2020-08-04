@@ -21,8 +21,6 @@ model_args:
 phase: test
 device: [0]
 test_batch_size: 32
-
-# start from pretrained model
 #weights: ./pretrained_models/ntu60_xsub_joint_upper.pt
 weights: ./pretrained_models/weights-16-20032.pt
 

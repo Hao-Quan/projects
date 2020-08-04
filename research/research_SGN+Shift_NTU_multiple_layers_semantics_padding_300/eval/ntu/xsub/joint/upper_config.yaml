@@ -46,13 +46,13 @@ step:
 - 60
 test_batch_size: 1
 test_feeder_args:
-  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
+  data_path: /data/ntu/xsub/val_data_joint_upper_middle.npy
   debug: false
-  label_path: ./data/ntu/xsub/val_label.pkl
+  label_path: /data/ntu/xsub/val_label.pkl
 train: 1
 train_feeder_args: {}
 warm_up_epoch: 0
 weight_decay: 0.0005
 weights: ./pretrained_models/weights-16-20032.pt
-work_dir: ./eval/ntu/xsub/upper/
+work_dir: ./eval/ntu/xsub/joint/
 workers: 0

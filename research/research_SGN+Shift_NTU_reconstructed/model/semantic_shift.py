@@ -164,11 +164,12 @@ class Model(nn.Module):
         self.metric = args.metric
         num_joint = 19
         bs = args.batch_size
-        # spa: spatial; tem: temporal
-        self.spa = self.one_hot(bs, num_joint, self.seg)
-        self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
-        self.tem = self.one_hot(bs, self.seg, num_joint)
-        self.tem = self.tem.permute(0, 3, 1, 2).cuda()  # (64, 20, 25, 20)
+
+        # # spa: spatial; tem: temporal
+        # self.spa = self.one_hot(bs, num_joint, self.seg)
+        # self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
+        # self.tem = self.one_hot(bs, self.seg, num_joint)
+        # self.tem = self.tem.permute(0, 3, 1, 2).cuda()  # (64, 20, 25, 20)
 
             # #Original version
             # self.spa = self.one_hot(32 * 5, num_joint, self.seg)
@@ -182,6 +183,7 @@ class Model(nn.Module):
         # # self.dif_embed = embed(3, 64, norm=True, bias=bias)
         # self.joint_embed = embed(2, 64, norm=True, bias=bias)
         # self.dif_embed = embed(2, 64, norm=True, bias=bias)
+
         self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
         self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
         self.fc = nn.Linear(self.dim1 * 2, num_class)
