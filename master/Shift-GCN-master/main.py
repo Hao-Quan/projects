@@ -4,6 +4,7 @@ import argparse
 import os
 import time
 import numpy as np
+import torchvision
 import yaml
 import pickle
 from collections import OrderedDict
@@ -13,13 +14,15 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.autograd import Variable
 from tqdm import tqdm
-# from tensorboardX import SummaryWriter
+from tensorboardX import SummaryWriter
 import shutil
 from torch.optim.lr_scheduler import ReduceLROnPlateau, MultiStepLR
 import random
 import inspect
 import torch.backends.cudnn as cudnn
 
+import future
+import logging
 
 def init_seed(_):
     torch.cuda.manual_seed_all(1)
@@ -258,6 +261,7 @@ class Processor():
                     device_ids=self.arg.device,
                     output_device=output_device)
 
+
     def load_optimizer(self):
         if self.arg.optimizer == 'SGD':
 
@@ -364,6 +368,10 @@ class Processor():
             data = Variable(data.float().cuda(self.output_device), requires_grad=False)
             label = Variable(label.long().cuda(self.output_device), requires_grad=False)
             timer['dataloader'] += self.split_time()
+
+            # writer = SummaryWriter()
+            # writer.add_graph(self.model, data)
+            # writer.close()
 
             # forward
             start = time.time()

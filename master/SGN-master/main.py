@@ -4,7 +4,7 @@ import argparse
 import time
 import shutil
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 import os.path as osp
 import csv
 import numpy as np
@@ -26,7 +26,7 @@ parser.set_defaults(
     network='SGN',
     dataset = 'NTU',
     case = 0,
-    batch_size=64,
+    batch_size=1,
     max_epochs=120,
     monitor='val_acc',
     lr=0.001,
