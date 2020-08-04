@@ -23,7 +23,7 @@ neighbor = inward + outward
 # outward = [(j, i) for (i, j) in inward]
 # neighbor = inward + outward
 
-class Graph:
+class AdjMatrixGraph:
     def __init__(self, labeling_mode='spatial'):
         self.A = self.get_adjacency_matrix(labeling_mode)
         self.num_node = num_node

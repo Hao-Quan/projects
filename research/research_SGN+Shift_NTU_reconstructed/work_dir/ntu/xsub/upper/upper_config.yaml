@@ -18,12 +18,10 @@ metric: upper
 model: model.semantic_shift.Model
 model_args:
   graph: graph.ntu_rgb_d.AdjMatrixGraph
+  metric: upper
   num_class: 60
-  num_g3d_scales: 6
-  num_gcn_scales: 13
   num_person: 2
   num_point: 25
-  seg: 1
 model_saved_name: ''
 monitor: acc_val
 nesterov: true
@@ -61,6 +59,6 @@ train_feeder_args:
   window_size: -1
 warm_up_epoch: 0
 weight_decay: 0.0005
-weights: ./pretrained_models/weights-16-20032.pt
+weights: null
 work_dir: ./work_dir/ntu/xsub/upper
 workers: 0

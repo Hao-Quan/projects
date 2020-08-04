@@ -85,11 +85,13 @@ class tcn(nn.Module):
 
 
 class Shift_gcn(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
+    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True):
+        #def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True):
         super(Shift_gcn, self).__init__()
+        # Shift model part
+
         self.in_channels = in_channels
         self.out_channels = out_channels
-        self.metric = metric
         if in_channels != out_channels:
             self.down = nn.Sequential(
                 nn.Conv2d(in_channels, out_channels, 1),
@@ -98,7 +100,29 @@ class Shift_gcn(nn.Module):
         else:
             self.down = lambda x: x
 
-        #self.bn = nn.BatchNorm1d(18 * out_channels)
+        # NTU data metric shift number
+        if metric == 'upper':
+            self.shift_size = 19
+        else:
+            self.shift_size = 13
+
+        # self.bn = nn.BatchNorm1d(self.shift_size*out_channels)
+        # self.bn_semantic = nn.BatchNorm2d(out_channels)
+        # self.relu = nn.ReLU()
+
+        self.Linear_weight = nn.Parameter(torch.zeros(in_channels, out_channels, requires_grad=True, device='cuda'),
+                                          requires_grad=True)
+        nn.init.normal_(self.Linear_weight, 0, math.sqrt(1.0 / out_channels))
+
+        self.Linear_bias = nn.Parameter(torch.zeros(1, 1, out_channels, requires_grad=True, device='cuda'),
+                                        requires_grad=True)
+        nn.init.constant(self.Linear_bias, 0)
+
+        self.Feature_Mask = nn.Parameter(torch.ones(1, self.shift_size, in_channels, requires_grad=True, device='cuda'),
+                                         requires_grad=True)
+        nn.init.constant(self.Feature_Mask, 0)
+
+        self.bn = nn.BatchNorm1d(self.shift_size * out_channels)
         self.relu = nn.ReLU()
 
         for m in self.modules():
@@ -107,33 +131,112 @@ class Shift_gcn(nn.Module):
             elif isinstance(m, nn.BatchNorm2d):
                 bn_init(m, 1)
 
-        # Start: Integrate
-        self.dim1 = in_channels
-        self.seg = seg
-        self.compute_g1 = compute_g_spa(in_channels, self.dim1 // 2, bias=bias)
-        self.gcn1 = gcn_spa_shift_semantic(in_channels, out_channels // 2, self.metric, bias=bias)
-        self.gcn2 = gcn_spa_shift_semantic(out_channels // 2, out_channels, self.metric, bias=bias)
-        self.gcn3 = gcn_spa_shift_semantic(out_channels, out_channels, self.metric, bias=bias)
+        # 19 joints in upper and middle partition
+        index_array = np.empty(self.shift_size * in_channels).astype(np.int)
+        for i in range(self.shift_size):
+            for j in range(in_channels):
+                index_array[i * in_channels + j] = (i * in_channels + j + j * in_channels) % (
+                            in_channels * self.shift_size)
+        self.shift_in = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
 
-        nn.init.constant_(self.gcn1.w.cnn.weight, 0)
-        nn.init.constant_(self.gcn2.w.cnn.weight, 0)
-        nn.init.constant_(self.gcn3.w.cnn.weight, 0)
-        # End: Integrate
+        index_array = np.empty(self.shift_size * out_channels).astype(np.int)
+        for i in range(self.shift_size):
+            for j in range(out_channels):
+                index_array[i * out_channels + j] = (i * out_channels + j - j * out_channels) % (
+                            out_channels * self.shift_size)
+        self.shift_out = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
 
-    def forward(self, x0):
-        g = self.compute_g1(x0)
-        x0 = self.gcn1(x0, g)
-        x0 = self.gcn2(x0, g)
-        x0 = self.gcn3(x0, g)
+        # Semantic model part
+        self.dim1 = 256
+        num_class = 60
+        #self.dataset = dataset
+        #self.seg = seg
 
-        return x0
+        self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
+        self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
+        self.compute_g1 = compute_g_spa(self.dim1 // 2, self.dim1, bias=bias)
+        self.sgcn1 = sgcn_spa(self.dim1 // 2, self.dim1 // 2, bias=bias)
+        self.sgcn2 = sgcn_spa(self.dim1 // 2, self.dim1, bias=bias)
+        self.sgcn3 = sgcn_spa(self.dim1, self.dim1, bias=bias)
+        self.fc = nn.Linear(self.dim1 * 2, num_class)
+
+        for m in self.modules():
+            if isinstance(m, nn.Conv2d):
+                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
+                m.weight.data.normal_(0, math.sqrt(2. / n))
+
+        nn.init.constant_(self.sgcn1.w.cnn.weight, 0)
+        nn.init.constant_(self.sgcn2.w.cnn.weight, 0)
+        nn.init.constant_(self.sgcn3.w.cnn.weight, 0)
+
+        # self.w = cnn1x1(self.out_channels, self.out_channels, bias=False)
+        # self.w1 = cnn1x1(self.out_channels, self.out_channels, bias=bias)
+        #
+        # self.compute_g1 = compute_g_spa(self.out_channels, self.out_channels, bias=bias)
+
+    def forward(self, x0, g):
+        # SEMANTIC
+        # x = x1.permute(0, 3, 2, 1).contiguous()
+        # x = g.matmul(x)
+        # x = x.permute(0, 3, 2, 1).contiguous()
+        # x = self.w(x) + self.w1(x1)
+        # x = self.relu(self.bn(x))
+
+        # SHIFT
+        # n, c, t, v = x1.size()
+        n, c, t, v = x0.size()
+        x = x0.permute(0, 2, 3, 1).contiguous()
+
+        # shift1
+        x = x.view(n * t, v * c)
+        x = torch.index_select(x, 1, self.shift_in)
+        x = x.view(n * t, v, c)
+        x = x * (torch.tanh(self.Feature_Mask) + 1)
+
+        x = torch.einsum('nwc,cd->nwd', (x, self.Linear_weight)).contiguous()  # nt,v,c
+        x = x + self.Linear_bias
+
+        # shift2
+        x = x.view(n * t, -1)
+        x = torch.index_select(x, 1, self.shift_out)
+        x = self.bn(x)
+        x = x.view(n, t, v, self.out_channels).permute(0, 3, 1, 2)  # n,c,t,v
+
+        x = x + self.down(x0)
+        x = self.relu(x)
+
+        # Sematinc SGN
+        # x1 = x1.permute(0, 1, 3, 2).contiguous()
+        # x = x1.permute(0, 3, 2, 1).contiguous()
+        # x = g.matmul(x)
+        # x = x.permute(0, 3, 2, 1).contiguous()
+        # x = self.w(x) + self.w1(x1)
+        # x = self.relu(self.bn_semantic(x))
+
+        g = self.compute_g1(x)
+        x = self.sgcn1(x, g)
+        x = self.sgcn2(x, g)
+        x = self.sgcn3(x, g)
+
+        x = x.permute(0, 1, 3, 2).contiguous()
+        x1 = x
+        x = x.permute(0, 3, 2, 1).contiguous()
+        x = g.matmul(x)
+        x = x.permute(0, 3, 2, 1).contiguous()
+        x = self.w(x) + self.w1(x1)
+        x = self.relu(self.bn_semantic(x))
+
+        x = x.permute(0, 1, 3, 2)
+
+        return x
 
 
 class TCN_GCN_unit(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
+    # def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
+    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None):
         super(TCN_GCN_unit, self).__init__()
 
-        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A, seg)
+        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A)
         #self.tcn1 = Shift_tcn(out_channels, out_channels, stride=stride, tem=tem)
         self.relu = nn.ReLU()
 
@@ -155,103 +258,48 @@ class TCN_GCN_unit(nn.Module):
 
 
 class Model(nn.Module):
-    # def __init__(self, num_classes, dataset, seg, args, bias = True):
-    def __init__(self, num_class, seg, args, bias=True, graph=None, graph_args=dict()):
+    #def __init__(self, num_class, seg, args, bias=True, graph=None, graph_args=dict()):
+    def __init__(self, num_class=60, num_point=25, num_person=2, graph=None, graph_args=dict(), in_channels=3, arg=None, metric=None):
         super(Model, self).__init__()
 
-        self.dim1 = 64
-        self.seg = seg
-        self.metric = args.metric
-        num_joint = 19
-        bs = args.batch_size
-        # spa: spatial; tem: temporal
-        self.spa = self.one_hot(bs, num_joint, self.seg)
-        self.spa = self.spa.permute(0, 3, 2, 1).cuda()  # (64, 25, 25, 20)
-        self.tem = self.one_hot(bs, self.seg, num_joint)
-        self.tem = self.tem.permute(0, 3, 1, 2).cuda()  # (64, 20, 25, 20)
-
-            # #Original version
-            # self.spa = self.one_hot(32 * 5, num_joint, self.seg)
-            # self.spa = self.spa.permute(0, 3, 2, 1).cuda()
-            # self.tem = self.one_hot(32 * 5, self.seg, num_joint)
-            # self.tem = self.tem.permute(0, 3, 1, 2).cuda()
-
-        # self.tem_embed = embed(self.seg, 64*4, norm=False, bias=bias)
-        # self.spa_embed = embed(num_joint, 64, norm=False, bias=bias)
-        # # self.joint_embed = embed(3, 64, norm=True, bias=bias)
-        # # self.dif_embed = embed(3, 64, norm=True, bias=bias)
-        # self.joint_embed = embed(2, 64, norm=True, bias=bias)
-        # self.dif_embed = embed(2, 64, norm=True, bias=bias)
-        self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
-        self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
-        self.fc = nn.Linear(self.dim1 * 2, num_class)
-
-        for m in self.modules():
-            if isinstance(m, nn.Conv2d):
-                n = m.kernel_size[0] * m.kernel_size[1] * m.out_channels
-                m.weight.data.normal_(0, math.sqrt(2. / n))
-
-
-        # Start: Integrate from Shift-GCN
-        # if graph is None:
-        #     raise ValueError()
-        # else:
-        #     Graph = import_class(graph)
-        #     self.graph = Graph(**graph_args)
-
-        Graph = import_class('graph.calo.Graph')
-        self.graph = Graph(**graph_args)
+        self.metric = metric
+        if graph is None:
+            raise ValueError()
+        else:
+            Graph = import_class(graph)
+            self.graph = Graph(**graph_args)
 
         A = self.graph.A
+        num_point = 19
+        self.data_bn = nn.BatchNorm1d(num_person * in_channels * num_point)
+        self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False)
+        self.l2 = TCN_GCN_unit(64, 64, self.metric, A)
+        self.l3 = TCN_GCN_unit(64, 64, self.metric, A)
+        self.l4 = TCN_GCN_unit(64, 64, self.metric, A)
+        self.l5 = TCN_GCN_unit(64, 128, self.metric, A, stride=2)
+        self.l6 = TCN_GCN_unit(128, 128, self.metric, A)
+        self.l7 = TCN_GCN_unit(128, 128, self.metric, A)
+        self.l8 = TCN_GCN_unit(128, 256, self.metric, A, stride=2)
+        self.l9 = TCN_GCN_unit(256, 256, self.metric, A)
+        self.l10 = TCN_GCN_unit(256, 256, self.metric, A)
 
-        self.data_bn = nn.BatchNorm1d(1 * 2 * 18)
-        # self.l1 = TCN_GCN_unit(128, 64, A, residual=False, tem=self.tem)
-        # self.l2 = TCN_GCN_unit(64, 64, A, tem=self.tem)
-
-        self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False, tem=self.tem)
-        self.l2 = TCN_GCN_unit(64, 128, self.metric, A, tem=self.tem)
-        self.l3 = TCN_GCN_unit(128, 256, self.metric, A, tem=self.tem)
-        # self.l10 = TCN_GCN_unit(256, 256, A, tem=self.tem)
-
-        self.fc = nn.Linear(256, args.model_args['num_class'])
-        nn.init.normal(self.fc.weight, 0, math.sqrt(2. / 11))
+        self.fc = nn.Linear(256, num_class)
+        nn.init.normal(self.fc.weight, 0, math.sqrt(2. / num_class))
         bn_init(self.data_bn, 1)
 
-        # End: Integrate from Shift-GCN
+    def forward(self, x):
+        N, C, T, V, M = x.size()
 
+        x = x.permute(0, 4, 3, 1, 2).contiguous().view(N, M * V * C, T)
+        x = self.data_bn(x)
+        x = x.view(N, M, V, C, T).permute(0, 1, 3, 4, 2).contiguous().view(N * M, C, T, V)
 
-    def forward(self, input):
-
-
-        bs, C, T, dim, H = input.size()
-        # C = 2
-        # T = 1
-        num_joints = dim
-        #bs, C, num_joints, T = input.size()
-        input = input.view(bs * H, C, T, num_joints)
-        x = self.l1(input)
+        x = self.l1(x)
         x = self.l2(x)
         x = self.l3(x)
-        # input = self.gcn1(input, g)
-        # input = self.gcn2(input, g)
-        # input = self.gcn3(input, g)
 
-        # Frame-level Module (Temporal)
-        # input = input + tem1
-        # input = self.cnn(input)
-
-        # End: Encapsulate
-
-        # SGN Classification
-        # output = self.maxpool(x)
-        # output = torch.flatten(output, 1)
-        # output = self.fc(output)
-
-        # Shift GCN Classification
-        # N*M,C,T,V
         c_new = x.size(1)
-        x = x.reshape(bs, H, c_new, -1)
-        #x = x.view(1, 2, c_new, -1)
+        x = x.reshape(N, M, c_new, -1)
         x = x.mean(3).mean(1)
         return self.fc(x)
 
@@ -345,129 +393,13 @@ class local(nn.Module):
 
         return x
 
-class gcn_spa_shift_semantic(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, bias = False):
-        super(gcn_spa_shift_semantic, self).__init__()
-        # self.bn = nn.BatchNorm2d(out_feature)
-        # self.relu = nn.ReLU()
-        # self.w = cnn1x1(in_feature, out_feature, bias=False)
-        # self.w1 = cnn1x1(in_feature, out_feature, bias=bias)
-
-        self.in_channels = in_channels
-        self.out_channels = out_channels
-        if in_channels != out_channels:
-            self.down = nn.Sequential(
-                nn.Conv2d(in_channels, out_channels, 1),
-                nn.BatchNorm2d(out_channels)
-            )
-        else:
-            self.down = lambda x: x
-
-        # Calo data metric shift number
-        # if metric == 'upper':
-        #     self.shift_size = 14
-        # else:
-        #     self.shift_size = 9
-
-        # NTU data metric shift number
-        if metric == 'upper':
-            self.shift_size = 19
-        else:
-            self.shift_size = 13
-
-        self.bn = nn.BatchNorm1d(self.shift_size*out_channels)
-        self.bn_semantic = nn.BatchNorm2d(out_channels)
-        self.relu = nn.ReLU()
-
-        self.Linear_weight = nn.Parameter(torch.zeros(in_channels, out_channels, requires_grad=True, device='cuda'),
-                                          requires_grad=True)
-        nn.init.normal_(self.Linear_weight, 0, math.sqrt(1.0 / out_channels))
-
-        self.Linear_bias = nn.Parameter(torch.zeros(1, 1, out_channels, requires_grad=True, device='cuda'),
-                                        requires_grad=True)
-        nn.init.constant(self.Linear_bias, 0)
-
-        self.Feature_Mask = nn.Parameter(torch.ones(1, self.shift_size, in_channels, requires_grad=True, device='cuda'),
-                                         requires_grad=True)
-        nn.init.constant(self.Feature_Mask, 0)
-
-        # 14 joints in upper and middle partition
-        index_array = np.empty(self.shift_size * in_channels).astype(np.int)
-        for i in range(self.shift_size):
-            for j in range(in_channels):
-                index_array[i * in_channels + j] = (i * in_channels + j + j * in_channels) % (in_channels * self.shift_size)
-        self.shift_in = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
-
-        index_array = np.empty(self.shift_size * out_channels).astype(np.int)
-        for i in range(self.shift_size):
-            for j in range(out_channels):
-                index_array[i * out_channels + j] = (i * out_channels + j - j * out_channels) % (out_channels * self.shift_size)
-        self.shift_out = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
-
-        self.w = cnn1x1(self.out_channels, self.out_channels, bias=False)
-        self.w1 = cnn1x1(self.out_channels, self.out_channels, bias=bias)
-
-        self.compute_g1 = compute_g_spa(self.out_channels, self.out_channels, bias=bias)
-
-    def forward(self, x1, g):
-        # SEMANTIC
-        # x = x1.permute(0, 3, 2, 1).contiguous()
-        # x = g.matmul(x)
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = self.w(x) + self.w1(x1)
-        # x = self.relu(self.bn(x))
-
-        # SHIFT
-        # n, c, t, v = x1.size()
-        n, c, t, v = x1.size()
-        x = x1.permute(0, 2, 3, 1).contiguous()
-
-        # shift1
-        x = x.view(n * t, v * c)
-        x = torch.index_select(x, 1, self.shift_in)
-        x = x.view(n * t, v, c)
-        x = x * (torch.tanh(self.Feature_Mask) + 1)
-
-        x = torch.einsum('nwc,cd->nwd', (x, self.Linear_weight)).contiguous()  # nt,v,c
-        x = x + self.Linear_bias
-
-        # shift2
-        x = x.view(n * t, -1)
-        x = torch.index_select(x, 1, self.shift_out)
-        x = self.bn(x)
-        x = x.view(n, t, v, self.out_channels).permute(0, 3, 1, 2)  # n,c,t,v
-
-        x = x + self.down(x1)
-        x = self.relu(x)
-
-        # Sematinc SGN
-        # x1 = x1.permute(0, 1, 3, 2).contiguous()
-        # x = x1.permute(0, 3, 2, 1).contiguous()
-        # x = g.matmul(x)
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = self.w(x) + self.w1(x1)
-        # x = self.relu(self.bn_semantic(x))
-
-        x = x.permute(0, 1, 3, 2).contiguous()
-        x1 = x
-        x = x.permute(0, 3, 2, 1).contiguous()
-        x = g.matmul(x)
-        x = x.permute(0, 3, 2, 1).contiguous()
-        x = self.w(x) + self.w1(x1)
-        x = self.relu(self.bn_semantic(x))
-
-        x = x.permute(0, 1, 3, 2)
-
-        return x
-
-class gcn_spa_semantic(nn.Module):
+class sgcn_spa(nn.Module):
     def __init__(self, in_feature, out_feature, bias = False):
-        super(gcn_spa_semantic, self).__init__()
+        super(sgcn_spa, self).__init__()
         self.bn = nn.BatchNorm2d(out_feature)
         self.relu = nn.ReLU()
         self.w = cnn1x1(in_feature, out_feature, bias=False)
         self.w1 = cnn1x1(in_feature, out_feature, bias=bias)
-
 
     def forward(self, x1, g):
         x = x1.permute(0, 3, 2, 1).contiguous()

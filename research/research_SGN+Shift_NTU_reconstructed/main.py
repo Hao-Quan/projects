@@ -363,9 +363,10 @@ class Processor():
         self.output_device = output_device
         Model = import_class(self.arg.model)
         shutil.copy2(inspect.getfile(Model), self.arg.work_dir)
-        # self.model = Model(**self.arg.model_args).cuda(output_device)
-        self.model = Model(num_class=self.arg.model_args['num_class'], seg=self.arg.model_args['seg'], args=self.arg).cuda(output_device)
-        self.loss = nn.CrossEntropyLoss().cuda(output_device)
+        self.model = Model(**self.arg.model_args).cuda(output_device)
+        #self.model = Model(num_class=self.arg.model_args['num_class'], arg=self.arg).cuda(output_device)
+        #self.model = Model(num_class=60, num_point=25, num_person=2, graph=None, graph_args=dict(), in_channels=3, arg=None).cuda(output_device)
+        #self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
             # self.global_step = int(self.arg.weights[:-3].split('-')[-1])

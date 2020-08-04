@@ -53,6 +53,6 @@ train: 1
 train_feeder_args: {}
 warm_up_epoch: 0
 weight_decay: 0.0005
-weights: ./pretrained_models/ntu_ShiftGCN_joint_xsub.pt
+weights: ./pretrained_models/weights-16-20032.pt
 work_dir: ./eval/ntu_light/xsub/upper/
 workers: 0
