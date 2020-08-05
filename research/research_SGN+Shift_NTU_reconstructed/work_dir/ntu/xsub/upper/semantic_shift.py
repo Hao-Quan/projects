@@ -147,7 +147,7 @@ class Shift_gcn(nn.Module):
         self.shift_out = nn.Parameter(torch.from_numpy(index_array), requires_grad=False)
 
         # Semantic model part
-        self.dim1 = 256
+        self.dim1 = out_channels * 2
         num_class = 60
         #self.dataset = dataset
         #self.seg = seg
@@ -157,8 +157,10 @@ class Shift_gcn(nn.Module):
         self.compute_g1 = compute_g_spa(self.dim1 // 2, self.dim1, bias=bias)
         self.sgcn1 = sgcn_spa(self.dim1 // 2, self.dim1 // 2, bias=bias)
         self.sgcn2 = sgcn_spa(self.dim1 // 2, self.dim1, bias=bias)
-        self.sgcn3 = sgcn_spa(self.dim1, self.dim1, bias=bias)
+        #self.sgcn3 = sgcn_spa(self.dim1, self.dim1, bias=bias)
+        self.sgcn3 = sgcn_spa(self.dim1, out_channels, bias=bias)
         self.fc = nn.Linear(self.dim1 * 2, num_class)
+        #self.fc = nn.Linear(self.dim1, out_channels)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -174,7 +176,7 @@ class Shift_gcn(nn.Module):
         #
         # self.compute_g1 = compute_g_spa(self.out_channels, self.out_channels, bias=bias)
 
-    def forward(self, x0, g):
+    def forward(self, x0):
         # SEMANTIC
         # x = x1.permute(0, 3, 2, 1).contiguous()
         # x = g.matmul(x)
@@ -218,22 +220,24 @@ class Shift_gcn(nn.Module):
         x = self.sgcn2(x, g)
         x = self.sgcn3(x, g)
 
-        x = x.permute(0, 1, 3, 2).contiguous()
-        x1 = x
-        x = x.permute(0, 3, 2, 1).contiguous()
-        x = g.matmul(x)
-        x = x.permute(0, 3, 2, 1).contiguous()
-        x = self.w(x) + self.w1(x1)
-        x = self.relu(self.bn_semantic(x))
+        #x = self.fc(x)
 
-        x = x.permute(0, 1, 3, 2)
+        # x = x.permute(0, 1, 3, 2).contiguous()
+        # x1 = x
+        # x = x.permute(0, 3, 2, 1).contiguous()
+        # x = g.matmul(x)
+        # x = x.permute(0, 3, 2, 1).contiguous()
+        # x = self.w(x) + self.w1(x1)
+        # x = self.relu(self.bn_semantic(x))
+        #
+        # x = x.permute(0, 1, 3, 2)
 
         return x
 
 
 class TCN_GCN_unit(nn.Module):
     # def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
-    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None):
+    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=False, tem=None):
         super(TCN_GCN_unit, self).__init__()
 
         self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A)
@@ -270,18 +274,17 @@ class Model(nn.Module):
             self.graph = Graph(**graph_args)
 
         A = self.graph.A
-        num_point = 19
         self.data_bn = nn.BatchNorm1d(num_person * in_channels * num_point)
         self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False)
         self.l2 = TCN_GCN_unit(64, 64, self.metric, A)
         self.l3 = TCN_GCN_unit(64, 64, self.metric, A)
         self.l4 = TCN_GCN_unit(64, 64, self.metric, A)
         self.l5 = TCN_GCN_unit(64, 128, self.metric, A, stride=2)
-        self.l6 = TCN_GCN_unit(128, 128, self.metric, A)
-        self.l7 = TCN_GCN_unit(128, 128, self.metric, A)
+        # self.l6 = TCN_GCN_unit(128, 128, self.metric, A)
+        # self.l7 = TCN_GCN_unit(128, 128, self.metric, A)
         self.l8 = TCN_GCN_unit(128, 256, self.metric, A, stride=2)
-        self.l9 = TCN_GCN_unit(256, 256, self.metric, A)
-        self.l10 = TCN_GCN_unit(256, 256, self.metric, A)
+        # self.l9 = TCN_GCN_unit(256, 256, self.metric, A)
+        # self.l10 = TCN_GCN_unit(256, 256, self.metric, A)
 
         self.fc = nn.Linear(256, num_class)
         nn.init.normal(self.fc.weight, 0, math.sqrt(2. / num_class))
@@ -297,6 +300,13 @@ class Model(nn.Module):
         x = self.l1(x)
         x = self.l2(x)
         x = self.l3(x)
+        x = self.l4(x)
+        x = self.l5(x)
+        # x = self.l6(x)
+        # x = self.l7(x)
+        x = self.l8(x)
+        # x = self.l9(x)
+        # x = self.l10(x)
 
         c_new = x.size(1)
         x = x.reshape(N, M, c_new, -1)
@@ -402,9 +412,11 @@ class sgcn_spa(nn.Module):
         self.w1 = cnn1x1(in_feature, out_feature, bias=bias)
 
     def forward(self, x1, g):
-        x = x1.permute(0, 3, 2, 1).contiguous()
+        # x = x1.permute(0, 3, 2, 1).contiguous()
+        x = x1.permute(0, 2, 3, 1).contiguous()
         x = g.matmul(x)
-        x = x.permute(0, 3, 2, 1).contiguous()
+        #x = x.permute(0, 3, 2, 1).contiguous()
+        x = x.permute(0, 3, 1, 2).contiguous()
         x = self.w(x) + self.w1(x1)
         x = self.relu(self.bn(x))
         return x

@@ -366,7 +366,7 @@ class Processor():
         self.model = Model(**self.arg.model_args).cuda(output_device)
         #self.model = Model(num_class=self.arg.model_args['num_class'], arg=self.arg).cuda(output_device)
         #self.model = Model(num_class=60, num_point=25, num_person=2, graph=None, graph_args=dict(), in_channels=3, arg=None).cuda(output_device)
-        #self.loss = nn.CrossEntropyLoss().cuda(output_device)
+        self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
             # self.global_step = int(self.arg.weights[:-3].split('-')[-1])
@@ -564,12 +564,16 @@ class Processor():
             for k, v in timer.items()
         }
 
-        if save_model:
-            state_dict = self.model.state_dict()
-            weights = OrderedDict([[k.split('module.')[-1],
-                                    v.cpu()] for k, v in state_dict.items()])
+        # if save_model:
+        #     state_dict = self.model.state_dict()
+        #     weights = OrderedDict([[k.split('module.')[-1],
+        #                             v.cpu()] for k, v in state_dict.items()])
+        #     torch.save(weights, self.arg.model_saved_name + '-' + str(epoch) + '-' + str(int(self.global_step)) + '.pt')
 
-            torch.save(weights, self.arg.model_saved_name + '-' + str(epoch) + '-' + str(int(self.global_step)) + '.pt')
+        if save_model:
+            # save training checkpoint & weights
+            self.save_weights(epoch + 1)
+            self.save_checkpoint(epoch + 1)
 
     def eval(self, epoch, save_score=False, loader_name=['test'], wrong_file=None, result_file=None):
         # Skip evaluation if too early
@@ -634,7 +638,11 @@ class Processor():
                 self.print_log(f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}%')
 
             if save_score:
-                with open('{}/epoch{}_{}_score.pkl'.format(self.arg.work_dir, epoch + 1, ln), 'wb') as f:
+                test_score_path = os.path.join(self.arg.work_dir, "test_score")
+                # if not os.path.exists(test_score_path):
+                #     os.makedirs(test_score_path)
+                os.makedirs(test_score_path, exist_ok=True)
+                with open('{}/epoch{}_{}_score.pkl'.format(test_score_path, epoch + 1, ln), 'wb') as f:
                     pkl.dump(score_dict, f)
 
         # Empty cache after evaluation

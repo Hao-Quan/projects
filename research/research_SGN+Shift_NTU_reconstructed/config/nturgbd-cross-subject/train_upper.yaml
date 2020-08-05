@@ -44,7 +44,7 @@ test_feeder_args:
 model: model.semantic_shift.Model
 model_args:
   num_class: 60
-  num_point: 25
+  num_point: 19
   num_person: 2
 #  num_gcn_scales: 13    # `num_scales` == `K + 1` in the paper
 #  num_g3d_scales: 6

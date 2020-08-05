@@ -1,4 +1,0 @@
-[ Sun Aug  2 11:59:07 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.
-[ Sun Aug  2 11:59:07 2020 ] Model:   model.semantic_shift.Model
-[ Sun Aug  2 11:59:07 2020 ] Weights: ./pretrained_models/weights-16-20032.pt
-[ Sun Aug  2 11:59:07 2020 ] Eval epoch: 1
