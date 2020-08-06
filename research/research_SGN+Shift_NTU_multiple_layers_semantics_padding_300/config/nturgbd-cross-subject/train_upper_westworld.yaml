@@ -1,6 +1,6 @@
 work_dir: ./work_dir/ntu/xsub/upper
 
-dataset: ntu_light
+dataset: ntu
 
 checkpoint: null
 

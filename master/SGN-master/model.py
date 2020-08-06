@@ -12,11 +12,9 @@ class SGN(nn.Module):
         self.dataset = dataset
         self.seg = seg
         num_joint = 25
-        # bs = args.batch_size
-        bs = 4
+        bs = args.batch_size
 
-        # if args.train:
-        if True:
+        if args.train:
             self.spa = self.one_hot(bs, num_joint, self.seg)
             self.spa = self.spa.permute(0, 3, 2, 1).cuda()
             self.tem = self.one_hot(bs, self.seg, num_joint)

@@ -4,7 +4,7 @@ import argparse
 import time
 import shutil
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+
 import os.path as osp
 import csv
 import numpy as np
@@ -217,6 +217,12 @@ def get_parser():
         help='save test score'
     )
     parser.add_argument(
+        '--save_model',
+        type=bool,
+        default=True,
+        help='save model'
+    )
+    parser.add_argument(
         '--debug',
         type=str2bool,
         default=False,
@@ -288,14 +294,10 @@ class Processor():
         #     if self.arg.amp_opt_level != 1:
         #         self.print_log('[WARN] nn.DataParallel is not yet supported by amp_opt_level != "O1"')
 
-        if type(self.arg.device) is list:
-            if len(self.arg.device) > 1:
-                self.print_log(f'{len(self.arg.device)} GPUs available, using DataParallel')
-                self.model = nn.DataParallel(
-                    self.model,
-                    device_ids=self.arg.device,
-                    output_device=self.output_device
-                )
+        # if type(self.arg.device) is list:
+        #     if len(self.arg.device) > 1:
+        #         self.print_log(f'{len(self.arg.device)} GPUs available, using DataParallel')
+        #         self.model = nn.DataParallel(self.model, device_ids=self.arg.device, output_device=self.output_device)
 
     def start(self):
         if self.arg.phase == 'train':
@@ -303,7 +305,8 @@ class Processor():
             self.print_log(f'Model total number of params: {count_params(self.model)}')
             self.global_step = self.arg.start_epoch * len(self.data_loader['train']) / self.arg.batch_size
             for epoch in range(self.arg.start_epoch, self.arg.num_epoch):
-                save_model = ((epoch + 1) % self.arg.save_interval == 0) or (epoch + 1 == self.arg.num_epoch)
+                #save_model = ((epoch + 1) % self.arg.save_interval == 0) or (epoch + 1 == self.arg.num_epoch)
+                save_model = args.save_model
                 self.train(epoch, save_model=save_model)
                 self.eval(epoch, save_score=self.arg.save_score, loader_name=['test'])
 
@@ -401,10 +404,7 @@ class Processor():
 
         if type(self.arg.device) is list:
             if len(self.arg.device) > 1:
-                self.model = nn.DataParallel(
-                    self.model,
-                    device_ids=self.arg.device,
-                    output_device=output_device)
+                self.model = nn.DataParallel(self.model, device_ids=self.arg.device, output_device=self.output_device)
 
     def load_lr_scheduler(self):
         self.lr_scheduler = MultiStepLR(self.optimizer, milestones=self.arg.step, gamma=0.1)
