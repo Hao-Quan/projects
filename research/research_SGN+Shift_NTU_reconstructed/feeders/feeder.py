@@ -16,7 +16,7 @@ class Feeder(Dataset):
         """
         :param data_path:
         :param label_path:
-        :param random_choose: If true, randomly choose a portion of the input sequence
+        :param random_choose: If true, randomly choose model_as_text portion of the input sequence
         :param random_shift: If true, randomly pad zeros at the begining or end of sequence
         :param random_move:
         :param window_size: The length of the output sequence

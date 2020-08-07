@@ -1,0 +1,12 @@
+[ Sun Aug  2 09:59:51 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.
+[ Sun Aug  2 10:02:00 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.
+[ Sun Aug  2 10:03:53 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.
+[ Sun Aug  2 10:04:20 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.
+[ Sun Aug  2 10:04:20 2020 ] Model:   model.semantic_shift.Model
+[ Sun Aug  2 10:04:20 2020 ] Weights: ./pretrained_models/weights-16-20032.pt
+[ Sun Aug  2 10:04:20 2020 ] Eval epoch: 1
+[ Sun Aug  2 10:08:36 2020 ] 	Mean test loss of 16487 batches: 1.8271182994798567.
+[ Sun Aug  2 10:08:36 2020 ] 	Top 1: 51.42%
+[ Sun Aug  2 10:08:36 2020 ] 	Top 5: 82.85%
+[ Sun Aug  2 10:08:36 2020 ] Done.
+

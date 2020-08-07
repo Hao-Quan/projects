@@ -349,7 +349,7 @@ class Processor():
             str = "[ " + localtime + ' ] ' + str
         print(str)
         if self.arg.print_log:
-            with open('{}/log.txt'.format(self.arg.work_dir), 'a') as f:
+            with open('{}/log.txt'.format(self.arg.work_dir), 'model_as_text') as f:
                 print(str, file=f)
 
     def record_time(self):

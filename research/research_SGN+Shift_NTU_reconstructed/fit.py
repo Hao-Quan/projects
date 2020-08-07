@@ -3,7 +3,7 @@
 def add_fit_args(parser):
     """
     parser : argparse.ArgumentParser
-    return a parser added with args required by fit
+    return model_as_text parser added with args required by fit
     """
     args = parser.add_argument_group('Training', 'model training')
     args.add_argument('--network', type=str,

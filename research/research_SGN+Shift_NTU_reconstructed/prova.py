@@ -2,8 +2,8 @@ import numpy as np
 import os
 import torch
 
-# a = torch.cuda.device_count()
-# print(a)
+# model_as_text = torch.cuda.device_count()
+# print(model_as_text)
 #
 # b = torch.cuda.get_device_name(0)
 # print(b)

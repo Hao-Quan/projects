@@ -102,7 +102,7 @@ class CaloDataLoaders(object):
             # self.sample_name_val, self.val_label = pkl.load(f)
 
     def collate_fn_fix_train(self, batch):
-        """Puts each data field into a tensor with outer dimension batch size
+        """Puts each data field into model_as_text tensor with outer dimension batch size
         """
         x, y = zip(*batch)
 
@@ -134,7 +134,7 @@ class CaloDataLoaders(object):
         return [x, y]
 
     def collate_fn_fix_val(self, batch):
-        """Puts each data field into a tensor with outer dimension batch size
+        """Puts each data field into model_as_text tensor with outer dimension batch size
         """
         x, y = zip(*batch)
         x, y = self.Tolist_fix(x, y, train=1)
@@ -147,7 +147,7 @@ class CaloDataLoaders(object):
         return [x, y]
 
     def collate_fn_fix_test(self, batch):
-        """Puts each data field into a tensor with outer dimension batch size
+        """Puts each data field into model_as_text tensor with outer dimension batch size
         """
         x, y = zip(*batch)
         x, labels = self.Tolist_fix(x, y ,train=2)

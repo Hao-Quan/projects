@@ -85,11 +85,11 @@ class tcn(nn.Module):
 
 
 class Shift_gcn(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True):
+    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
         #def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True):
         super(Shift_gcn, self).__init__()
         # Shift model part
-
+        self.seg = seg
         self.in_channels = in_channels
         self.out_channels = out_channels
         if in_channels != out_channels:
@@ -149,11 +149,33 @@ class Shift_gcn(nn.Module):
         # Semantic model part
         self.dim1 = out_channels * 2
         num_class = 60
+        num_joint = self.shift_size
         #self.dataset = dataset
         #self.seg = seg
+        bs = 32
+        tem = 1
 
+        if True:
+            self.spa = one_hot(bs=bs, spa=num_joint, tem=self.seg)
+            self.spa = self.spa.permute(0, 3, 2, 1).cuda()
+            self.tem = one_hot(bs, self.seg, num_joint)
+            self.tem = self.tem.permute(0, 3, 1, 2).cuda()
+        else:
+            self.spa = one_hot(32 * 5, num_joint, self.seg)
+            self.spa = self.spa.permute(0, 3, 2, 1).cuda()
+            self.tem = one_hot(32 * 5, self.seg, num_joint)
+            self.tem = self.tem.permute(0, 3, 1, 2).cuda()
+
+        self.tem_embed = embed(self.seg, 64*4, norm=False, bias=bias)
+        self.spa_embed = embed(num_joint, 64, norm=False, bias=bias)
+        #self.spa_embed = embed(in_channels, out_channels, norm=False, bias=bias)
+        # self.joint_embed = embed(3, 64, norm=True, bias=bias, num_channels=out_channels)
+        self.joint_embed = embed(in_channels, out_channels, norm=False, bias=bias, num_channels=out_channels)
+        # self.dif_embed = embed(3, 64, norm=True, bias=bias, num_channels=out_channels)
+        self.dif_embed = embed(in_channels, out_channels, norm=False, bias=bias, num_channels=out_channels)
         self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
         self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
+
         self.compute_g1 = compute_g_spa(self.dim1 // 2, self.dim1, bias=bias)
         self.sgcn1 = sgcn_spa(self.dim1 // 2, self.dim1 // 2, bias=bias)
         self.sgcn2 = sgcn_spa(self.dim1 // 2, self.dim1, bias=bias)
@@ -177,16 +199,9 @@ class Shift_gcn(nn.Module):
         # self.compute_g1 = compute_g_spa(self.out_channels, self.out_channels, bias=bias)
 
     def forward(self, x0):
-        # SEMANTIC
-        # x = x1.permute(0, 3, 2, 1).contiguous()
-        # x = g.matmul(x)
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = self.w(x) + self.w1(x1)
-        # x = self.relu(self.bn(x))
-
         # SHIFT
-        # n, c, t, v = x1.size()
         n, c, t, v = x0.size()
+        # N * M, C, T, V = (2x1, 3, 300, 19)
         x = x0.permute(0, 2, 3, 1).contiguous()
 
         # shift1
@@ -205,42 +220,43 @@ class Shift_gcn(nn.Module):
         x = x.view(n, t, v, self.out_channels).permute(0, 3, 1, 2)  # n,c,t,v
 
         x = x + self.down(x0)
-        x = self.relu(x)
+        x = self.relu(x)    # shape(2, 64, 300, 19)
 
-        # Sematinc SGN
-        # x1 = x1.permute(0, 1, 3, 2).contiguous()
-        # x = x1.permute(0, 3, 2, 1).contiguous()
-        # x = g.matmul(x)
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = self.w(x) + self.w1(x1)
-        # x = self.relu(self.bn_semantic(x))
+        # Sematinc SGN.
+        # Dynamic Representation
+        bs = n
+        step = t
+        num_joints = v
+        # bs, step, dim = x0.size()
+        # num_joints = dim // 3
+        # x0 = x0.view(bs, step, num_joints, c)
+        x0 = x0.reshape(bs, step, num_joints, c)
+        x0 = x0.permute(0, 3, 2, 1).contiguous()
+        dif = x0[:, :, :, 1:] - x0[:, :, :, 0:-1]
+        dif = torch.cat([dif.new(bs, dif.size(1), num_joints, 1).zero_(), dif], dim=-1)
+        pos = self.joint_embed(x0)
+        #tem1 = self.tem_embed(self.tem)
+        #spa1 = self.spa_embed(self.spa)
+        dif = self.dif_embed(dif)
+        dy = pos + dif
+        dy = dy.permute(0, 1, 3, 2)
+        x = x + dy
+        # #x = torch.cat([x, dy], 1)
 
         g = self.compute_g1(x)
         x = self.sgcn1(x, g)
         x = self.sgcn2(x, g)
         x = self.sgcn3(x, g)
 
-        #x = self.fc(x)
-
-        # x = x.permute(0, 1, 3, 2).contiguous()
-        # x1 = x
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = g.matmul(x)
-        # x = x.permute(0, 3, 2, 1).contiguous()
-        # x = self.w(x) + self.w1(x1)
-        # x = self.relu(self.bn_semantic(x))
-        #
-        # x = x.permute(0, 1, 3, 2)
-
         return x
 
 
 class TCN_GCN_unit(nn.Module):
     # def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
-    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=False, tem=None):
+    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=False, arg=None, seg=1):
         super(TCN_GCN_unit, self).__init__()
-
-        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A)
+        self.seg = seg
+        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A, self.seg)
         #self.tcn1 = Shift_tcn(out_channels, out_channels, stride=stride, tem=tem)
         self.relu = nn.ReLU()
 
@@ -263,10 +279,11 @@ class TCN_GCN_unit(nn.Module):
 
 class Model(nn.Module):
     #def __init__(self, num_class, seg, args, bias=True, graph=None, graph_args=dict()):
-    def __init__(self, num_class=60, num_point=25, num_person=2, graph=None, graph_args=dict(), in_channels=3, arg=None, metric=None):
+    def __init__(self, num_class=60, num_point=25, num_person=2, graph=None, graph_args=dict(), in_channels=3, metric=None, seg=1):
         super(Model, self).__init__()
 
         self.metric = metric
+        self.seg = seg
         if graph is None:
             raise ValueError()
         else:
@@ -275,7 +292,8 @@ class Model(nn.Module):
 
         A = self.graph.A
         self.data_bn = nn.BatchNorm1d(num_person * in_channels * num_point)
-        self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False)
+
+        self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False, seg=self.seg)
         self.l2 = TCN_GCN_unit(64, 64, self.metric, A)
         self.l3 = TCN_GCN_unit(64, 64, self.metric, A)
         self.l4 = TCN_GCN_unit(64, 64, self.metric, A)
@@ -285,6 +303,17 @@ class Model(nn.Module):
         self.l8 = TCN_GCN_unit(128, 256, self.metric, A, stride=2)
         # self.l9 = TCN_GCN_unit(256, 256, self.metric, A)
         # self.l10 = TCN_GCN_unit(256, 256, self.metric, A)
+
+        # self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False, seg=self.seg)
+        # self.l2 = TCN_GCN_unit(128, 64, self.metric, A)
+        # self.l3 = TCN_GCN_unit(128, 64, self.metric, A)
+        # self.l4 = TCN_GCN_unit(128, 64, self.metric, A)
+        # self.l5 = TCN_GCN_unit(128, 128, self.metric, A, stride=2)
+        # # self.l6 = TCN_GCN_unit(128, 128, self.metric, A)
+        # # self.l7 = TCN_GCN_unit(128, 128, self.metric, A)
+        # self.l8 = TCN_GCN_unit(256, 256, self.metric, A, stride=2)
+        # # self.l9 = TCN_GCN_unit(256, 256, self.metric, A)
+        # # self.l10 = TCN_GCN_unit(256, 256, self.metric, A)
 
         self.fc = nn.Linear(256, num_class)
         nn.init.normal(self.fc.weight, 0, math.sqrt(2. / num_class))
@@ -314,25 +343,25 @@ class Model(nn.Module):
         return self.fc(x)
 
         #return output
-    def one_hot(self, bs, spa, tem):
-        # spa: number of joints
-        y = torch.arange(spa).unsqueeze(-1)
-        y_onehot = torch.FloatTensor(spa, spa)
+def one_hot(bs, spa, tem):
+    # spa: number of joints
+    y = torch.arange(spa).unsqueeze(-1)
+    y_onehot = torch.FloatTensor(spa, spa)
 
-        y_onehot.zero_()
-        y_onehot.scatter_(1, y, 1)
+    y_onehot.zero_()
+    y_onehot.scatter_(1, y, 1)
 
-        y_onehot = y_onehot.unsqueeze(0).unsqueeze(0)
-        y_onehot = y_onehot.repeat(bs, tem, 1, 1)
+    y_onehot = y_onehot.unsqueeze(0).unsqueeze(0)
+    y_onehot = y_onehot.repeat(bs, tem, 1, 1)
 
-        return y_onehot
+    return y_onehot
 
 class norm_data(nn.Module):
-    def __init__(self, dim= 64):
+    def __init__(self, dim=64, num_channels=3):
         super(norm_data, self).__init__()
 
         #self.bn = nn.BatchNorm1d(dim* 25)
-        self.bn = nn.BatchNorm1d(dim * 18)
+        self.bn = nn.BatchNorm1d(num_channels)
 
     def forward(self, x):
         bs, c, num_joints, step = x.size()
@@ -342,27 +371,31 @@ class norm_data(nn.Module):
         return x
 
 class embed(nn.Module):
-    # Original
-    #def __init__(self, dim=3, dim1=128, norm=True, bias=False):
-    # Hao:
-    def __init__(self, dim = 2, dim1 = 128, norm = True, bias = False):
+    def __init__(self, dim = 3, dim1 = 128, norm = True, bias = False, num_channels = 3):
         super(embed, self).__init__()
 
-        if norm:
-            self.cnn = nn.Sequential(
-                norm_data(dim),
-                cnn1x1(dim, 64, bias=bias),
-                nn.ReLU(),
-                cnn1x1(64, dim1, bias=bias),
-                nn.ReLU(),
-            )
-        else:
-            self.cnn = nn.Sequential(
-                cnn1x1(dim, 64, bias=bias),
-                nn.ReLU(),
-                cnn1x1(64, dim1, bias=bias),
-                nn.ReLU(),
-            )
+        self.cnn = nn.Sequential(
+            cnn1x1(dim, 64, bias=bias),
+            nn.ReLU(),
+            cnn1x1(64, dim1, bias=bias),
+            nn.ReLU(),
+        )
+
+        # if norm:
+        #     self.cnn = nn.Sequential(
+        #         norm_data(dim, num_channels),
+        #         cnn1x1(dim, 64, bias=bias),
+        #         nn.ReLU(),
+        #         cnn1x1(64, dim1, bias=bias),
+        #         nn.ReLU(),
+        #     )
+        # else:
+        #     self.cnn = nn.Sequential(
+        #         cnn1x1(dim, 64, bias=bias),
+        #         nn.ReLU(),
+        #         cnn1x1(64, dim1, bias=bias),
+        #         nn.ReLU(),
+        #     )
 
     def forward(self, x):
         x = self.cnn(x)
