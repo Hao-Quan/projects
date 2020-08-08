@@ -27,6 +27,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle as pkl
 import pprint
+from torch.autograd import Variable
 
 import yaml
 from tqdm import tqdm
@@ -296,124 +297,6 @@ class Processor():
                     output_device=self.output_device
                 )
 
-    # def start(self):
-    #     #model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-    #     total = self.get_n_params(self.model)
-    #     print(self.model)
-    #     print('The number of parameters: ', total)
-    #
-    #     if torch.cuda.is_available():
-    #         print('It is using GPU!')
-    #         self.model = self.model.cuda()
-    #
-    #     # criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
-    #     criterion = nn.CrossEntropyLoss().cuda(0)
-    #     optimizer = optim.Adam(self.model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
-    #
-    #     if args.monitor == 'val_acc':
-    #         mode = 'max'
-    #         monitor_op = np.greater
-    #         best = -np.Inf
-    #         str_op = 'improve'
-    #     elif args.monitor == 'val_loss':
-    #         mode = 'min'
-    #         monitor_op = np.less
-    #         best = np.Inf
-    #         str_op = 'reduce'
-    #
-    #     scheduler = MultiStepLR(optimizer, milestones=[60, 90, 110], gamma=0.1)
-    #     # Data loading
-    #     calo_loaders = CaloDataLoaders(args.dataset, args.metric, args.case, seg=args.seg, data_path=self.arg.train_feeder_args['data_path'])
-    #     train_loader = calo_loaders.get_train_loader(args.batch_size, args.workers)
-    #     #val_loader = ntu_loaders.get_val_loader(args.batch_size, args.workers)
-    #     train_size = calo_loaders.get_train_size()
-    #     val_size = calo_loaders.get_val_size()
-    #     #val_size = ntu_loaders.get_val_size()
-    #
-    #     val_loader = calo_loaders.get_val_loader(32, args.workers)
-    #
-    #     # print('Train on %d samples, validate on %d samples' % (train_size, val_size))
-    #     print('Train on %d samples, test on %d X samples' % (train_size, val_size))
-    #
-    #     best_epoch = 0
-    #     output_dir = make_dir(args.dataset)
-    #
-    #     save_path = os.path.join(output_dir)
-    #     if not os.path.exists(save_path):
-    #         os.makedirs(save_path)
-    #
-    #     checkpoint = osp.join(save_path, '%s_best.pth' % args.metric)
-    #     earlystop_cnt = 0
-    #     csv_file = osp.join(save_path, '%s_log.csv' % args.metric)
-    #     log_res = list()
-    #
-    #     lable_path = osp.join(save_path, '%s_lable.txt'% args.metric)
-    #     pred_path = osp.join(save_path, '%s_pred.txt' % args.metric)
-    #
-    #     # Training
-    #     if args.phase == 'train':
-    #         self.record_time()
-    #         for epoch in range(args.start_epoch, args.num_epoch):
-    #
-    #             print('Epoch: ', epoch, optimizer.param_groups[0]['lr'])
-    #
-    #             t_start = time.time()
-    #             # train_loss, train_acc = self.train(train_loader, self.model, criterion, optimizer, epoch)
-    #             self.train(train_loader, self.model, criterion, optimizer, epoch)
-    #
-    #             test_loss, val_acc = self.validate(val_loader, self.model, criterion)
-    #             log_res += [[train_loss, train_acc.cpu().numpy(), \
-    #                          test_loss, val_acc.cpu().numpy()]]
-    #
-    #             print('Epoch-{:<3d} {:.1f}s\t'
-    #                   'Train: loss {:.4f}\taccu {:.4f}\tValid: loss {:.4f}\taccu {:.4f}'
-    #                   .format(epoch + 1, time.time() - t_start, train_loss, train_acc, test_loss, val_acc))
-    #
-    #             current = test_loss if mode == 'min' else val_acc
-    #
-    #             ####### store tensor in cpu
-    #             current = current.cpu()
-    #
-    #             if monitor_op(current, best):
-    #                 print('Epoch %d: %s %sd from %.4f to %.4f, '
-    #                       'saving model to %s'
-    #                       % (epoch + 1, args.monitor, str_op, best, current, checkpoint))
-    #                 best = current
-    #                 best_epoch = epoch + 1
-    #                 self.save_checkpoint({
-    #                     'epoch': epoch + 1,
-    #                     'state_dict': self.model.state_dict(),
-    #                     'best': best,
-    #                     'monitor': args.monitor,
-    #                     'optimizer': optimizer.state_dict(),
-    #                 }, checkpoint)
-    #                 earlystop_cnt = 0
-    #             else:
-    #                 print('Epoch %d: %s did not %s' % (epoch + 1, args.monitor, str_op))
-    #                 earlystop_cnt += 1
-    #
-    #             scheduler.step()
-    #
-    #         print('Best %s: %.4f from epoch-%d' % (args.monitor, best, best_epoch))
-    #         with open(csv_file, 'w') as fw:
-    #             cw = csv.writer(fw)
-    #             cw.writerow(['loss', 'acc', 'val_loss', 'val_acc'])
-    #             cw.writerows(log_res)
-    #         print('Save train and validation log into into %s' % csv_file)
-    #
-    #         # After Training phase, now run Test phase
-    #         args.train = 0
-    #         #self.model = SGN(args.model_args['num_class'], args.model_args['seg'], args, graph=args.graph)
-    #         self.model =self.model.cuda()
-    #         self.test(val_loader, self.model, checkpoint, lable_path, pred_path)
-    #
-    #     # Only run Test
-    #     else:
-    #         weights = torch.load(self.arg.weights)
-    #         model.load_state_dict(weights['state_dict'])
-    #         model = model.cuda()
-    #         self.test(val_loader, model, checkpoint, lable_path, pred_path)
-
     def start(self):
         if self.arg.phase == 'train':
             self.print_log(f'Parameters:\n{pprint.pformat(vars(self.arg))}\n')
@@ -481,7 +364,9 @@ class Processor():
         Model = import_class(self.arg.model)
         shutil.copy2(inspect.getfile(Model), self.arg.work_dir)
         # self.model = Model(**self.arg.model_args).cuda(output_device)
-        self.model = Model(num_class=self.arg.model_args['num_class'], seg=self.arg.model_args['seg'], args=self.arg).cuda(output_device)
+        self.model = Model(num_class=self.arg.model_args['num_class'], num_joint=self.arg.model_args['num_point'],
+                           seg = self.arg.model_args['seg'], args=self.arg,
+                           graph=self.arg.model_args['graph'], graph_args=self.arg.model_args['graph_args']).cuda(output_device)
         self.loss = nn.CrossEntropyLoss().cuda(output_device)
 
         if self.arg.weights:
@@ -594,71 +479,6 @@ class Processor():
                                               threshold=1e-4, threshold_mode='rel',
                                               cooldown=0)
 
-    # def train(self, train_loader, model, criterion, optimizer, epoch):
-    #     losses = AverageMeter()
-    #     acces = AverageMeter()
-    #     loss_value = []
-    #     self.train_writer.add_scalar('epoch', epoch, self.global_step)
-    #     timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
-    #     model.train()
-    #
-    #     process = tqdm(train_loader, dynamic_ncols=True)
-    #
-    #     for i, (inputs, target) in enumerate(process):
-    #         self.global_step += 1 #train_loader.dataset[x]: (35673 x 300 x 150); train_loader.dataset[y]: (35673))
-    #         inputs = inputs.float()
-    #         output = model(inputs.cuda())   # inputs: torch.Size([64, 20, 75])  -- [batch_size X #segments? X (75=25x3)]; outputs: [batch_size X #classes(60)]
-    #         target = target.cuda()          # target: [batch_size]
-    #
-    #         if isinstance(output, tuple):
-    #             output, l1 = output
-    #             l1 = l1.mean()
-    #         else:
-    #             l1 = 0
-    #         loss = criterion(output, target) + l1
-    #
-    #         # backward
-    #         self.optimizer.zero_grad()
-    #         loss.backward()
-    #         self.optimizer.step()
-    #         loss_value.append(loss.data.item())
-    #         timer['model'] += self.split_time()
-    #
-    #         value, predict_label = torch.max(output.data, 1)
-    #         acc = torch.mean((predict_label == target.data).float())
-    #         self.train_writer.add_scalar('acc', acc, self.global_step)
-    #         self.train_writer.add_scalar('loss', loss.data.item(), self.global_step)
-    #         self.train_writer.add_scalar('loss_l1', l1, self.global_step)
-    #
-    #         # statistics
-    #         self.lr = self.optimizer.param_groups[0]['lr']
-    #         self.train_writer.add_scalar('lr', self.lr, self.global_step)
-    #         # if self.global_step % self.arg.log_interval == 0:
-    #         #     self.print_log(
-    #         #         '\tBatch({}/{}) done. Loss: {:.4f}  lr:{:.6f}  network_time: {:.4f}'.format(
-    #         #             batch_idx, len(loader), loss.data, self.lr, network_time))
-    #         timer['statistics'] += self.split_time()
-    #
-    #     # statistics of time consumption and loss
-    #     proportion = {
-    #         k: '{:02d}%'.format(int(round(v * 100 / sum(timer.values()))))
-    #         for k, v in timer.items()
-    #     }
-    #
-    #     self.print_log(
-    #         '\tMean training loss: {:.4f}.'.format(np.mean(loss_value)))
-    #     self.print_log(
-    #         '\tTime consumption: [Data]{dataloader}, [Network]{model}'.format(
-    #             **proportion))
-    #
-    #     save_model = True
-    #     if save_model:
-    #         state_dict = self.model.state_dict()
-    #         weights = OrderedDict([[k.split('module.')[-1],
-    #                                 v.cpu()] for k, v in state_dict.items()])
-    #
-    #         torch.save(weights, self.arg.model_saved_name + '-' + str(epoch) + '-' + str(int(self.global_step)) + '.pt')
-
     def save_weights(self, epoch, out_folder='weights'):
         state_dict = self.model.state_dict()
         weights = OrderedDict([
@@ -672,7 +492,7 @@ class Processor():
     def train(self, epoch, save_model=False):
         self.model.train()
         loader = self.data_loader['train']
-        loss_values = []
+        loss_value = []
         self.train_writer.add_scalar('epoch', epoch + 1, self.global_step)
         self.record_time()
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
@@ -684,160 +504,50 @@ class Processor():
         for batch_idx, (data, label, index) in enumerate(process):
             self.global_step += 1
             # get data
-            with torch.no_grad():
-                data = data.float().cuda(self.output_device)
-                label = label.long().cuda(self.output_device)
+            data = Variable(data.float().cuda(self.output_device), requires_grad=False)
+            label = Variable(label.long().cuda(self.output_device), requires_grad=False)
             timer['dataloader'] += self.split_time()
+
+            # writer = SummaryWriter()
+            # writer.add_graph(self.model, data)
+            # writer.close()
+
+            # forward
+            start = time.time()
+            output = self.model(data)
+            network_time = time.time() - start
+
+            loss = self.loss(output, label)
 
             # backward
             self.optimizer.zero_grad()
-
-            ############## Gradient Accumulation for Smaller Batches ##############
-            real_batch_size = self.arg.forward_batch_size
-            splits = len(data) // real_batch_size
-            assert len(data) % real_batch_size == 0, \
-                'Real batch size should be a factor of arg.batch_size!'
-
-            for i in range(splits):
-                left = i * real_batch_size
-                right = left + real_batch_size
-                batch_data, batch_label = data[left:right], label[left:right]
-
-                # forward
-                output = self.model(batch_data)
-                if isinstance(output, tuple):
-                    output, l1 = output
-                    l1 = l1.mean()
-                else:
-                    l1 = 0
-
-                loss = self.loss(output, batch_label) / splits
-
-                # if self.arg.half:
-                #     with apex.amp.scale_loss(loss, self.optimizer) as scaled_loss:
-                #         scaled_loss.backward()
-                # else:
-                #     loss.backward()
-                loss.backward()
-
-                loss_values.append(loss.item())
-                timer['model'] += self.split_time()
-
-                # Display loss
-                process.set_description(f'(BS {real_batch_size}) loss: {loss.item():.4f}')
-
-                value, predict_label = torch.max(output, 1)
-                acc = torch.mean((predict_label == batch_label).float())
-
-                self.train_writer.add_scalar('acc', acc, self.global_step)
-                self.train_writer.add_scalar('loss', loss.item() * splits, self.global_step)
-                self.train_writer.add_scalar('loss_l1', l1, self.global_step)
-
-            #####################################
-
-            # torch.nn.utils.clip_grad_norm_(self.model.parameters(), 2)
+            loss.backward()
             self.optimizer.step()
+            loss_value.append(loss.data)
+            timer['model'] += self.split_time()
+
+            value, predict_label = torch.max(output.data, 1)
+            acc = torch.mean((predict_label == label.data).float())
 
             # statistics
             self.lr = self.optimizer.param_groups[0]['lr']
-            self.train_writer.add_scalar('lr', self.lr, self.global_step)
-            timer['statistics'] += self.split_time()
 
-            # Delete output/loss after each batch since it may introduce extra mem during scoping
-            # https://discuss.pytorch.org/t/gpu-memory-consumption-increases-while-training/2770/3
-            del output
-            del loss
+            if self.global_step % self.arg.log_interval == 0:
+                self.print_log(
+                    '\tBatch({}/{}) done. Acc: {:.6f} Loss: {:.4f}  lr:{:.6f}  network_time: {:.4f}'.format(
+                        batch_idx, len(loader), acc, loss.data, self.lr, network_time))
+            timer['statistics'] += self.split_time()
 
         # statistics of time consumption and loss
         proportion = {
-            k: f'{int(round(v * 100 / sum(timer.values()))):02d}%'
+            k: '{:02d}%'.format(int(round(v * 100 / sum(timer.values()))))
             for k, v in timer.items()
         }
-
-        mean_loss = np.mean(loss_values)
-        num_splits = self.arg.batch_size // self.arg.forward_batch_size
-        self.print_log(f'\tMean training loss: {mean_loss:.4f} (BS {self.arg.batch_size}: {mean_loss * num_splits:.4f}).')
-        self.print_log('\tTime consumption: [Data]{dataloader}, [Network]{model}'.format(**proportion))
-
-        # PyTorch > 1.2.0: update LR scheduler here with `.step()`
-        # and make sure to save the `lr_scheduler.state_dict()` as part of checkpoint
-        self.lr_scheduler.step()
 
         if save_model:
             # save training checkpoint & weights
             self.save_weights(epoch + 1)
             self.save_checkpoint(epoch + 1)
-
-
-    # def test(self, test_loader, model, checkpoint, lable_path, pred_path):
-    #     acces = AverageMeter()
-    #     # load learnt model that obtained best performance on validation set
-    #     model.load_state_dict(torch.load(checkpoint)['state_dict'])
-    #     model.eval()
-    #
-    #     label_output = list()
-    #     pred_output = list()
-    #     target_final_result = list()
-    #     pred_final_result = list()
-    #     score_frag = []
-    #
-    #     t_start = time.time()
-    #     for i, (inputs, target) in enumerate(test_loader):
-    #         inputs = inputs.float()
-    #         with torch.no_grad():
-    #             output = model(inputs.cuda())
-    #             score_frag.append(output.data.cpu().numpy())
-    #             output = output.view((-1, inputs.size(0)//target.size(0), output.size(1)))
-    #             output = output.mean(1)
-    #
-    #         label_output.append(target.cpu().numpy())
-    #         pred_output.append(output.cpu().numpy())
-    #
-    #         acc = self.accuracy_withlist(output.data, target.cuda(), pred_final_result, target_final_result)
-    #         #acc = accuracy(output.data, target.cuda())
-    #         #acces.update(acc[0], inputs.size(0))
-    #     score = np.concatenate(score_frag)
-    #     score_dict = score  # score.shape = (43829, 11)
-    #     # print_log('\tMean {} loss of {} batches: {}.'.format(
-    #     #     ln, len(self.data_loader[ln]), np.mean(loss_value)))
-    #     # for k in self.arg.show_topk:
-    #     #     self.print_log('\tTop{}: {:.2f}%'.format(
-    #     #         k, 100 * self.data_loader[ln].dataset.top_k(score, k)))
-    #     # save_score = True
-    #     if self.arg.save_score:
-    #         with open('{}/test_{}_score.pkl'.format(
-    #                 self.arg.work_dir, self.arg.metric), 'wb') as f:
-    #             pkl.dump(score_dict, f)
-    #         print("Save 'test_{}_score.pkl' into {} ".format(
-    #             self.arg.metric, self.arg.work_dir))
-    #     # prev = pred_final_result[0]
-    #     # for i in range(1, len(pred_final_result)):
-    #     #     prev = torch.cat((prev, pred_final_result[i]), axis=0)
-    #
-    #     prev = pred_final_result[0].cpu().detach().numpy()
-    #     for i in range(1, len(pred_final_result)):
-    #         prev = np.concatenate((prev, pred_final_result[i].cpu().detach().numpy()), axis=1)
-    #     prev = np.squeeze(prev)
-    #
-    #     targ = target_final_result[0].cpu().detach().numpy()
-    #     for i in range(1, len(target_final_result)):
-    #         targ = np.concatenate((targ, target_final_result[i].cpu().detach().numpy()), axis=0)
-    #     targ = np.squeeze(targ).astype('int')
-    #
-    #     list_index_correct = np.where(prev == targ)
-    #     test_accuracy = len(list_index_correct[0]) / len(targ) * 100
-    #
-    #
-    #     label_output = np.concatenate(label_output, axis=0)
-    #     np.savetxt(lable_path, label_output, fmt='%d')
-    #     pred_output = np.concatenate(pred_output, axis=0)
-    #     np.savetxt(pred_path, targ, fmt='%d')
-    #
-    #     # print('Test: accuracy {:.3f}, time: {:.2f}s'
-    #     #       .format(acces.avg, time.time() - t_start))
-    #
-    #     print('My test: accuracy {:.3f}'
-    #           .format(test_accuracy))
 
     def eval(self, epoch, save_score=False, loader_name=['test'], wrong_file=None, result_file=None):
         # Skip evaluation if too early
@@ -854,7 +564,7 @@ class Processor():
             self.model.eval()
             self.print_log(f'Eval epoch: {epoch + 1}')
             for ln in loader_name:
-                loss_values = []
+                loss_value = []
                 score_batches = []
                 step = 0
                 process = tqdm(self.data_loader[ln], dynamic_ncols=True)
@@ -869,7 +579,7 @@ class Processor():
                         l1 = 0
                     loss = self.loss(output, label)
                     score_batches.append(output.data.cpu().numpy())
-                    loss_values.append(loss.item())
+                    loss_value.append(loss.item())
 
                     _, predict_label = torch.max(output.data, 1)
                     step += 1
@@ -884,7 +594,7 @@ class Processor():
                                 f_w.write(str(index[i]) + ',' + str(x) + ',' + str(true[i]) + '\n')
 
             score = np.concatenate(score_batches)
-            loss = np.mean(loss_values)
+            loss = np.mean(loss_value)
             accuracy = self.data_loader[ln].dataset.top_k(score, 1)
             if accuracy > self.best_acc:
                 self.best_acc = accuracy
@@ -897,7 +607,7 @@ class Processor():
                 self.val_writer.add_scalar('acc', accuracy, self.global_step)
 
             score_dict = dict(zip(self.data_loader[ln].dataset.sample_name, score))
-            self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_values)}.')
+            self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_value)}.')
             for k in self.arg.show_topk:
                 self.print_log(f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}%')
 

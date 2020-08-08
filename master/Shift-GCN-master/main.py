@@ -390,6 +390,8 @@ class Processor():
             value, predict_label = torch.max(output.data, 1)
             acc = torch.mean((predict_label == label.data).float())
 
+            self.train_writer.add_scalar('acc', acc, self.global_step)
+            self.train_writer.add_scalar('loss', loss.data.item(), self.global_step)
             # statistics
             self.lr = self.optimizer.param_groups[0]['lr']
 
