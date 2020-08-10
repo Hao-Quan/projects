@@ -427,18 +427,18 @@ class gcn_spa_shift_semantic(nn.Module):
         self.bn_semantic = nn.BatchNorm2d(out_channels)
 
         # 2S-AGCN
-        coff_embedding = 2
-        inter_channels = out_channels * coff_embedding
-        self.inter_c = inter_channels
-        self.soft = nn.Softmax(-2)
-
-        self.conv_a = nn.ModuleList()
-        self.conv_b = nn.ModuleList()
-        self.conv_d = nn.ModuleList()
-
-        self.conv_a.append(nn.Conv2d(out_channels, inter_channels, 1))
-        self.conv_b.append(nn.Conv2d(out_channels, inter_channels, 1))
-        self.conv_d.append(nn.Conv2d(in_channels, out_channels, 1))
+        # coff_embedding = 2
+        # inter_channels = out_channels * coff_embedding
+        # self.inter_c = inter_channels
+        # self.soft = nn.Softmax(-2)
+        #
+        # self.conv_a = nn.ModuleList()
+        # self.conv_b = nn.ModuleList()
+        # self.conv_d = nn.ModuleList()
+        #
+        # self.conv_a.append(nn.Conv2d(out_channels, inter_channels, 1))
+        # self.conv_b.append(nn.Conv2d(out_channels, inter_channels, 1))
+        # self.conv_d.append(nn.Conv2d(in_channels, out_channels, 1))
 
     def forward(self, x0, g):
         # SHIFT
