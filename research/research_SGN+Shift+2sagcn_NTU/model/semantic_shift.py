@@ -43,47 +43,6 @@ class tcn(nn.Module):
         x = self.bn(self.conv(x))
         return x
 
-# class Shift_tcn(nn.Module):
-#     def __init__(self, in_channels, out_channels, kernel_size=9, stride=1, bias=True, tem=None, seg=1):
-#         super(Shift_tcn, self).__init__()
-#
-#         self.in_channels = in_channels
-#         self.out_channels = out_channels
-#
-#         self.bn = nn.BatchNorm2d(in_channels)
-#         self.bn2 = nn.BatchNorm2d(in_channels)
-#         bn_init(self.bn2, 1)
-#         self.relu = nn.ReLU(inplace=True)
-#         self.shift_in = Shift(channel=in_channels, stride=1, init_scale=1)
-#         self.shift_out = Shift(channel=out_channels, stride=stride, init_scale=1)
-#
-#         self.temporal_linear = nn.Conv2d(in_channels, out_channels, 1)
-#         nn.init.kaiming_normal(self.temporal_linear.weight, mode='fan_out')
-#
-#         # Start: Integrate
-#         self.tem = tem
-#         self.seg = seg
-#         self.tem_embed = embed(self.seg, 64 * 4, norm=False, bias=bias)
-#         # End: Integrate
-#
-#     def forward(self, x):
-#         # TODO
-#         # #Start: Integrate
-#         # tem1 = self.tem_embed(self.tem)
-#         # x = x + tem1
-#         # x = self.cnn(x)
-#         # #End: Integrate
-#
-#         x = self.bn(x)
-#         # shift1
-#         x = self.shift_in(x)
-#         x = self.temporal_linear(x)
-#         x = self.relu(x)
-#         # shift2
-#         x = self.shift_out(x)
-#         x = self.bn2(x)
-#         return x
-
 class Shift_tcn(nn.Module):
     def __init__(self, in_channels, out_channels, kernel_size=9, stride=1):
         super(Shift_tcn, self).__init__()
@@ -104,25 +63,6 @@ class Shift_tcn(nn.Module):
 class Shift_gcn(nn.Module):
     def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
         super(Shift_gcn, self).__init__()
-        # self.in_channels = in_channels
-        # self.out_channels = out_channels
-        # self.metric = metric
-        # if in_channels != out_channels:
-        #     self.down = nn.Sequential(
-        #         nn.Conv2d(in_channels, out_channels, 1),
-        #         nn.BatchNorm2d(out_channels)
-        #     )
-        # else:
-        #     self.down = lambda x: x
-        #
-        # #self.bn = nn.BatchNorm1d(18 * out_channels)
-        # self.relu = nn.ReLU()
-        #
-        # for m in self.modules():
-        #     if isinstance(m, nn.Conv2d):
-        #         conv_init(m)
-        #     elif isinstance(m, nn.BatchNorm2d):
-        #         bn_init(m, 1)
 
         # Start: Integrate
         self.metric = metric
@@ -148,10 +88,6 @@ class Shift_gcn(nn.Module):
         x0 = self.gcn1(x0, g)
         x0 = self.gcn2(x0, g)
         x0 = self.gcn3(x0, g)
-
-        # Start 2S-AGCN integration model here
-
-        #
 
         return x0
 
@@ -382,10 +318,12 @@ class gcn_spa_shift_semantic(nn.Module):
         #     self.shift_size = 9
 
         # NTU data metric shift number
-        if metric == 'upper':
-            self.shift_size = 19
-        else:
-            self.shift_size = 13
+        # if metric == 'upper':
+        #     self.shift_size = 19
+        # else:
+        #     self.shift_size = 13
+
+        self.shift_size = 25
 
         self.Linear_weight = nn.Parameter(torch.zeros(in_channels, out_channels, requires_grad=True, device='cuda'),
                                           requires_grad=True)
@@ -438,7 +376,7 @@ class gcn_spa_shift_semantic(nn.Module):
 
         self.conv_a.append(nn.Conv2d(out_channels, inter_channels, 1))
         self.conv_b.append(nn.Conv2d(out_channels, inter_channels, 1))
-        self.conv_d.append(nn.Conv2d(in_channels, out_channels, 1))
+        self.conv_d.append(nn.Conv2d(out_channels, out_channels, 1))
 
     def forward(self, x0, g):
         # SHIFT
@@ -482,17 +420,18 @@ class gcn_spa_shift_semantic(nn.Module):
         x = x.permute(0, 1, 3, 2)
 
         # 2S-AGCN
-        # A = torch.from_numpy(self.A).float().to(x.get_device())
-        # #A = self.A.cuda(x.get_device())
-        # A = A + self.PA
-        #
-        # A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
-        # A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
-        # A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
-        # A1 = A1 + A
+        A = torch.from_numpy(self.A).float().to(x.get_device())
+        #A = self.A.cuda(x.get_device())
+        A = A + self.PA
+
+        A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
+        A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
+        A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
+        A1 = A1 + A[2]
         # A2 = x.view(n, c * t, v)
-        # z = self.conv_d(torch.matmul(A2, A1).view(c, c, t, v))
-        # x = z
+        A2 = x.reshape(n, x.size(1) * t, v)
+        z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
+        x = z
 
         return x
 

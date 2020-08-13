@@ -4,7 +4,7 @@ import argparse
 import time
 import shutil
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+#os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 import os.path as osp
 import csv
 import numpy as np
@@ -288,14 +288,14 @@ class Processor():
         #     if self.arg.amp_opt_level != 1:
         #         self.print_log('[WARN] nn.DataParallel is not yet supported by amp_opt_level != "O1"')
 
-        if type(self.arg.device) is list:
-            if len(self.arg.device) > 1:
-                self.print_log(f'{len(self.arg.device)} GPUs available, using DataParallel')
-                self.model = nn.DataParallel(
-                    self.model,
-                    device_ids=self.arg.device,
-                    output_device=self.output_device
-                )
+        # if type(self.arg.device) is list:
+        #     if len(self.arg.device) > 1:
+        #         self.print_log(f'{len(self.arg.device)} GPUs available, using DataParallel')
+        #         self.model = nn.DataParallel(
+        #             self.model,
+        #             device_ids=self.arg.device,
+        #             output_device=self.output_device
+        #         )
 
     def start(self):
         if self.arg.phase == 'train':
@@ -402,10 +402,11 @@ class Processor():
 
         if type(self.arg.device) is list:
             if len(self.arg.device) > 1:
-                self.model = nn.DataParallel(
-                    self.model,
-                    device_ids=self.arg.device,
-                    output_device=output_device)
+                self.model = nn.DataParallel(self.model, device_ids=self.arg.device, output_device=self.output_device)
+                # self.model = nn.DataParallel(
+                #     self.model,
+                #     device_ids=self.arg.device,
+                #     output_device=output_device)
 
     def load_lr_scheduler(self):
         self.lr_scheduler = MultiStepLR(self.optimizer, milestones=self.arg.step, gamma=0.1)

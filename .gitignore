@@ -6,7 +6,6 @@ dataset/ntu/xview/train_data_joint_lower_middle.npy
 dataset/ntu/xview/val_data_joint.npy
 dataset/ntu/xview/val_data_joint_lower_middle.npy
 dataset/ntu/xview/train_data_joint.npy
-research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/val_data_joint.npy
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/val_data_joint_upper_middle.npy
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/train_data_joint.npy
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/train_data_joint_upper_middle.npy

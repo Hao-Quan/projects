@@ -1,0 +1,14 @@
+"ntu_light_25" has
+    100 samples in "train_data_joint.npy" and "train_label.pkl".
+    20 samples in "val_data_joint.npy" and "val_label.pkl".
+    All the data is complete with 25 joints.
+
+    100 samples in "train_data_joint_upper_middle.npy", Zero all points in lower part, maintain upper+middle part values
+    100 samples in "train_data_joint_lower_middle.npy", Zero all points in upper part, maintain lower+middle part values
+    100 samples in "train_label.pkl" without modification
+
+    20 samples in "val_data_joint_upper_middle.npy", Zero all points in lower part, maintain upper+middle part values
+    20 samples in "val_data_joint_lower_middle.npy", Zero all points in upper part, maintain lower+middle part values
+    20 samples in "val_label.pkl" without modification
+
+

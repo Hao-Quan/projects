@@ -5,8 +5,11 @@
       <paths name="westworld">
         <serverdata>
           <mappings>
-            <mapping deploy="projects/research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="projects/research/research_SGN+Shift_NTU_improved" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/data" />
+          </excludedPaths>
         </serverdata>
       </paths>
     </serverData>

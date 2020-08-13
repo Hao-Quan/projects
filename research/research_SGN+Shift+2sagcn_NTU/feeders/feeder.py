@@ -185,12 +185,14 @@ def test(data_path, label_path, vid=None, graph=None, is_3d=False):
 
 
 if __name__ == '__main__':
-    import os
-    os.environ['DISPLAY'] = 'localhost:10.0'
-    data_path = "../data/ntu/xsub/train_data_joint.npy"
-    label_path = "../data/ntu/xsub/train_label.pkl"
-    graph = 'graph.ntu_rgb_d.Graph'
-    test(data_path, label_path, vid='S001C001P001R001A001', graph=graph, is_3d=True)
+    print("")
+    # import os
+    # os.environ['DISPLAY'] = 'localhost:10.0'
+    # data_path = "../data/ntu/xsub/train_data_joint.npy"
+    # label_path = "../data/ntu/xsub/train_label.pkl"
+    # graph = 'graph.ntu_rgb_d.Graph'
+    # test(data_path, label_path, vid='S001C001P001R001A001', graph=graph, is_3d=True)
+
     # data_path = "../data/kinetics/val_data.npy"
     # label_path = "../data/kinetics/val_label.pkl"
     # graph = 'graph.Kinetics'

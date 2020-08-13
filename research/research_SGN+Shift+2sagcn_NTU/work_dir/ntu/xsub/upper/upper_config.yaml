@@ -47,13 +47,13 @@ step:
 - 40
 test_batch_size: 1
 test_feeder_args:
-  data_path: ./data/ntu_light/xsub/val_data_joint.npy
-  label_path: ./data/ntu_light/xsub/val_label.pkl
+  data_path: ./data/ntu_light_25/xsub/val_data_joint_upper_middle.npy
+  label_path: ./data/ntu_light_25/xsub/val_label.pkl
 train: 1
 train_feeder_args:
-  data_path: ./data/ntu_light/xsub/train_data_joint.npy
+  data_path: ./data/ntu_light_25/xsub/train_data_joint_upper_middle.npy
   debug: false
-  label_path: ./data/ntu_light/xsub/train_label.pkl
+  label_path: ./data/ntu_light_25/xsub/train_label.pkl
   normalization: false
   random_choose: false
   random_move: false

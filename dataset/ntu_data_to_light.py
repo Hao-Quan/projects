@@ -14,10 +14,10 @@ with open('./ntu/xsub/val_label.pkl', 'rb') as f:
     val_Y = pkl.load(f)
 
 train_data_joint = train_X[0:100]
-train_data_label = train_Y[0:100]
+train_data_label = [train_Y[0][0:100], train_Y[1][0:100]]
 
 val_data_joint = val_X[0:20]
-val_data_label = val_Y[0:20]
+val_data_label = [val_Y[0][0:20], val_Y[1][0:20]]
 
 with open('./ntu_light_25/xsub/train_data_joint.npy', 'wb') as f:
     np.save(f, train_data_joint)

@@ -12,8 +12,8 @@ train_feeder_args:
 #  label_path: ./data/ntu/xsub/train_label.pkl
 
   # Lightweight data path
-  data_path: ./data/ntu_light/xsub/train_data_joint.npy
-  label_path: ./data/ntu_light/xsub/train_label.pkl
+  data_path: ./data/ntu_light_25/xsub/train_data_joint_upper_middle.npy
+  label_path: ./data/ntu_light_25/xsub/train_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/train_data_joint_upper_middle.npy
@@ -32,8 +32,8 @@ test_feeder_args:
 #  label_path: ./data/ntu/xsub/val_label.pkl
 
   # Lightweight data path
- data_path: ./data/ntu_light/xsub/val_data_joint.npy
- label_path: ./data/ntu_light/xsub/val_label.pkl
+ data_path: ./data/ntu_light_25/xsub/val_data_joint_upper_middle.npy
+ label_path: ./data/ntu_light_25/xsub/val_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/val_data_joint_upper_middle.npy
