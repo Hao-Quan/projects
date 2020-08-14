@@ -20,23 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../dataset/ntu_data_to_light.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../dataset/ntu_data_to_light.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/train_data_joint.npy" beforeDir="false" afterPath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/train_data_joint.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/train_label.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/train_label.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/val_data_joint.npy" beforeDir="false" afterPath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/val_data_joint.npy" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/val_label.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../dataset/ntu_light_25/xsub/val_label.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1597044320.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1597044320.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/work_dir/ntu/xsub/agcn_joint/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/work_dir/ntu/xsub/agcn_joint/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/config/nturgbd-cross-subject/train_upper.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/config/nturgbd-cross-subject/train_upper.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/feeders/feeder.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/feeders/feeder.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/model/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/model/semantic_shift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/semantic_shift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1597047698.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1597047698.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/upper_config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/semantic_shift.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1597349604.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1597349604.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/ensemble.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +48,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -130,6 +120,7 @@
       <workItem from="1597070515999" duration="1701000" />
       <workItem from="1597129865297" duration="656000" />
       <workItem from="1597215534243" duration="856000" />
+      <workItem from="1597393604010" duration="622000" />
     </task>
     <servers />
   </component>

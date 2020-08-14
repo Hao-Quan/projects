@@ -419,7 +419,7 @@ class gcn_spa_shift_semantic(nn.Module):
 
         x = x.permute(0, 1, 3, 2)
 
-        # 2S-AGCN
+        # # 2S-AGCN
         A = torch.from_numpy(self.A).float().to(x.get_device())
         #A = self.A.cuda(x.get_device())
         A = A + self.PA
