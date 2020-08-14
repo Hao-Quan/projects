@@ -419,38 +419,22 @@ class gcn_spa_shift_semantic(nn.Module):
 
         x = x.permute(0, 1, 3, 2)
 
-        # # 2S-AGCN
-        A = torch.from_numpy(self.A).float().to(x.get_device())
-        #A = self.A.cuda(x.get_device())
-        A = A + self.PA
-
-        A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
-        A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
-        A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
-        A1 = A1 + A[2]
-        # A2 = x.view(n, c * t, v)
-        A2 = x.reshape(n, x.size(1) * t, v)
-        z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
-        x = z
+        # # # 2S-AGCN
+        # A = torch.from_numpy(self.A).float().to(x.get_device())
+        # #A = self.A.cuda(x.get_device())
+        # A = A + self.PA
+        #
+        # A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
+        # A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
+        # A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
+        # A1 = A1 + A[2]
+        # # A2 = x.view(n, c * t, v)
+        # A2 = x.reshape(n, x.size(1) * t, v)
+        # z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
+        # x = z
 
         return x
 
-# class gcn_spa_semantic(nn.Module):
-#     def __init__(self, in_feature, out_feature, bias = False):
-#         super(gcn_spa_semantic, self).__init__()
-#         self.bn = nn.BatchNorm2d(out_feature)
-#         self.relu = nn.ReLU()
-#         self.w = cnn1x1(in_feature, out_feature, bias=False)
-#         self.w1 = cnn1x1(in_feature, out_feature, bias=bias)
-#
-#
-#     def forward(self, x1, g):
-#         x = x1.permute(0, 3, 2, 1).contiguous()
-#         x = g.matmul(x)
-#         x = x.permute(0, 3, 2, 1).contiguous()
-#         x = self.w(x) + self.w1(x1)
-#         x = self.relu(self.bn(x))
-#         return x
 
 class compute_g_spa(nn.Module):
     def __init__(self, dim1 = 64 *3, dim2 = 64*3, bias = False):
