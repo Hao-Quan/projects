@@ -23,11 +23,11 @@ if __name__ == "__main__":
     with open('./data/' + dataset + '/val_label.pkl', 'rb') as label:
         label = np.array(pickle.load(label))
 
-    with open(os.path.join(arg.upper_dir, 'upper_test_score.pkl'), 'rb') as r1:
+    with open(os.path.join(arg.upper_dir, 'bs_128', 'upper_test_score.pkl'), 'rb') as r1:
     #with open('./eval/' + dataset + '/test_upper_score.pkl', 'rb') as r1:
         r1 = pickle.load(r1)
 
-    with open(os.path.join(arg.lower_dir, 'epoch28_test_score.pkl'), 'rb') as r2:
+    with open(os.path.join(arg.lower_dir, 'bs_128', 'lower_test_score.pkl'), 'rb') as r2:
     #with open('./eval/' + dataset + '/test_lower_score.pkl', 'rb') as r2:
         r2 = pickle.load(r2)
 
@@ -37,6 +37,7 @@ if __name__ == "__main__":
         _, r11 = list(r1.items())[i]
         _, r22 = list(r2.items())[i]
         r = r11 + r22 * arg.alpha
+        # r = r11 * arg.alpha + r22
         rank_5 = r.argsort()[-5:]
         right_num_5 += int(int(l) in rank_5)
         r = np.argmax(r)

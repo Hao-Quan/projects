@@ -1,0 +1,71 @@
+work_dir: ./work_dir/ntu/xsub/lower
+
+dataset: ntu
+
+checkpoint: null
+
+# feeder
+feeder: feeders.feeder.Feeder
+train_feeder_args:
+  # Original data path
+#  data_path: ./data/ntu/xsub/train_data_joint_lower_middle.npy
+#  label_path: ./data/ntu/xsub/train_label.pkl
+
+  # Lightweight data path
+#   data_path: ./data/ntu_light/xsub/train_data_joint_lower_middle.npy
+#   label_path: ./data/ntu_light/xsub/train_label.pkl
+
+  # Westworld data path
+  data_path: /data/ntu/xsub/train_data_joint_lower_middle.npy
+  label_path: /data/ntu/xsub/train_label.pkl
+
+  debug: False
+  random_choose: False
+  random_shift: False
+  random_move: False
+  window_size: -1
+  normalization: False
+
+test_feeder_args:
+  # Original data path
+#  data_path: ./data/ntu/xsub/val_data_joint_lower_middle.npy
+#  label_path: ./data/ntu/xsub/val_label.pkl
+
+  # Lightweight data path
+#   data_path: ./data/ntu_light/xsub/val_data_joint_lower_middle.npy
+#   label_path: ./data/ntu_light/xsub/val_label.pkl
+
+  # Westworld data path
+  data_path: /data/ntu/xsub/val_data_joint_lower_middle.npy
+  label_path: /data/ntu/xsub/val_label.pkl
+
+# model
+model: model.semantic_shift.Model
+model_args:
+  num_class: 60
+  num_point: 25
+  num_person: 2
+#  num_gcn_scales: 13    # `num_scales` == `K + 1` in the paper
+#  num_g3d_scales: 6
+  graph: graph.ntu_rgb_d.Graph
+  graph_args:
+    labeling_mode: 'spatial'
+  seg: 1
+
+# optim
+weight_decay: 0.0005
+base_lr: 0.05
+step: [30, 40]
+
+# training
+num_epoch: 100
+device: [0,1,2,3,4,5,6,7]
+batch_size: 128
+forward_batch_size: 128
+test_batch_size: 128
+nesterov: True
+
+metric: lower
+
+# load pretrained model
+#weights: ./pretrained_models/weights-70-87640.pt

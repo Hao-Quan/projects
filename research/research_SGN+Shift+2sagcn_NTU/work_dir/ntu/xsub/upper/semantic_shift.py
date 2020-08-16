@@ -431,7 +431,7 @@ class gcn_spa_shift_semantic(nn.Module):
         # A2 = x.view(n, c * t, v)
         A2 = x.reshape(n, x.size(1) * t, v)
         z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
-        x = z
+        # x = z
 
         return x
 
