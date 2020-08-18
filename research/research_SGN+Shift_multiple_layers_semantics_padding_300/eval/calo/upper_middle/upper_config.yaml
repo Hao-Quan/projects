@@ -1,5 +1,5 @@
 base_lr: 0.01
-batch_size: 256
+batch_size: 4
 case: 0
 config: config/calo/test_upper_middle.yaml
 dataset: calo
@@ -28,7 +28,7 @@ num_worker: 0
 only_train_epoch: 0
 only_train_part: false
 optimizer: SGD
-phase: test
+phase: train
 print_log: true
 save_interval: 2
 save_score: true

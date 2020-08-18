@@ -346,7 +346,6 @@ class gcn_spa_shift_semantic(nn.Module):
             elif isinstance(m, nn.BatchNorm2d):
                 bn_init(m, 1)
 
-        # 19 joints in upper and middle partition
         index_array = np.empty(self.shift_size * in_channels).astype(np.int)
         for i in range(self.shift_size):
             for j in range(in_channels):
@@ -420,18 +419,18 @@ class gcn_spa_shift_semantic(nn.Module):
         x = x.permute(0, 1, 3, 2)
 
         # # 2S-AGCN
-        A = torch.from_numpy(self.A).float().to(x.get_device())
-        #A = self.A.cuda(x.get_device())
-        A = A + self.PA
-
-        A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
-        A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
-        A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
-        A1 = A1 + A[2]
-        # A2 = x.view(n, c * t, v)
-        A2 = x.reshape(n, x.size(1) * t, v)
-        z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
-        # x = z
+        # A = torch.from_numpy(self.A).float().to(x.get_device())
+        # #A = self.A.cuda(x.get_device())
+        # A = A + self.PA
+        #
+        # A1 = self.conv_a[0](x).permute(0, 3, 1, 2).contiguous().view(n, v, self.inter_c * t)
+        # A2 = self.conv_b[0](x).view(n, self.inter_c * t, v)
+        # A1 = self.soft(torch.matmul(A1, A2) / A1.size(-1))  # N V V
+        # A1 = A1 + A[2]
+        # # A2 = x.view(n, c * t, v)
+        # A2 = x.reshape(n, x.size(1) * t, v)
+        # z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
+        # # x = z
 
         return x
 

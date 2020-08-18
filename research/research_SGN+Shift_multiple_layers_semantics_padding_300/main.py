@@ -4,7 +4,7 @@ import argparse
 import time
 import shutil
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+#os.environ["CUDA_VISIBLE_DEVICES"] = '0'
 import os.path as osp
 import csv
 import numpy as np
@@ -148,7 +148,7 @@ def get_parser():
         help='the epoch where optimizer reduce the learning rate')
     parser.add_argument(
         '--device',
-        type=int,
+        #type=int,
         default=0,
         nargs='+',
         help='the indexes of GPUs for training or testing')
@@ -167,7 +167,7 @@ def get_parser():
     parser.add_argument(
         '--num-epoch',
         type=int,
-        default=80,
+        default=120,
         help='stop training in which epoch')
     parser.add_argument(
         '--weight-decay',
@@ -254,6 +254,14 @@ class Processor():
 
         criterion = LabelSmoothingLoss(args.model_args['num_class'], smoothing=0.1).cuda()
         optimizer = optim.Adam(model.parameters(), lr=args.base_lr, weight_decay=args.weight_decay)
+
+        model = nn.DataParallel(model, device_ids=[0,1,2,3,4,5], output_device=0)
+
+        # if type(self.arg.device) is list:
+        #     if len(self.arg.device) > 1:
+        #         # model = nn.DataParallel(model, device_ids=self.arg.device, output_device=output_device)
+        #         model = nn.DataParallel(model, device_ids=self.arg.device)
+        print("here")
 
         if args.monitor == 'val_acc':
             mode = 'max'

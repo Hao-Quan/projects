@@ -346,7 +346,6 @@ class gcn_spa_shift_semantic(nn.Module):
             elif isinstance(m, nn.BatchNorm2d):
                 bn_init(m, 1)
 
-        # 19 joints in upper and middle partition
         index_array = np.empty(self.shift_size * in_channels).astype(np.int)
         for i in range(self.shift_size):
             for j in range(in_channels):
@@ -431,7 +430,7 @@ class gcn_spa_shift_semantic(nn.Module):
         # A2 = x.view(n, c * t, v)
         A2 = x.reshape(n, x.size(1) * t, v)
         z = self.conv_d[0](torch.matmul(A2, A1).view(n, x.size(1), t, v))
-        # x = z
+        # # x = z
 
         return x
 

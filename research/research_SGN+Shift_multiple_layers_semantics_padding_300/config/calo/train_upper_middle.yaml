@@ -36,8 +36,8 @@ step: [30, 40]
 # training
 num_epoch: 100
 device: [0]
-batch_size: 32
-test_batch_size: 32
+batch_size: 1
+test_batch_size: 1
 nesterov: True
 
 monitor: val_acc

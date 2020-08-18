@@ -3,7 +3,7 @@ base_lr: 0.05
 batch_size: 1
 case: 0
 checkpoint: null
-config: ./config/nturgbd-cross-subject/train_upper.yaml
+config: ./config/nturgbd-cross-subject/train.yaml
 dataset: ntu_light
 debug: false
 device:
@@ -47,13 +47,13 @@ step:
 - 40
 test_batch_size: 1
 test_feeder_args:
-  data_path: ./data/ntu_light_25/xsub/val_data_joint_upper_middle.npy
-  label_path: ./data/ntu_light_25/xsub/val_label.pkl
+  data_path: ./data/ntu/xsub/val_data_joint.npy
+  label_path: ./data/ntu/xsub/val_label.pkl
 train: 1
 train_feeder_args:
-  data_path: ./data/ntu_light_25/xsub/train_data_joint_upper_middle.npy
+  data_path: ./data/ntu/xsub/train_data_joint.npy
   debug: false
-  label_path: ./data/ntu_light_25/xsub/train_label.pkl
+  label_path: ./data/ntu/xsub/train_label.pkl
   normalization: false
   random_choose: false
   random_move: false
