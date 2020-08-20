@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5ac7fa47-8d66-4b55-b78b-9cee223ee36a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU/.idea/tmp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../research/research_shift_without_temporal/.idea/Shift-GCN-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Shift-GCN-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Shift-GCN-master.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_joint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/nturgbd-cross-subject/train_joint.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/prova_data.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xsub/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/train_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/train_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/val_data_joint.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ntu/xview/val_label.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd120_raw/NTU_RGBD120_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/nturgbd_raw/NTU_RGBD_samples_with_missing_skeletons.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/flops_accuracy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/lib.linux-x86_64-3.6/shift_cuda.cpython-36m-x86_64-linux-gnu.so" beforeDir="false" afterPath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/lib.linux-x86_64-3.6/shift_cuda.cpython-36m-x86_64-linux-gnu.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda.o" beforeDir="false" afterPath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda_kernel.o" beforeDir="false" afterPath="$PROJECT_DIR$/model/Temporal_shift/cuda/build/temp.linux-x86_64-3.6/shift_cuda_kernel.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64.egg" beforeDir="false" afterPath="$PROJECT_DIR$/model/Temporal_shift/cuda/dist/shift_cuda_linear_cpp-0.0.0-py3.6-linux-x86_64.egg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/model/Temporal_shift/cuda/shift_cuda_linear_cpp.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/shift_gcn.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/shift_gcn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme_img/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-07-40_hao-TP/events.out.tfevents.1596532060.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-08-06_hao-TP/events.out.tfevents.1596532086.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-09-03_hao-TP/events.out.tfevents.1596532143.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-15-27_hao-TP/events.out.tfevents.1596532527.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-30-55_hao-TP/events.out.tfevents.1596533455.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-31-16_hao-TP/events.out.tfevents.1596533476.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_11-32-26_hao-TP/events.out.tfevents.1596533546.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_13-39-59_hao-TP/events.out.tfevents.1596541199.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_13-44-08_hao-TP/events.out.tfevents.1596541448.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_13-44-21_hao-TP/events.out.tfevents.1596541461.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Aug04_13-49-08_hao-TP/events.out.tfevents.1596541748.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu_ShiftGCN_joint_xsub-0-240.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/save_models/ntu_ShiftGCN_joint_xsub-1-480.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/best_acc.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/epoch_0_0.008333333333333333.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/eval_results/epoch_1_0.016666666666666666.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/shift_gcn.py" beforeDir="false" afterPath="$PROJECT_DIR$/work_dir/ntu_ShiftGCN_joint_xsub/shift_gcn.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="JupyterTrust" id="2430b018-6790-4aeb-9ecf-61536f7ca44b" />
+  <component name="ProjectId" id="1gHvJu728fyVCcgCFGyGDUCUVOZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+  </component>
+  <component name="PyDebuggerOptionsProvider">
+    <option name="mySupportGeventDebugging" value="true" />
+  </component>
+  <component name="RunManager" selected="Python.main">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="--config ./config/nturgbd-cross-subject/train_joint.yaml --phase train" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="shift_gcn" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Shift-GCN-master" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/model" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/model/shift_gcn.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python.shift_gcn" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python.shift_gcn" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ac7fa47-8d66-4b55-b78b-9cee223ee36a" name="Default Changelist" comment="" />
+      <created>1597784263455</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597784263455</updated>
+      <workItem from="1597784264470" duration="1000000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="528" y="202" width="832" height="704" key="#SSH_Configurations" timestamp="1597784929367">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="528" y="202" width="832" height="704" key="#SSH_Configurations/67.27.1853.1053@67.27.1853.1053" timestamp="1597784929367" />
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597784501040">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1597784501040" />
+    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl" timestamp="1597784965868">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1597784965868" />
+    <state width="903" height="344" key="GridCell.Tab.0.bottom" timestamp="1597785264042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264042" />
+    <state width="903" height="344" key="GridCell.Tab.0.center" timestamp="1597785264042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264042" />
+    <state width="903" height="344" key="GridCell.Tab.0.left" timestamp="1597785264041">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264041" />
+    <state width="903" height="344" key="GridCell.Tab.0.right" timestamp="1597785264042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264042" />
+    <state width="903" height="344" key="GridCell.Tab.1.bottom" timestamp="1597785264043">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264043" />
+    <state width="903" height="344" key="GridCell.Tab.1.center" timestamp="1597785264042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264042" />
+    <state width="903" height="344" key="GridCell.Tab.1.left" timestamp="1597785264042">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264042" />
+    <state width="903" height="344" key="GridCell.Tab.1.right" timestamp="1597785264043">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state width="903" height="344" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1597785264043" />
+    <state x="438" y="189" key="SettingsEditor" timestamp="1597784980761">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="438" y="189" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1597784980761" />
+    <state x="683" y="291" width="620" height="522" key="find.popup" timestamp="1597784680632">
+      <screen x="67" y="27" width="1853" height="1053" />
+    </state>
+    <state x="683" y="291" width="620" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1597784680632" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Shift_GCN_master$main.coverage" NAME="main Coverage Results" MODIFIED="1597784688819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Shift_GCN_master$shift_gcn.coverage" NAME="shift_gcn Coverage Results" MODIFIED="1597784556729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/model" />
+  </component>
+</project>

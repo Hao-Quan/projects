@@ -5,39 +5,14 @@ The implementation for "Skeleton-Based Action Recognition with Shift Graph Convo
 
  - PyTorch 0.4.1
  - Cuda 9.0
- - g++ 5.4.0 
- 
-  It should be environment as following, otherwise, does not work!
- - Python 3.6
- - PyTorch 1.1
- - Cuda(Cudatoolkit; nvcc --version) 10.0.130
- - cudnn 7.6.5
- - Torchvision 0.3.0
- - gcc 5.5
- - g++ 5.5
+ - g++ 5.4.0
 
-Note: PyTorch 1.5 dose not work!
-
-Conda environment create:
-  ```
-  conda create -n py36 python=3.6 anaconda
-  conda install pytorch==1.1.0 torchvision==0.3.0 cudatoolkit=10.0 -c pytorch
-  ```
-  
 ## Compile cuda extensions
-  
-Compile shif_cuda.cpp file
-Should run it in command line, don't with PyCharm.
+
   ```
   cd ./model/Temporal_shift
   bash run.sh
   ```
-
-Although it seems error with:
-
-![Alt text](readme_img/1.png?raw=true "Title")
-
-
 
 ## Data Preparation
 
@@ -90,7 +65,7 @@ Model|Dataset|Setting|Top1(%)
 
      
 ## Citation
-If you find this model useful for your resesarch, please use the following BibTeX entry.
+If you find this model useful for your research, please use the following BibTeX entry.
 
     @inproceedings{cheng2020shiftgcn,  
       title     = {Skeleton-Based Action Recognition with Shift Graph Convolutional Network},  
