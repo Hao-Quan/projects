@@ -208,7 +208,7 @@ class Model(nn.Module):
         self.fc = nn.Linear(256, num_class)
         nn.init.normal(self.fc.weight, 0, math.sqrt(2. / num_class))
         bn_init(self.data_bn, 1)
-        # End: Integrate from Shift-GCN
+        # End: Integrate from Shift-GCN.
 
 
     def forward(self, input):
