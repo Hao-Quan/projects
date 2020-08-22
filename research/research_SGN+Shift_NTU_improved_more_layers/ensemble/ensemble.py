@@ -27,7 +27,7 @@ if __name__ == "__main__":
     #with open('./eval/' + dataset + '/test_upper_score.pkl', 'rb') as r1:
         r1 = pickle.load(r1)
 
-    with open(os.path.join(arg.lower_dir, 'epoch28_test_score.pkl'), 'rb') as r2:
+    with open(os.path.join(arg.lower_dir, 'lower_test_score.pkl'), 'rb') as r2:
     #with open('./eval/' + dataset + '/test_lower_score.pkl', 'rb') as r2:
         r2 = pickle.load(r2)
 

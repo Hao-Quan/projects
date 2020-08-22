@@ -8,12 +8,12 @@ checkpoint: null
 feeder: feeders.feeder.Feeder
 train_feeder_args:
   # Original data path
-#  data_path: ./data/ntu/xsub/train_data_joint_upper_middle.npy
-#  label_path: ./data/ntu/xsub/train_label.pkl
+  data_path: ./data/ntu/xsub/train_data_joint_upper_middle.npy
+  label_path: ./data/ntu/xsub/train_label.pkl
 
   # Lightweight data path
-  data_path: ./data/ntu_light/xsub/train_data_joint_upper_middle.npy
-  label_path: ./data/ntu_light/xsub/train_label.pkl
+#  data_path: ./data/ntu_light/xsub/train_data_joint_upper_middle.npy
+#  label_path: ./data/ntu_light/xsub/train_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/train_data_joint_upper_middle.npy
@@ -28,12 +28,12 @@ train_feeder_args:
 
 test_feeder_args:
   # Original data path
-#  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
-#  label_path: ./data/ntu/xsub/val_label.pkl
+  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
+  label_path: ./data/ntu/xsub/val_label.pkl
 
   # Lightweight data path
- data_path: ./data/ntu_light/xsub/val_data_joint_upper_middle.npy
- label_path: ./data/ntu_light/xsub/val_label.pkl
+# data_path: ./data/ntu_light/xsub/val_data_joint_upper_middle.npy
+# label_path: ./data/ntu_light/xsub/val_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/val_data_joint_upper_middle.npy
