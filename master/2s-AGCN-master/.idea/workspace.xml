@@ -20,13 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/model/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/model/semantic_shift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/semantic_shift.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1597349604.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1597349604.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift+2sagcn_NTU/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/ensemble.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1597070559.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1597070559.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work_dir/ntu/xsub/agcn_joint/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/work_dir/ntu/xsub/agcn_joint/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shift-GCN-master/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_lower.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_lower.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_128/lower_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_128/lower_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_128/upper_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_128/upper_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_32/lower_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_32/lower_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_32/upper_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_32/upper_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_64/lower_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_64/lower_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/bs_64/upper_test_score.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/xsub/bs_64/upper_test_score.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/ensemble.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/ensemble/ensemble.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/semantic_shift.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/trainlogs/train/events.out.tfevents.1597406467.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/trainlogs/val/events.out.tfevents.1597406467.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved_more_layers/config/nturgbd-cross-subject/train_upper_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved_more_layers/config/nturgbd-cross-subject/train_upper_westworld.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved_more_layers/config/nturgbd-cross-view/train_upper_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved_more_layers/config/nturgbd-cross-view/train_upper_westworld.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +60,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Shift-GCN-master" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -121,6 +133,8 @@
       <workItem from="1597129865297" duration="656000" />
       <workItem from="1597215534243" duration="856000" />
       <workItem from="1597393604010" duration="622000" />
+      <workItem from="1598198650347" duration="1244000" />
+      <workItem from="1598251973520" duration="4034000" />
     </task>
     <servers />
   </component>
@@ -140,46 +154,46 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596888588446">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1598252418625">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1596888588446" />
-    <state x="776" y="310" width="713" height="484" key="FileChooserDialogImpl" timestamp="1597215775601">
+    <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1598252418625" />
+    <state x="776" y="310" width="713" height="484" key="FileChooserDialogImpl" timestamp="1598279703458">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="776" y="310" width="713" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1597215775601" />
-    <state width="1807" height="368" key="GridCell.Tab.0.bottom" timestamp="1597093119496">
+    <state x="776" y="310" width="713" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1598279703458" />
+    <state width="1807" height="231" key="GridCell.Tab.0.bottom" timestamp="1598281878642">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119496" />
-    <state width="1807" height="368" key="GridCell.Tab.0.center" timestamp="1597093119496">
+    <state width="1807" height="231" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878642" />
+    <state width="1807" height="231" key="GridCell.Tab.0.center" timestamp="1598281878641">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119496" />
-    <state width="1807" height="368" key="GridCell.Tab.0.left" timestamp="1597093119496">
+    <state width="1807" height="231" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878641" />
+    <state width="1807" height="231" key="GridCell.Tab.0.left" timestamp="1598281878641">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119496" />
-    <state width="1807" height="368" key="GridCell.Tab.0.right" timestamp="1597093119496">
+    <state width="1807" height="231" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878641" />
+    <state width="1807" height="231" key="GridCell.Tab.0.right" timestamp="1598281878641">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119496" />
-    <state width="1807" height="368" key="GridCell.Tab.1.bottom" timestamp="1597093119497">
+    <state width="1807" height="231" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878641" />
+    <state width="1807" height="231" key="GridCell.Tab.1.bottom" timestamp="1598281878642">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119497" />
-    <state width="1807" height="368" key="GridCell.Tab.1.center" timestamp="1597093119497">
+    <state width="1807" height="231" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878642" />
+    <state width="1807" height="231" key="GridCell.Tab.1.center" timestamp="1598281878642">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119497" />
-    <state width="1807" height="368" key="GridCell.Tab.1.left" timestamp="1597093119496">
+    <state width="1807" height="231" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878642" />
+    <state width="1807" height="231" key="GridCell.Tab.1.left" timestamp="1598281878642">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119496" />
-    <state width="1807" height="368" key="GridCell.Tab.1.right" timestamp="1597093119497">
+    <state width="1807" height="231" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878642" />
+    <state width="1807" height="231" key="GridCell.Tab.1.right" timestamp="1598281878642">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="368" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1597093119497" />
+    <state width="1807" height="231" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1598281878642" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1596889081370">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -198,43 +212,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model/agcn.py</url>
-          <line>96</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/model/agcn.py</url>
           <line>141</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/graph/tools.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/graph/tools.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/graph/tools.py</url>
-          <line>24</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/graph/tools.py</url>
-          <line>18</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/model/agcn.py</url>
-          <line>102</line>
-          <option name="timeStamp" value="21" />
+          <line>48</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/2s_AGCN_master$main.coverage" NAME="main Coverage Results" MODIFIED="1597070555925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/2s_AGCN_master$main.coverage" NAME="main Coverage Results" MODIFIED="1598252419690" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

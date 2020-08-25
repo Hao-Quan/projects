@@ -1,0 +1,1157 @@
+[ Sat Aug 22 09:40:48 2020 ] Parameters:
+{'assume_yes': False,
+ 'base_lr': 0.05,
+ 'batch_size': 64,
+ 'case': 0,
+ 'checkpoint': None,
+ 'config': './config/nturgbd-cross-view/train_upper_westworld.yaml',
+ 'dataset': 'ntu',
+ 'debug': False,
+ 'device': [0, 1, 2, 3, 4],
+ 'eval_interval': 5,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 64,
+ 'graph': 'calo',
+ 'ignore_weights': [],
+ 'log_interval': 100,
+ 'metric': 'upper',
+ 'model': 'model.semantic_shift.Model',
+ 'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
+                'graph_args': {'labeling_mode': 'spatial'},
+                'num_class': 60,
+                'num_person': 2,
+                'num_point': 25,
+                'seg': 1},
+ 'model_saved_name': '',
+ 'monitor': 'acc_val',
+ 'nesterov': True,
+ 'num_epoch': 100,
+ 'num_worker': 8,
+ 'only_train_epoch': 0,
+ 'only_train_part': False,
+ 'optimizer': 'SGD',
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 2,
+ 'save_score': True,
+ 'seed': 1,
+ 'seg': 1,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [30, 40],
+ 'test_batch_size': 64,
+ 'test_feeder_args': {'data_path': '/data/ntu/xview/val_data_joint_upper_middle.npy',
+                      'label_path': '/data/ntu/xview/val_label.pkl'},
+ 'train': 1,
+ 'train_feeder_args': {'data_path': '/data/ntu/xview/train_data_joint_upper_middle.npy',
+                       'debug': False,
+                       'label_path': '/data/ntu/xview/train_label.pkl',
+                       'normalization': False,
+                       'random_choose': False,
+                       'random_move': False,
+                       'random_shift': False,
+                       'window_size': -1},
+ 'warm_up_epoch': 0,
+ 'weight_decay': 0.0005,
+ 'weights': None,
+ 'work_dir': './work_dir/ntu/xview/upper',
+ 'workers': 0}
+
+[ Sat Aug 22 09:40:48 2020 ] Model total number of params: 1515532
+[ Sat Aug 22 09:40:48 2020 ] Training epoch: 1, LR: 0.0500
+[ Sat Aug 22 09:42:06 2020 ] 	Batch(99/588) done. Acc: 0.140625 Loss: 3.3117  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 09:43:08 2020 ] 	Batch(199/588) done. Acc: 0.156250 Loss: 2.9550  lr:0.050000  network_time: 0.0828
+[ Sat Aug 22 09:44:10 2020 ] 	Batch(299/588) done. Acc: 0.265625 Loss: 2.6359  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 09:45:12 2020 ] 	Batch(399/588) done. Acc: 0.234375 Loss: 2.7049  lr:0.050000  network_time: 0.0710
+[ Sat Aug 22 09:46:14 2020 ] 	Batch(499/588) done. Acc: 0.437500 Loss: 2.2941  lr:0.050000  network_time: 0.0751
+[ Sat Aug 22 09:47:09 2020 ] Eval epoch: 1
+[ Sat Aug 22 09:48:16 2020 ] 	Mean test loss of 296 batches: 2.8501356364907444.
+[ Sat Aug 22 09:48:16 2020 ] 	Top 1: 21.28%
+[ Sat Aug 22 09:48:16 2020 ] 	Top 5: 59.26%
+[ Sat Aug 22 09:48:17 2020 ] Training epoch: 2, LR: 0.0500
+[ Sat Aug 22 09:48:26 2020 ] 	Batch(11/588) done. Acc: 0.343750 Loss: 2.2793  lr:0.050000  network_time: 0.0714
+[ Sat Aug 22 09:49:28 2020 ] 	Batch(111/588) done. Acc: 0.343750 Loss: 2.3928  lr:0.050000  network_time: 0.0828
+[ Sat Aug 22 09:50:31 2020 ] 	Batch(211/588) done. Acc: 0.359375 Loss: 2.2951  lr:0.050000  network_time: 0.0973
+[ Sat Aug 22 09:51:33 2020 ] 	Batch(311/588) done. Acc: 0.437500 Loss: 2.2685  lr:0.050000  network_time: 0.0819
+[ Sat Aug 22 09:52:35 2020 ] 	Batch(411/588) done. Acc: 0.375000 Loss: 2.3357  lr:0.050000  network_time: 0.0841
+[ Sat Aug 22 09:53:37 2020 ] 	Batch(511/588) done. Acc: 0.375000 Loss: 2.5539  lr:0.050000  network_time: 0.0763
+[ Sat Aug 22 09:54:24 2020 ] Eval epoch: 2
+[ Sat Aug 22 09:55:31 2020 ] 	Mean test loss of 296 batches: 1.712117799834625.
+[ Sat Aug 22 09:55:31 2020 ] 	Top 1: 51.13%
+[ Sat Aug 22 09:55:31 2020 ] 	Top 5: 85.93%
+[ Sat Aug 22 09:55:33 2020 ] Training epoch: 3, LR: 0.0500
+[ Sat Aug 22 09:55:49 2020 ] 	Batch(23/588) done. Acc: 0.562500 Loss: 1.6678  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 09:56:51 2020 ] 	Batch(123/588) done. Acc: 0.453125 Loss: 2.1741  lr:0.050000  network_time: 0.0824
+[ Sat Aug 22 09:57:54 2020 ] 	Batch(223/588) done. Acc: 0.484375 Loss: 1.8672  lr:0.050000  network_time: 0.0945
+[ Sat Aug 22 09:58:56 2020 ] 	Batch(323/588) done. Acc: 0.531250 Loss: 1.7690  lr:0.050000  network_time: 0.0707
+[ Sat Aug 22 09:59:59 2020 ] 	Batch(423/588) done. Acc: 0.468750 Loss: 1.7863  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 10:01:01 2020 ] 	Batch(523/588) done. Acc: 0.531250 Loss: 1.8118  lr:0.050000  network_time: 0.0701
+[ Sat Aug 22 10:01:41 2020 ] Eval epoch: 3
+[ Sat Aug 22 10:02:47 2020 ] 	Mean test loss of 296 batches: 1.5639186346450367.
+[ Sat Aug 22 10:02:47 2020 ] 	Top 1: 55.89%
+[ Sat Aug 22 10:02:47 2020 ] 	Top 5: 87.95%
+[ Sat Aug 22 10:02:49 2020 ] Training epoch: 4, LR: 0.0500
+[ Sat Aug 22 10:03:13 2020 ] 	Batch(35/588) done. Acc: 0.453125 Loss: 1.8997  lr:0.050000  network_time: 0.0696
+[ Sat Aug 22 10:04:15 2020 ] 	Batch(135/588) done. Acc: 0.578125 Loss: 1.4198  lr:0.050000  network_time: 0.0694
+[ Sat Aug 22 10:05:17 2020 ] 	Batch(235/588) done. Acc: 0.593750 Loss: 1.4728  lr:0.050000  network_time: 0.0832
+[ Sat Aug 22 10:06:19 2020 ] 	Batch(335/588) done. Acc: 0.578125 Loss: 1.3088  lr:0.050000  network_time: 0.0744
+[ Sat Aug 22 10:07:21 2020 ] 	Batch(435/588) done. Acc: 0.406250 Loss: 2.0067  lr:0.050000  network_time: 0.0734
+[ Sat Aug 22 10:08:24 2020 ] 	Batch(535/588) done. Acc: 0.531250 Loss: 1.6724  lr:0.050000  network_time: 0.0799
+[ Sat Aug 22 10:08:56 2020 ] Eval epoch: 4
+[ Sat Aug 22 10:10:03 2020 ] 	Mean test loss of 296 batches: 1.3594975803752203.
+[ Sat Aug 22 10:10:03 2020 ] 	Top 1: 59.04%
+[ Sat Aug 22 10:10:03 2020 ] 	Top 5: 90.41%
+[ Sat Aug 22 10:10:05 2020 ] Training epoch: 5, LR: 0.0500
+[ Sat Aug 22 10:10:36 2020 ] 	Batch(47/588) done. Acc: 0.421875 Loss: 1.9471  lr:0.050000  network_time: 0.0709
+[ Sat Aug 22 10:11:38 2020 ] 	Batch(147/588) done. Acc: 0.703125 Loss: 0.9669  lr:0.050000  network_time: 0.0810
+[ Sat Aug 22 10:12:41 2020 ] 	Batch(247/588) done. Acc: 0.546875 Loss: 1.5193  lr:0.050000  network_time: 0.0811
+[ Sat Aug 22 10:13:44 2020 ] 	Batch(347/588) done. Acc: 0.625000 Loss: 1.6375  lr:0.050000  network_time: 0.1290
+[ Sat Aug 22 10:14:46 2020 ] 	Batch(447/588) done. Acc: 0.640625 Loss: 1.1776  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 10:15:49 2020 ] 	Batch(547/588) done. Acc: 0.578125 Loss: 1.3542  lr:0.050000  network_time: 0.0862
+[ Sat Aug 22 10:16:14 2020 ] Eval epoch: 5
+[ Sat Aug 22 10:17:21 2020 ] 	Mean test loss of 296 batches: 1.2589442546705942.
+[ Sat Aug 22 10:17:21 2020 ] 	Top 1: 61.44%
+[ Sat Aug 22 10:17:21 2020 ] 	Top 5: 91.14%
+[ Sat Aug 22 10:17:23 2020 ] Training epoch: 6, LR: 0.0500
+[ Sat Aug 22 10:18:02 2020 ] 	Batch(59/588) done. Acc: 0.562500 Loss: 1.4136  lr:0.050000  network_time: 0.0704
+[ Sat Aug 22 10:19:04 2020 ] 	Batch(159/588) done. Acc: 0.359375 Loss: 1.8982  lr:0.050000  network_time: 0.0824
+[ Sat Aug 22 10:20:07 2020 ] 	Batch(259/588) done. Acc: 0.562500 Loss: 1.3004  lr:0.050000  network_time: 0.1691
+[ Sat Aug 22 10:21:09 2020 ] 	Batch(359/588) done. Acc: 0.515625 Loss: 1.7056  lr:0.050000  network_time: 0.0971
+[ Sat Aug 22 10:22:11 2020 ] 	Batch(459/588) done. Acc: 0.562500 Loss: 1.5192  lr:0.050000  network_time: 0.0847
+[ Sat Aug 22 10:23:14 2020 ] 	Batch(559/588) done. Acc: 0.593750 Loss: 1.5175  lr:0.050000  network_time: 0.0912
+[ Sat Aug 22 10:23:32 2020 ] Eval epoch: 6
+[ Sat Aug 22 10:24:38 2020 ] 	Mean test loss of 296 batches: 1.1877729338971343.
+[ Sat Aug 22 10:24:39 2020 ] 	Top 1: 64.48%
+[ Sat Aug 22 10:24:39 2020 ] 	Top 5: 91.74%
+[ Sat Aug 22 10:24:40 2020 ] Training epoch: 7, LR: 0.0500
+[ Sat Aug 22 10:25:26 2020 ] 	Batch(71/588) done. Acc: 0.531250 Loss: 1.6957  lr:0.050000  network_time: 0.0824
+[ Sat Aug 22 10:26:28 2020 ] 	Batch(171/588) done. Acc: 0.531250 Loss: 1.7022  lr:0.050000  network_time: 0.0835
+[ Sat Aug 22 10:27:30 2020 ] 	Batch(271/588) done. Acc: 0.656250 Loss: 1.2659  lr:0.050000  network_time: 0.0755
+[ Sat Aug 22 10:28:32 2020 ] 	Batch(371/588) done. Acc: 0.531250 Loss: 1.5719  lr:0.050000  network_time: 0.0830
+[ Sat Aug 22 10:29:34 2020 ] 	Batch(471/588) done. Acc: 0.671875 Loss: 1.2479  lr:0.050000  network_time: 0.0664
+[ Sat Aug 22 10:30:36 2020 ] 	Batch(571/588) done. Acc: 0.593750 Loss: 1.4514  lr:0.050000  network_time: 0.0707
+[ Sat Aug 22 10:30:46 2020 ] Eval epoch: 7
+[ Sat Aug 22 10:31:53 2020 ] 	Mean test loss of 296 batches: 1.1008971893304103.
+[ Sat Aug 22 10:31:53 2020 ] 	Top 1: 67.13%
+[ Sat Aug 22 10:31:53 2020 ] 	Top 5: 92.77%
+[ Sat Aug 22 10:31:55 2020 ] Training epoch: 8, LR: 0.0500
+[ Sat Aug 22 10:32:48 2020 ] 	Batch(83/588) done. Acc: 0.640625 Loss: 1.4362  lr:0.050000  network_time: 0.0701
+[ Sat Aug 22 10:33:50 2020 ] 	Batch(183/588) done. Acc: 0.609375 Loss: 1.2354  lr:0.050000  network_time: 0.0895
+[ Sat Aug 22 10:34:53 2020 ] 	Batch(283/588) done. Acc: 0.656250 Loss: 1.0765  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 10:35:55 2020 ] 	Batch(383/588) done. Acc: 0.703125 Loss: 1.0908  lr:0.050000  network_time: 0.0958
+[ Sat Aug 22 10:36:57 2020 ] 	Batch(483/588) done. Acc: 0.609375 Loss: 1.2877  lr:0.050000  network_time: 0.0918
+[ Sat Aug 22 10:37:59 2020 ] 	Batch(583/588) done. Acc: 0.609375 Loss: 1.2813  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 10:38:02 2020 ] Eval epoch: 8
+[ Sat Aug 22 10:39:09 2020 ] 	Mean test loss of 296 batches: 1.034030563223201.
+[ Sat Aug 22 10:39:09 2020 ] 	Top 1: 68.88%
+[ Sat Aug 22 10:39:09 2020 ] 	Top 5: 93.33%
+[ Sat Aug 22 10:39:11 2020 ] Training epoch: 9, LR: 0.0500
+[ Sat Aug 22 10:40:12 2020 ] 	Batch(95/588) done. Acc: 0.734375 Loss: 1.0411  lr:0.050000  network_time: 0.0955
+[ Sat Aug 22 10:41:15 2020 ] 	Batch(195/588) done. Acc: 0.625000 Loss: 1.3104  lr:0.050000  network_time: 0.0874
+[ Sat Aug 22 10:42:18 2020 ] 	Batch(295/588) done. Acc: 0.656250 Loss: 1.3388  lr:0.050000  network_time: 0.0734
+[ Sat Aug 22 10:43:20 2020 ] 	Batch(395/588) done. Acc: 0.671875 Loss: 0.9952  lr:0.050000  network_time: 0.0839
+[ Sat Aug 22 10:44:23 2020 ] 	Batch(495/588) done. Acc: 0.671875 Loss: 1.3169  lr:0.050000  network_time: 0.0800
+[ Sat Aug 22 10:45:21 2020 ] Eval epoch: 9
+[ Sat Aug 22 10:46:27 2020 ] 	Mean test loss of 296 batches: 1.0146318325722539.
+[ Sat Aug 22 10:46:28 2020 ] 	Top 1: 69.71%
+[ Sat Aug 22 10:46:28 2020 ] 	Top 5: 93.65%
+[ Sat Aug 22 10:46:29 2020 ] Training epoch: 10, LR: 0.0500
+[ Sat Aug 22 10:46:35 2020 ] 	Batch(7/588) done. Acc: 0.656250 Loss: 0.9767  lr:0.050000  network_time: 0.0742
+[ Sat Aug 22 10:47:38 2020 ] 	Batch(107/588) done. Acc: 0.656250 Loss: 1.1098  lr:0.050000  network_time: 0.0900
+[ Sat Aug 22 10:48:40 2020 ] 	Batch(207/588) done. Acc: 0.562500 Loss: 1.2486  lr:0.050000  network_time: 0.0961
+[ Sat Aug 22 10:49:43 2020 ] 	Batch(307/588) done. Acc: 0.671875 Loss: 0.9529  lr:0.050000  network_time: 0.0686
+[ Sat Aug 22 10:50:46 2020 ] 	Batch(407/588) done. Acc: 0.703125 Loss: 0.8280  lr:0.050000  network_time: 0.0745
+[ Sat Aug 22 10:51:48 2020 ] 	Batch(507/588) done. Acc: 0.625000 Loss: 1.1952  lr:0.050000  network_time: 0.0737
+[ Sat Aug 22 10:52:39 2020 ] Eval epoch: 10
+[ Sat Aug 22 10:53:46 2020 ] 	Mean test loss of 296 batches: 0.918859883639458.
+[ Sat Aug 22 10:53:46 2020 ] 	Top 1: 71.87%
+[ Sat Aug 22 10:53:46 2020 ] 	Top 5: 94.66%
+[ Sat Aug 22 10:53:47 2020 ] Training epoch: 11, LR: 0.0500
+[ Sat Aug 22 10:54:01 2020 ] 	Batch(19/588) done. Acc: 0.765625 Loss: 0.8396  lr:0.050000  network_time: 0.0830
+[ Sat Aug 22 10:55:03 2020 ] 	Batch(119/588) done. Acc: 0.812500 Loss: 0.7968  lr:0.050000  network_time: 0.0839
+[ Sat Aug 22 10:56:05 2020 ] 	Batch(219/588) done. Acc: 0.734375 Loss: 0.9742  lr:0.050000  network_time: 0.0733
+[ Sat Aug 22 10:57:07 2020 ] 	Batch(319/588) done. Acc: 0.687500 Loss: 1.0679  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 10:58:10 2020 ] 	Batch(419/588) done. Acc: 0.671875 Loss: 1.1684  lr:0.050000  network_time: 0.0845
+[ Sat Aug 22 10:59:12 2020 ] 	Batch(519/588) done. Acc: 0.781250 Loss: 0.8508  lr:0.050000  network_time: 0.0721
+[ Sat Aug 22 10:59:54 2020 ] Eval epoch: 11
+[ Sat Aug 22 11:01:01 2020 ] 	Mean test loss of 296 batches: 0.921915805218993.
+[ Sat Aug 22 11:01:01 2020 ] 	Top 1: 72.04%
+[ Sat Aug 22 11:01:01 2020 ] 	Top 5: 95.02%
+[ Sat Aug 22 11:01:02 2020 ] Training epoch: 12, LR: 0.0500
+[ Sat Aug 22 11:01:24 2020 ] 	Batch(31/588) done. Acc: 0.687500 Loss: 1.0192  lr:0.050000  network_time: 0.0809
+[ Sat Aug 22 11:02:26 2020 ] 	Batch(131/588) done. Acc: 0.781250 Loss: 0.8912  lr:0.050000  network_time: 0.0785
+[ Sat Aug 22 11:03:29 2020 ] 	Batch(231/588) done. Acc: 0.734375 Loss: 0.9915  lr:0.050000  network_time: 0.0931
+[ Sat Aug 22 11:04:31 2020 ] 	Batch(331/588) done. Acc: 0.703125 Loss: 1.1222  lr:0.050000  network_time: 0.0858
+[ Sat Aug 22 11:05:34 2020 ] 	Batch(431/588) done. Acc: 0.796875 Loss: 0.7794  lr:0.050000  network_time: 0.0861
+[ Sat Aug 22 11:06:36 2020 ] 	Batch(531/588) done. Acc: 0.687500 Loss: 1.0640  lr:0.050000  network_time: 0.0862
+[ Sat Aug 22 11:07:11 2020 ] Eval epoch: 12
+[ Sat Aug 22 11:08:17 2020 ] 	Mean test loss of 296 batches: 0.8418189358670969.
+[ Sat Aug 22 11:08:17 2020 ] 	Top 1: 74.02%
+[ Sat Aug 22 11:08:18 2020 ] 	Top 5: 95.46%
+[ Sat Aug 22 11:08:19 2020 ] Training epoch: 13, LR: 0.0500
+[ Sat Aug 22 11:08:48 2020 ] 	Batch(43/588) done. Acc: 0.718750 Loss: 0.9099  lr:0.050000  network_time: 0.1003
+[ Sat Aug 22 11:09:50 2020 ] 	Batch(143/588) done. Acc: 0.718750 Loss: 0.8845  lr:0.050000  network_time: 0.0840
+[ Sat Aug 22 11:10:52 2020 ] 	Batch(243/588) done. Acc: 0.656250 Loss: 1.1622  lr:0.050000  network_time: 0.0733
+[ Sat Aug 22 11:11:54 2020 ] 	Batch(343/588) done. Acc: 0.750000 Loss: 0.8364  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 11:12:56 2020 ] 	Batch(443/588) done. Acc: 0.625000 Loss: 0.9683  lr:0.050000  network_time: 0.0823
+[ Sat Aug 22 11:13:58 2020 ] 	Batch(543/588) done. Acc: 0.734375 Loss: 0.9843  lr:0.050000  network_time: 0.0968
+[ Sat Aug 22 11:14:26 2020 ] Eval epoch: 13
+[ Sat Aug 22 11:15:33 2020 ] 	Mean test loss of 296 batches: 0.8269904225661948.
+[ Sat Aug 22 11:15:33 2020 ] 	Top 1: 75.03%
+[ Sat Aug 22 11:15:33 2020 ] 	Top 5: 95.35%
+[ Sat Aug 22 11:15:34 2020 ] Training epoch: 14, LR: 0.0500
+[ Sat Aug 22 11:16:11 2020 ] 	Batch(55/588) done. Acc: 0.750000 Loss: 0.8760  lr:0.050000  network_time: 0.0810
+[ Sat Aug 22 11:17:13 2020 ] 	Batch(155/588) done. Acc: 0.750000 Loss: 0.8813  lr:0.050000  network_time: 0.0869
+[ Sat Aug 22 11:18:15 2020 ] 	Batch(255/588) done. Acc: 0.796875 Loss: 0.7449  lr:0.050000  network_time: 0.0738
+[ Sat Aug 22 11:19:17 2020 ] 	Batch(355/588) done. Acc: 0.656250 Loss: 1.0356  lr:0.050000  network_time: 0.0712
+[ Sat Aug 22 11:20:19 2020 ] 	Batch(455/588) done. Acc: 0.656250 Loss: 0.9796  lr:0.050000  network_time: 0.0854
+[ Sat Aug 22 11:21:21 2020 ] 	Batch(555/588) done. Acc: 0.703125 Loss: 0.9074  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 11:21:42 2020 ] Eval epoch: 14
+[ Sat Aug 22 11:22:49 2020 ] 	Mean test loss of 296 batches: 0.7677631772853233.
+[ Sat Aug 22 11:22:49 2020 ] 	Top 1: 76.08%
+[ Sat Aug 22 11:22:49 2020 ] 	Top 5: 96.19%
+[ Sat Aug 22 11:22:50 2020 ] Training epoch: 15, LR: 0.0500
+[ Sat Aug 22 11:23:34 2020 ] 	Batch(67/588) done. Acc: 0.718750 Loss: 0.9600  lr:0.050000  network_time: 0.0785
+[ Sat Aug 22 11:24:36 2020 ] 	Batch(167/588) done. Acc: 0.765625 Loss: 0.8227  lr:0.050000  network_time: 0.0818
+[ Sat Aug 22 11:25:39 2020 ] 	Batch(267/588) done. Acc: 0.718750 Loss: 0.9681  lr:0.050000  network_time: 0.0848
+[ Sat Aug 22 11:26:41 2020 ] 	Batch(367/588) done. Acc: 0.734375 Loss: 0.6797  lr:0.050000  network_time: 0.0846
+[ Sat Aug 22 11:27:44 2020 ] 	Batch(467/588) done. Acc: 0.671875 Loss: 0.9818  lr:0.050000  network_time: 0.0841
+[ Sat Aug 22 11:28:46 2020 ] 	Batch(567/588) done. Acc: 0.625000 Loss: 1.0314  lr:0.050000  network_time: 0.0782
+[ Sat Aug 22 11:28:59 2020 ] Eval epoch: 15
+[ Sat Aug 22 11:30:06 2020 ] 	Mean test loss of 296 batches: 0.7433259502758045.
+[ Sat Aug 22 11:30:06 2020 ] 	Top 1: 77.58%
+[ Sat Aug 22 11:30:06 2020 ] 	Top 5: 96.01%
+[ Sat Aug 22 11:30:07 2020 ] Training epoch: 16, LR: 0.0500
+[ Sat Aug 22 11:30:58 2020 ] 	Batch(79/588) done. Acc: 0.640625 Loss: 0.9748  lr:0.050000  network_time: 0.0861
+[ Sat Aug 22 11:32:00 2020 ] 	Batch(179/588) done. Acc: 0.796875 Loss: 0.5674  lr:0.050000  network_time: 0.0689
+[ Sat Aug 22 11:33:02 2020 ] 	Batch(279/588) done. Acc: 0.843750 Loss: 0.5891  lr:0.050000  network_time: 0.0810
+[ Sat Aug 22 11:34:04 2020 ] 	Batch(379/588) done. Acc: 0.781250 Loss: 0.6054  lr:0.050000  network_time: 0.0786
+[ Sat Aug 22 11:35:07 2020 ] 	Batch(479/588) done. Acc: 0.703125 Loss: 0.9487  lr:0.050000  network_time: 0.0722
+[ Sat Aug 22 11:36:09 2020 ] 	Batch(579/588) done. Acc: 0.750000 Loss: 0.9068  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 11:36:14 2020 ] Eval epoch: 16
+[ Sat Aug 22 11:37:20 2020 ] 	Mean test loss of 296 batches: 0.6751200375524727.
+[ Sat Aug 22 11:37:21 2020 ] 	Top 1: 79.54%
+[ Sat Aug 22 11:37:21 2020 ] 	Top 5: 96.50%
+[ Sat Aug 22 11:37:22 2020 ] Training epoch: 17, LR: 0.0500
+[ Sat Aug 22 11:38:21 2020 ] 	Batch(91/588) done. Acc: 0.718750 Loss: 0.9432  lr:0.050000  network_time: 0.0719
+[ Sat Aug 22 11:39:24 2020 ] 	Batch(191/588) done. Acc: 0.765625 Loss: 0.6948  lr:0.050000  network_time: 0.1229
+[ Sat Aug 22 11:40:26 2020 ] 	Batch(291/588) done. Acc: 0.750000 Loss: 0.8874  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 11:41:29 2020 ] 	Batch(391/588) done. Acc: 0.765625 Loss: 0.7017  lr:0.050000  network_time: 0.0802
+[ Sat Aug 22 11:42:32 2020 ] 	Batch(491/588) done. Acc: 0.671875 Loss: 0.9069  lr:0.050000  network_time: 0.0791
+[ Sat Aug 22 11:43:32 2020 ] Eval epoch: 17
+[ Sat Aug 22 11:44:39 2020 ] 	Mean test loss of 296 batches: 0.7676688246428967.
+[ Sat Aug 22 11:44:39 2020 ] 	Top 1: 76.38%
+[ Sat Aug 22 11:44:39 2020 ] 	Top 5: 96.10%
+[ Sat Aug 22 11:44:40 2020 ] Training epoch: 18, LR: 0.0500
+[ Sat Aug 22 11:44:44 2020 ] 	Batch(3/588) done. Acc: 0.718750 Loss: 0.9413  lr:0.050000  network_time: 0.1808
+[ Sat Aug 22 11:45:47 2020 ] 	Batch(103/588) done. Acc: 0.734375 Loss: 1.0322  lr:0.050000  network_time: 0.0825
+[ Sat Aug 22 11:46:49 2020 ] 	Batch(203/588) done. Acc: 0.703125 Loss: 0.8991  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 11:47:52 2020 ] 	Batch(303/588) done. Acc: 0.781250 Loss: 0.6159  lr:0.050000  network_time: 0.0826
+[ Sat Aug 22 11:48:54 2020 ] 	Batch(403/588) done. Acc: 0.703125 Loss: 1.0370  lr:0.050000  network_time: 0.0854
+[ Sat Aug 22 11:49:57 2020 ] 	Batch(503/588) done. Acc: 0.828125 Loss: 0.6314  lr:0.050000  network_time: 0.0782
+[ Sat Aug 22 11:50:50 2020 ] Eval epoch: 18
+[ Sat Aug 22 11:51:57 2020 ] 	Mean test loss of 296 batches: 0.7607321950632173.
+[ Sat Aug 22 11:51:57 2020 ] 	Top 1: 76.34%
+[ Sat Aug 22 11:51:57 2020 ] 	Top 5: 95.73%
+[ Sat Aug 22 11:51:58 2020 ] Training epoch: 19, LR: 0.0500
+[ Sat Aug 22 11:52:10 2020 ] 	Batch(15/588) done. Acc: 0.781250 Loss: 0.7814  lr:0.050000  network_time: 0.0804
+[ Sat Aug 22 11:53:12 2020 ] 	Batch(115/588) done. Acc: 0.765625 Loss: 0.7650  lr:0.050000  network_time: 0.0827
+[ Sat Aug 22 11:54:14 2020 ] 	Batch(215/588) done. Acc: 0.656250 Loss: 0.8870  lr:0.050000  network_time: 0.0713
+[ Sat Aug 22 11:55:16 2020 ] 	Batch(315/588) done. Acc: 0.765625 Loss: 0.9051  lr:0.050000  network_time: 0.0866
+[ Sat Aug 22 11:56:18 2020 ] 	Batch(415/588) done. Acc: 0.718750 Loss: 0.9012  lr:0.050000  network_time: 0.0682
+[ Sat Aug 22 11:57:20 2020 ] 	Batch(515/588) done. Acc: 0.671875 Loss: 0.9022  lr:0.050000  network_time: 0.0813
+[ Sat Aug 22 11:58:05 2020 ] Eval epoch: 19
+[ Sat Aug 22 11:59:12 2020 ] 	Mean test loss of 296 batches: 0.6804244334532602.
+[ Sat Aug 22 11:59:12 2020 ] 	Top 1: 78.87%
+[ Sat Aug 22 11:59:12 2020 ] 	Top 5: 96.78%
+[ Sat Aug 22 11:59:13 2020 ] Training epoch: 20, LR: 0.0500
+[ Sat Aug 22 11:59:32 2020 ] 	Batch(27/588) done. Acc: 0.687500 Loss: 0.9668  lr:0.050000  network_time: 0.0836
+[ Sat Aug 22 12:00:34 2020 ] 	Batch(127/588) done. Acc: 0.671875 Loss: 1.0690  lr:0.050000  network_time: 0.0805
+[ Sat Aug 22 12:01:36 2020 ] 	Batch(227/588) done. Acc: 0.687500 Loss: 1.0751  lr:0.050000  network_time: 0.0735
+[ Sat Aug 22 12:02:38 2020 ] 	Batch(327/588) done. Acc: 0.734375 Loss: 0.9051  lr:0.050000  network_time: 0.0801
+[ Sat Aug 22 12:03:40 2020 ] 	Batch(427/588) done. Acc: 0.750000 Loss: 0.9710  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 12:04:42 2020 ] 	Batch(527/588) done. Acc: 0.703125 Loss: 1.0238  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 12:05:19 2020 ] Eval epoch: 20
+[ Sat Aug 22 12:06:26 2020 ] 	Mean test loss of 296 batches: 0.7156130992178176.
+[ Sat Aug 22 12:06:26 2020 ] 	Top 1: 78.11%
+[ Sat Aug 22 12:06:26 2020 ] 	Top 5: 96.08%
+[ Sat Aug 22 12:06:28 2020 ] Training epoch: 21, LR: 0.0500
+[ Sat Aug 22 12:06:54 2020 ] 	Batch(39/588) done. Acc: 0.765625 Loss: 0.9163  lr:0.050000  network_time: 0.0726
+[ Sat Aug 22 12:07:56 2020 ] 	Batch(139/588) done. Acc: 0.828125 Loss: 0.5250  lr:0.050000  network_time: 0.0879
+[ Sat Aug 22 12:08:59 2020 ] 	Batch(239/588) done. Acc: 0.718750 Loss: 0.8945  lr:0.050000  network_time: 0.1358
+[ Sat Aug 22 12:10:01 2020 ] 	Batch(339/588) done. Acc: 0.718750 Loss: 0.7691  lr:0.050000  network_time: 0.0845
+[ Sat Aug 22 12:11:03 2020 ] 	Batch(439/588) done. Acc: 0.734375 Loss: 0.8105  lr:0.050000  network_time: 0.0715
+[ Sat Aug 22 12:12:06 2020 ] 	Batch(539/588) done. Acc: 0.687500 Loss: 0.8459  lr:0.050000  network_time: 0.1263
+[ Sat Aug 22 12:12:36 2020 ] Eval epoch: 21
+[ Sat Aug 22 12:13:42 2020 ] 	Mean test loss of 296 batches: 0.7247601450496429.
+[ Sat Aug 22 12:13:43 2020 ] 	Top 1: 78.05%
+[ Sat Aug 22 12:13:43 2020 ] 	Top 5: 96.37%
+[ Sat Aug 22 12:13:44 2020 ] Training epoch: 22, LR: 0.0500
+[ Sat Aug 22 12:14:18 2020 ] 	Batch(51/588) done. Acc: 0.765625 Loss: 0.7499  lr:0.050000  network_time: 0.0844
+[ Sat Aug 22 12:15:20 2020 ] 	Batch(151/588) done. Acc: 0.750000 Loss: 0.9209  lr:0.050000  network_time: 0.0764
+[ Sat Aug 22 12:16:22 2020 ] 	Batch(251/588) done. Acc: 0.796875 Loss: 0.7269  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 12:17:24 2020 ] 	Batch(351/588) done. Acc: 0.843750 Loss: 0.6870  lr:0.050000  network_time: 0.0900
+[ Sat Aug 22 12:18:26 2020 ] 	Batch(451/588) done. Acc: 0.687500 Loss: 0.8727  lr:0.050000  network_time: 0.0813
+[ Sat Aug 22 12:19:28 2020 ] 	Batch(551/588) done. Acc: 0.796875 Loss: 0.7313  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 12:19:50 2020 ] Eval epoch: 22
+[ Sat Aug 22 12:20:57 2020 ] 	Mean test loss of 296 batches: 0.6656154212416023.
+[ Sat Aug 22 12:20:57 2020 ] 	Top 1: 79.85%
+[ Sat Aug 22 12:20:57 2020 ] 	Top 5: 96.44%
+[ Sat Aug 22 12:20:59 2020 ] Training epoch: 23, LR: 0.0500
+[ Sat Aug 22 12:21:40 2020 ] 	Batch(63/588) done. Acc: 0.812500 Loss: 0.6055  lr:0.050000  network_time: 0.1000
+[ Sat Aug 22 12:22:42 2020 ] 	Batch(163/588) done. Acc: 0.843750 Loss: 0.5148  lr:0.050000  network_time: 0.0707
+[ Sat Aug 22 12:23:45 2020 ] 	Batch(263/588) done. Acc: 0.796875 Loss: 0.7325  lr:0.050000  network_time: 0.0878
+[ Sat Aug 22 12:24:47 2020 ] 	Batch(363/588) done. Acc: 0.734375 Loss: 0.8906  lr:0.050000  network_time: 0.0852
+[ Sat Aug 22 12:25:50 2020 ] 	Batch(463/588) done. Acc: 0.765625 Loss: 0.7115  lr:0.050000  network_time: 0.0842
+[ Sat Aug 22 12:26:52 2020 ] 	Batch(563/588) done. Acc: 0.796875 Loss: 0.6135  lr:0.050000  network_time: 0.0800
+[ Sat Aug 22 12:27:08 2020 ] Eval epoch: 23
+[ Sat Aug 22 12:28:15 2020 ] 	Mean test loss of 296 batches: 0.6386607642210013.
+[ Sat Aug 22 12:28:15 2020 ] 	Top 1: 80.55%
+[ Sat Aug 22 12:28:15 2020 ] 	Top 5: 96.60%
+[ Sat Aug 22 12:28:16 2020 ] Training epoch: 24, LR: 0.0500
+[ Sat Aug 22 12:29:05 2020 ] 	Batch(75/588) done. Acc: 0.734375 Loss: 1.0554  lr:0.050000  network_time: 0.0992
+[ Sat Aug 22 12:30:07 2020 ] 	Batch(175/588) done. Acc: 0.687500 Loss: 0.9404  lr:0.050000  network_time: 0.0699
+[ Sat Aug 22 12:31:10 2020 ] 	Batch(275/588) done. Acc: 0.750000 Loss: 0.7413  lr:0.050000  network_time: 0.0829
+[ Sat Aug 22 12:32:13 2020 ] 	Batch(375/588) done. Acc: 0.765625 Loss: 0.7217  lr:0.050000  network_time: 0.0705
+[ Sat Aug 22 12:33:15 2020 ] 	Batch(475/588) done. Acc: 0.843750 Loss: 0.7141  lr:0.050000  network_time: 0.0815
+[ Sat Aug 22 12:34:17 2020 ] 	Batch(575/588) done. Acc: 0.796875 Loss: 0.6281  lr:0.050000  network_time: 0.1416
+[ Sat Aug 22 12:34:25 2020 ] Eval epoch: 24
+[ Sat Aug 22 12:35:32 2020 ] 	Mean test loss of 296 batches: 0.6715116879424533.
+[ Sat Aug 22 12:35:32 2020 ] 	Top 1: 79.99%
+[ Sat Aug 22 12:35:32 2020 ] 	Top 5: 96.50%
+[ Sat Aug 22 12:35:34 2020 ] Training epoch: 25, LR: 0.0500
+[ Sat Aug 22 12:36:29 2020 ] 	Batch(87/588) done. Acc: 0.812500 Loss: 0.7318  lr:0.050000  network_time: 0.0691
+[ Sat Aug 22 12:37:31 2020 ] 	Batch(187/588) done. Acc: 0.796875 Loss: 0.8116  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 12:38:33 2020 ] 	Batch(287/588) done. Acc: 0.718750 Loss: 0.9524  lr:0.050000  network_time: 0.0812
+[ Sat Aug 22 12:39:35 2020 ] 	Batch(387/588) done. Acc: 0.843750 Loss: 0.6819  lr:0.050000  network_time: 0.0730
+[ Sat Aug 22 12:40:37 2020 ] 	Batch(487/588) done. Acc: 0.781250 Loss: 0.8116  lr:0.050000  network_time: 0.0790
+[ Sat Aug 22 12:41:39 2020 ] 	Batch(587/588) done. Acc: 0.843750 Loss: 0.6842  lr:0.050000  network_time: 0.0711
+[ Sat Aug 22 12:41:39 2020 ] Eval epoch: 25
+[ Sat Aug 22 12:42:46 2020 ] 	Mean test loss of 296 batches: 0.7019907181226724.
+[ Sat Aug 22 12:42:46 2020 ] 	Top 1: 78.94%
+[ Sat Aug 22 12:42:46 2020 ] 	Top 5: 96.33%
+[ Sat Aug 22 12:42:47 2020 ] Training epoch: 26, LR: 0.0500
+[ Sat Aug 22 12:43:51 2020 ] 	Batch(99/588) done. Acc: 0.796875 Loss: 0.5613  lr:0.050000  network_time: 0.1026
+[ Sat Aug 22 12:44:54 2020 ] 	Batch(199/588) done. Acc: 0.765625 Loss: 0.5567  lr:0.050000  network_time: 0.0839
+[ Sat Aug 22 12:45:56 2020 ] 	Batch(299/588) done. Acc: 0.859375 Loss: 0.5070  lr:0.050000  network_time: 0.0739
+[ Sat Aug 22 12:46:58 2020 ] 	Batch(399/588) done. Acc: 0.765625 Loss: 0.6692  lr:0.050000  network_time: 0.0822
+[ Sat Aug 22 12:48:01 2020 ] 	Batch(499/588) done. Acc: 0.781250 Loss: 0.6472  lr:0.050000  network_time: 0.1205
+[ Sat Aug 22 12:48:56 2020 ] Eval epoch: 26
+[ Sat Aug 22 12:50:03 2020 ] 	Mean test loss of 296 batches: 0.6724291524371585.
+[ Sat Aug 22 12:50:03 2020 ] 	Top 1: 79.57%
+[ Sat Aug 22 12:50:03 2020 ] 	Top 5: 96.58%
+[ Sat Aug 22 12:50:05 2020 ] Training epoch: 27, LR: 0.0500
+[ Sat Aug 22 12:50:14 2020 ] 	Batch(11/588) done. Acc: 0.828125 Loss: 0.5482  lr:0.050000  network_time: 0.0851
+[ Sat Aug 22 12:51:16 2020 ] 	Batch(111/588) done. Acc: 0.687500 Loss: 0.8973  lr:0.050000  network_time: 0.0820
+[ Sat Aug 22 12:52:18 2020 ] 	Batch(211/588) done. Acc: 0.765625 Loss: 0.7674  lr:0.050000  network_time: 0.0789
+[ Sat Aug 22 12:53:20 2020 ] 	Batch(311/588) done. Acc: 0.843750 Loss: 0.6326  lr:0.050000  network_time: 0.0778
+[ Sat Aug 22 12:54:22 2020 ] 	Batch(411/588) done. Acc: 0.843750 Loss: 0.6405  lr:0.050000  network_time: 0.0890
+[ Sat Aug 22 12:55:24 2020 ] 	Batch(511/588) done. Acc: 0.875000 Loss: 0.6660  lr:0.050000  network_time: 0.0794
+[ Sat Aug 22 12:56:11 2020 ] Eval epoch: 27
+[ Sat Aug 22 12:57:18 2020 ] 	Mean test loss of 296 batches: 0.6691640963828241.
+[ Sat Aug 22 12:57:18 2020 ] 	Top 1: 79.81%
+[ Sat Aug 22 12:57:18 2020 ] 	Top 5: 96.31%
+[ Sat Aug 22 12:57:20 2020 ] Training epoch: 28, LR: 0.0500
+[ Sat Aug 22 12:57:36 2020 ] 	Batch(23/588) done. Acc: 0.796875 Loss: 0.7213  lr:0.050000  network_time: 0.0836
+[ Sat Aug 22 12:58:38 2020 ] 	Batch(123/588) done. Acc: 0.828125 Loss: 0.6521  lr:0.050000  network_time: 0.0966
+[ Sat Aug 22 12:59:40 2020 ] 	Batch(223/588) done. Acc: 0.765625 Loss: 0.7359  lr:0.050000  network_time: 0.0829
+[ Sat Aug 22 13:00:41 2020 ] 	Batch(323/588) done. Acc: 0.796875 Loss: 0.7597  lr:0.050000  network_time: 0.0813
+[ Sat Aug 22 13:01:43 2020 ] 	Batch(423/588) done. Acc: 0.875000 Loss: 0.5399  lr:0.050000  network_time: 0.0830
+[ Sat Aug 22 13:02:45 2020 ] 	Batch(523/588) done. Acc: 0.703125 Loss: 1.1236  lr:0.050000  network_time: 0.0967
+[ Sat Aug 22 13:03:25 2020 ] Eval epoch: 28
+[ Sat Aug 22 13:04:32 2020 ] 	Mean test loss of 296 batches: 0.6758941226714367.
+[ Sat Aug 22 13:04:32 2020 ] 	Top 1: 78.96%
+[ Sat Aug 22 13:04:32 2020 ] 	Top 5: 96.43%
+[ Sat Aug 22 13:04:33 2020 ] Training epoch: 29, LR: 0.0500
+[ Sat Aug 22 13:04:57 2020 ] 	Batch(35/588) done. Acc: 0.843750 Loss: 0.5818  lr:0.050000  network_time: 0.0970
+[ Sat Aug 22 13:05:59 2020 ] 	Batch(135/588) done. Acc: 0.843750 Loss: 0.6867  lr:0.050000  network_time: 0.0835
+[ Sat Aug 22 13:07:01 2020 ] 	Batch(235/588) done. Acc: 0.796875 Loss: 0.7236  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 13:08:03 2020 ] 	Batch(335/588) done. Acc: 0.734375 Loss: 0.7438  lr:0.050000  network_time: 0.0838
+[ Sat Aug 22 13:09:05 2020 ] 	Batch(435/588) done. Acc: 0.718750 Loss: 0.9600  lr:0.050000  network_time: 0.0828
+[ Sat Aug 22 13:10:07 2020 ] 	Batch(535/588) done. Acc: 0.734375 Loss: 0.7907  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 13:10:39 2020 ] Eval epoch: 29
+[ Sat Aug 22 13:11:46 2020 ] 	Mean test loss of 296 batches: 0.651572417367149.
+[ Sat Aug 22 13:11:46 2020 ] 	Top 1: 79.85%
+[ Sat Aug 22 13:11:46 2020 ] 	Top 5: 96.39%
+[ Sat Aug 22 13:11:47 2020 ] Training epoch: 30, LR: 0.0500
+[ Sat Aug 22 13:12:18 2020 ] 	Batch(47/588) done. Acc: 0.765625 Loss: 0.5931  lr:0.050000  network_time: 0.0883
+[ Sat Aug 22 13:13:20 2020 ] 	Batch(147/588) done. Acc: 0.828125 Loss: 0.4557  lr:0.050000  network_time: 0.0973
+[ Sat Aug 22 13:14:22 2020 ] 	Batch(247/588) done. Acc: 0.781250 Loss: 0.6874  lr:0.050000  network_time: 0.0787
+[ Sat Aug 22 13:15:24 2020 ] 	Batch(347/588) done. Acc: 0.765625 Loss: 0.6500  lr:0.050000  network_time: 0.0651
+[ Sat Aug 22 13:16:26 2020 ] 	Batch(447/588) done. Acc: 0.828125 Loss: 0.4908  lr:0.050000  network_time: 0.0699
+[ Sat Aug 22 13:17:28 2020 ] 	Batch(547/588) done. Acc: 0.687500 Loss: 0.7683  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 13:17:53 2020 ] Eval epoch: 30
+[ Sat Aug 22 13:19:00 2020 ] 	Mean test loss of 296 batches: 0.7340704590786953.
+[ Sat Aug 22 13:19:00 2020 ] 	Top 1: 77.85%
+[ Sat Aug 22 13:19:00 2020 ] 	Top 5: 96.39%
+[ Sat Aug 22 13:19:01 2020 ] Training epoch: 31, LR: 0.0500
+[ Sat Aug 22 13:19:40 2020 ] 	Batch(59/588) done. Acc: 0.906250 Loss: 0.4953  lr:0.050000  network_time: 0.1345
+[ Sat Aug 22 13:20:42 2020 ] 	Batch(159/588) done. Acc: 0.859375 Loss: 0.6259  lr:0.050000  network_time: 0.0800
+[ Sat Aug 22 13:21:45 2020 ] 	Batch(259/588) done. Acc: 0.843750 Loss: 0.4764  lr:0.050000  network_time: 0.0758
+[ Sat Aug 22 13:22:47 2020 ] 	Batch(359/588) done. Acc: 0.750000 Loss: 0.8157  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 13:23:49 2020 ] 	Batch(459/588) done. Acc: 0.765625 Loss: 0.6401  lr:0.050000  network_time: 0.0700
+[ Sat Aug 22 13:24:52 2020 ] 	Batch(559/588) done. Acc: 0.734375 Loss: 0.9013  lr:0.050000  network_time: 0.0846
+[ Sat Aug 22 13:25:09 2020 ] Eval epoch: 31
+[ Sat Aug 22 13:26:16 2020 ] 	Mean test loss of 296 batches: 0.6827382042601302.
+[ Sat Aug 22 13:26:16 2020 ] 	Top 1: 79.39%
+[ Sat Aug 22 13:26:16 2020 ] 	Top 5: 96.33%
+[ Sat Aug 22 13:26:17 2020 ] Training epoch: 32, LR: 0.0500
+[ Sat Aug 22 13:27:04 2020 ] 	Batch(71/588) done. Acc: 0.718750 Loss: 0.8116  lr:0.050000  network_time: 0.0857
+[ Sat Aug 22 13:28:06 2020 ] 	Batch(171/588) done. Acc: 0.906250 Loss: 0.4052  lr:0.050000  network_time: 0.0926
+[ Sat Aug 22 13:29:08 2020 ] 	Batch(271/588) done. Acc: 0.812500 Loss: 0.5415  lr:0.050000  network_time: 0.0819
+[ Sat Aug 22 13:30:10 2020 ] 	Batch(371/588) done. Acc: 0.796875 Loss: 0.6920  lr:0.050000  network_time: 0.0797
+[ Sat Aug 22 13:31:13 2020 ] 	Batch(471/588) done. Acc: 0.750000 Loss: 0.7830  lr:0.050000  network_time: 0.0818
+[ Sat Aug 22 13:32:15 2020 ] 	Batch(571/588) done. Acc: 0.828125 Loss: 0.5244  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 13:32:25 2020 ] Eval epoch: 32
+[ Sat Aug 22 13:33:32 2020 ] 	Mean test loss of 296 batches: 0.5882714903485533.
+[ Sat Aug 22 13:33:32 2020 ] 	Top 1: 82.09%
+[ Sat Aug 22 13:33:32 2020 ] 	Top 5: 97.27%
+[ Sat Aug 22 13:33:34 2020 ] Training epoch: 33, LR: 0.0500
+[ Sat Aug 22 13:34:27 2020 ] 	Batch(83/588) done. Acc: 0.812500 Loss: 0.6788  lr:0.050000  network_time: 0.0787
+[ Sat Aug 22 13:35:29 2020 ] 	Batch(183/588) done. Acc: 0.843750 Loss: 0.3990  lr:0.050000  network_time: 0.0940
+[ Sat Aug 22 13:36:31 2020 ] 	Batch(283/588) done. Acc: 0.812500 Loss: 0.5926  lr:0.050000  network_time: 0.0789
+[ Sat Aug 22 13:37:34 2020 ] 	Batch(383/588) done. Acc: 0.781250 Loss: 0.6600  lr:0.050000  network_time: 0.0694
+[ Sat Aug 22 13:38:37 2020 ] 	Batch(483/588) done. Acc: 0.812500 Loss: 0.5007  lr:0.050000  network_time: 0.0803
+[ Sat Aug 22 13:39:40 2020 ] 	Batch(583/588) done. Acc: 0.765625 Loss: 0.6531  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 13:39:43 2020 ] Eval epoch: 33
+[ Sat Aug 22 13:40:53 2020 ] 	Mean test loss of 296 batches: 0.6043646062246045.
+[ Sat Aug 22 13:40:53 2020 ] 	Top 1: 81.80%
+[ Sat Aug 22 13:40:53 2020 ] 	Top 5: 96.99%
+[ Sat Aug 22 13:40:54 2020 ] Training epoch: 34, LR: 0.0500
+[ Sat Aug 22 13:41:57 2020 ] 	Batch(95/588) done. Acc: 0.921875 Loss: 0.4232  lr:0.050000  network_time: 0.0868
+[ Sat Aug 22 13:43:01 2020 ] 	Batch(195/588) done. Acc: 0.796875 Loss: 0.6850  lr:0.050000  network_time: 0.0706
+[ Sat Aug 22 13:44:04 2020 ] 	Batch(295/588) done. Acc: 0.828125 Loss: 0.4977  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 13:45:08 2020 ] 	Batch(395/588) done. Acc: 0.859375 Loss: 0.6261  lr:0.050000  network_time: 0.0734
+[ Sat Aug 22 13:46:12 2020 ] 	Batch(495/588) done. Acc: 0.781250 Loss: 0.6539  lr:0.050000  network_time: 0.0723
+[ Sat Aug 22 13:47:11 2020 ] Eval epoch: 34
+[ Sat Aug 22 13:48:21 2020 ] 	Mean test loss of 296 batches: 0.6795631599788731.
+[ Sat Aug 22 13:48:21 2020 ] 	Top 1: 78.97%
+[ Sat Aug 22 13:48:21 2020 ] 	Top 5: 96.55%
+[ Sat Aug 22 13:48:22 2020 ] Training epoch: 35, LR: 0.0500
+[ Sat Aug 22 13:48:29 2020 ] 	Batch(7/588) done. Acc: 0.796875 Loss: 0.5768  lr:0.050000  network_time: 0.0806
+[ Sat Aug 22 13:49:32 2020 ] 	Batch(107/588) done. Acc: 0.843750 Loss: 0.4986  lr:0.050000  network_time: 0.0761
+[ Sat Aug 22 13:50:36 2020 ] 	Batch(207/588) done. Acc: 0.812500 Loss: 0.5360  lr:0.050000  network_time: 0.0734
+[ Sat Aug 22 13:51:40 2020 ] 	Batch(307/588) done. Acc: 0.750000 Loss: 0.6557  lr:0.050000  network_time: 0.0741
+[ Sat Aug 22 13:52:43 2020 ] 	Batch(407/588) done. Acc: 0.812500 Loss: 0.7341  lr:0.050000  network_time: 0.0792
+[ Sat Aug 22 13:53:47 2020 ] 	Batch(507/588) done. Acc: 0.734375 Loss: 0.7347  lr:0.050000  network_time: 0.0758
+[ Sat Aug 22 13:54:38 2020 ] Eval epoch: 35
+[ Sat Aug 22 13:55:49 2020 ] 	Mean test loss of 296 batches: 0.605479064170976.
+[ Sat Aug 22 13:55:49 2020 ] 	Top 1: 81.41%
+[ Sat Aug 22 13:55:49 2020 ] 	Top 5: 96.84%
+[ Sat Aug 22 13:55:50 2020 ] Training epoch: 36, LR: 0.0500
+[ Sat Aug 22 13:56:04 2020 ] 	Batch(19/588) done. Acc: 0.843750 Loss: 0.4762  lr:0.050000  network_time: 0.0772
+[ Sat Aug 22 13:57:08 2020 ] 	Batch(119/588) done. Acc: 0.906250 Loss: 0.5013  lr:0.050000  network_time: 0.0787
+[ Sat Aug 22 13:58:12 2020 ] 	Batch(219/588) done. Acc: 0.921875 Loss: 0.3665  lr:0.050000  network_time: 0.0725
+[ Sat Aug 22 13:59:15 2020 ] 	Batch(319/588) done. Acc: 0.796875 Loss: 0.7268  lr:0.050000  network_time: 0.0719
+[ Sat Aug 22 14:00:18 2020 ] 	Batch(419/588) done. Acc: 0.734375 Loss: 0.7636  lr:0.050000  network_time: 0.0835
+[ Sat Aug 22 14:01:22 2020 ] 	Batch(519/588) done. Acc: 0.796875 Loss: 0.6401  lr:0.050000  network_time: 0.0873
+[ Sat Aug 22 14:02:06 2020 ] Eval epoch: 36
+[ Sat Aug 22 14:03:16 2020 ] 	Mean test loss of 296 batches: 0.6714178048376296.
+[ Sat Aug 22 14:03:16 2020 ] 	Top 1: 79.56%
+[ Sat Aug 22 14:03:17 2020 ] 	Top 5: 96.47%
+[ Sat Aug 22 14:03:18 2020 ] Training epoch: 37, LR: 0.0500
+[ Sat Aug 22 14:03:40 2020 ] 	Batch(31/588) done. Acc: 0.781250 Loss: 0.6266  lr:0.050000  network_time: 0.0785
+[ Sat Aug 22 14:04:44 2020 ] 	Batch(131/588) done. Acc: 0.859375 Loss: 0.4463  lr:0.050000  network_time: 0.0888
+[ Sat Aug 22 14:05:48 2020 ] 	Batch(231/588) done. Acc: 0.796875 Loss: 0.7484  lr:0.050000  network_time: 0.0823
+[ Sat Aug 22 14:06:52 2020 ] 	Batch(331/588) done. Acc: 0.796875 Loss: 0.4894  lr:0.050000  network_time: 0.0719
+[ Sat Aug 22 14:07:56 2020 ] 	Batch(431/588) done. Acc: 0.734375 Loss: 0.7481  lr:0.050000  network_time: 0.0710
+[ Sat Aug 22 14:09:00 2020 ] 	Batch(531/588) done. Acc: 0.875000 Loss: 0.3744  lr:0.050000  network_time: 0.0753
+[ Sat Aug 22 14:09:36 2020 ] Eval epoch: 37
+[ Sat Aug 22 14:10:47 2020 ] 	Mean test loss of 296 batches: 0.632603714141894.
+[ Sat Aug 22 14:10:47 2020 ] 	Top 1: 80.88%
+[ Sat Aug 22 14:10:47 2020 ] 	Top 5: 96.75%
+[ Sat Aug 22 14:10:48 2020 ] Training epoch: 38, LR: 0.0500
+[ Sat Aug 22 14:11:18 2020 ] 	Batch(43/588) done. Acc: 0.875000 Loss: 0.4826  lr:0.050000  network_time: 0.0714
+[ Sat Aug 22 14:12:21 2020 ] 	Batch(143/588) done. Acc: 0.796875 Loss: 0.5749  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 14:13:25 2020 ] 	Batch(243/588) done. Acc: 0.812500 Loss: 0.7088  lr:0.050000  network_time: 0.0782
+[ Sat Aug 22 14:14:29 2020 ] 	Batch(343/588) done. Acc: 0.859375 Loss: 0.6174  lr:0.050000  network_time: 0.0761
+[ Sat Aug 22 14:15:33 2020 ] 	Batch(443/588) done. Acc: 0.750000 Loss: 0.6295  lr:0.050000  network_time: 0.0736
+[ Sat Aug 22 14:16:37 2020 ] 	Batch(543/588) done. Acc: 0.828125 Loss: 0.4974  lr:0.050000  network_time: 0.0732
+[ Sat Aug 22 14:17:05 2020 ] Eval epoch: 38
+[ Sat Aug 22 14:18:15 2020 ] 	Mean test loss of 296 batches: 0.7425667517692656.
+[ Sat Aug 22 14:18:16 2020 ] 	Top 1: 77.30%
+[ Sat Aug 22 14:18:16 2020 ] 	Top 5: 96.25%
+[ Sat Aug 22 14:18:17 2020 ] Training epoch: 39, LR: 0.0500
+[ Sat Aug 22 14:18:55 2020 ] 	Batch(55/588) done. Acc: 0.812500 Loss: 0.5538  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 14:19:59 2020 ] 	Batch(155/588) done. Acc: 0.750000 Loss: 0.7258  lr:0.050000  network_time: 0.0888
+[ Sat Aug 22 14:21:03 2020 ] 	Batch(255/588) done. Acc: 0.828125 Loss: 0.5007  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 14:22:07 2020 ] 	Batch(355/588) done. Acc: 0.843750 Loss: 0.5037  lr:0.050000  network_time: 0.0773
+[ Sat Aug 22 14:23:11 2020 ] 	Batch(455/588) done. Acc: 0.843750 Loss: 0.5578  lr:0.050000  network_time: 0.1299
+[ Sat Aug 22 14:24:16 2020 ] 	Batch(555/588) done. Acc: 0.843750 Loss: 0.5958  lr:0.050000  network_time: 0.0752
+[ Sat Aug 22 14:24:36 2020 ] Eval epoch: 39
+[ Sat Aug 22 14:25:47 2020 ] 	Mean test loss of 296 batches: 0.556928917010491.
+[ Sat Aug 22 14:25:47 2020 ] 	Top 1: 82.98%
+[ Sat Aug 22 14:25:47 2020 ] 	Top 5: 97.14%
+[ Sat Aug 22 14:25:48 2020 ] Training epoch: 40, LR: 0.0500
+[ Sat Aug 22 14:26:33 2020 ] 	Batch(67/588) done. Acc: 0.781250 Loss: 0.6635  lr:0.050000  network_time: 0.0789
+[ Sat Aug 22 14:27:37 2020 ] 	Batch(167/588) done. Acc: 0.781250 Loss: 0.6259  lr:0.050000  network_time: 0.0813
+[ Sat Aug 22 14:28:42 2020 ] 	Batch(267/588) done. Acc: 0.796875 Loss: 0.6996  lr:0.050000  network_time: 0.1221
+[ Sat Aug 22 14:29:46 2020 ] 	Batch(367/588) done. Acc: 0.875000 Loss: 0.5455  lr:0.050000  network_time: 0.0718
+[ Sat Aug 22 14:30:50 2020 ] 	Batch(467/588) done. Acc: 0.765625 Loss: 0.8925  lr:0.050000  network_time: 0.0856
+[ Sat Aug 22 14:31:54 2020 ] 	Batch(567/588) done. Acc: 0.812500 Loss: 0.6238  lr:0.050000  network_time: 0.0763
+[ Sat Aug 22 14:32:07 2020 ] Eval epoch: 40
+[ Sat Aug 22 14:33:17 2020 ] 	Mean test loss of 296 batches: 0.5774758345875386.
+[ Sat Aug 22 14:33:17 2020 ] 	Top 1: 82.17%
+[ Sat Aug 22 14:33:17 2020 ] 	Top 5: 97.09%
+[ Sat Aug 22 14:33:19 2020 ] Training epoch: 41, LR: 0.0500
+[ Sat Aug 22 14:34:11 2020 ] 	Batch(79/588) done. Acc: 0.875000 Loss: 0.4349  lr:0.050000  network_time: 0.0759
+[ Sat Aug 22 14:35:15 2020 ] 	Batch(179/588) done. Acc: 0.765625 Loss: 0.7822  lr:0.050000  network_time: 0.0809
+[ Sat Aug 22 14:36:19 2020 ] 	Batch(279/588) done. Acc: 0.765625 Loss: 0.8201  lr:0.050000  network_time: 0.0972
+[ Sat Aug 22 14:37:23 2020 ] 	Batch(379/588) done. Acc: 0.796875 Loss: 0.6264  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 14:38:27 2020 ] 	Batch(479/588) done. Acc: 0.859375 Loss: 0.4544  lr:0.050000  network_time: 0.0785
+[ Sat Aug 22 14:39:30 2020 ] 	Batch(579/588) done. Acc: 0.812500 Loss: 0.6010  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 14:39:35 2020 ] Eval epoch: 41
+[ Sat Aug 22 14:40:46 2020 ] 	Mean test loss of 296 batches: 0.6101590401014766.
+[ Sat Aug 22 14:40:46 2020 ] 	Top 1: 81.45%
+[ Sat Aug 22 14:40:46 2020 ] 	Top 5: 96.95%
+[ Sat Aug 22 14:40:47 2020 ] Training epoch: 42, LR: 0.0500
+[ Sat Aug 22 14:41:48 2020 ] 	Batch(91/588) done. Acc: 0.843750 Loss: 0.4662  lr:0.050000  network_time: 0.0800
+[ Sat Aug 22 14:42:51 2020 ] 	Batch(191/588) done. Acc: 0.796875 Loss: 0.5971  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 14:43:55 2020 ] 	Batch(291/588) done. Acc: 0.750000 Loss: 0.6682  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 14:45:00 2020 ] 	Batch(391/588) done. Acc: 0.796875 Loss: 0.5776  lr:0.050000  network_time: 0.0705
+[ Sat Aug 22 14:46:03 2020 ] 	Batch(491/588) done. Acc: 0.828125 Loss: 0.6405  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 14:47:05 2020 ] Eval epoch: 42
+[ Sat Aug 22 14:48:15 2020 ] 	Mean test loss of 296 batches: 0.5934163420083555.
+[ Sat Aug 22 14:48:15 2020 ] 	Top 1: 81.96%
+[ Sat Aug 22 14:48:15 2020 ] 	Top 5: 97.16%
+[ Sat Aug 22 14:48:17 2020 ] Training epoch: 43, LR: 0.0500
+[ Sat Aug 22 14:48:20 2020 ] 	Batch(3/588) done. Acc: 0.828125 Loss: 0.5190  lr:0.050000  network_time: 0.0914
+[ Sat Aug 22 14:49:25 2020 ] 	Batch(103/588) done. Acc: 0.828125 Loss: 0.6570  lr:0.050000  network_time: 0.1287
+[ Sat Aug 22 14:50:29 2020 ] 	Batch(203/588) done. Acc: 0.796875 Loss: 0.4995  lr:0.050000  network_time: 0.0747
+[ Sat Aug 22 14:51:33 2020 ] 	Batch(303/588) done. Acc: 0.828125 Loss: 0.5783  lr:0.050000  network_time: 0.0797
+[ Sat Aug 22 14:52:37 2020 ] 	Batch(403/588) done. Acc: 0.781250 Loss: 0.6684  lr:0.050000  network_time: 0.1362
+[ Sat Aug 22 14:53:41 2020 ] 	Batch(503/588) done. Acc: 0.859375 Loss: 0.4626  lr:0.050000  network_time: 0.0708
+[ Sat Aug 22 14:54:35 2020 ] Eval epoch: 43
+[ Sat Aug 22 14:55:46 2020 ] 	Mean test loss of 296 batches: 0.6086439962020597.
+[ Sat Aug 22 14:55:46 2020 ] 	Top 1: 81.48%
+[ Sat Aug 22 14:55:46 2020 ] 	Top 5: 96.93%
+[ Sat Aug 22 14:55:47 2020 ] Training epoch: 44, LR: 0.0500
+[ Sat Aug 22 14:55:59 2020 ] 	Batch(15/588) done. Acc: 0.859375 Loss: 0.5438  lr:0.050000  network_time: 0.0804
+[ Sat Aug 22 14:57:03 2020 ] 	Batch(115/588) done. Acc: 0.906250 Loss: 0.3948  lr:0.050000  network_time: 0.1336
+[ Sat Aug 22 14:58:06 2020 ] 	Batch(215/588) done. Acc: 0.718750 Loss: 0.7204  lr:0.050000  network_time: 0.0677
+[ Sat Aug 22 14:59:10 2020 ] 	Batch(315/588) done. Acc: 0.843750 Loss: 0.5627  lr:0.050000  network_time: 0.0693
+[ Sat Aug 22 15:00:14 2020 ] 	Batch(415/588) done. Acc: 0.812500 Loss: 0.7116  lr:0.050000  network_time: 0.1292
+[ Sat Aug 22 15:01:18 2020 ] 	Batch(515/588) done. Acc: 0.828125 Loss: 0.4307  lr:0.050000  network_time: 0.0772
+[ Sat Aug 22 15:02:04 2020 ] Eval epoch: 44
+[ Sat Aug 22 15:03:14 2020 ] 	Mean test loss of 296 batches: 0.6129720819660941.
+[ Sat Aug 22 15:03:14 2020 ] 	Top 1: 81.74%
+[ Sat Aug 22 15:03:15 2020 ] 	Top 5: 97.15%
+[ Sat Aug 22 15:03:16 2020 ] Training epoch: 45, LR: 0.0500
+[ Sat Aug 22 15:03:35 2020 ] 	Batch(27/588) done. Acc: 0.812500 Loss: 0.7288  lr:0.050000  network_time: 0.0722
+[ Sat Aug 22 15:04:40 2020 ] 	Batch(127/588) done. Acc: 0.843750 Loss: 0.4913  lr:0.050000  network_time: 0.0883
+[ Sat Aug 22 15:05:44 2020 ] 	Batch(227/588) done. Acc: 0.812500 Loss: 0.6642  lr:0.050000  network_time: 0.0778
+[ Sat Aug 22 15:06:49 2020 ] 	Batch(327/588) done. Acc: 0.796875 Loss: 0.6105  lr:0.050000  network_time: 0.0874
+[ Sat Aug 22 15:07:53 2020 ] 	Batch(427/588) done. Acc: 0.734375 Loss: 0.7270  lr:0.050000  network_time: 0.0780
+[ Sat Aug 22 15:08:57 2020 ] 	Batch(527/588) done. Acc: 0.828125 Loss: 0.6212  lr:0.050000  network_time: 0.0744
+[ Sat Aug 22 15:09:36 2020 ] Eval epoch: 45
+[ Sat Aug 22 15:10:46 2020 ] 	Mean test loss of 296 batches: 0.6282578866828132.
+[ Sat Aug 22 15:10:46 2020 ] 	Top 1: 81.55%
+[ Sat Aug 22 15:10:46 2020 ] 	Top 5: 96.74%
+[ Sat Aug 22 15:10:48 2020 ] Training epoch: 46, LR: 0.0500
+[ Sat Aug 22 15:11:15 2020 ] 	Batch(39/588) done. Acc: 0.859375 Loss: 0.3818  lr:0.050000  network_time: 0.0804
+[ Sat Aug 22 15:12:19 2020 ] 	Batch(139/588) done. Acc: 0.812500 Loss: 0.6180  lr:0.050000  network_time: 0.0799
+[ Sat Aug 22 15:13:24 2020 ] 	Batch(239/588) done. Acc: 0.828125 Loss: 0.5220  lr:0.050000  network_time: 0.0796
+[ Sat Aug 22 15:14:28 2020 ] 	Batch(339/588) done. Acc: 0.859375 Loss: 0.3861  lr:0.050000  network_time: 0.0745
+[ Sat Aug 22 15:15:33 2020 ] 	Batch(439/588) done. Acc: 0.812500 Loss: 0.6713  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 15:16:37 2020 ] 	Batch(539/588) done. Acc: 0.796875 Loss: 0.7027  lr:0.050000  network_time: 0.0906
+[ Sat Aug 22 15:17:08 2020 ] Eval epoch: 46
+[ Sat Aug 22 15:18:18 2020 ] 	Mean test loss of 296 batches: 0.6007974022949064.
+[ Sat Aug 22 15:18:18 2020 ] 	Top 1: 82.19%
+[ Sat Aug 22 15:18:18 2020 ] 	Top 5: 96.99%
+[ Sat Aug 22 15:18:20 2020 ] Training epoch: 47, LR: 0.0500
+[ Sat Aug 22 15:18:54 2020 ] 	Batch(51/588) done. Acc: 0.750000 Loss: 0.7031  lr:0.050000  network_time: 0.0696
+[ Sat Aug 22 15:19:58 2020 ] 	Batch(151/588) done. Acc: 0.859375 Loss: 0.4256  lr:0.050000  network_time: 0.0803
+[ Sat Aug 22 15:21:02 2020 ] 	Batch(251/588) done. Acc: 0.890625 Loss: 0.4295  lr:0.050000  network_time: 0.0958
+[ Sat Aug 22 15:22:06 2020 ] 	Batch(351/588) done. Acc: 0.750000 Loss: 0.7074  lr:0.050000  network_time: 0.0820
+[ Sat Aug 22 15:23:10 2020 ] 	Batch(451/588) done. Acc: 0.796875 Loss: 0.5779  lr:0.050000  network_time: 0.0856
+[ Sat Aug 22 15:24:14 2020 ] 	Batch(551/588) done. Acc: 0.781250 Loss: 0.7422  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 15:24:37 2020 ] Eval epoch: 47
+[ Sat Aug 22 15:25:48 2020 ] 	Mean test loss of 296 batches: 0.6623434445543869.
+[ Sat Aug 22 15:25:48 2020 ] 	Top 1: 80.37%
+[ Sat Aug 22 15:25:48 2020 ] 	Top 5: 96.46%
+[ Sat Aug 22 15:25:49 2020 ] Training epoch: 48, LR: 0.0500
+[ Sat Aug 22 15:26:32 2020 ] 	Batch(63/588) done. Acc: 0.812500 Loss: 0.5117  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 15:27:35 2020 ] 	Batch(163/588) done. Acc: 0.796875 Loss: 0.6459  lr:0.050000  network_time: 0.0791
+[ Sat Aug 22 15:28:39 2020 ] 	Batch(263/588) done. Acc: 0.812500 Loss: 0.4906  lr:0.050000  network_time: 0.0737
+[ Sat Aug 22 15:29:43 2020 ] 	Batch(363/588) done. Acc: 0.828125 Loss: 0.5987  lr:0.050000  network_time: 0.0751
+[ Sat Aug 22 15:30:46 2020 ] 	Batch(463/588) done. Acc: 0.828125 Loss: 0.4849  lr:0.050000  network_time: 0.0906
+[ Sat Aug 22 15:31:49 2020 ] 	Batch(563/588) done. Acc: 0.781250 Loss: 0.7820  lr:0.050000  network_time: 0.0829
+[ Sat Aug 22 15:32:04 2020 ] Eval epoch: 48
+[ Sat Aug 22 15:33:14 2020 ] 	Mean test loss of 296 batches: 0.7051054480410105.
+[ Sat Aug 22 15:33:14 2020 ] 	Top 1: 79.67%
+[ Sat Aug 22 15:33:14 2020 ] 	Top 5: 96.25%
+[ Sat Aug 22 15:33:15 2020 ] Training epoch: 49, LR: 0.0500
+[ Sat Aug 22 15:34:05 2020 ] 	Batch(75/588) done. Acc: 0.890625 Loss: 0.3407  lr:0.050000  network_time: 0.0934
+[ Sat Aug 22 15:35:09 2020 ] 	Batch(175/588) done. Acc: 0.890625 Loss: 0.4535  lr:0.050000  network_time: 0.0699
+[ Sat Aug 22 15:36:13 2020 ] 	Batch(275/588) done. Acc: 0.812500 Loss: 0.5101  lr:0.050000  network_time: 0.0707
+[ Sat Aug 22 15:37:17 2020 ] 	Batch(375/588) done. Acc: 0.875000 Loss: 0.3967  lr:0.050000  network_time: 0.0888
+[ Sat Aug 22 15:38:21 2020 ] 	Batch(475/588) done. Acc: 0.812500 Loss: 0.6107  lr:0.050000  network_time: 0.0688
+[ Sat Aug 22 15:39:24 2020 ] 	Batch(575/588) done. Acc: 0.812500 Loss: 0.6481  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 15:39:32 2020 ] Eval epoch: 49
+[ Sat Aug 22 15:40:43 2020 ] 	Mean test loss of 296 batches: 0.5301437100043168.
+[ Sat Aug 22 15:40:43 2020 ] 	Top 1: 84.00%
+[ Sat Aug 22 15:40:43 2020 ] 	Top 5: 97.41%
+[ Sat Aug 22 15:40:44 2020 ] Training epoch: 50, LR: 0.0500
+[ Sat Aug 22 15:41:42 2020 ] 	Batch(87/588) done. Acc: 0.843750 Loss: 0.4943  lr:0.050000  network_time: 0.0721
+[ Sat Aug 22 15:42:46 2020 ] 	Batch(187/588) done. Acc: 0.890625 Loss: 0.3958  lr:0.050000  network_time: 0.0713
+[ Sat Aug 22 15:43:50 2020 ] 	Batch(287/588) done. Acc: 0.828125 Loss: 0.5860  lr:0.050000  network_time: 0.0788
+[ Sat Aug 22 15:44:54 2020 ] 	Batch(387/588) done. Acc: 0.796875 Loss: 0.6542  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 15:45:58 2020 ] 	Batch(487/588) done. Acc: 0.828125 Loss: 0.6141  lr:0.050000  network_time: 0.0786
+[ Sat Aug 22 15:47:02 2020 ] 	Batch(587/588) done. Acc: 0.890625 Loss: 0.4309  lr:0.050000  network_time: 0.0920
+[ Sat Aug 22 15:47:02 2020 ] Eval epoch: 50
+[ Sat Aug 22 15:48:12 2020 ] 	Mean test loss of 296 batches: 0.5741009626638245.
+[ Sat Aug 22 15:48:12 2020 ] 	Top 1: 82.72%
+[ Sat Aug 22 15:48:13 2020 ] 	Top 5: 97.18%
+[ Sat Aug 22 15:48:14 2020 ] Training epoch: 51, LR: 0.0500
+[ Sat Aug 22 15:49:19 2020 ] 	Batch(99/588) done. Acc: 0.875000 Loss: 0.3809  lr:0.050000  network_time: 0.1019
+[ Sat Aug 22 15:50:24 2020 ] 	Batch(199/588) done. Acc: 0.890625 Loss: 0.3795  lr:0.050000  network_time: 0.0712
+[ Sat Aug 22 15:51:27 2020 ] 	Batch(299/588) done. Acc: 0.828125 Loss: 0.4585  lr:0.050000  network_time: 0.0822
+[ Sat Aug 22 15:52:31 2020 ] 	Batch(399/588) done. Acc: 0.921875 Loss: 0.3419  lr:0.050000  network_time: 0.0802
+[ Sat Aug 22 15:53:36 2020 ] 	Batch(499/588) done. Acc: 0.765625 Loss: 0.7828  lr:0.050000  network_time: 0.0793
+[ Sat Aug 22 15:54:32 2020 ] Eval epoch: 51
+[ Sat Aug 22 15:55:43 2020 ] 	Mean test loss of 296 batches: 0.5929245004380072.
+[ Sat Aug 22 15:55:43 2020 ] 	Top 1: 82.29%
+[ Sat Aug 22 15:55:43 2020 ] 	Top 5: 96.99%
+[ Sat Aug 22 15:55:44 2020 ] Training epoch: 52, LR: 0.0500
+[ Sat Aug 22 15:55:53 2020 ] 	Batch(11/588) done. Acc: 0.906250 Loss: 0.2663  lr:0.050000  network_time: 0.0797
+[ Sat Aug 22 15:56:57 2020 ] 	Batch(111/588) done. Acc: 0.890625 Loss: 0.3727  lr:0.050000  network_time: 0.0784
+[ Sat Aug 22 15:58:01 2020 ] 	Batch(211/588) done. Acc: 0.875000 Loss: 0.3539  lr:0.050000  network_time: 0.0744
+[ Sat Aug 22 15:59:05 2020 ] 	Batch(311/588) done. Acc: 0.828125 Loss: 0.5485  lr:0.050000  network_time: 0.0787
+[ Sat Aug 22 16:00:09 2020 ] 	Batch(411/588) done. Acc: 0.843750 Loss: 0.4605  lr:0.050000  network_time: 0.0775
+[ Sat Aug 22 16:01:13 2020 ] 	Batch(511/588) done. Acc: 0.859375 Loss: 0.5336  lr:0.050000  network_time: 0.0818
+[ Sat Aug 22 16:02:02 2020 ] Eval epoch: 52
+[ Sat Aug 22 16:03:12 2020 ] 	Mean test loss of 296 batches: 0.5832624050310334.
+[ Sat Aug 22 16:03:12 2020 ] 	Top 1: 82.49%
+[ Sat Aug 22 16:03:12 2020 ] 	Top 5: 97.28%
+[ Sat Aug 22 16:03:13 2020 ] Training epoch: 53, LR: 0.0500
+[ Sat Aug 22 16:03:30 2020 ] 	Batch(23/588) done. Acc: 0.875000 Loss: 0.3322  lr:0.050000  network_time: 0.0738
+[ Sat Aug 22 16:04:34 2020 ] 	Batch(123/588) done. Acc: 0.828125 Loss: 0.4818  lr:0.050000  network_time: 0.0778
+[ Sat Aug 22 16:05:38 2020 ] 	Batch(223/588) done. Acc: 0.781250 Loss: 0.5055  lr:0.050000  network_time: 0.0750
+[ Sat Aug 22 16:06:43 2020 ] 	Batch(323/588) done. Acc: 0.937500 Loss: 0.2565  lr:0.050000  network_time: 0.1202
+[ Sat Aug 22 16:07:47 2020 ] 	Batch(423/588) done. Acc: 0.781250 Loss: 0.6471  lr:0.050000  network_time: 0.0729
+[ Sat Aug 22 16:08:51 2020 ] 	Batch(523/588) done. Acc: 0.687500 Loss: 0.8022  lr:0.050000  network_time: 0.0730
+[ Sat Aug 22 16:09:33 2020 ] Eval epoch: 53
+[ Sat Aug 22 16:10:43 2020 ] 	Mean test loss of 296 batches: 0.583619666059275.
+[ Sat Aug 22 16:10:43 2020 ] 	Top 1: 83.23%
+[ Sat Aug 22 16:10:43 2020 ] 	Top 5: 97.08%
+[ Sat Aug 22 16:10:45 2020 ] Training epoch: 54, LR: 0.0500
+[ Sat Aug 22 16:11:09 2020 ] 	Batch(35/588) done. Acc: 0.875000 Loss: 0.3684  lr:0.050000  network_time: 0.0857
+[ Sat Aug 22 16:12:14 2020 ] 	Batch(135/588) done. Acc: 0.875000 Loss: 0.4666  lr:0.050000  network_time: 0.1389
+[ Sat Aug 22 16:13:18 2020 ] 	Batch(235/588) done. Acc: 0.812500 Loss: 0.6117  lr:0.050000  network_time: 0.0700
+[ Sat Aug 22 16:14:22 2020 ] 	Batch(335/588) done. Acc: 0.859375 Loss: 0.3912  lr:0.050000  network_time: 0.0806
+[ Sat Aug 22 16:15:26 2020 ] 	Batch(435/588) done. Acc: 0.875000 Loss: 0.4689  lr:0.050000  network_time: 0.0916
+[ Sat Aug 22 16:16:31 2020 ] 	Batch(535/588) done. Acc: 0.781250 Loss: 0.8270  lr:0.050000  network_time: 0.0811
+[ Sat Aug 22 16:17:04 2020 ] Eval epoch: 54
+[ Sat Aug 22 16:18:15 2020 ] 	Mean test loss of 296 batches: 0.6272903559981166.
+[ Sat Aug 22 16:18:15 2020 ] 	Top 1: 81.01%
+[ Sat Aug 22 16:18:15 2020 ] 	Top 5: 97.05%
+[ Sat Aug 22 16:18:16 2020 ] Training epoch: 55, LR: 0.0500
+[ Sat Aug 22 16:18:48 2020 ] 	Batch(47/588) done. Acc: 0.906250 Loss: 0.3615  lr:0.050000  network_time: 0.0901
+[ Sat Aug 22 16:19:52 2020 ] 	Batch(147/588) done. Acc: 0.890625 Loss: 0.4197  lr:0.050000  network_time: 0.0743
+[ Sat Aug 22 16:20:56 2020 ] 	Batch(247/588) done. Acc: 0.812500 Loss: 0.5428  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 16:21:59 2020 ] 	Batch(347/588) done. Acc: 0.875000 Loss: 0.5482  lr:0.050000  network_time: 0.0859
+[ Sat Aug 22 16:23:01 2020 ] 	Batch(447/588) done. Acc: 0.781250 Loss: 0.6428  lr:0.050000  network_time: 0.0859
+[ Sat Aug 22 16:24:05 2020 ] 	Batch(547/588) done. Acc: 0.781250 Loss: 0.5165  lr:0.050000  network_time: 0.0902
+[ Sat Aug 22 16:24:31 2020 ] Eval epoch: 55
+[ Sat Aug 22 16:25:41 2020 ] 	Mean test loss of 296 batches: 0.5956073014720066.
+[ Sat Aug 22 16:25:41 2020 ] 	Top 1: 82.44%
+[ Sat Aug 22 16:25:41 2020 ] 	Top 5: 97.01%
+[ Sat Aug 22 16:25:42 2020 ] Training epoch: 56, LR: 0.0500
+[ Sat Aug 22 16:26:22 2020 ] 	Batch(59/588) done. Acc: 0.859375 Loss: 0.4571  lr:0.050000  network_time: 0.0788
+[ Sat Aug 22 16:27:26 2020 ] 	Batch(159/588) done. Acc: 0.859375 Loss: 0.4914  lr:0.050000  network_time: 0.0720
+[ Sat Aug 22 16:28:30 2020 ] 	Batch(259/588) done. Acc: 0.921875 Loss: 0.4206  lr:0.050000  network_time: 0.0778
+[ Sat Aug 22 16:29:34 2020 ] 	Batch(359/588) done. Acc: 0.875000 Loss: 0.3414  lr:0.050000  network_time: 0.0728
+[ Sat Aug 22 16:30:37 2020 ] 	Batch(459/588) done. Acc: 0.796875 Loss: 0.6138  lr:0.050000  network_time: 0.0795
+[ Sat Aug 22 16:31:41 2020 ] 	Batch(559/588) done. Acc: 0.828125 Loss: 0.4742  lr:0.050000  network_time: 0.0829
+[ Sat Aug 22 16:31:59 2020 ] Eval epoch: 56
+[ Sat Aug 22 16:33:09 2020 ] 	Mean test loss of 296 batches: 0.5830590937890716.
+[ Sat Aug 22 16:33:09 2020 ] 	Top 1: 82.77%
+[ Sat Aug 22 16:33:09 2020 ] 	Top 5: 97.22%
+[ Sat Aug 22 16:33:11 2020 ] Training epoch: 57, LR: 0.0500
+[ Sat Aug 22 16:33:58 2020 ] 	Batch(71/588) done. Acc: 0.875000 Loss: 0.3828  lr:0.050000  network_time: 0.0888
+[ Sat Aug 22 16:35:02 2020 ] 	Batch(171/588) done. Acc: 0.859375 Loss: 0.5338  lr:0.050000  network_time: 0.0790
+[ Sat Aug 22 16:36:05 2020 ] 	Batch(271/588) done. Acc: 0.828125 Loss: 0.4960  lr:0.050000  network_time: 0.0788
+[ Sat Aug 22 16:37:10 2020 ] 	Batch(371/588) done. Acc: 0.765625 Loss: 0.6451  lr:0.050000  network_time: 0.0776
+[ Sat Aug 22 16:38:14 2020 ] 	Batch(471/588) done. Acc: 0.859375 Loss: 0.4608  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 16:39:18 2020 ] 	Batch(571/588) done. Acc: 0.890625 Loss: 0.4325  lr:0.050000  network_time: 0.0753
+[ Sat Aug 22 16:39:28 2020 ] Eval epoch: 57
+[ Sat Aug 22 16:40:39 2020 ] 	Mean test loss of 296 batches: 0.6582692163820202.
+[ Sat Aug 22 16:40:39 2020 ] 	Top 1: 81.13%
+[ Sat Aug 22 16:40:39 2020 ] 	Top 5: 96.58%
+[ Sat Aug 22 16:40:40 2020 ] Training epoch: 58, LR: 0.0500
+[ Sat Aug 22 16:41:35 2020 ] 	Batch(83/588) done. Acc: 0.843750 Loss: 0.5711  lr:0.050000  network_time: 0.0886
+[ Sat Aug 22 16:42:39 2020 ] 	Batch(183/588) done. Acc: 0.812500 Loss: 0.6833  lr:0.050000  network_time: 0.0881
+[ Sat Aug 22 16:43:43 2020 ] 	Batch(283/588) done. Acc: 0.890625 Loss: 0.4220  lr:0.050000  network_time: 0.0777
+[ Sat Aug 22 16:44:47 2020 ] 	Batch(383/588) done. Acc: 0.875000 Loss: 0.3834  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 16:45:51 2020 ] 	Batch(483/588) done. Acc: 0.812500 Loss: 0.5090  lr:0.050000  network_time: 0.0911
+[ Sat Aug 22 16:46:55 2020 ] 	Batch(583/588) done. Acc: 0.812500 Loss: 0.5502  lr:0.050000  network_time: 0.0877
+[ Sat Aug 22 16:46:58 2020 ] Eval epoch: 58
+[ Sat Aug 22 16:48:08 2020 ] 	Mean test loss of 296 batches: 0.5182246955212306.
+[ Sat Aug 22 16:48:08 2020 ] 	Top 1: 84.33%
+[ Sat Aug 22 16:48:08 2020 ] 	Top 5: 97.46%
+[ Sat Aug 22 16:48:10 2020 ] Training epoch: 59, LR: 0.0500
+[ Sat Aug 22 16:49:13 2020 ] 	Batch(95/588) done. Acc: 0.843750 Loss: 0.4027  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 16:50:17 2020 ] 	Batch(195/588) done. Acc: 0.796875 Loss: 0.5439  lr:0.050000  network_time: 0.0703
+[ Sat Aug 22 16:51:22 2020 ] 	Batch(295/588) done. Acc: 0.937500 Loss: 0.3153  lr:0.050000  network_time: 0.0917
+[ Sat Aug 22 16:52:26 2020 ] 	Batch(395/588) done. Acc: 0.906250 Loss: 0.3219  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 16:53:30 2020 ] 	Batch(495/588) done. Acc: 0.843750 Loss: 0.4977  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 16:54:30 2020 ] Eval epoch: 59
+[ Sat Aug 22 16:55:40 2020 ] 	Mean test loss of 296 batches: 0.5587401674003214.
+[ Sat Aug 22 16:55:40 2020 ] 	Top 1: 83.10%
+[ Sat Aug 22 16:55:40 2020 ] 	Top 5: 97.29%
+[ Sat Aug 22 16:55:42 2020 ] Training epoch: 60, LR: 0.0500
+[ Sat Aug 22 16:55:48 2020 ] 	Batch(7/588) done. Acc: 0.937500 Loss: 0.3160  lr:0.050000  network_time: 0.0699
+[ Sat Aug 22 16:56:52 2020 ] 	Batch(107/588) done. Acc: 0.781250 Loss: 0.5483  lr:0.050000  network_time: 0.0803
+[ Sat Aug 22 16:57:57 2020 ] 	Batch(207/588) done. Acc: 0.890625 Loss: 0.4209  lr:0.050000  network_time: 0.0725
+[ Sat Aug 22 16:59:01 2020 ] 	Batch(307/588) done. Acc: 0.859375 Loss: 0.4507  lr:0.050000  network_time: 0.0710
+[ Sat Aug 22 17:00:05 2020 ] 	Batch(407/588) done. Acc: 0.843750 Loss: 0.4439  lr:0.050000  network_time: 0.0777
+[ Sat Aug 22 17:01:10 2020 ] 	Batch(507/588) done. Acc: 0.828125 Loss: 0.6250  lr:0.050000  network_time: 0.0805
+[ Sat Aug 22 17:02:01 2020 ] Eval epoch: 60
+[ Sat Aug 22 17:03:12 2020 ] 	Mean test loss of 296 batches: 0.6387093264005475.
+[ Sat Aug 22 17:03:12 2020 ] 	Top 1: 80.64%
+[ Sat Aug 22 17:03:12 2020 ] 	Top 5: 96.74%
+[ Sat Aug 22 17:03:14 2020 ] Training epoch: 61, LR: 0.0500
+[ Sat Aug 22 17:03:28 2020 ] 	Batch(19/588) done. Acc: 0.796875 Loss: 0.6658  lr:0.050000  network_time: 0.0815
+[ Sat Aug 22 17:04:31 2020 ] 	Batch(119/588) done. Acc: 0.921875 Loss: 0.3600  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 17:05:36 2020 ] 	Batch(219/588) done. Acc: 0.843750 Loss: 0.4860  lr:0.050000  network_time: 0.0799
+[ Sat Aug 22 17:06:39 2020 ] 	Batch(319/588) done. Acc: 0.921875 Loss: 0.3336  lr:0.050000  network_time: 0.0695
+[ Sat Aug 22 17:07:43 2020 ] 	Batch(419/588) done. Acc: 0.859375 Loss: 0.4985  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 17:08:47 2020 ] 	Batch(519/588) done. Acc: 0.875000 Loss: 0.3593  lr:0.050000  network_time: 0.0796
+[ Sat Aug 22 17:09:31 2020 ] Eval epoch: 61
+[ Sat Aug 22 17:10:41 2020 ] 	Mean test loss of 296 batches: 0.5597227151832871.
+[ Sat Aug 22 17:10:41 2020 ] 	Top 1: 82.97%
+[ Sat Aug 22 17:10:41 2020 ] 	Top 5: 97.28%
+[ Sat Aug 22 17:10:42 2020 ] Training epoch: 62, LR: 0.0500
+[ Sat Aug 22 17:11:04 2020 ] 	Batch(31/588) done. Acc: 0.859375 Loss: 0.4385  lr:0.050000  network_time: 0.0748
+[ Sat Aug 22 17:12:08 2020 ] 	Batch(131/588) done. Acc: 0.828125 Loss: 0.5042  lr:0.050000  network_time: 0.0711
+[ Sat Aug 22 17:13:12 2020 ] 	Batch(231/588) done. Acc: 0.921875 Loss: 0.3298  lr:0.050000  network_time: 0.0820
+[ Sat Aug 22 17:14:16 2020 ] 	Batch(331/588) done. Acc: 0.890625 Loss: 0.3401  lr:0.050000  network_time: 0.0768
+[ Sat Aug 22 17:15:20 2020 ] 	Batch(431/588) done. Acc: 0.781250 Loss: 0.6596  lr:0.050000  network_time: 0.0697
+[ Sat Aug 22 17:16:24 2020 ] 	Batch(531/588) done. Acc: 0.875000 Loss: 0.5949  lr:0.050000  network_time: 0.0721
+[ Sat Aug 22 17:17:00 2020 ] Eval epoch: 62
+[ Sat Aug 22 17:18:11 2020 ] 	Mean test loss of 296 batches: 0.5544679534898417.
+[ Sat Aug 22 17:18:11 2020 ] 	Top 1: 83.03%
+[ Sat Aug 22 17:18:12 2020 ] 	Top 5: 97.31%
+[ Sat Aug 22 17:18:13 2020 ] Training epoch: 63, LR: 0.0500
+[ Sat Aug 22 17:18:43 2020 ] 	Batch(43/588) done. Acc: 0.875000 Loss: 0.3449  lr:0.050000  network_time: 0.0926
+[ Sat Aug 22 17:19:47 2020 ] 	Batch(143/588) done. Acc: 0.906250 Loss: 0.3938  lr:0.050000  network_time: 0.0706
+[ Sat Aug 22 17:20:51 2020 ] 	Batch(243/588) done. Acc: 0.937500 Loss: 0.1833  lr:0.050000  network_time: 0.0710
+[ Sat Aug 22 17:21:54 2020 ] 	Batch(343/588) done. Acc: 0.875000 Loss: 0.3598  lr:0.050000  network_time: 0.0916
+[ Sat Aug 22 17:22:58 2020 ] 	Batch(443/588) done. Acc: 0.843750 Loss: 0.4252  lr:0.050000  network_time: 0.1006
+[ Sat Aug 22 17:24:02 2020 ] 	Batch(543/588) done. Acc: 0.890625 Loss: 0.3212  lr:0.050000  network_time: 0.0794
+[ Sat Aug 22 17:24:30 2020 ] Eval epoch: 63
+[ Sat Aug 22 17:25:41 2020 ] 	Mean test loss of 296 batches: 0.6264978588835614.
+[ Sat Aug 22 17:25:41 2020 ] 	Top 1: 81.71%
+[ Sat Aug 22 17:25:41 2020 ] 	Top 5: 97.16%
+[ Sat Aug 22 17:25:42 2020 ] Training epoch: 64, LR: 0.0500
+[ Sat Aug 22 17:26:20 2020 ] 	Batch(55/588) done. Acc: 0.953125 Loss: 0.1763  lr:0.050000  network_time: 0.0732
+[ Sat Aug 22 17:27:24 2020 ] 	Batch(155/588) done. Acc: 0.812500 Loss: 0.4903  lr:0.050000  network_time: 0.0774
+[ Sat Aug 22 17:28:29 2020 ] 	Batch(255/588) done. Acc: 0.828125 Loss: 0.5282  lr:0.050000  network_time: 0.0811
+[ Sat Aug 22 17:29:33 2020 ] 	Batch(355/588) done. Acc: 0.828125 Loss: 0.4226  lr:0.050000  network_time: 0.0791
+[ Sat Aug 22 17:30:38 2020 ] 	Batch(455/588) done. Acc: 0.781250 Loss: 0.5552  lr:0.050000  network_time: 0.0806
+[ Sat Aug 22 17:31:42 2020 ] 	Batch(555/588) done. Acc: 0.875000 Loss: 0.3253  lr:0.050000  network_time: 0.0725
+[ Sat Aug 22 17:32:03 2020 ] Eval epoch: 64
+[ Sat Aug 22 17:33:14 2020 ] 	Mean test loss of 296 batches: 0.5322896787091285.
+[ Sat Aug 22 17:33:14 2020 ] 	Top 1: 83.79%
+[ Sat Aug 22 17:33:14 2020 ] 	Top 5: 97.64%
+[ Sat Aug 22 17:33:16 2020 ] Training epoch: 65, LR: 0.0500
+[ Sat Aug 22 17:34:00 2020 ] 	Batch(67/588) done. Acc: 0.953125 Loss: 0.2991  lr:0.050000  network_time: 0.0832
+[ Sat Aug 22 17:35:04 2020 ] 	Batch(167/588) done. Acc: 0.875000 Loss: 0.4033  lr:0.050000  network_time: 0.0723
+[ Sat Aug 22 17:36:08 2020 ] 	Batch(267/588) done. Acc: 0.968750 Loss: 0.1408  lr:0.050000  network_time: 0.0907
+[ Sat Aug 22 17:37:12 2020 ] 	Batch(367/588) done. Acc: 0.921875 Loss: 0.2404  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 17:38:16 2020 ] 	Batch(467/588) done. Acc: 0.812500 Loss: 0.6236  lr:0.050000  network_time: 0.0741
+[ Sat Aug 22 17:39:21 2020 ] 	Batch(567/588) done. Acc: 0.812500 Loss: 0.6056  lr:0.050000  network_time: 0.0812
+[ Sat Aug 22 17:39:33 2020 ] Eval epoch: 65
+[ Sat Aug 22 17:40:45 2020 ] 	Mean test loss of 296 batches: 0.6157817308967178.
+[ Sat Aug 22 17:40:45 2020 ] 	Top 1: 81.82%
+[ Sat Aug 22 17:40:45 2020 ] 	Top 5: 97.05%
+[ Sat Aug 22 17:40:46 2020 ] Training epoch: 66, LR: 0.0500
+[ Sat Aug 22 17:41:38 2020 ] 	Batch(79/588) done. Acc: 0.796875 Loss: 0.4839  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 17:42:43 2020 ] 	Batch(179/588) done. Acc: 0.875000 Loss: 0.4160  lr:0.050000  network_time: 0.1518
+[ Sat Aug 22 17:43:45 2020 ] 	Batch(279/588) done. Acc: 0.906250 Loss: 0.2985  lr:0.050000  network_time: 0.0817
+[ Sat Aug 22 17:44:47 2020 ] 	Batch(379/588) done. Acc: 0.875000 Loss: 0.3455  lr:0.050000  network_time: 0.0736
+[ Sat Aug 22 17:45:52 2020 ] 	Batch(479/588) done. Acc: 0.828125 Loss: 0.5355  lr:0.050000  network_time: 0.0827
+[ Sat Aug 22 17:46:56 2020 ] 	Batch(579/588) done. Acc: 0.828125 Loss: 0.5600  lr:0.050000  network_time: 0.0919
+[ Sat Aug 22 17:47:01 2020 ] Eval epoch: 66
+[ Sat Aug 22 17:48:12 2020 ] 	Mean test loss of 296 batches: 0.6008539229782449.
+[ Sat Aug 22 17:48:12 2020 ] 	Top 1: 82.46%
+[ Sat Aug 22 17:48:12 2020 ] 	Top 5: 97.09%
+[ Sat Aug 22 17:48:14 2020 ] Training epoch: 67, LR: 0.0500
+[ Sat Aug 22 17:49:15 2020 ] 	Batch(91/588) done. Acc: 0.796875 Loss: 0.6698  lr:0.050000  network_time: 0.0770
+[ Sat Aug 22 17:50:19 2020 ] 	Batch(191/588) done. Acc: 0.890625 Loss: 0.3117  lr:0.050000  network_time: 0.0880
+[ Sat Aug 22 17:51:23 2020 ] 	Batch(291/588) done. Acc: 0.843750 Loss: 0.4541  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 17:52:28 2020 ] 	Batch(391/588) done. Acc: 0.859375 Loss: 0.4526  lr:0.050000  network_time: 0.1659
+[ Sat Aug 22 17:53:32 2020 ] 	Batch(491/588) done. Acc: 0.906250 Loss: 0.4432  lr:0.050000  network_time: 0.0923
+[ Sat Aug 22 17:54:34 2020 ] Eval epoch: 67
+[ Sat Aug 22 17:55:45 2020 ] 	Mean test loss of 296 batches: 0.5762765327518856.
+[ Sat Aug 22 17:55:45 2020 ] 	Top 1: 82.81%
+[ Sat Aug 22 17:55:45 2020 ] 	Top 5: 97.17%
+[ Sat Aug 22 17:55:47 2020 ] Training epoch: 68, LR: 0.0500
+[ Sat Aug 22 17:55:50 2020 ] 	Batch(3/588) done. Acc: 0.953125 Loss: 0.2147  lr:0.050000  network_time: 0.0786
+[ Sat Aug 22 17:56:54 2020 ] 	Batch(103/588) done. Acc: 0.859375 Loss: 0.4574  lr:0.050000  network_time: 0.0793
+[ Sat Aug 22 17:57:59 2020 ] 	Batch(203/588) done. Acc: 0.890625 Loss: 0.4145  lr:0.050000  network_time: 0.0914
+[ Sat Aug 22 17:59:03 2020 ] 	Batch(303/588) done. Acc: 0.828125 Loss: 0.4374  lr:0.050000  network_time: 0.1468
+[ Sat Aug 22 18:00:08 2020 ] 	Batch(403/588) done. Acc: 0.875000 Loss: 0.3650  lr:0.050000  network_time: 0.0871
+[ Sat Aug 22 18:01:12 2020 ] 	Batch(503/588) done. Acc: 0.781250 Loss: 0.6605  lr:0.050000  network_time: 0.0730
+[ Sat Aug 22 18:02:07 2020 ] Eval epoch: 68
+[ Sat Aug 22 18:03:17 2020 ] 	Mean test loss of 296 batches: 0.5554687208621889.
+[ Sat Aug 22 18:03:17 2020 ] 	Top 1: 84.06%
+[ Sat Aug 22 18:03:18 2020 ] 	Top 5: 96.95%
+[ Sat Aug 22 18:03:19 2020 ] Training epoch: 69, LR: 0.0500
+[ Sat Aug 22 18:03:30 2020 ] 	Batch(15/588) done. Acc: 0.890625 Loss: 0.3499  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 18:04:35 2020 ] 	Batch(115/588) done. Acc: 0.890625 Loss: 0.3052  lr:0.050000  network_time: 0.0682
+[ Sat Aug 22 18:05:38 2020 ] 	Batch(215/588) done. Acc: 0.937500 Loss: 0.1803  lr:0.050000  network_time: 0.0756
+[ Sat Aug 22 18:06:42 2020 ] 	Batch(315/588) done. Acc: 0.906250 Loss: 0.3071  lr:0.050000  network_time: 0.0803
+[ Sat Aug 22 18:07:46 2020 ] 	Batch(415/588) done. Acc: 0.843750 Loss: 0.5719  lr:0.050000  network_time: 0.0845
+[ Sat Aug 22 18:08:50 2020 ] 	Batch(515/588) done. Acc: 0.859375 Loss: 0.6060  lr:0.050000  network_time: 0.0794
+[ Sat Aug 22 18:09:36 2020 ] Eval epoch: 69
+[ Sat Aug 22 18:10:48 2020 ] 	Mean test loss of 296 batches: 0.5477074118381416.
+[ Sat Aug 22 18:10:48 2020 ] 	Top 1: 83.62%
+[ Sat Aug 22 18:10:48 2020 ] 	Top 5: 97.50%
+[ Sat Aug 22 18:10:49 2020 ] Training epoch: 70, LR: 0.0500
+[ Sat Aug 22 18:11:08 2020 ] 	Batch(27/588) done. Acc: 0.843750 Loss: 0.4218  lr:0.050000  network_time: 0.0775
+[ Sat Aug 22 18:12:12 2020 ] 	Batch(127/588) done. Acc: 0.890625 Loss: 0.2750  lr:0.050000  network_time: 0.0848
+[ Sat Aug 22 18:13:16 2020 ] 	Batch(227/588) done. Acc: 0.890625 Loss: 0.2814  lr:0.050000  network_time: 0.0780
+[ Sat Aug 22 18:14:20 2020 ] 	Batch(327/588) done. Acc: 0.890625 Loss: 0.3044  lr:0.050000  network_time: 0.0719
+[ Sat Aug 22 18:15:24 2020 ] 	Batch(427/588) done. Acc: 0.812500 Loss: 0.5027  lr:0.050000  network_time: 0.0992
+[ Sat Aug 22 18:16:28 2020 ] 	Batch(527/588) done. Acc: 0.828125 Loss: 0.5277  lr:0.050000  network_time: 0.0791
+[ Sat Aug 22 18:17:07 2020 ] Eval epoch: 70
+[ Sat Aug 22 18:18:18 2020 ] 	Mean test loss of 296 batches: 0.5124710745404701.
+[ Sat Aug 22 18:18:18 2020 ] 	Top 1: 84.85%
+[ Sat Aug 22 18:18:18 2020 ] 	Top 5: 97.49%
+[ Sat Aug 22 18:18:20 2020 ] Training epoch: 71, LR: 0.0500
+[ Sat Aug 22 18:18:47 2020 ] 	Batch(39/588) done. Acc: 0.937500 Loss: 0.2746  lr:0.050000  network_time: 0.1399
+[ Sat Aug 22 18:19:51 2020 ] 	Batch(139/588) done. Acc: 0.890625 Loss: 0.3672  lr:0.050000  network_time: 0.0836
+[ Sat Aug 22 18:20:56 2020 ] 	Batch(239/588) done. Acc: 0.875000 Loss: 0.4586  lr:0.050000  network_time: 0.0782
+[ Sat Aug 22 18:22:00 2020 ] 	Batch(339/588) done. Acc: 0.796875 Loss: 0.5700  lr:0.050000  network_time: 0.0706
+[ Sat Aug 22 18:23:05 2020 ] 	Batch(439/588) done. Acc: 0.953125 Loss: 0.1752  lr:0.050000  network_time: 0.0794
+[ Sat Aug 22 18:24:09 2020 ] 	Batch(539/588) done. Acc: 0.828125 Loss: 0.5624  lr:0.050000  network_time: 0.0706
+[ Sat Aug 22 18:24:40 2020 ] Eval epoch: 71
+[ Sat Aug 22 18:25:51 2020 ] 	Mean test loss of 296 batches: 0.59829558854973.
+[ Sat Aug 22 18:25:51 2020 ] 	Top 1: 82.83%
+[ Sat Aug 22 18:25:51 2020 ] 	Top 5: 97.13%
+[ Sat Aug 22 18:25:53 2020 ] Training epoch: 72, LR: 0.0500
+[ Sat Aug 22 18:26:28 2020 ] 	Batch(51/588) done. Acc: 0.875000 Loss: 0.3637  lr:0.050000  network_time: 0.0946
+[ Sat Aug 22 18:27:32 2020 ] 	Batch(151/588) done. Acc: 0.843750 Loss: 0.4201  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 18:28:36 2020 ] 	Batch(251/588) done. Acc: 0.906250 Loss: 0.2882  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 18:29:40 2020 ] 	Batch(351/588) done. Acc: 0.890625 Loss: 0.3220  lr:0.050000  network_time: 0.0791
+[ Sat Aug 22 18:30:45 2020 ] 	Batch(451/588) done. Acc: 0.828125 Loss: 0.6095  lr:0.050000  network_time: 0.0856
+[ Sat Aug 22 18:31:50 2020 ] 	Batch(551/588) done. Acc: 0.906250 Loss: 0.4522  lr:0.050000  network_time: 0.0806
+[ Sat Aug 22 18:32:13 2020 ] Eval epoch: 72
+[ Sat Aug 22 18:33:25 2020 ] 	Mean test loss of 296 batches: 0.5944812434247216.
+[ Sat Aug 22 18:33:25 2020 ] 	Top 1: 82.63%
+[ Sat Aug 22 18:33:25 2020 ] 	Top 5: 96.92%
+[ Sat Aug 22 18:33:26 2020 ] Training epoch: 73, LR: 0.0500
+[ Sat Aug 22 18:34:08 2020 ] 	Batch(63/588) done. Acc: 0.890625 Loss: 0.2217  lr:0.050000  network_time: 0.0880
+[ Sat Aug 22 18:35:12 2020 ] 	Batch(163/588) done. Acc: 0.906250 Loss: 0.3488  lr:0.050000  network_time: 0.0774
+[ Sat Aug 22 18:36:16 2020 ] 	Batch(263/588) done. Acc: 0.937500 Loss: 0.2172  lr:0.050000  network_time: 0.0771
+[ Sat Aug 22 18:37:20 2020 ] 	Batch(363/588) done. Acc: 0.812500 Loss: 0.5237  lr:0.050000  network_time: 0.0717
+[ Sat Aug 22 18:38:24 2020 ] 	Batch(463/588) done. Acc: 0.828125 Loss: 0.4502  lr:0.050000  network_time: 0.0925
+[ Sat Aug 22 18:39:29 2020 ] 	Batch(563/588) done. Acc: 0.875000 Loss: 0.3591  lr:0.050000  network_time: 0.0808
+[ Sat Aug 22 18:39:44 2020 ] Eval epoch: 73
+[ Sat Aug 22 18:40:55 2020 ] 	Mean test loss of 296 batches: 0.5878547749456924.
+[ Sat Aug 22 18:40:55 2020 ] 	Top 1: 82.87%
+[ Sat Aug 22 18:40:55 2020 ] 	Top 5: 97.17%
+[ Sat Aug 22 18:40:57 2020 ] Training epoch: 74, LR: 0.0500
+[ Sat Aug 22 18:41:46 2020 ] 	Batch(75/588) done. Acc: 0.937500 Loss: 0.2208  lr:0.050000  network_time: 0.0795
+[ Sat Aug 22 18:42:51 2020 ] 	Batch(175/588) done. Acc: 0.875000 Loss: 0.4245  lr:0.050000  network_time: 0.0856
+[ Sat Aug 22 18:43:54 2020 ] 	Batch(275/588) done. Acc: 0.843750 Loss: 0.3679  lr:0.050000  network_time: 0.0772
+[ Sat Aug 22 18:44:58 2020 ] 	Batch(375/588) done. Acc: 0.859375 Loss: 0.3654  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 18:46:02 2020 ] 	Batch(475/588) done. Acc: 0.890625 Loss: 0.3997  lr:0.050000  network_time: 0.0962
+[ Sat Aug 22 18:47:06 2020 ] 	Batch(575/588) done. Acc: 0.859375 Loss: 0.4660  lr:0.050000  network_time: 0.0943
+[ Sat Aug 22 18:47:14 2020 ] Eval epoch: 74
+[ Sat Aug 22 18:48:25 2020 ] 	Mean test loss of 296 batches: 0.5782354678958654.
+[ Sat Aug 22 18:48:25 2020 ] 	Top 1: 82.38%
+[ Sat Aug 22 18:48:25 2020 ] 	Top 5: 97.37%
+[ Sat Aug 22 18:48:27 2020 ] Training epoch: 75, LR: 0.0500
+[ Sat Aug 22 18:49:24 2020 ] 	Batch(87/588) done. Acc: 0.875000 Loss: 0.4488  lr:0.050000  network_time: 0.0819
+[ Sat Aug 22 18:50:29 2020 ] 	Batch(187/588) done. Acc: 0.859375 Loss: 0.4312  lr:0.050000  network_time: 0.0772
+[ Sat Aug 22 18:51:34 2020 ] 	Batch(287/588) done. Acc: 0.921875 Loss: 0.2545  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 18:52:38 2020 ] 	Batch(387/588) done. Acc: 0.875000 Loss: 0.4059  lr:0.050000  network_time: 0.0801
+[ Sat Aug 22 18:53:43 2020 ] 	Batch(487/588) done. Acc: 0.812500 Loss: 0.5235  lr:0.050000  network_time: 0.0711
+[ Sat Aug 22 18:54:47 2020 ] 	Batch(587/588) done. Acc: 0.875000 Loss: 0.4617  lr:0.050000  network_time: 0.0767
+[ Sat Aug 22 18:54:48 2020 ] Eval epoch: 75
+[ Sat Aug 22 18:55:59 2020 ] 	Mean test loss of 296 batches: 0.7040289182316612.
+[ Sat Aug 22 18:55:59 2020 ] 	Top 1: 79.49%
+[ Sat Aug 22 18:55:59 2020 ] 	Top 5: 96.83%
+[ Sat Aug 22 18:56:01 2020 ] Training epoch: 76, LR: 0.0500
+[ Sat Aug 22 18:57:07 2020 ] 	Batch(99/588) done. Acc: 0.953125 Loss: 0.2391  lr:0.050000  network_time: 0.0913
+[ Sat Aug 22 18:58:11 2020 ] 	Batch(199/588) done. Acc: 0.875000 Loss: 0.4611  lr:0.050000  network_time: 0.0939
+[ Sat Aug 22 18:59:15 2020 ] 	Batch(299/588) done. Acc: 0.875000 Loss: 0.5218  lr:0.050000  network_time: 0.0910
+[ Sat Aug 22 19:00:20 2020 ] 	Batch(399/588) done. Acc: 0.859375 Loss: 0.4525  lr:0.050000  network_time: 0.0953
+[ Sat Aug 22 19:01:25 2020 ] 	Batch(499/588) done. Acc: 0.859375 Loss: 0.5308  lr:0.050000  network_time: 0.0921
+[ Sat Aug 22 19:02:22 2020 ] Eval epoch: 76
+[ Sat Aug 22 19:03:33 2020 ] 	Mean test loss of 296 batches: 0.666188221022084.
+[ Sat Aug 22 19:03:33 2020 ] 	Top 1: 80.81%
+[ Sat Aug 22 19:03:33 2020 ] 	Top 5: 96.43%
+[ Sat Aug 22 19:03:34 2020 ] Training epoch: 77, LR: 0.0500
+[ Sat Aug 22 19:03:43 2020 ] 	Batch(11/588) done. Acc: 0.906250 Loss: 0.2603  lr:0.050000  network_time: 0.0775
+[ Sat Aug 22 19:04:47 2020 ] 	Batch(111/588) done. Acc: 0.843750 Loss: 0.5264  lr:0.050000  network_time: 0.0848
+[ Sat Aug 22 19:05:51 2020 ] 	Batch(211/588) done. Acc: 0.906250 Loss: 0.3248  lr:0.050000  network_time: 0.0900
+[ Sat Aug 22 19:06:55 2020 ] 	Batch(311/588) done. Acc: 0.875000 Loss: 0.4365  lr:0.050000  network_time: 0.0746
+[ Sat Aug 22 19:08:00 2020 ] 	Batch(411/588) done. Acc: 0.859375 Loss: 0.4309  lr:0.050000  network_time: 0.0900
+[ Sat Aug 22 19:09:03 2020 ] 	Batch(511/588) done. Acc: 0.796875 Loss: 0.5582  lr:0.050000  network_time: 0.0887
+[ Sat Aug 22 19:09:53 2020 ] Eval epoch: 77
+[ Sat Aug 22 19:11:04 2020 ] 	Mean test loss of 296 batches: 0.5727885918238679.
+[ Sat Aug 22 19:11:04 2020 ] 	Top 1: 83.77%
+[ Sat Aug 22 19:11:04 2020 ] 	Top 5: 97.36%
+[ Sat Aug 22 19:11:05 2020 ] Training epoch: 78, LR: 0.0500
+[ Sat Aug 22 19:11:22 2020 ] 	Batch(23/588) done. Acc: 0.921875 Loss: 0.4203  lr:0.050000  network_time: 0.0758
+[ Sat Aug 22 19:12:26 2020 ] 	Batch(123/588) done. Acc: 0.906250 Loss: 0.3372  lr:0.050000  network_time: 0.0736
+[ Sat Aug 22 19:13:29 2020 ] 	Batch(223/588) done. Acc: 0.921875 Loss: 0.3648  lr:0.050000  network_time: 0.0733
+[ Sat Aug 22 19:14:32 2020 ] 	Batch(323/588) done. Acc: 0.906250 Loss: 0.3778  lr:0.050000  network_time: 0.0786
+[ Sat Aug 22 19:15:35 2020 ] 	Batch(423/588) done. Acc: 0.906250 Loss: 0.3484  lr:0.050000  network_time: 0.0769
+[ Sat Aug 22 19:16:39 2020 ] 	Batch(523/588) done. Acc: 0.875000 Loss: 0.4435  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 19:17:20 2020 ] Eval epoch: 78
+[ Sat Aug 22 19:18:30 2020 ] 	Mean test loss of 296 batches: 0.5933575346763875.
+[ Sat Aug 22 19:18:30 2020 ] 	Top 1: 83.53%
+[ Sat Aug 22 19:18:31 2020 ] 	Top 5: 97.11%
+[ Sat Aug 22 19:18:32 2020 ] Training epoch: 79, LR: 0.0500
+[ Sat Aug 22 19:18:57 2020 ] 	Batch(35/588) done. Acc: 0.921875 Loss: 0.2612  lr:0.050000  network_time: 0.0901
+[ Sat Aug 22 19:20:01 2020 ] 	Batch(135/588) done. Acc: 0.796875 Loss: 0.5322  lr:0.050000  network_time: 0.1533
+[ Sat Aug 22 19:21:06 2020 ] 	Batch(235/588) done. Acc: 0.937500 Loss: 0.2255  lr:0.050000  network_time: 0.0824
+[ Sat Aug 22 19:22:10 2020 ] 	Batch(335/588) done. Acc: 0.890625 Loss: 0.4278  lr:0.050000  network_time: 0.0937
+[ Sat Aug 22 19:23:14 2020 ] 	Batch(435/588) done. Acc: 0.875000 Loss: 0.4072  lr:0.050000  network_time: 0.0834
+[ Sat Aug 22 19:24:19 2020 ] 	Batch(535/588) done. Acc: 0.843750 Loss: 0.4557  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 19:24:53 2020 ] Eval epoch: 79
+[ Sat Aug 22 19:26:04 2020 ] 	Mean test loss of 296 batches: 0.7405644165905746.
+[ Sat Aug 22 19:26:04 2020 ] 	Top 1: 79.06%
+[ Sat Aug 22 19:26:04 2020 ] 	Top 5: 96.30%
+[ Sat Aug 22 19:26:05 2020 ] Training epoch: 80, LR: 0.0500
+[ Sat Aug 22 19:26:37 2020 ] 	Batch(47/588) done. Acc: 0.890625 Loss: 0.2620  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 19:27:42 2020 ] 	Batch(147/588) done. Acc: 0.875000 Loss: 0.3356  lr:0.050000  network_time: 0.1362
+[ Sat Aug 22 19:28:45 2020 ] 	Batch(247/588) done. Acc: 0.875000 Loss: 0.3857  lr:0.050000  network_time: 0.0836
+[ Sat Aug 22 19:29:50 2020 ] 	Batch(347/588) done. Acc: 0.859375 Loss: 0.3893  lr:0.050000  network_time: 0.0821
+[ Sat Aug 22 19:30:54 2020 ] 	Batch(447/588) done. Acc: 0.843750 Loss: 0.4188  lr:0.050000  network_time: 0.0887
+[ Sat Aug 22 19:31:58 2020 ] 	Batch(547/588) done. Acc: 0.781250 Loss: 0.7386  lr:0.050000  network_time: 0.0797
+[ Sat Aug 22 19:32:24 2020 ] Eval epoch: 80
+[ Sat Aug 22 19:33:35 2020 ] 	Mean test loss of 296 batches: 0.5243418102932943.
+[ Sat Aug 22 19:33:35 2020 ] 	Top 1: 84.26%
+[ Sat Aug 22 19:33:35 2020 ] 	Top 5: 97.46%
+[ Sat Aug 22 19:33:36 2020 ] Training epoch: 81, LR: 0.0500
+[ Sat Aug 22 19:34:16 2020 ] 	Batch(59/588) done. Acc: 0.875000 Loss: 0.4780  lr:0.050000  network_time: 0.0835
+[ Sat Aug 22 19:35:20 2020 ] 	Batch(159/588) done. Acc: 0.937500 Loss: 0.3018  lr:0.050000  network_time: 0.0704
+[ Sat Aug 22 19:36:24 2020 ] 	Batch(259/588) done. Acc: 0.953125 Loss: 0.2352  lr:0.050000  network_time: 0.0922
+[ Sat Aug 22 19:37:28 2020 ] 	Batch(359/588) done. Acc: 0.843750 Loss: 0.5218  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 19:38:33 2020 ] 	Batch(459/588) done. Acc: 0.875000 Loss: 0.3449  lr:0.050000  network_time: 0.0716
+[ Sat Aug 22 19:39:37 2020 ] 	Batch(559/588) done. Acc: 0.828125 Loss: 0.4836  lr:0.050000  network_time: 0.0813
+[ Sat Aug 22 19:39:56 2020 ] Eval epoch: 81
+[ Sat Aug 22 19:41:06 2020 ] 	Mean test loss of 296 batches: 0.5973413664142828.
+[ Sat Aug 22 19:41:06 2020 ] 	Top 1: 82.97%
+[ Sat Aug 22 19:41:06 2020 ] 	Top 5: 97.06%
+[ Sat Aug 22 19:41:08 2020 ] Training epoch: 82, LR: 0.0500
+[ Sat Aug 22 19:41:55 2020 ] 	Batch(71/588) done. Acc: 0.828125 Loss: 0.4585  lr:0.050000  network_time: 0.0825
+[ Sat Aug 22 19:42:59 2020 ] 	Batch(171/588) done. Acc: 0.859375 Loss: 0.4355  lr:0.050000  network_time: 0.1278
+[ Sat Aug 22 19:44:03 2020 ] 	Batch(271/588) done. Acc: 0.953125 Loss: 0.2329  lr:0.050000  network_time: 0.0811
+[ Sat Aug 22 19:45:07 2020 ] 	Batch(371/588) done. Acc: 0.843750 Loss: 0.4077  lr:0.050000  network_time: 0.0873
+[ Sat Aug 22 19:46:11 2020 ] 	Batch(471/588) done. Acc: 0.875000 Loss: 0.3361  lr:0.050000  network_time: 0.0710
+[ Sat Aug 22 19:47:15 2020 ] 	Batch(571/588) done. Acc: 0.875000 Loss: 0.3687  lr:0.050000  network_time: 0.0730
+[ Sat Aug 22 19:47:25 2020 ] Eval epoch: 82
+[ Sat Aug 22 19:48:35 2020 ] 	Mean test loss of 296 batches: 0.6514952150551049.
+[ Sat Aug 22 19:48:35 2020 ] 	Top 1: 81.38%
+[ Sat Aug 22 19:48:36 2020 ] 	Top 5: 96.93%
+[ Sat Aug 22 19:48:37 2020 ] Training epoch: 83, LR: 0.0500
+[ Sat Aug 22 19:49:32 2020 ] 	Batch(83/588) done. Acc: 0.921875 Loss: 0.2974  lr:0.050000  network_time: 0.0766
+[ Sat Aug 22 19:50:36 2020 ] 	Batch(183/588) done. Acc: 0.906250 Loss: 0.3180  lr:0.050000  network_time: 0.0766
+[ Sat Aug 22 19:51:40 2020 ] 	Batch(283/588) done. Acc: 0.875000 Loss: 0.3646  lr:0.050000  network_time: 0.0743
+[ Sat Aug 22 19:52:44 2020 ] 	Batch(383/588) done. Acc: 0.890625 Loss: 0.3044  lr:0.050000  network_time: 0.0913
+[ Sat Aug 22 19:53:48 2020 ] 	Batch(483/588) done. Acc: 0.875000 Loss: 0.2952  lr:0.050000  network_time: 0.0708
+[ Sat Aug 22 19:54:52 2020 ] 	Batch(583/588) done. Acc: 0.843750 Loss: 0.4879  lr:0.050000  network_time: 0.0789
+[ Sat Aug 22 19:54:55 2020 ] Eval epoch: 83
+[ Sat Aug 22 19:56:06 2020 ] 	Mean test loss of 296 batches: 0.6289818076970609.
+[ Sat Aug 22 19:56:06 2020 ] 	Top 1: 81.63%
+[ Sat Aug 22 19:56:06 2020 ] 	Top 5: 96.85%
+[ Sat Aug 22 19:56:08 2020 ] Training epoch: 84, LR: 0.0500
+[ Sat Aug 22 19:57:10 2020 ] 	Batch(95/588) done. Acc: 0.906250 Loss: 0.2619  lr:0.050000  network_time: 0.0771
+[ Sat Aug 22 19:58:14 2020 ] 	Batch(195/588) done. Acc: 0.875000 Loss: 0.3125  lr:0.050000  network_time: 0.0830
+[ Sat Aug 22 19:59:18 2020 ] 	Batch(295/588) done. Acc: 0.937500 Loss: 0.2486  lr:0.050000  network_time: 0.0756
+[ Sat Aug 22 20:00:22 2020 ] 	Batch(395/588) done. Acc: 0.890625 Loss: 0.3292  lr:0.050000  network_time: 0.0726
+[ Sat Aug 22 20:01:26 2020 ] 	Batch(495/588) done. Acc: 0.734375 Loss: 0.6822  lr:0.050000  network_time: 0.0843
+[ Sat Aug 22 20:02:25 2020 ] Eval epoch: 84
+[ Sat Aug 22 20:03:36 2020 ] 	Mean test loss of 296 batches: 0.563423870433424.
+[ Sat Aug 22 20:03:36 2020 ] 	Top 1: 83.06%
+[ Sat Aug 22 20:03:36 2020 ] 	Top 5: 97.43%
+[ Sat Aug 22 20:03:38 2020 ] Training epoch: 85, LR: 0.0500
+[ Sat Aug 22 20:03:44 2020 ] 	Batch(7/588) done. Acc: 0.921875 Loss: 0.2322  lr:0.050000  network_time: 0.0693
+[ Sat Aug 22 20:04:48 2020 ] 	Batch(107/588) done. Acc: 0.812500 Loss: 0.3779  lr:0.050000  network_time: 0.0737
+[ Sat Aug 22 20:05:51 2020 ] 	Batch(207/588) done. Acc: 0.906250 Loss: 0.2381  lr:0.050000  network_time: 0.0727
+[ Sat Aug 22 20:06:55 2020 ] 	Batch(307/588) done. Acc: 0.890625 Loss: 0.3907  lr:0.050000  network_time: 0.0960
+[ Sat Aug 22 20:07:59 2020 ] 	Batch(407/588) done. Acc: 0.937500 Loss: 0.1648  lr:0.050000  network_time: 0.1461
+[ Sat Aug 22 20:09:03 2020 ] 	Batch(507/588) done. Acc: 0.921875 Loss: 0.3063  lr:0.050000  network_time: 0.0870
+[ Sat Aug 22 20:09:55 2020 ] Eval epoch: 85
+[ Sat Aug 22 20:11:06 2020 ] 	Mean test loss of 296 batches: 0.5036623127305427.
+[ Sat Aug 22 20:11:06 2020 ] 	Top 1: 85.54%
+[ Sat Aug 22 20:11:07 2020 ] 	Top 5: 97.58%
+[ Sat Aug 22 20:11:08 2020 ] Training epoch: 86, LR: 0.0500
+[ Sat Aug 22 20:11:22 2020 ] 	Batch(19/588) done. Acc: 0.968750 Loss: 0.1584  lr:0.050000  network_time: 0.0863
+[ Sat Aug 22 20:12:26 2020 ] 	Batch(119/588) done. Acc: 0.937500 Loss: 0.1744  lr:0.050000  network_time: 0.0911
+[ Sat Aug 22 20:13:30 2020 ] 	Batch(219/588) done. Acc: 0.875000 Loss: 0.3159  lr:0.050000  network_time: 0.0881
+[ Sat Aug 22 20:14:34 2020 ] 	Batch(319/588) done. Acc: 0.828125 Loss: 0.5670  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 20:15:38 2020 ] 	Batch(419/588) done. Acc: 0.890625 Loss: 0.3008  lr:0.050000  network_time: 0.0715
+[ Sat Aug 22 20:16:42 2020 ] 	Batch(519/588) done. Acc: 0.843750 Loss: 0.4287  lr:0.050000  network_time: 0.0846
+[ Sat Aug 22 20:17:25 2020 ] Eval epoch: 86
+[ Sat Aug 22 20:18:36 2020 ] 	Mean test loss of 296 batches: 0.6127242687082773.
+[ Sat Aug 22 20:18:36 2020 ] 	Top 1: 82.20%
+[ Sat Aug 22 20:18:37 2020 ] 	Top 5: 97.36%
+[ Sat Aug 22 20:18:38 2020 ] Training epoch: 87, LR: 0.0500
+[ Sat Aug 22 20:19:00 2020 ] 	Batch(31/588) done. Acc: 0.953125 Loss: 0.2102  lr:0.050000  network_time: 0.0856
+[ Sat Aug 22 20:20:04 2020 ] 	Batch(131/588) done. Acc: 0.968750 Loss: 0.1496  lr:0.050000  network_time: 0.0785
+[ Sat Aug 22 20:21:09 2020 ] 	Batch(231/588) done. Acc: 0.921875 Loss: 0.2150  lr:0.050000  network_time: 0.0816
+[ Sat Aug 22 20:22:13 2020 ] 	Batch(331/588) done. Acc: 0.921875 Loss: 0.2442  lr:0.050000  network_time: 0.0795
+[ Sat Aug 22 20:23:17 2020 ] 	Batch(431/588) done. Acc: 0.843750 Loss: 0.4712  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 20:24:22 2020 ] 	Batch(531/588) done. Acc: 0.796875 Loss: 0.4806  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 20:24:58 2020 ] Eval epoch: 87
+[ Sat Aug 22 20:26:09 2020 ] 	Mean test loss of 296 batches: 0.5679770018150275.
+[ Sat Aug 22 20:26:09 2020 ] 	Top 1: 83.21%
+[ Sat Aug 22 20:26:09 2020 ] 	Top 5: 97.51%
+[ Sat Aug 22 20:26:11 2020 ] Training epoch: 88, LR: 0.0500
+[ Sat Aug 22 20:26:40 2020 ] 	Batch(43/588) done. Acc: 0.937500 Loss: 0.2079  lr:0.050000  network_time: 0.0793
+[ Sat Aug 22 20:27:45 2020 ] 	Batch(143/588) done. Acc: 0.906250 Loss: 0.3121  lr:0.050000  network_time: 0.0802
+[ Sat Aug 22 20:28:49 2020 ] 	Batch(243/588) done. Acc: 0.968750 Loss: 0.2290  lr:0.050000  network_time: 0.0769
+[ Sat Aug 22 20:29:53 2020 ] 	Batch(343/588) done. Acc: 0.906250 Loss: 0.3474  lr:0.050000  network_time: 0.0726
+[ Sat Aug 22 20:30:58 2020 ] 	Batch(443/588) done. Acc: 0.875000 Loss: 0.3445  lr:0.050000  network_time: 0.0807
+[ Sat Aug 22 20:32:02 2020 ] 	Batch(543/588) done. Acc: 0.843750 Loss: 0.5680  lr:0.050000  network_time: 0.0792
+[ Sat Aug 22 20:32:31 2020 ] Eval epoch: 88
+[ Sat Aug 22 20:33:42 2020 ] 	Mean test loss of 296 batches: 0.5695406432590775.
+[ Sat Aug 22 20:33:42 2020 ] 	Top 1: 83.62%
+[ Sat Aug 22 20:33:42 2020 ] 	Top 5: 97.13%
+[ Sat Aug 22 20:33:44 2020 ] Training epoch: 89, LR: 0.0500
+[ Sat Aug 22 20:34:20 2020 ] 	Batch(55/588) done. Acc: 0.890625 Loss: 0.2803  lr:0.050000  network_time: 0.0953
+[ Sat Aug 22 20:35:24 2020 ] 	Batch(155/588) done. Acc: 0.953125 Loss: 0.2089  lr:0.050000  network_time: 0.0793
+[ Sat Aug 22 20:36:28 2020 ] 	Batch(255/588) done. Acc: 0.843750 Loss: 0.3997  lr:0.050000  network_time: 0.0747
+[ Sat Aug 22 20:37:32 2020 ] 	Batch(355/588) done. Acc: 0.890625 Loss: 0.2333  lr:0.050000  network_time: 0.0713
+[ Sat Aug 22 20:38:36 2020 ] 	Batch(455/588) done. Acc: 0.937500 Loss: 0.2380  lr:0.050000  network_time: 0.0768
+[ Sat Aug 22 20:39:40 2020 ] 	Batch(555/588) done. Acc: 0.843750 Loss: 0.4069  lr:0.050000  network_time: 0.0814
+[ Sat Aug 22 20:40:01 2020 ] Eval epoch: 89
+[ Sat Aug 22 20:41:12 2020 ] 	Mean test loss of 296 batches: 0.5599860979646847.
+[ Sat Aug 22 20:41:12 2020 ] 	Top 1: 84.13%
+[ Sat Aug 22 20:41:12 2020 ] 	Top 5: 97.26%
+[ Sat Aug 22 20:41:14 2020 ] Training epoch: 90, LR: 0.0500
+[ Sat Aug 22 20:41:59 2020 ] 	Batch(67/588) done. Acc: 0.875000 Loss: 0.4397  lr:0.050000  network_time: 0.0854
+[ Sat Aug 22 20:43:03 2020 ] 	Batch(167/588) done. Acc: 0.875000 Loss: 0.3971  lr:0.050000  network_time: 0.0685
+[ Sat Aug 22 20:44:07 2020 ] 	Batch(267/588) done. Acc: 0.875000 Loss: 0.3661  lr:0.050000  network_time: 0.0754
+[ Sat Aug 22 20:45:11 2020 ] 	Batch(367/588) done. Acc: 0.921875 Loss: 0.3306  lr:0.050000  network_time: 0.0933
+[ Sat Aug 22 20:46:15 2020 ] 	Batch(467/588) done. Acc: 0.843750 Loss: 0.4061  lr:0.050000  network_time: 0.0822
+[ Sat Aug 22 20:47:19 2020 ] 	Batch(567/588) done. Acc: 0.937500 Loss: 0.2367  lr:0.050000  network_time: 0.0736
+[ Sat Aug 22 20:47:32 2020 ] Eval epoch: 90
+[ Sat Aug 22 20:48:43 2020 ] 	Mean test loss of 296 batches: 0.5547260998219654.
+[ Sat Aug 22 20:48:43 2020 ] 	Top 1: 83.91%
+[ Sat Aug 22 20:48:44 2020 ] 	Top 5: 97.46%
+[ Sat Aug 22 20:48:45 2020 ] Training epoch: 91, LR: 0.0500
+[ Sat Aug 22 20:49:38 2020 ] 	Batch(79/588) done. Acc: 0.906250 Loss: 0.2869  lr:0.050000  network_time: 0.0810
+[ Sat Aug 22 20:50:42 2020 ] 	Batch(179/588) done. Acc: 0.875000 Loss: 0.3083  lr:0.050000  network_time: 0.0863
+[ Sat Aug 22 20:51:47 2020 ] 	Batch(279/588) done. Acc: 0.953125 Loss: 0.1687  lr:0.050000  network_time: 0.0750
+[ Sat Aug 22 20:52:51 2020 ] 	Batch(379/588) done. Acc: 0.859375 Loss: 0.4355  lr:0.050000  network_time: 0.0708
+[ Sat Aug 22 20:53:56 2020 ] 	Batch(479/588) done. Acc: 0.843750 Loss: 0.4227  lr:0.050000  network_time: 0.1210
+[ Sat Aug 22 20:55:00 2020 ] 	Batch(579/588) done. Acc: 0.890625 Loss: 0.3646  lr:0.050000  network_time: 0.0715
+[ Sat Aug 22 20:55:05 2020 ] Eval epoch: 91
+[ Sat Aug 22 20:56:16 2020 ] 	Mean test loss of 296 batches: 0.5560876620631363.
+[ Sat Aug 22 20:56:16 2020 ] 	Top 1: 83.65%
+[ Sat Aug 22 20:56:17 2020 ] 	Top 5: 97.45%
+[ Sat Aug 22 20:56:18 2020 ] Training epoch: 92, LR: 0.0500
+[ Sat Aug 22 20:57:18 2020 ] 	Batch(91/588) done. Acc: 0.921875 Loss: 0.2740  lr:0.050000  network_time: 0.0810
+[ Sat Aug 22 20:58:23 2020 ] 	Batch(191/588) done. Acc: 0.875000 Loss: 0.3801  lr:0.050000  network_time: 0.0746
+[ Sat Aug 22 20:59:28 2020 ] 	Batch(291/588) done. Acc: 0.937500 Loss: 0.1916  lr:0.050000  network_time: 0.0792
+[ Sat Aug 22 21:00:32 2020 ] 	Batch(391/588) done. Acc: 0.921875 Loss: 0.1996  lr:0.050000  network_time: 0.1311
+[ Sat Aug 22 21:01:37 2020 ] 	Batch(491/588) done. Acc: 0.906250 Loss: 0.3532  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 21:02:39 2020 ] Eval epoch: 92
+[ Sat Aug 22 21:03:50 2020 ] 	Mean test loss of 296 batches: 0.5653590603001617.
+[ Sat Aug 22 21:03:50 2020 ] 	Top 1: 83.57%
+[ Sat Aug 22 21:03:50 2020 ] 	Top 5: 97.34%
+[ Sat Aug 22 21:03:51 2020 ] Training epoch: 93, LR: 0.0500
+[ Sat Aug 22 21:03:55 2020 ] 	Batch(3/588) done. Acc: 0.906250 Loss: 0.2460  lr:0.050000  network_time: 0.0801
+[ Sat Aug 22 21:04:58 2020 ] 	Batch(103/588) done. Acc: 0.906250 Loss: 0.3595  lr:0.050000  network_time: 0.0937
+[ Sat Aug 22 21:06:01 2020 ] 	Batch(203/588) done. Acc: 0.890625 Loss: 0.3261  lr:0.050000  network_time: 0.0729
+[ Sat Aug 22 21:07:04 2020 ] 	Batch(303/588) done. Acc: 0.906250 Loss: 0.3182  lr:0.050000  network_time: 0.0794
+[ Sat Aug 22 21:08:08 2020 ] 	Batch(403/588) done. Acc: 0.921875 Loss: 0.2834  lr:0.050000  network_time: 0.1005
+[ Sat Aug 22 21:09:11 2020 ] 	Batch(503/588) done. Acc: 0.890625 Loss: 0.3106  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 21:10:05 2020 ] Eval epoch: 93
+[ Sat Aug 22 21:11:16 2020 ] 	Mean test loss of 296 batches: 0.5790978324775761.
+[ Sat Aug 22 21:11:16 2020 ] 	Top 1: 83.46%
+[ Sat Aug 22 21:11:16 2020 ] 	Top 5: 97.09%
+[ Sat Aug 22 21:11:18 2020 ] Training epoch: 94, LR: 0.0500
+[ Sat Aug 22 21:11:29 2020 ] 	Batch(15/588) done. Acc: 0.875000 Loss: 0.4274  lr:0.050000  network_time: 0.0733
+[ Sat Aug 22 21:12:33 2020 ] 	Batch(115/588) done. Acc: 0.875000 Loss: 0.4289  lr:0.050000  network_time: 0.0773
+[ Sat Aug 22 21:13:37 2020 ] 	Batch(215/588) done. Acc: 0.906250 Loss: 0.2778  lr:0.050000  network_time: 0.0837
+[ Sat Aug 22 21:14:41 2020 ] 	Batch(315/588) done. Acc: 0.937500 Loss: 0.2460  lr:0.050000  network_time: 0.0819
+[ Sat Aug 22 21:15:45 2020 ] 	Batch(415/588) done. Acc: 0.937500 Loss: 0.2750  lr:0.050000  network_time: 0.0846
+[ Sat Aug 22 21:16:49 2020 ] 	Batch(515/588) done. Acc: 0.890625 Loss: 0.3193  lr:0.050000  network_time: 0.0942
+[ Sat Aug 22 21:17:35 2020 ] Eval epoch: 94
+[ Sat Aug 22 21:18:46 2020 ] 	Mean test loss of 296 batches: 0.5976950878629813.
+[ Sat Aug 22 21:18:46 2020 ] 	Top 1: 83.22%
+[ Sat Aug 22 21:18:46 2020 ] 	Top 5: 97.29%
+[ Sat Aug 22 21:18:47 2020 ] Training epoch: 95, LR: 0.0500
+[ Sat Aug 22 21:19:07 2020 ] 	Batch(27/588) done. Acc: 0.875000 Loss: 0.3255  lr:0.050000  network_time: 0.0788
+[ Sat Aug 22 21:20:11 2020 ] 	Batch(127/588) done. Acc: 0.968750 Loss: 0.1703  lr:0.050000  network_time: 0.1239
+[ Sat Aug 22 21:21:16 2020 ] 	Batch(227/588) done. Acc: 0.828125 Loss: 0.3950  lr:0.050000  network_time: 0.0709
+[ Sat Aug 22 21:22:20 2020 ] 	Batch(327/588) done. Acc: 0.859375 Loss: 0.4576  lr:0.050000  network_time: 0.0947
+[ Sat Aug 22 21:23:24 2020 ] 	Batch(427/588) done. Acc: 0.875000 Loss: 0.4366  lr:0.050000  network_time: 0.0846
+[ Sat Aug 22 21:24:29 2020 ] 	Batch(527/588) done. Acc: 0.906250 Loss: 0.3085  lr:0.050000  network_time: 0.0876
+[ Sat Aug 22 21:25:08 2020 ] Eval epoch: 95
+[ Sat Aug 22 21:26:18 2020 ] 	Mean test loss of 296 batches: 0.5572527051223694.
+[ Sat Aug 22 21:26:18 2020 ] 	Top 1: 84.16%
+[ Sat Aug 22 21:26:19 2020 ] 	Top 5: 97.39%
+[ Sat Aug 22 21:26:20 2020 ] Training epoch: 96, LR: 0.0500
+[ Sat Aug 22 21:26:47 2020 ] 	Batch(39/588) done. Acc: 0.937500 Loss: 0.2798  lr:0.050000  network_time: 0.1329
+[ Sat Aug 22 21:27:51 2020 ] 	Batch(139/588) done. Acc: 0.953125 Loss: 0.2138  lr:0.050000  network_time: 0.0797
+[ Sat Aug 22 21:28:56 2020 ] 	Batch(239/588) done. Acc: 0.890625 Loss: 0.3178  lr:0.050000  network_time: 0.0755
+[ Sat Aug 22 21:30:00 2020 ] 	Batch(339/588) done. Acc: 0.859375 Loss: 0.3968  lr:0.050000  network_time: 0.0876
+[ Sat Aug 22 21:31:04 2020 ] 	Batch(439/588) done. Acc: 0.890625 Loss: 0.3448  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 21:32:09 2020 ] 	Batch(539/588) done. Acc: 0.859375 Loss: 0.3443  lr:0.050000  network_time: 0.0722
+[ Sat Aug 22 21:32:40 2020 ] Eval epoch: 96
+[ Sat Aug 22 21:33:50 2020 ] 	Mean test loss of 296 batches: 0.6009532858089015.
+[ Sat Aug 22 21:33:50 2020 ] 	Top 1: 83.09%
+[ Sat Aug 22 21:33:50 2020 ] 	Top 5: 96.94%
+[ Sat Aug 22 21:33:51 2020 ] Training epoch: 97, LR: 0.0500
+[ Sat Aug 22 21:34:26 2020 ] 	Batch(51/588) done. Acc: 0.843750 Loss: 0.3267  lr:0.050000  network_time: 0.0731
+[ Sat Aug 22 21:35:31 2020 ] 	Batch(151/588) done. Acc: 0.921875 Loss: 0.3285  lr:0.050000  network_time: 0.0866
+[ Sat Aug 22 21:36:34 2020 ] 	Batch(251/588) done. Acc: 0.875000 Loss: 0.4556  lr:0.050000  network_time: 0.0850
+[ Sat Aug 22 21:37:38 2020 ] 	Batch(351/588) done. Acc: 0.953125 Loss: 0.1946  lr:0.050000  network_time: 0.0724
+[ Sat Aug 22 21:38:42 2020 ] 	Batch(451/588) done. Acc: 0.843750 Loss: 0.5099  lr:0.050000  network_time: 0.0779
+[ Sat Aug 22 21:39:46 2020 ] 	Batch(551/588) done. Acc: 0.875000 Loss: 0.4170  lr:0.050000  network_time: 0.0809
+[ Sat Aug 22 21:40:10 2020 ] Eval epoch: 97
+[ Sat Aug 22 21:41:20 2020 ] 	Mean test loss of 296 batches: 0.6448646865382388.
+[ Sat Aug 22 21:41:20 2020 ] 	Top 1: 81.52%
+[ Sat Aug 22 21:41:20 2020 ] 	Top 5: 97.14%
+[ Sat Aug 22 21:41:21 2020 ] Training epoch: 98, LR: 0.0500
+[ Sat Aug 22 21:42:03 2020 ] 	Batch(63/588) done. Acc: 0.921875 Loss: 0.2681  lr:0.050000  network_time: 0.0736
+[ Sat Aug 22 21:43:07 2020 ] 	Batch(163/588) done. Acc: 0.890625 Loss: 0.3447  lr:0.050000  network_time: 0.0762
+[ Sat Aug 22 21:44:11 2020 ] 	Batch(263/588) done. Acc: 0.937500 Loss: 0.2058  lr:0.050000  network_time: 0.0748
+[ Sat Aug 22 21:45:16 2020 ] 	Batch(363/588) done. Acc: 0.937500 Loss: 0.3262  lr:0.050000  network_time: 0.0817
+[ Sat Aug 22 21:46:20 2020 ] 	Batch(463/588) done. Acc: 0.921875 Loss: 0.2738  lr:0.050000  network_time: 0.0798
+[ Sat Aug 22 21:47:24 2020 ] 	Batch(563/588) done. Acc: 0.921875 Loss: 0.2902  lr:0.050000  network_time: 0.0796
+[ Sat Aug 22 21:47:40 2020 ] Eval epoch: 98
+[ Sat Aug 22 21:48:51 2020 ] 	Mean test loss of 296 batches: 0.6730575249907939.
+[ Sat Aug 22 21:48:51 2020 ] 	Top 1: 81.42%
+[ Sat Aug 22 21:48:51 2020 ] 	Top 5: 96.58%
+[ Sat Aug 22 21:48:53 2020 ] Training epoch: 99, LR: 0.0500
+[ Sat Aug 22 21:49:43 2020 ] 	Batch(75/588) done. Acc: 0.937500 Loss: 0.2669  lr:0.050000  network_time: 0.0773
+[ Sat Aug 22 21:50:48 2020 ] 	Batch(175/588) done. Acc: 0.890625 Loss: 0.2581  lr:0.050000  network_time: 0.0829
+[ Sat Aug 22 21:51:52 2020 ] 	Batch(275/588) done. Acc: 0.906250 Loss: 0.2522  lr:0.050000  network_time: 0.1010
+[ Sat Aug 22 21:52:56 2020 ] 	Batch(375/588) done. Acc: 0.937500 Loss: 0.1745  lr:0.050000  network_time: 0.0780
+[ Sat Aug 22 21:54:01 2020 ] 	Batch(475/588) done. Acc: 0.906250 Loss: 0.3206  lr:0.050000  network_time: 0.0783
+[ Sat Aug 22 21:55:05 2020 ] 	Batch(575/588) done. Acc: 0.890625 Loss: 0.3815  lr:0.050000  network_time: 0.0676
+[ Sat Aug 22 21:55:13 2020 ] Eval epoch: 99
+[ Sat Aug 22 21:56:24 2020 ] 	Mean test loss of 296 batches: 0.5635665492028803.
+[ Sat Aug 22 21:56:24 2020 ] 	Top 1: 83.75%
+[ Sat Aug 22 21:56:24 2020 ] 	Top 5: 97.63%
+[ Sat Aug 22 21:56:26 2020 ] Training epoch: 100, LR: 0.0500
+[ Sat Aug 22 21:57:23 2020 ] 	Batch(87/588) done. Acc: 0.859375 Loss: 0.3593  lr:0.050000  network_time: 0.0705
+[ Sat Aug 22 21:58:28 2020 ] 	Batch(187/588) done. Acc: 0.875000 Loss: 0.4508  lr:0.050000  network_time: 0.0826
+[ Sat Aug 22 21:59:32 2020 ] 	Batch(287/588) done. Acc: 0.890625 Loss: 0.2894  lr:0.050000  network_time: 0.0771
+[ Sat Aug 22 22:00:36 2020 ] 	Batch(387/588) done. Acc: 0.828125 Loss: 0.3860  lr:0.050000  network_time: 0.0956
+[ Sat Aug 22 22:01:40 2020 ] 	Batch(487/588) done. Acc: 0.843750 Loss: 0.3742  lr:0.050000  network_time: 0.0774
+[ Sat Aug 22 22:02:44 2020 ] 	Batch(587/588) done. Acc: 0.953125 Loss: 0.1877  lr:0.050000  network_time: 0.0778
+[ Sat Aug 22 22:02:44 2020 ] Eval epoch: 100
+[ Sat Aug 22 22:03:55 2020 ] 	Mean test loss of 296 batches: 0.5948477833204575.
+[ Sat Aug 22 22:03:55 2020 ] 	Top 1: 83.02%
+[ Sat Aug 22 22:03:56 2020 ] 	Top 5: 97.42%
+[ Sat Aug 22 22:03:57 2020 ] Best accuracy: 0.8554299598563279
+[ Sat Aug 22 22:03:57 2020 ] Epoch number: 85
+[ Sat Aug 22 22:03:57 2020 ] Model name: ./work_dir/ntu/xview/upper
+[ Sat Aug 22 22:03:57 2020 ] Model total number of params: 1515532
+[ Sat Aug 22 22:03:57 2020 ] Weight decay: 0.0005
+[ Sat Aug 22 22:03:57 2020 ] Base LR: 0.05
+[ Sat Aug 22 22:03:57 2020 ] Batch Size: 64
+[ Sat Aug 22 22:03:57 2020 ] Forward Batch Size: 64
+[ Sat Aug 22 22:03:57 2020 ] Test Batch Size: 64

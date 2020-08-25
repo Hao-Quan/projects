@@ -61,9 +61,9 @@ step: [30, 40]
 # training
 num_epoch: 1
 device: [0]
-batch_size: 1
-forward_batch_size: 1
-test_batch_size: 1
+batch_size: 2
+forward_batch_size: 2
+test_batch_size: 2
 nesterov: True
 
 metric: lower

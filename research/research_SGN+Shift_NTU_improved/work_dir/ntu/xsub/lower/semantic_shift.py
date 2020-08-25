@@ -104,25 +104,6 @@ class Shift_tcn(nn.Module):
 class Shift_gcn(nn.Module):
     def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
         super(Shift_gcn, self).__init__()
-        # self.in_channels = in_channels
-        # self.out_channels = out_channels
-        # self.metric = metric
-        # if in_channels != out_channels:
-        #     self.down = nn.Sequential(
-        #         nn.Conv2d(in_channels, out_channels, 1),
-        #         nn.BatchNorm2d(out_channels)
-        #     )
-        # else:
-        #     self.down = lambda x: x
-        #
-        # #self.bn = nn.BatchNorm1d(18 * out_channels)
-        # self.relu = nn.ReLU()
-        #
-        # for m in self.modules():
-        #     if isinstance(m, nn.Conv2d):
-        #         conv_init(m)
-        #     elif isinstance(m, nn.BatchNorm2d):
-        #         bn_init(m, 1)
 
         # Start: Integrate
         self.metric = metric
@@ -148,10 +129,6 @@ class Shift_gcn(nn.Module):
         x0 = self.gcn1(x0, g)
         x0 = self.gcn2(x0, g)
         x0 = self.gcn3(x0, g)
-
-        # Start 2S-AGCN integration model here
-
-        #
 
         return x0
 
