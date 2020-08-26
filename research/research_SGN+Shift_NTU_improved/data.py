@@ -41,13 +41,13 @@ class CaloDataset(Dataset):
         return [self.x[index], int(self.y[index])]
 
 class CaloDataLoaders(object):
-    def __init__(self, dataset ='NTU', metric='upper', case = 0, aug = 1, seg = 30, data_path='data/ntu'):
+    def __init__(self, dataset ='NTU', part='upper', case = 0, aug = 1, seg = 30, data_path='data/ntu'):
         self.dataset = dataset
         self.case = case
         self.aug = aug
         self.seg = seg
         self.data_path = data_path
-        self.create_datasets(metric, self.data_path)
+        self.create_datasets(part, self.data_path)
         self.train_set = CaloDataset(self.train_data, self.train_label) # train_set.x (35763, 300, 150); train_set.y (35763)
         #self.val_set = NTUDataset(self.val_X, self.val_Y)      # (1883)
         self.val_set = CaloDataset(self.val_data, self.val_label)   # ()
@@ -79,7 +79,7 @@ class CaloDataLoaders(object):
     def get_test_size(self):
         return len(self.test_label[1])
 
-    def create_datasets(self, metric, data_path):
+    def create_datasets(self, part, data_path):
         if self.dataset == 'ntu' or 'ntu_light':
             if self.case == 0:
                 # path = osp.join('/data', self.dataset, 'xsub/')
@@ -90,8 +90,8 @@ class CaloDataLoaders(object):
             path = osp.join('data/calo/300_time_frames/')
 
         # Numpy for semantic (Upper + Middle partion)
-        self.train_data = np.load(path + "train_data_joint_{}_middle.npy".format(metric))
-        self.val_data = np.load(path + "val_data_joint_{}_middle.npy".format(metric))
+        self.train_data = np.load(path + "train_data_joint_{}_middle.npy".format(part))
+        self.val_data = np.load(path + "val_data_joint_{}_middle.npy".format(part))
 
         with open(path + 'train_label.pkl', 'rb') as f:
             self.train_label = pkl.load(f)

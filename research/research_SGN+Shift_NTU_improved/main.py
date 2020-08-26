@@ -170,7 +170,7 @@ def get_parser():
         default=1,
         help='segment')
     parser.add_argument(
-        '--metric',
+        '--part',
         type=str,
         default='upper',
         help='upper or lower semantic space')
@@ -721,7 +721,7 @@ class Processor():
         arg_dict = vars(self.arg)
         if not os.path.exists(self.arg.work_dir):
             os.makedirs(self.arg.work_dir)
-        with open(os.path.join(self.arg.work_dir, self.arg.metric + '_config.yaml'), 'w') as f:
+        with open(os.path.join(self.arg.work_dir, self.arg.part + '_config.yaml'), 'w') as f:
             yaml.dump(arg_dict, f)
 
 class LabelSmoothingLoss(nn.Module):

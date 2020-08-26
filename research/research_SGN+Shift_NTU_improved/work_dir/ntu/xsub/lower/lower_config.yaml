@@ -14,7 +14,7 @@ forward_batch_size: 2
 graph: calo
 ignore_weights: []
 log_interval: 100
-metric: lower
+part: lower
 model: model.semantic_shift.Model
 model_args:
   graph: graph.ntu_rgb_d.Graph

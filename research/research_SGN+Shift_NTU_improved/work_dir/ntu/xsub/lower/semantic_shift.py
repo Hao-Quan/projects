@@ -102,17 +102,17 @@ class Shift_tcn(nn.Module):
 
 
 class Shift_gcn(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
+    def __init__(self, in_channels, out_channels, part, A, coff_embedding=4, num_subset=3, bias=True, seg=1):
         super(Shift_gcn, self).__init__()
 
         # Start: Integrate
-        self.metric = metric
+        self.part = part
         self.dim1 = in_channels
         self.seg = seg
         self.compute_g1 = compute_g_spa(in_channels, self.dim1 // 2, bias=bias)
-        self.gcn1 = gcn_spa_shift_semantic(in_channels, out_channels // 2, self.metric, bias=bias, A=A)
-        self.gcn2 = gcn_spa_shift_semantic(out_channels // 2, out_channels, self.metric, bias=bias, A=A)
-        self.gcn3 = gcn_spa_shift_semantic(out_channels, out_channels, self.metric, bias=bias, A=A)
+        self.gcn1 = gcn_spa_shift_semantic(in_channels, out_channels // 2, self.part, bias=bias, A=A)
+        self.gcn2 = gcn_spa_shift_semantic(out_channels // 2, out_channels, self.part, bias=bias, A=A)
+        self.gcn3 = gcn_spa_shift_semantic(out_channels, out_channels, self.part, bias=bias, A=A)
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -134,10 +134,10 @@ class Shift_gcn(nn.Module):
 
 
 class TCN_GCN_unit(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, A, stride=1, residual=True, tem=None, seg=1):
+    def __init__(self, in_channels, out_channels, part, A, stride=1, residual=True, tem=None, seg=1):
         super(TCN_GCN_unit, self).__init__()
 
-        self.gcn1 = Shift_gcn(in_channels, out_channels, metric, A, seg)
+        self.gcn1 = Shift_gcn(in_channels, out_channels, part, A, seg)
         # self.tcn1 = Shift_tcn(out_channels, out_channels, stride=stride, tem=tem)
         self.tcn1 = Shift_tcn(out_channels, out_channels, stride=stride)
         self.relu = nn.ReLU()
@@ -170,8 +170,8 @@ class Model(nn.Module):
 
         self.dim1 = 64
         self.seg = seg
-        self.metric = args.metric
-        if self.metric == 'upper':
+        self.part = args.part
+        if self.part == 'upper':
             num_joint = 19
         else:
             num_joint = 13
@@ -194,9 +194,9 @@ class Model(nn.Module):
         in_channels = 3
         self.data_bn = nn.BatchNorm1d(num_person * in_channels * num_joint)
 
-        self.l1 = TCN_GCN_unit(3, 64, self.metric, A, residual=False, tem=self.tem)
-        self.l2 = TCN_GCN_unit(64, 128, self.metric, A, tem=self.tem)
-        self.l3 = TCN_GCN_unit(128, 256, self.metric, A, tem=self.tem)
+        self.l1 = TCN_GCN_unit(3, 64, self.part, A, residual=False, tem=self.tem)
+        self.l2 = TCN_GCN_unit(64, 128, self.part, A, tem=self.tem)
+        self.l3 = TCN_GCN_unit(128, 256, self.part, A, tem=self.tem)
         # self.l10 = TCN_GCN_unit(256, 256, A, tem=self.tem)
 
         self.fc = nn.Linear(256, num_class)
@@ -333,7 +333,7 @@ class local(nn.Module):
         return x
 
 class gcn_spa_shift_semantic(nn.Module):
-    def __init__(self, in_channels, out_channels, metric, bias = False, A=None):
+    def __init__(self, in_channels, out_channels, part, bias = False, A=None):
         super(gcn_spa_shift_semantic, self).__init__()
         # self.bn = nn.BatchNorm2d(out_feature)
         # self.relu = nn.ReLU()
@@ -352,14 +352,14 @@ class gcn_spa_shift_semantic(nn.Module):
         else:
             self.down = lambda x: x
 
-        # Calo data metric shift number
-        # if metric == 'upper':
+        # Calo data part shift number
+        # if part == 'upper':
         #     self.shift_size = 14
         # else:
         #     self.shift_size = 9
 
-        # NTU data metric shift number
-        if metric == 'upper':
+        # NTU data part shift number
+        if part == 'upper':
             self.shift_size = 19
         else:
             self.shift_size = 13

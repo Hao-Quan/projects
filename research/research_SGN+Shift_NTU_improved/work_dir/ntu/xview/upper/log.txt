@@ -14,7 +14,7 @@
  'graph': 'calo',
  'ignore_weights': [],
  'log_interval': 100,
- 'metric': 'upper',
+ 'part': 'upper',
  'model': 'model.semantic_shift.Model',
  'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
                 'graph_args': {'labeling_mode': 'spatial'},

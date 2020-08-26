@@ -66,7 +66,7 @@ forward_batch_size: 1
 test_batch_size: 1
 nesterov: True
 
-metric: lower
+part: lower
 
 # load pretrained model
 #weights: ./pretrained_models/weights-70-87640.pt

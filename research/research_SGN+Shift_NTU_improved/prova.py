@@ -7,14 +7,14 @@ import os
 #     elif self.case == 1:
 #         path = osp.join('data', self.dataset, 'xview/')
 #     # if self.case ==0:
-#     #     self.metric = 'CS'
+#     #     self.part = 'CS'
 #     # elif self.case == 1:
-#     #     self.metric = 'CV'
+#     #     self.part = 'CV'
 # elif self.dataset == 'calo':
 #     path = osp.join('data/calo/300_time_frames/')
 
 # Numpy for semantic (Upper + Middle partion)
-#train_data = np.load("data/train_data_joint_{}_middle.npy".format(metric))
+#train_data = np.load("data/train_data_joint_{}_middle.npy".format(part))
 #val_data = np.load("data/ntu/xsub/val_data_joint.npy")
 
 #print(val_data.shape)
