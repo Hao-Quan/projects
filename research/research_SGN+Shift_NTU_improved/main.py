@@ -493,7 +493,7 @@ class Processor():
     def train(self, epoch, save_model=False):
         self.model.train()
         loader = self.data_loader['train']
-        loss_value = []
+        loss_values = []
         self.train_writer.add_scalar('epoch', epoch + 1, self.global_step)
         self.record_time()
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
@@ -509,26 +509,70 @@ class Processor():
             label = Variable(label.long().cuda(self.output_device), requires_grad=False)
             timer['dataloader'] += self.split_time()
 
-            # writer = SummaryWriter()
-            # writer.add_graph(self.model, data)
-            # writer.close()
-
-            # forward
-            start = time.time()
-            output = self.model(data)
-            network_time = time.time() - start
-
-            loss = self.loss(output, label)
-
-            # backward
+            self.model.zero_grad()
             self.optimizer.zero_grad()
-            loss.backward()
-            self.optimizer.step()
-            loss_value.append(loss.data)
-            timer['model'] += self.split_time()
+            start = time.time()
+            ############## Gradient Accumulation for Smaller Batches ##############
+            real_batch_size = self.arg.forward_batch_size
+            splits = len(data) // real_batch_size
+            assert len(data) % real_batch_size == 0, \
+                'Real batch size should be a factor of arg.batch_size!'
 
-            value, predict_label = torch.max(output.data, 1)
-            acc = torch.mean((predict_label == label.data).float())
+            for i in range(splits):
+                left = i * real_batch_size
+                right = left + real_batch_size
+                batch_data, batch_label = data[left:right], label[left:right]
+
+                # forward
+                output = self.model(batch_data)
+                if isinstance(output, tuple):
+                    output, l1 = output
+                    l1 = l1.mean()
+                else:
+                    l1 = 0
+
+                loss = self.loss(output, batch_label) / splits
+
+                loss.backward()
+
+                # if self.arg.half:
+                #     with apex.amp.scale_loss(loss, self.optimizer) as scaled_loss:
+                #         scaled_loss.backward()
+                # else:
+                #     loss.backward()
+
+                loss_values.append(loss.item())
+                timer['model'] += self.split_time()
+
+                # Display loss
+                process.set_description(f'(Setting BS:{len(data)}, Real BS {real_batch_size}) loss: {loss.item():.4f}')
+
+                value, predict_label = torch.max(output, 1)
+                acc = torch.mean((predict_label == batch_label).float())
+                # self.train_writer.add_scalar('acc', acc, self.global_step)
+                # self.train_writer.add_scalar('loss', loss.item() * splits, self.global_step)
+                # self.train_writer.add_scalar('loss_l1', l1, self.global_step)
+            #####################################
+
+            # torch.nn.utils.clip_grad_norm_(self.model.parameters(), 2)
+            self.optimizer.step()
+            network_time = time.time() - start
+            # # forward
+            # start = time.time()
+            # output = self.model(data)
+            # network_time = time.time() - start
+            #
+            # loss = self.loss(output, label)
+            #
+            # # backward
+            # self.optimizer.zero_grad()
+            # loss.backward()
+            # self.optimizer.step()
+            # loss_values.append(loss.data)
+            # timer['model'] += self.split_time()
+            #
+            # value, predict_label = torch.max(output.data, 1)
+            # acc = torch.mean((predict_label == label.data).float())
 
             # statistics
             self.lr = self.optimizer.param_groups[0]['lr']
@@ -539,11 +583,26 @@ class Processor():
                         batch_idx, len(loader), acc, loss.data, self.lr, network_time))
             timer['statistics'] += self.split_time()
 
+            # Delete output/loss after each batch since it may introduce extra mem during scoping
+            # https://discuss.pytorch.org/t/gpu-memory-consumption-increases-while-training/2770/3
+            del output
+            del loss
+
         # statistics of time consumption and loss
         proportion = {
             k: '{:02d}%'.format(int(round(v * 100 / sum(timer.values()))))
             for k, v in timer.items()
         }
+
+        mean_loss = np.mean(loss_values)
+        num_splits = self.arg.batch_size // self.arg.forward_batch_size
+        self.print_log(
+            f'\tMean training loss: {mean_loss:.4f} (BS {self.arg.batch_size}: {mean_loss * num_splits:.4f}).')
+        self.print_log('\tTime consumption: [Data]{dataloader}, [Network]{model}'.format(**proportion))
+
+        # PyTorch > 1.2.0: update LR scheduler here with `.step()`
+        # and make sure to save the `lr_scheduler.state_dict()` as part of checkpoint
+        self.lr_scheduler.step()
 
         if save_model:
             # save training checkpoint & weights
@@ -565,7 +624,7 @@ class Processor():
             self.model.eval()
             self.print_log(f'Eval epoch: {epoch + 1}')
             for ln in loader_name:
-                loss_value = []
+                loss_values = []
                 score_batches = []
                 step = 0
                 process = tqdm(self.data_loader[ln], dynamic_ncols=True)
@@ -580,7 +639,7 @@ class Processor():
                         l1 = 0
                     loss = self.loss(output, label)
                     score_batches.append(output.data.cpu().numpy())
-                    loss_value.append(loss.item())
+                    loss_values.append(loss.item())
 
                     _, predict_label = torch.max(output.data, 1)
                     step += 1
@@ -595,7 +654,7 @@ class Processor():
                                 f_w.write(str(index[i]) + ',' + str(x) + ',' + str(true[i]) + '\n')
 
             score = np.concatenate(score_batches)
-            loss = np.mean(loss_value)
+            loss = np.mean(loss_values)
             accuracy = self.data_loader[ln].dataset.top_k(score, 1)
             if accuracy > self.best_acc:
                 self.best_acc = accuracy
@@ -608,7 +667,7 @@ class Processor():
                 self.val_writer.add_scalar('acc', accuracy, self.global_step)
 
             score_dict = dict(zip(self.data_loader[ln].dataset.sample_name, score))
-            self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_value)}.')
+            self.print_log(f'\tMean {ln} loss of {len(self.data_loader[ln])} batches: {np.mean(loss_values)}.')
             for k in self.arg.show_topk:
                 self.print_log(f'\tTop {k}: {100 * self.data_loader[ln].dataset.top_k(score, k):.2f}%')
 

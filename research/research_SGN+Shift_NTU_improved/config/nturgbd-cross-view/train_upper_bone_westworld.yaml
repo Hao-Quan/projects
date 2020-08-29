@@ -16,7 +16,7 @@ train_feeder_args:
 #   label_path: ./data/ntu_light/xview/train_label.pkl
 
   # Westworld data path
-  data_path: /data/ntu/xview/train_data_joint_upper_middle.npy
+  data_path: /data/ntu/xview/train_data_bone_upper_middle.npy
   label_path: /data/ntu/xview/train_label.pkl
 
   debug: False
@@ -36,7 +36,7 @@ test_feeder_args:
 #   label_path: ./data/ntu_light/xview/val_label.pkl
 
   # Westworld data path
-  data_path: /data/ntu/xview/val_data_joint_upper_middle.npy
+  data_path: /data/ntu/xview/val_data_bone_upper_middle.npy
   label_path: /data/ntu/xview/val_label.pkl
 
 # model
