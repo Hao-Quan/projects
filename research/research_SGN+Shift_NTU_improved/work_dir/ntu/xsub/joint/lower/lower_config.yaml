@@ -3,7 +3,7 @@ base_lr: 0.05
 batch_size: 2
 case: 0
 checkpoint: null
-config: ./config/nturgbd-cross-subject/train_lower.yaml
+config: ./config/nturgbd-cross-subject/train_lower_joint.yaml
 dataset: ntu_light
 debug: false
 device:
