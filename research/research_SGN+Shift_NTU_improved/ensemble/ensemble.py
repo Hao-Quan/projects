@@ -8,7 +8,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     ## !!!! REMEMBER TO CHANGE LABEL !!!! ###
-    parser.add_argument('--dataset', default='ntu/xview', choices={'calo', 'kinetics', 'ntu/xsub', 'ntu/xview'},
+    parser.add_argument('--dataset', default='ntu/xsub', choices={'calo', 'kinetics', 'ntu/xsub', 'ntu/xview'},
                         help='the work folder for storing results')
     parser.add_argument('--alpha', default=0.5, help='weighted summation')
     parser.add_argument('--upper-dir',
@@ -29,11 +29,11 @@ if __name__ == "__main__":
 
     # with open(os.path.join(arg.upper_dir, 'xsub/bone', 'upper_test_score.pkl'), 'rb') as r1:
     #with open(os.path.join(arg.upper_dir, 'upper_test_score.pkl'), 'rb') as r1:
-    with open(os.path.join(arg.upper_dir, 'xview/bone', 'upper_test_score.pkl'), 'rb') as r1:
+    with open(os.path.join(arg.upper_dir, 'xsub/joint_motion', 'upper_test_score.pkl'), 'rb') as r1:
         r1 = pickle.load(r1)
 
     # with open(os.path.join(arg.lower_dir, 'xsub/bone', 'lower_test_score.pkl'), 'rb') as r2:
-    with open(os.path.join(arg.lower_dir, 'xview/bone', 'lower_test_score.pkl'), 'rb') as r2:
+    with open(os.path.join(arg.lower_dir, 'xsub/joint_motion', 'lower_test_score.pkl'), 'rb') as r2:
     #with open(os.path.join(arg.lower_dir, 'lower_test_score.pkl'), 'rb') as r2:
         r2 = pickle.load(r2)
 

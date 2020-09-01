@@ -1,0 +1,1395 @@
+[ Mon Aug 31 09:32:14 2020 ] Parameters:
+{'assume_yes': False,
+ 'base_lr': 0.05,
+ 'batch_size': 64,
+ 'case': 0,
+ 'checkpoint': None,
+ 'config': './config/nturgbd-cross-subject/train_upper_joint_motion_westworld.yaml',
+ 'dataset': 'ntu',
+ 'debug': False,
+ 'device': [0, 1, 2, 3, 4, 5],
+ 'eval_interval': 5,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 64,
+ 'graph': 'calo',
+ 'ignore_weights': [],
+ 'log_interval': 100,
+ 'model': 'model.semantic_shift.Model',
+ 'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
+                'graph_args': {'labeling_mode': 'spatial'},
+                'num_class': 60,
+                'num_person': 2,
+                'num_point': 25,
+                'seg': 1},
+ 'model_saved_name': '',
+ 'monitor': 'acc_val',
+ 'nesterov': True,
+ 'num_epoch': 100,
+ 'num_worker': 8,
+ 'only_train_epoch': 0,
+ 'only_train_part': False,
+ 'optimizer': 'SGD',
+ 'part': 'upper',
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 2,
+ 'save_score': True,
+ 'seed': 1,
+ 'seg': 1,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [30, 40],
+ 'test_batch_size': 64,
+ 'test_feeder_args': {'data_path': '/data/ntu/xsub/val_data_joint_motion_upper_middle.npy',
+                      'label_path': '/data/ntu/xsub/val_label.pkl'},
+ 'train': 1,
+ 'train_feeder_args': {'data_path': '/data/ntu/xsub/train_data_joint_motion_upper_middle.npy',
+                       'debug': False,
+                       'label_path': '/data/ntu/xsub/train_label.pkl',
+                       'normalization': False,
+                       'random_choose': False,
+                       'random_move': False,
+                       'random_shift': False,
+                       'window_size': -1},
+ 'warm_up_epoch': 0,
+ 'weight_decay': 0.0005,
+ 'weights': None,
+ 'work_dir': './work_dir/ntu/xsub/upper/joint_motion/',
+ 'workers': 0}
+
+[ Mon Aug 31 09:32:14 2020 ] Model total number of params: 1515532
+[ Mon Aug 31 09:32:14 2020 ] Training epoch: 1, LR: 0.0500
+[ Mon Aug 31 09:33:46 2020 ] 	Batch(99/626) done. Acc: 0.046875 Loss: 3.4223  lr:0.050000  network_time: 0.6259
+[ Mon Aug 31 09:34:51 2020 ] 	Batch(199/626) done. Acc: 0.187500 Loss: 3.0797  lr:0.050000  network_time: 0.6464
+[ Mon Aug 31 09:35:56 2020 ] 	Batch(299/626) done. Acc: 0.234375 Loss: 2.5385  lr:0.050000  network_time: 0.6468
+[ Mon Aug 31 09:37:01 2020 ] 	Batch(399/626) done. Acc: 0.343750 Loss: 2.2434  lr:0.050000  network_time: 0.6781
+[ Mon Aug 31 09:38:04 2020 ] 	Batch(499/626) done. Acc: 0.468750 Loss: 1.9654  lr:0.050000  network_time: 0.6223
+[ Mon Aug 31 09:39:08 2020 ] 	Batch(599/626) done. Acc: 0.343750 Loss: 2.2560  lr:0.050000  network_time: 0.6138
+[ Mon Aug 31 09:39:25 2020 ] 	Mean training loss: 2.7617 (BS 64: 2.7617).
+[ Mon Aug 31 09:39:25 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 09:39:25 2020 ] Eval epoch: 1
+[ Mon Aug 31 09:40:27 2020 ] 	Mean test loss of 258 batches: 2.3594462354053825.
+[ Mon Aug 31 09:40:27 2020 ] 	Top 1: 35.88%
+[ Mon Aug 31 09:40:27 2020 ] 	Top 5: 71.49%
+[ Mon Aug 31 09:40:28 2020 ] Training epoch: 2, LR: 0.0500
+[ Mon Aug 31 09:41:18 2020 ] 	Batch(73/626) done. Acc: 0.500000 Loss: 2.1815  lr:0.050000  network_time: 0.6318
+[ Mon Aug 31 09:42:23 2020 ] 	Batch(173/626) done. Acc: 0.343750 Loss: 2.2487  lr:0.050000  network_time: 0.6178
+[ Mon Aug 31 09:43:27 2020 ] 	Batch(273/626) done. Acc: 0.375000 Loss: 2.0913  lr:0.050000  network_time: 0.6778
+[ Mon Aug 31 09:44:32 2020 ] 	Batch(373/626) done. Acc: 0.515625 Loss: 1.7424  lr:0.050000  network_time: 0.6445
+[ Mon Aug 31 09:45:37 2020 ] 	Batch(473/626) done. Acc: 0.375000 Loss: 2.0312  lr:0.050000  network_time: 0.6580
+[ Mon Aug 31 09:46:42 2020 ] 	Batch(573/626) done. Acc: 0.578125 Loss: 1.7120  lr:0.050000  network_time: 0.6277
+[ Mon Aug 31 09:47:16 2020 ] 	Mean training loss: 1.9362 (BS 64: 1.9362).
+[ Mon Aug 31 09:47:16 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 09:47:16 2020 ] Eval epoch: 2
+[ Mon Aug 31 09:48:19 2020 ] 	Mean test loss of 258 batches: 2.572982646236124.
+[ Mon Aug 31 09:48:19 2020 ] 	Top 1: 32.18%
+[ Mon Aug 31 09:48:19 2020 ] 	Top 5: 69.27%
+[ Mon Aug 31 09:48:20 2020 ] Training epoch: 3, LR: 0.0500
+[ Mon Aug 31 09:48:54 2020 ] 	Batch(47/626) done. Acc: 0.406250 Loss: 2.0589  lr:0.050000  network_time: 0.6288
+[ Mon Aug 31 09:49:58 2020 ] 	Batch(147/626) done. Acc: 0.531250 Loss: 1.7659  lr:0.050000  network_time: 0.6391
+[ Mon Aug 31 09:51:03 2020 ] 	Batch(247/626) done. Acc: 0.515625 Loss: 1.4488  lr:0.050000  network_time: 0.6248
+[ Mon Aug 31 09:52:08 2020 ] 	Batch(347/626) done. Acc: 0.609375 Loss: 1.4574  lr:0.050000  network_time: 0.6263
+[ Mon Aug 31 09:53:13 2020 ] 	Batch(447/626) done. Acc: 0.546875 Loss: 1.4131  lr:0.050000  network_time: 0.6242
+[ Mon Aug 31 09:54:18 2020 ] 	Batch(547/626) done. Acc: 0.546875 Loss: 1.6302  lr:0.050000  network_time: 0.6277
+[ Mon Aug 31 09:55:09 2020 ] 	Mean training loss: 1.5953 (BS 64: 1.5953).
+[ Mon Aug 31 09:55:09 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 09:55:09 2020 ] Eval epoch: 3
+[ Mon Aug 31 09:56:11 2020 ] 	Mean test loss of 258 batches: 2.8861916998560115.
+[ Mon Aug 31 09:56:11 2020 ] 	Top 1: 25.14%
+[ Mon Aug 31 09:56:11 2020 ] 	Top 5: 64.43%
+[ Mon Aug 31 09:56:13 2020 ] Training epoch: 4, LR: 0.0500
+[ Mon Aug 31 09:56:30 2020 ] 	Batch(21/626) done. Acc: 0.484375 Loss: 1.6823  lr:0.050000  network_time: 0.6467
+[ Mon Aug 31 09:57:34 2020 ] 	Batch(121/626) done. Acc: 0.578125 Loss: 1.4507  lr:0.050000  network_time: 0.6240
+[ Mon Aug 31 09:58:39 2020 ] 	Batch(221/626) done. Acc: 0.546875 Loss: 1.5902  lr:0.050000  network_time: 0.6348
+[ Mon Aug 31 09:59:44 2020 ] 	Batch(321/626) done. Acc: 0.609375 Loss: 1.2946  lr:0.050000  network_time: 0.6405
+[ Mon Aug 31 10:00:49 2020 ] 	Batch(421/626) done. Acc: 0.546875 Loss: 1.3681  lr:0.050000  network_time: 0.6205
+[ Mon Aug 31 10:01:54 2020 ] 	Batch(521/626) done. Acc: 0.515625 Loss: 1.4437  lr:0.050000  network_time: 0.6363
+[ Mon Aug 31 10:02:59 2020 ] 	Batch(621/626) done. Acc: 0.687500 Loss: 1.3188  lr:0.050000  network_time: 0.6195
+[ Mon Aug 31 10:03:02 2020 ] 	Mean training loss: 1.4128 (BS 64: 1.4128).
+[ Mon Aug 31 10:03:02 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:03:02 2020 ] Eval epoch: 4
+[ Mon Aug 31 10:04:03 2020 ] 	Mean test loss of 258 batches: 2.217865087265192.
+[ Mon Aug 31 10:04:04 2020 ] 	Top 1: 39.69%
+[ Mon Aug 31 10:04:04 2020 ] 	Top 5: 76.33%
+[ Mon Aug 31 10:04:05 2020 ] Training epoch: 5, LR: 0.0500
+[ Mon Aug 31 10:05:10 2020 ] 	Batch(95/626) done. Acc: 0.656250 Loss: 1.1290  lr:0.050000  network_time: 0.6295
+[ Mon Aug 31 10:06:15 2020 ] 	Batch(195/626) done. Acc: 0.562500 Loss: 1.6557  lr:0.050000  network_time: 0.6261
+[ Mon Aug 31 10:07:20 2020 ] 	Batch(295/626) done. Acc: 0.562500 Loss: 1.3449  lr:0.050000  network_time: 0.6344
+[ Mon Aug 31 10:08:24 2020 ] 	Batch(395/626) done. Acc: 0.468750 Loss: 1.5780  lr:0.050000  network_time: 0.6480
+[ Mon Aug 31 10:09:29 2020 ] 	Batch(495/626) done. Acc: 0.609375 Loss: 1.3215  lr:0.050000  network_time: 0.6272
+[ Mon Aug 31 10:10:34 2020 ] 	Batch(595/626) done. Acc: 0.562500 Loss: 1.3761  lr:0.050000  network_time: 0.6349
+[ Mon Aug 31 10:10:54 2020 ] 	Mean training loss: 1.2857 (BS 64: 1.2857).
+[ Mon Aug 31 10:10:54 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:10:54 2020 ] Eval epoch: 5
+[ Mon Aug 31 10:11:55 2020 ] 	Mean test loss of 258 batches: 1.998673327671465.
+[ Mon Aug 31 10:11:55 2020 ] 	Top 1: 43.98%
+[ Mon Aug 31 10:11:56 2020 ] 	Top 5: 79.27%
+[ Mon Aug 31 10:11:57 2020 ] Training epoch: 6, LR: 0.0500
+[ Mon Aug 31 10:12:44 2020 ] 	Batch(69/626) done. Acc: 0.671875 Loss: 1.2145  lr:0.050000  network_time: 0.6248
+[ Mon Aug 31 10:13:49 2020 ] 	Batch(169/626) done. Acc: 0.671875 Loss: 1.0885  lr:0.050000  network_time: 0.6197
+[ Mon Aug 31 10:14:53 2020 ] 	Batch(269/626) done. Acc: 0.640625 Loss: 1.2547  lr:0.050000  network_time: 0.6436
+[ Mon Aug 31 10:15:58 2020 ] 	Batch(369/626) done. Acc: 0.593750 Loss: 1.3213  lr:0.050000  network_time: 0.6287
+[ Mon Aug 31 10:17:02 2020 ] 	Batch(469/626) done. Acc: 0.625000 Loss: 1.3273  lr:0.050000  network_time: 0.6326
+[ Mon Aug 31 10:18:07 2020 ] 	Batch(569/626) done. Acc: 0.656250 Loss: 1.0689  lr:0.050000  network_time: 0.6162
+[ Mon Aug 31 10:18:44 2020 ] 	Mean training loss: 1.1938 (BS 64: 1.1938).
+[ Mon Aug 31 10:18:44 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:18:44 2020 ] Eval epoch: 6
+[ Mon Aug 31 10:19:45 2020 ] 	Mean test loss of 258 batches: 1.6311232976673185.
+[ Mon Aug 31 10:19:45 2020 ] 	Top 1: 52.98%
+[ Mon Aug 31 10:19:45 2020 ] 	Top 5: 84.70%
+[ Mon Aug 31 10:19:47 2020 ] Training epoch: 7, LR: 0.0500
+[ Mon Aug 31 10:20:17 2020 ] 	Batch(43/626) done. Acc: 0.734375 Loss: 0.7749  lr:0.050000  network_time: 0.6397
+[ Mon Aug 31 10:21:22 2020 ] 	Batch(143/626) done. Acc: 0.625000 Loss: 1.1058  lr:0.050000  network_time: 0.6220
+[ Mon Aug 31 10:22:27 2020 ] 	Batch(243/626) done. Acc: 0.656250 Loss: 1.1444  lr:0.050000  network_time: 0.7100
+[ Mon Aug 31 10:23:31 2020 ] 	Batch(343/626) done. Acc: 0.578125 Loss: 1.4179  lr:0.050000  network_time: 0.6294
+[ Mon Aug 31 10:24:36 2020 ] 	Batch(443/626) done. Acc: 0.765625 Loss: 0.9361  lr:0.050000  network_time: 0.6338
+[ Mon Aug 31 10:25:41 2020 ] 	Batch(543/626) done. Acc: 0.625000 Loss: 1.2372  lr:0.050000  network_time: 0.6361
+[ Mon Aug 31 10:26:34 2020 ] 	Mean training loss: 1.1152 (BS 64: 1.1152).
+[ Mon Aug 31 10:26:34 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:26:34 2020 ] Eval epoch: 7
+[ Mon Aug 31 10:27:35 2020 ] 	Mean test loss of 258 batches: 3.137915366841841.
+[ Mon Aug 31 10:27:35 2020 ] 	Top 1: 30.59%
+[ Mon Aug 31 10:27:35 2020 ] 	Top 5: 67.13%
+[ Mon Aug 31 10:27:37 2020 ] Training epoch: 8, LR: 0.0500
+[ Mon Aug 31 10:27:50 2020 ] 	Batch(17/626) done. Acc: 0.687500 Loss: 1.1395  lr:0.050000  network_time: 0.6908
+[ Mon Aug 31 10:28:55 2020 ] 	Batch(117/626) done. Acc: 0.781250 Loss: 0.7542  lr:0.050000  network_time: 0.6346
+[ Mon Aug 31 10:30:00 2020 ] 	Batch(217/626) done. Acc: 0.625000 Loss: 1.1542  lr:0.050000  network_time: 0.6188
+[ Mon Aug 31 10:31:05 2020 ] 	Batch(317/626) done. Acc: 0.671875 Loss: 0.9364  lr:0.050000  network_time: 0.6100
+[ Mon Aug 31 10:32:10 2020 ] 	Batch(417/626) done. Acc: 0.671875 Loss: 1.0862  lr:0.050000  network_time: 0.6422
+[ Mon Aug 31 10:33:14 2020 ] 	Batch(517/626) done. Acc: 0.671875 Loss: 1.0258  lr:0.050000  network_time: 0.6320
+[ Mon Aug 31 10:34:19 2020 ] 	Batch(617/626) done. Acc: 0.781250 Loss: 0.8571  lr:0.050000  network_time: 0.6434
+[ Mon Aug 31 10:34:24 2020 ] 	Mean training loss: 1.0614 (BS 64: 1.0614).
+[ Mon Aug 31 10:34:24 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:34:24 2020 ] Eval epoch: 8
+[ Mon Aug 31 10:35:26 2020 ] 	Mean test loss of 258 batches: 1.9157923164293749.
+[ Mon Aug 31 10:35:26 2020 ] 	Top 1: 47.03%
+[ Mon Aug 31 10:35:26 2020 ] 	Top 5: 78.43%
+[ Mon Aug 31 10:35:27 2020 ] Training epoch: 9, LR: 0.0500
+[ Mon Aug 31 10:36:29 2020 ] 	Batch(91/626) done. Acc: 0.750000 Loss: 0.8366  lr:0.050000  network_time: 0.6172
+[ Mon Aug 31 10:37:34 2020 ] 	Batch(191/626) done. Acc: 0.656250 Loss: 1.0132  lr:0.050000  network_time: 0.6356
+[ Mon Aug 31 10:38:39 2020 ] 	Batch(291/626) done. Acc: 0.718750 Loss: 0.8710  lr:0.050000  network_time: 0.6315
+[ Mon Aug 31 10:39:44 2020 ] 	Batch(391/626) done. Acc: 0.687500 Loss: 0.9635  lr:0.050000  network_time: 0.6317
+[ Mon Aug 31 10:40:48 2020 ] 	Batch(491/626) done. Acc: 0.796875 Loss: 1.0017  lr:0.050000  network_time: 0.6435
+[ Mon Aug 31 10:41:53 2020 ] 	Batch(591/626) done. Acc: 0.703125 Loss: 1.0343  lr:0.050000  network_time: 0.6839
+[ Mon Aug 31 10:42:15 2020 ] 	Mean training loss: 1.0141 (BS 64: 1.0141).
+[ Mon Aug 31 10:42:15 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:42:15 2020 ] Eval epoch: 9
+[ Mon Aug 31 10:43:16 2020 ] 	Mean test loss of 258 batches: 3.219982715540154.
+[ Mon Aug 31 10:43:16 2020 ] 	Top 1: 26.69%
+[ Mon Aug 31 10:43:16 2020 ] 	Top 5: 62.76%
+[ Mon Aug 31 10:43:18 2020 ] Training epoch: 10, LR: 0.0500
+[ Mon Aug 31 10:44:02 2020 ] 	Batch(65/626) done. Acc: 0.703125 Loss: 0.9292  lr:0.050000  network_time: 0.6377
+[ Mon Aug 31 10:45:07 2020 ] 	Batch(165/626) done. Acc: 0.656250 Loss: 1.1043  lr:0.050000  network_time: 0.6504
+[ Mon Aug 31 10:46:12 2020 ] 	Batch(265/626) done. Acc: 0.609375 Loss: 1.2000  lr:0.050000  network_time: 0.6265
+[ Mon Aug 31 10:47:17 2020 ] 	Batch(365/626) done. Acc: 0.781250 Loss: 0.9695  lr:0.050000  network_time: 0.6355
+[ Mon Aug 31 10:48:21 2020 ] 	Batch(465/626) done. Acc: 0.625000 Loss: 1.2658  lr:0.050000  network_time: 0.6333
+[ Mon Aug 31 10:49:26 2020 ] 	Batch(565/626) done. Acc: 0.640625 Loss: 1.1357  lr:0.050000  network_time: 0.6342
+[ Mon Aug 31 10:50:05 2020 ] 	Mean training loss: 0.9737 (BS 64: 0.9737).
+[ Mon Aug 31 10:50:05 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:50:06 2020 ] Eval epoch: 10
+[ Mon Aug 31 10:51:07 2020 ] 	Mean test loss of 258 batches: 1.424259557742481.
+[ Mon Aug 31 10:51:07 2020 ] 	Top 1: 59.15%
+[ Mon Aug 31 10:51:07 2020 ] 	Top 5: 88.37%
+[ Mon Aug 31 10:51:09 2020 ] Training epoch: 11, LR: 0.0500
+[ Mon Aug 31 10:51:37 2020 ] 	Batch(39/626) done. Acc: 0.734375 Loss: 0.8352  lr:0.050000  network_time: 0.6442
+[ Mon Aug 31 10:52:42 2020 ] 	Batch(139/626) done. Acc: 0.703125 Loss: 0.8442  lr:0.050000  network_time: 0.6343
+[ Mon Aug 31 10:53:47 2020 ] 	Batch(239/626) done. Acc: 0.765625 Loss: 0.9244  lr:0.050000  network_time: 0.6301
+[ Mon Aug 31 10:54:52 2020 ] 	Batch(339/626) done. Acc: 0.781250 Loss: 0.8956  lr:0.050000  network_time: 0.6415
+[ Mon Aug 31 10:55:57 2020 ] 	Batch(439/626) done. Acc: 0.765625 Loss: 0.6871  lr:0.050000  network_time: 0.6319
+[ Mon Aug 31 10:57:01 2020 ] 	Batch(539/626) done. Acc: 0.718750 Loss: 0.8054  lr:0.050000  network_time: 0.6987
+[ Mon Aug 31 10:57:57 2020 ] 	Mean training loss: 0.9380 (BS 64: 0.9380).
+[ Mon Aug 31 10:57:57 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 10:57:57 2020 ] Eval epoch: 11
+[ Mon Aug 31 10:58:59 2020 ] 	Mean test loss of 258 batches: 1.773485429296198.
+[ Mon Aug 31 10:58:59 2020 ] 	Top 1: 52.62%
+[ Mon Aug 31 10:58:59 2020 ] 	Top 5: 83.77%
+[ Mon Aug 31 10:59:00 2020 ] Training epoch: 12, LR: 0.0500
+[ Mon Aug 31 10:59:11 2020 ] 	Batch(13/626) done. Acc: 0.687500 Loss: 0.8146  lr:0.050000  network_time: 0.6409
+[ Mon Aug 31 11:00:16 2020 ] 	Batch(113/626) done. Acc: 0.718750 Loss: 0.7744  lr:0.050000  network_time: 0.6368
+[ Mon Aug 31 11:01:21 2020 ] 	Batch(213/626) done. Acc: 0.703125 Loss: 0.8685  lr:0.050000  network_time: 0.6455
+[ Mon Aug 31 11:02:25 2020 ] 	Batch(313/626) done. Acc: 0.671875 Loss: 1.0153  lr:0.050000  network_time: 0.6172
+[ Mon Aug 31 11:03:30 2020 ] 	Batch(413/626) done. Acc: 0.687500 Loss: 0.9190  lr:0.050000  network_time: 0.6159
+[ Mon Aug 31 11:04:35 2020 ] 	Batch(513/626) done. Acc: 0.718750 Loss: 1.0128  lr:0.050000  network_time: 0.6212
+[ Mon Aug 31 11:05:40 2020 ] 	Batch(613/626) done. Acc: 0.656250 Loss: 1.0405  lr:0.050000  network_time: 0.6860
+[ Mon Aug 31 11:05:48 2020 ] 	Mean training loss: 0.9056 (BS 64: 0.9056).
+[ Mon Aug 31 11:05:48 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:05:48 2020 ] Eval epoch: 12
+[ Mon Aug 31 11:06:49 2020 ] 	Mean test loss of 258 batches: 1.3349196804586307.
+[ Mon Aug 31 11:06:49 2020 ] 	Top 1: 60.63%
+[ Mon Aug 31 11:06:49 2020 ] 	Top 5: 89.40%
+[ Mon Aug 31 11:06:50 2020 ] Training epoch: 13, LR: 0.0500
+[ Mon Aug 31 11:07:49 2020 ] 	Batch(87/626) done. Acc: 0.750000 Loss: 0.7702  lr:0.050000  network_time: 0.6190
+[ Mon Aug 31 11:08:54 2020 ] 	Batch(187/626) done. Acc: 0.828125 Loss: 0.5430  lr:0.050000  network_time: 0.6265
+[ Mon Aug 31 11:09:59 2020 ] 	Batch(287/626) done. Acc: 0.765625 Loss: 0.7767  lr:0.050000  network_time: 0.6374
+[ Mon Aug 31 11:11:03 2020 ] 	Batch(387/626) done. Acc: 0.859375 Loss: 0.6625  lr:0.050000  network_time: 0.6089
+[ Mon Aug 31 11:12:08 2020 ] 	Batch(487/626) done. Acc: 0.796875 Loss: 0.6298  lr:0.050000  network_time: 0.6310
+[ Mon Aug 31 11:13:13 2020 ] 	Batch(587/626) done. Acc: 0.703125 Loss: 1.2138  lr:0.050000  network_time: 0.6319
+[ Mon Aug 31 11:13:38 2020 ] 	Mean training loss: 0.8755 (BS 64: 0.8755).
+[ Mon Aug 31 11:13:38 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:13:38 2020 ] Eval epoch: 13
+[ Mon Aug 31 11:14:39 2020 ] 	Mean test loss of 258 batches: 2.961681534615598.
+[ Mon Aug 31 11:14:39 2020 ] 	Top 1: 37.66%
+[ Mon Aug 31 11:14:39 2020 ] 	Top 5: 70.99%
+[ Mon Aug 31 11:14:40 2020 ] Training epoch: 14, LR: 0.0500
+[ Mon Aug 31 11:15:22 2020 ] 	Batch(61/626) done. Acc: 0.703125 Loss: 1.2138  lr:0.050000  network_time: 0.6219
+[ Mon Aug 31 11:16:26 2020 ] 	Batch(161/626) done. Acc: 0.812500 Loss: 0.6803  lr:0.050000  network_time: 0.6317
+[ Mon Aug 31 11:17:31 2020 ] 	Batch(261/626) done. Acc: 0.734375 Loss: 0.8978  lr:0.050000  network_time: 0.6424
+[ Mon Aug 31 11:18:36 2020 ] 	Batch(361/626) done. Acc: 0.812500 Loss: 0.8261  lr:0.050000  network_time: 0.6317
+[ Mon Aug 31 11:19:41 2020 ] 	Batch(461/626) done. Acc: 0.703125 Loss: 0.9129  lr:0.050000  network_time: 0.6364
+[ Mon Aug 31 11:20:46 2020 ] 	Batch(561/626) done. Acc: 0.640625 Loss: 1.0292  lr:0.050000  network_time: 0.6335
+[ Mon Aug 31 11:21:28 2020 ] 	Mean training loss: 0.8545 (BS 64: 0.8545).
+[ Mon Aug 31 11:21:28 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:21:28 2020 ] Eval epoch: 14
+[ Mon Aug 31 11:22:29 2020 ] 	Mean test loss of 258 batches: 1.2144593760486722.
+[ Mon Aug 31 11:22:29 2020 ] 	Top 1: 64.38%
+[ Mon Aug 31 11:22:29 2020 ] 	Top 5: 91.44%
+[ Mon Aug 31 11:22:30 2020 ] Training epoch: 15, LR: 0.0500
+[ Mon Aug 31 11:22:56 2020 ] 	Batch(35/626) done. Acc: 0.765625 Loss: 0.7707  lr:0.050000  network_time: 0.6719
+[ Mon Aug 31 11:24:00 2020 ] 	Batch(135/626) done. Acc: 0.703125 Loss: 0.8266  lr:0.050000  network_time: 0.6224
+[ Mon Aug 31 11:25:05 2020 ] 	Batch(235/626) done. Acc: 0.765625 Loss: 0.6751  lr:0.050000  network_time: 0.6138
+[ Mon Aug 31 11:26:10 2020 ] 	Batch(335/626) done. Acc: 0.734375 Loss: 0.8602  lr:0.050000  network_time: 0.6886
+[ Mon Aug 31 11:27:15 2020 ] 	Batch(435/626) done. Acc: 0.765625 Loss: 0.7317  lr:0.050000  network_time: 0.6211
+[ Mon Aug 31 11:28:19 2020 ] 	Batch(535/626) done. Acc: 0.843750 Loss: 0.4871  lr:0.050000  network_time: 0.6352
+[ Mon Aug 31 11:29:18 2020 ] 	Mean training loss: 0.8213 (BS 64: 0.8213).
+[ Mon Aug 31 11:29:18 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:29:18 2020 ] Eval epoch: 15
+[ Mon Aug 31 11:30:19 2020 ] 	Mean test loss of 258 batches: 1.43700541174689.
+[ Mon Aug 31 11:30:19 2020 ] 	Top 1: 59.47%
+[ Mon Aug 31 11:30:19 2020 ] 	Top 5: 88.72%
+[ Mon Aug 31 11:30:21 2020 ] Training epoch: 16, LR: 0.0500
+[ Mon Aug 31 11:30:29 2020 ] 	Batch(9/626) done. Acc: 0.812500 Loss: 0.7469  lr:0.050000  network_time: 0.6196
+[ Mon Aug 31 11:31:34 2020 ] 	Batch(109/626) done. Acc: 0.718750 Loss: 0.9596  lr:0.050000  network_time: 0.6055
+[ Mon Aug 31 11:32:38 2020 ] 	Batch(209/626) done. Acc: 0.781250 Loss: 0.8255  lr:0.050000  network_time: 0.6855
+[ Mon Aug 31 11:33:42 2020 ] 	Batch(309/626) done. Acc: 0.671875 Loss: 0.8679  lr:0.050000  network_time: 0.6220
+[ Mon Aug 31 11:34:47 2020 ] 	Batch(409/626) done. Acc: 0.781250 Loss: 0.7432  lr:0.050000  network_time: 0.6347
+[ Mon Aug 31 11:35:51 2020 ] 	Batch(509/626) done. Acc: 0.734375 Loss: 0.9092  lr:0.050000  network_time: 0.6142
+[ Mon Aug 31 11:36:56 2020 ] 	Batch(609/626) done. Acc: 0.765625 Loss: 0.6529  lr:0.050000  network_time: 0.6464
+[ Mon Aug 31 11:37:07 2020 ] 	Mean training loss: 0.8056 (BS 64: 0.8056).
+[ Mon Aug 31 11:37:07 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:37:07 2020 ] Eval epoch: 16
+[ Mon Aug 31 11:38:07 2020 ] 	Mean test loss of 258 batches: 1.578065609054048.
+[ Mon Aug 31 11:38:07 2020 ] 	Top 1: 55.35%
+[ Mon Aug 31 11:38:08 2020 ] 	Top 5: 85.55%
+[ Mon Aug 31 11:38:09 2020 ] Training epoch: 17, LR: 0.0500
+[ Mon Aug 31 11:39:05 2020 ] 	Batch(83/626) done. Acc: 0.765625 Loss: 0.6657  lr:0.050000  network_time: 0.6280
+[ Mon Aug 31 11:40:10 2020 ] 	Batch(183/626) done. Acc: 0.765625 Loss: 0.6667  lr:0.050000  network_time: 0.6278
+[ Mon Aug 31 11:41:14 2020 ] 	Batch(283/626) done. Acc: 0.687500 Loss: 1.1122  lr:0.050000  network_time: 0.6577
+[ Mon Aug 31 11:42:19 2020 ] 	Batch(383/626) done. Acc: 0.781250 Loss: 0.6407  lr:0.050000  network_time: 0.6268
+[ Mon Aug 31 11:43:23 2020 ] 	Batch(483/626) done. Acc: 0.812500 Loss: 0.6479  lr:0.050000  network_time: 0.6339
+[ Mon Aug 31 11:44:28 2020 ] 	Batch(583/626) done. Acc: 0.718750 Loss: 0.7663  lr:0.050000  network_time: 0.6382
+[ Mon Aug 31 11:44:55 2020 ] 	Mean training loss: 0.7871 (BS 64: 0.7871).
+[ Mon Aug 31 11:44:55 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:44:55 2020 ] Eval epoch: 17
+[ Mon Aug 31 11:45:55 2020 ] 	Mean test loss of 258 batches: 1.33210234240044.
+[ Mon Aug 31 11:45:56 2020 ] 	Top 1: 61.64%
+[ Mon Aug 31 11:45:56 2020 ] 	Top 5: 89.82%
+[ Mon Aug 31 11:45:57 2020 ] Training epoch: 18, LR: 0.0500
+[ Mon Aug 31 11:46:36 2020 ] 	Batch(57/626) done. Acc: 0.687500 Loss: 0.9815  lr:0.050000  network_time: 0.6380
+[ Mon Aug 31 11:47:41 2020 ] 	Batch(157/626) done. Acc: 0.796875 Loss: 0.8402  lr:0.050000  network_time: 0.6373
+[ Mon Aug 31 11:48:45 2020 ] 	Batch(257/626) done. Acc: 0.750000 Loss: 0.7660  lr:0.050000  network_time: 0.6276
+[ Mon Aug 31 11:49:50 2020 ] 	Batch(357/626) done. Acc: 0.718750 Loss: 0.9528  lr:0.050000  network_time: 0.6257
+[ Mon Aug 31 11:50:54 2020 ] 	Batch(457/626) done. Acc: 0.703125 Loss: 0.8396  lr:0.050000  network_time: 0.6301
+[ Mon Aug 31 11:51:58 2020 ] 	Batch(557/626) done. Acc: 0.765625 Loss: 0.8437  lr:0.050000  network_time: 0.6278
+[ Mon Aug 31 11:52:43 2020 ] 	Mean training loss: 0.7723 (BS 64: 0.7723).
+[ Mon Aug 31 11:52:43 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 11:52:43 2020 ] Eval epoch: 18
+[ Mon Aug 31 11:53:44 2020 ] 	Mean test loss of 258 batches: 1.420733049858448.
+[ Mon Aug 31 11:53:44 2020 ] 	Top 1: 59.48%
+[ Mon Aug 31 11:53:44 2020 ] 	Top 5: 88.49%
+[ Mon Aug 31 11:53:45 2020 ] Training epoch: 19, LR: 0.0500
+[ Mon Aug 31 11:54:08 2020 ] 	Batch(31/626) done. Acc: 0.687500 Loss: 0.8943  lr:0.050000  network_time: 0.6346
+[ Mon Aug 31 11:55:12 2020 ] 	Batch(131/626) done. Acc: 0.781250 Loss: 0.6734  lr:0.050000  network_time: 0.6183
+[ Mon Aug 31 11:56:17 2020 ] 	Batch(231/626) done. Acc: 0.812500 Loss: 0.6988  lr:0.050000  network_time: 0.6152
+[ Mon Aug 31 11:57:21 2020 ] 	Batch(331/626) done. Acc: 0.828125 Loss: 0.6018  lr:0.050000  network_time: 0.6180
+[ Mon Aug 31 11:58:26 2020 ] 	Batch(431/626) done. Acc: 0.781250 Loss: 0.7517  lr:0.050000  network_time: 0.6243
+[ Mon Aug 31 11:59:30 2020 ] 	Batch(531/626) done. Acc: 0.656250 Loss: 1.0386  lr:0.050000  network_time: 0.6252
+[ Mon Aug 31 12:00:31 2020 ] 	Mean training loss: 0.7510 (BS 64: 0.7510).
+[ Mon Aug 31 12:00:31 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 12:00:31 2020 ] Eval epoch: 19
+[ Mon Aug 31 12:01:32 2020 ] 	Mean test loss of 258 batches: 1.359163379484369.
+[ Mon Aug 31 12:01:32 2020 ] 	Top 1: 62.49%
+[ Mon Aug 31 12:01:32 2020 ] 	Top 5: 89.73%
+[ Mon Aug 31 12:01:33 2020 ] Training epoch: 20, LR: 0.0500
+[ Mon Aug 31 12:01:40 2020 ] 	Batch(5/626) done. Acc: 0.781250 Loss: 0.7197  lr:0.050000  network_time: 0.7133
+[ Mon Aug 31 12:02:44 2020 ] 	Batch(105/626) done. Acc: 0.812500 Loss: 0.6747  lr:0.050000  network_time: 0.6342
+[ Mon Aug 31 12:03:48 2020 ] 	Batch(205/626) done. Acc: 0.750000 Loss: 0.7779  lr:0.050000  network_time: 0.6167
+[ Mon Aug 31 12:04:53 2020 ] 	Batch(305/626) done. Acc: 0.796875 Loss: 0.6418  lr:0.050000  network_time: 0.6345
+[ Mon Aug 31 12:05:57 2020 ] 	Batch(405/626) done. Acc: 0.812500 Loss: 0.6453  lr:0.050000  network_time: 0.6171
+[ Mon Aug 31 12:07:02 2020 ] 	Batch(505/626) done. Acc: 0.718750 Loss: 0.9094  lr:0.050000  network_time: 0.6289
+[ Mon Aug 31 12:08:06 2020 ] 	Batch(605/626) done. Acc: 0.703125 Loss: 0.9242  lr:0.050000  network_time: 0.6286
+[ Mon Aug 31 12:08:20 2020 ] 	Mean training loss: 0.7364 (BS 64: 0.7364).
+[ Mon Aug 31 12:08:20 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 12:08:20 2020 ] Eval epoch: 20
+[ Mon Aug 31 12:09:20 2020 ] 	Mean test loss of 258 batches: 1.910068049680355.
+[ Mon Aug 31 12:09:20 2020 ] 	Top 1: 51.22%
+[ Mon Aug 31 12:09:21 2020 ] 	Top 5: 82.71%
+[ Mon Aug 31 12:09:22 2020 ] Training epoch: 21, LR: 0.0500
+[ Mon Aug 31 12:10:16 2020 ] 	Batch(79/626) done. Acc: 0.859375 Loss: 0.4489  lr:0.050000  network_time: 0.6959
+[ Mon Aug 31 12:11:20 2020 ] 	Batch(179/626) done. Acc: 0.734375 Loss: 0.9538  lr:0.050000  network_time: 0.6304
+[ Mon Aug 31 12:12:25 2020 ] 	Batch(279/626) done. Acc: 0.812500 Loss: 0.6144  lr:0.050000  network_time: 0.6107
+[ Mon Aug 31 12:13:29 2020 ] 	Batch(379/626) done. Acc: 0.765625 Loss: 0.6329  lr:0.050000  network_time: 0.6381
+[ Mon Aug 31 12:14:33 2020 ] 	Batch(479/626) done. Acc: 0.812500 Loss: 0.5065  lr:0.050000  network_time: 0.6076
+[ Mon Aug 31 12:15:38 2020 ] 	Batch(579/626) done. Acc: 0.781250 Loss: 0.7179  lr:0.050000  network_time: 0.6105
+[ Mon Aug 31 12:16:07 2020 ] 	Mean training loss: 0.7243 (BS 64: 0.7243).
+[ Mon Aug 31 12:16:07 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 12:16:07 2020 ] Eval epoch: 21
+[ Mon Aug 31 12:17:07 2020 ] 	Mean test loss of 258 batches: 1.56203696362732.
+[ Mon Aug 31 12:17:07 2020 ] 	Top 1: 56.70%
+[ Mon Aug 31 12:17:07 2020 ] 	Top 5: 86.31%
+[ Mon Aug 31 12:17:09 2020 ] Training epoch: 22, LR: 0.0500
+[ Mon Aug 31 12:17:44 2020 ] 	Batch(53/626) done. Acc: 0.859375 Loss: 0.4618  lr:0.050000  network_time: 0.5963
+[ Mon Aug 31 12:18:46 2020 ] 	Batch(153/626) done. Acc: 0.875000 Loss: 0.4643  lr:0.050000  network_time: 0.5536
+[ Mon Aug 31 12:19:43 2020 ] 	Batch(253/626) done. Acc: 0.828125 Loss: 0.6522  lr:0.050000  network_time: 0.5568
+[ Mon Aug 31 12:20:40 2020 ] 	Batch(353/626) done. Acc: 0.750000 Loss: 0.6665  lr:0.050000  network_time: 0.5552
+[ Mon Aug 31 12:21:37 2020 ] 	Batch(453/626) done. Acc: 0.750000 Loss: 0.7949  lr:0.050000  network_time: 0.5520
+[ Mon Aug 31 12:22:34 2020 ] 	Batch(553/626) done. Acc: 0.750000 Loss: 0.8258  lr:0.050000  network_time: 0.5567
+[ Mon Aug 31 12:23:15 2020 ] 	Mean training loss: 0.6991 (BS 64: 0.6991).
+[ Mon Aug 31 12:23:15 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 12:23:15 2020 ] Eval epoch: 22
+[ Mon Aug 31 12:24:10 2020 ] 	Mean test loss of 258 batches: 2.1814681494882864.
+[ Mon Aug 31 12:24:10 2020 ] 	Top 1: 48.03%
+[ Mon Aug 31 12:24:11 2020 ] 	Top 5: 82.28%
+[ Mon Aug 31 12:24:12 2020 ] Training epoch: 23, LR: 0.0500
+[ Mon Aug 31 12:24:30 2020 ] 	Batch(27/626) done. Acc: 0.796875 Loss: 0.6048  lr:0.050000  network_time: 0.5544
+[ Mon Aug 31 12:25:27 2020 ] 	Batch(127/626) done. Acc: 0.812500 Loss: 0.4631  lr:0.050000  network_time: 0.5594
+[ Mon Aug 31 12:26:24 2020 ] 	Batch(227/626) done. Acc: 0.828125 Loss: 0.5978  lr:0.050000  network_time: 0.5506
+[ Mon Aug 31 12:27:21 2020 ] 	Batch(327/626) done. Acc: 0.875000 Loss: 0.3874  lr:0.050000  network_time: 0.5441
+[ Mon Aug 31 12:28:18 2020 ] 	Batch(427/626) done. Acc: 0.765625 Loss: 0.5767  lr:0.050000  network_time: 0.5549
+[ Mon Aug 31 12:29:15 2020 ] 	Batch(527/626) done. Acc: 0.843750 Loss: 0.6359  lr:0.050000  network_time: 0.5571
+[ Mon Aug 31 12:30:11 2020 ] 	Mean training loss: 0.6853 (BS 64: 0.6853).
+[ Mon Aug 31 12:30:11 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 12:30:11 2020 ] Eval epoch: 23
+[ Mon Aug 31 12:31:06 2020 ] 	Mean test loss of 258 batches: 1.3739829929762108.
+[ Mon Aug 31 12:31:06 2020 ] 	Top 1: 61.85%
+[ Mon Aug 31 12:31:06 2020 ] 	Top 5: 89.85%
+[ Mon Aug 31 12:31:08 2020 ] Training epoch: 24, LR: 0.0500
+[ Mon Aug 31 12:31:11 2020 ] 	Batch(1/626) done. Acc: 0.859375 Loss: 0.4076  lr:0.050000  network_time: 0.5525
+[ Mon Aug 31 12:32:08 2020 ] 	Batch(101/626) done. Acc: 0.828125 Loss: 0.6356  lr:0.050000  network_time: 0.5437
+[ Mon Aug 31 12:33:05 2020 ] 	Batch(201/626) done. Acc: 0.781250 Loss: 0.5349  lr:0.050000  network_time: 0.5564
+[ Mon Aug 31 12:34:02 2020 ] 	Batch(301/626) done. Acc: 0.718750 Loss: 0.7166  lr:0.050000  network_time: 0.5526
+[ Mon Aug 31 12:34:59 2020 ] 	Batch(401/626) done. Acc: 0.859375 Loss: 0.4254  lr:0.050000  network_time: 0.5611
+[ Mon Aug 31 12:35:56 2020 ] 	Batch(501/626) done. Acc: 0.734375 Loss: 1.0194  lr:0.050000  network_time: 0.5575
+[ Mon Aug 31 12:36:53 2020 ] 	Batch(601/626) done. Acc: 0.828125 Loss: 0.6309  lr:0.050000  network_time: 0.5554
+[ Mon Aug 31 12:37:07 2020 ] 	Mean training loss: 0.6715 (BS 64: 0.6715).
+[ Mon Aug 31 12:37:07 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 12:37:07 2020 ] Eval epoch: 24
+[ Mon Aug 31 12:38:02 2020 ] 	Mean test loss of 258 batches: 1.28383872987226.
+[ Mon Aug 31 12:38:02 2020 ] 	Top 1: 64.79%
+[ Mon Aug 31 12:38:02 2020 ] 	Top 5: 90.69%
+[ Mon Aug 31 12:38:04 2020 ] Training epoch: 25, LR: 0.0500
+[ Mon Aug 31 12:38:49 2020 ] 	Batch(75/626) done. Acc: 0.890625 Loss: 0.3688  lr:0.050000  network_time: 0.6123
+[ Mon Aug 31 12:39:46 2020 ] 	Batch(175/626) done. Acc: 0.750000 Loss: 0.7538  lr:0.050000  network_time: 0.5588
+[ Mon Aug 31 12:40:43 2020 ] 	Batch(275/626) done. Acc: 0.843750 Loss: 0.5543  lr:0.050000  network_time: 0.5558
+[ Mon Aug 31 12:41:40 2020 ] 	Batch(375/626) done. Acc: 0.812500 Loss: 0.6972  lr:0.050000  network_time: 0.5475
+[ Mon Aug 31 12:42:37 2020 ] 	Batch(475/626) done. Acc: 0.750000 Loss: 0.6029  lr:0.050000  network_time: 0.5555
+[ Mon Aug 31 12:43:34 2020 ] 	Batch(575/626) done. Acc: 0.875000 Loss: 0.4290  lr:0.050000  network_time: 0.5479
+[ Mon Aug 31 12:44:02 2020 ] 	Mean training loss: 0.6636 (BS 64: 0.6636).
+[ Mon Aug 31 12:44:02 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 12:44:02 2020 ] Eval epoch: 25
+[ Mon Aug 31 12:44:57 2020 ] 	Mean test loss of 258 batches: 1.1216340985640074.
+[ Mon Aug 31 12:44:57 2020 ] 	Top 1: 68.34%
+[ Mon Aug 31 12:44:57 2020 ] 	Top 5: 91.73%
+[ Mon Aug 31 12:44:59 2020 ] Training epoch: 26, LR: 0.0500
+[ Mon Aug 31 12:45:29 2020 ] 	Batch(49/626) done. Acc: 0.750000 Loss: 0.7622  lr:0.050000  network_time: 0.5471
+[ Mon Aug 31 12:46:26 2020 ] 	Batch(149/626) done. Acc: 0.781250 Loss: 0.4510  lr:0.050000  network_time: 0.5535
+[ Mon Aug 31 12:47:23 2020 ] 	Batch(249/626) done. Acc: 0.843750 Loss: 0.6305  lr:0.050000  network_time: 0.5596
+[ Mon Aug 31 12:48:20 2020 ] 	Batch(349/626) done. Acc: 0.812500 Loss: 0.6452  lr:0.050000  network_time: 0.5557
+[ Mon Aug 31 12:49:17 2020 ] 	Batch(449/626) done. Acc: 0.718750 Loss: 0.7751  lr:0.050000  network_time: 0.6087
+[ Mon Aug 31 12:50:14 2020 ] 	Batch(549/626) done. Acc: 0.781250 Loss: 0.7429  lr:0.050000  network_time: 0.5544
+[ Mon Aug 31 12:50:58 2020 ] 	Mean training loss: 0.6520 (BS 64: 0.6520).
+[ Mon Aug 31 12:50:58 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 12:50:58 2020 ] Eval epoch: 26
+[ Mon Aug 31 12:51:53 2020 ] 	Mean test loss of 258 batches: 1.3208686517652615.
+[ Mon Aug 31 12:51:53 2020 ] 	Top 1: 63.55%
+[ Mon Aug 31 12:51:53 2020 ] 	Top 5: 89.66%
+[ Mon Aug 31 12:51:55 2020 ] Training epoch: 27, LR: 0.0500
+[ Mon Aug 31 12:52:10 2020 ] 	Batch(23/626) done. Acc: 0.796875 Loss: 0.6438  lr:0.050000  network_time: 0.5526
+[ Mon Aug 31 12:53:07 2020 ] 	Batch(123/626) done. Acc: 0.812500 Loss: 0.5257  lr:0.050000  network_time: 0.5719
+[ Mon Aug 31 12:54:04 2020 ] 	Batch(223/626) done. Acc: 0.734375 Loss: 0.7813  lr:0.050000  network_time: 0.5529
+[ Mon Aug 31 12:55:01 2020 ] 	Batch(323/626) done. Acc: 0.703125 Loss: 0.7905  lr:0.050000  network_time: 0.5549
+[ Mon Aug 31 12:55:58 2020 ] 	Batch(423/626) done. Acc: 0.781250 Loss: 0.7470  lr:0.050000  network_time: 0.5594
+[ Mon Aug 31 12:56:55 2020 ] 	Batch(523/626) done. Acc: 0.812500 Loss: 0.6323  lr:0.050000  network_time: 0.5578
+[ Mon Aug 31 12:57:52 2020 ] 	Batch(623/626) done. Acc: 0.750000 Loss: 0.8409  lr:0.050000  network_time: 0.5472
+[ Mon Aug 31 12:57:54 2020 ] 	Mean training loss: 0.6430 (BS 64: 0.6430).
+[ Mon Aug 31 12:57:54 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 12:57:54 2020 ] Eval epoch: 27
+[ Mon Aug 31 12:58:49 2020 ] 	Mean test loss of 258 batches: 1.2521068074906518.
+[ Mon Aug 31 12:58:49 2020 ] 	Top 1: 65.42%
+[ Mon Aug 31 12:58:49 2020 ] 	Top 5: 90.05%
+[ Mon Aug 31 12:58:51 2020 ] Training epoch: 28, LR: 0.0500
+[ Mon Aug 31 12:59:49 2020 ] 	Batch(97/626) done. Acc: 0.796875 Loss: 0.6796  lr:0.050000  network_time: 0.5480
+[ Mon Aug 31 13:00:46 2020 ] 	Batch(197/626) done. Acc: 0.843750 Loss: 0.7788  lr:0.050000  network_time: 0.5590
+[ Mon Aug 31 13:01:42 2020 ] 	Batch(297/626) done. Acc: 0.750000 Loss: 0.7234  lr:0.050000  network_time: 0.5461
+[ Mon Aug 31 13:02:40 2020 ] 	Batch(397/626) done. Acc: 0.812500 Loss: 0.5381  lr:0.050000  network_time: 0.5574
+[ Mon Aug 31 13:03:36 2020 ] 	Batch(497/626) done. Acc: 0.734375 Loss: 0.9266  lr:0.050000  network_time: 0.5574
+[ Mon Aug 31 13:04:33 2020 ] 	Batch(597/626) done. Acc: 0.812500 Loss: 0.7663  lr:0.050000  network_time: 0.5584
+[ Mon Aug 31 13:04:50 2020 ] 	Mean training loss: 0.6380 (BS 64: 0.6380).
+[ Mon Aug 31 13:04:50 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:04:50 2020 ] Eval epoch: 28
+[ Mon Aug 31 13:05:45 2020 ] 	Mean test loss of 258 batches: 1.1168239182511042.
+[ Mon Aug 31 13:05:45 2020 ] 	Top 1: 69.30%
+[ Mon Aug 31 13:05:45 2020 ] 	Top 5: 92.07%
+[ Mon Aug 31 13:05:47 2020 ] Training epoch: 29, LR: 0.0500
+[ Mon Aug 31 13:06:30 2020 ] 	Batch(71/626) done. Acc: 0.734375 Loss: 0.7757  lr:0.050000  network_time: 0.5454
+[ Mon Aug 31 13:07:27 2020 ] 	Batch(171/626) done. Acc: 0.703125 Loss: 1.0382  lr:0.050000  network_time: 0.5562
+[ Mon Aug 31 13:08:24 2020 ] 	Batch(271/626) done. Acc: 0.765625 Loss: 0.7061  lr:0.050000  network_time: 0.5512
+[ Mon Aug 31 13:09:21 2020 ] 	Batch(371/626) done. Acc: 0.734375 Loss: 0.7755  lr:0.050000  network_time: 0.5467
+[ Mon Aug 31 13:10:18 2020 ] 	Batch(471/626) done. Acc: 0.750000 Loss: 0.5897  lr:0.050000  network_time: 0.6100
+[ Mon Aug 31 13:11:15 2020 ] 	Batch(571/626) done. Acc: 0.812500 Loss: 0.7235  lr:0.050000  network_time: 0.5558
+[ Mon Aug 31 13:11:46 2020 ] 	Mean training loss: 0.6183 (BS 64: 0.6183).
+[ Mon Aug 31 13:11:46 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:11:46 2020 ] Eval epoch: 29
+[ Mon Aug 31 13:12:41 2020 ] 	Mean test loss of 258 batches: 1.434265549561774.
+[ Mon Aug 31 13:12:42 2020 ] 	Top 1: 60.07%
+[ Mon Aug 31 13:12:42 2020 ] 	Top 5: 90.17%
+[ Mon Aug 31 13:12:43 2020 ] Training epoch: 30, LR: 0.0500
+[ Mon Aug 31 13:13:11 2020 ] 	Batch(45/626) done. Acc: 0.890625 Loss: 0.4705  lr:0.050000  network_time: 0.5545
+[ Mon Aug 31 13:14:08 2020 ] 	Batch(145/626) done. Acc: 0.781250 Loss: 0.6356  lr:0.050000  network_time: 0.5582
+[ Mon Aug 31 13:15:05 2020 ] 	Batch(245/626) done. Acc: 0.703125 Loss: 0.7847  lr:0.050000  network_time: 0.5572
+[ Mon Aug 31 13:16:02 2020 ] 	Batch(345/626) done. Acc: 0.859375 Loss: 0.4569  lr:0.050000  network_time: 0.5941
+[ Mon Aug 31 13:16:59 2020 ] 	Batch(445/626) done. Acc: 0.812500 Loss: 0.6019  lr:0.050000  network_time: 0.5539
+[ Mon Aug 31 13:17:56 2020 ] 	Batch(545/626) done. Acc: 0.765625 Loss: 0.6322  lr:0.050000  network_time: 0.5583
+[ Mon Aug 31 13:18:42 2020 ] 	Mean training loss: 0.6098 (BS 64: 0.6098).
+[ Mon Aug 31 13:18:42 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:18:42 2020 ] Eval epoch: 30
+[ Mon Aug 31 13:19:37 2020 ] 	Mean test loss of 258 batches: 1.4182124944158303.
+[ Mon Aug 31 13:19:37 2020 ] 	Top 1: 59.60%
+[ Mon Aug 31 13:19:37 2020 ] 	Top 5: 89.36%
+[ Mon Aug 31 13:19:39 2020 ] Training epoch: 31, LR: 0.0050
+[ Mon Aug 31 13:19:52 2020 ] 	Batch(19/626) done. Acc: 0.906250 Loss: 0.3473  lr:0.005000  network_time: 0.5502
+[ Mon Aug 31 13:20:49 2020 ] 	Batch(119/626) done. Acc: 0.890625 Loss: 0.3057  lr:0.005000  network_time: 0.5554
+[ Mon Aug 31 13:21:46 2020 ] 	Batch(219/626) done. Acc: 0.906250 Loss: 0.4290  lr:0.005000  network_time: 0.5553
+[ Mon Aug 31 13:22:43 2020 ] 	Batch(319/626) done. Acc: 0.875000 Loss: 0.4403  lr:0.005000  network_time: 0.5553
+[ Mon Aug 31 13:23:40 2020 ] 	Batch(419/626) done. Acc: 0.937500 Loss: 0.2780  lr:0.005000  network_time: 0.5475
+[ Mon Aug 31 13:24:37 2020 ] 	Batch(519/626) done. Acc: 0.890625 Loss: 0.3584  lr:0.005000  network_time: 0.6104
+[ Mon Aug 31 13:25:34 2020 ] 	Batch(619/626) done. Acc: 0.875000 Loss: 0.4616  lr:0.005000  network_time: 0.5573
+[ Mon Aug 31 13:25:38 2020 ] 	Mean training loss: 0.4169 (BS 64: 0.4169).
+[ Mon Aug 31 13:25:38 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:25:38 2020 ] Eval epoch: 31
+[ Mon Aug 31 13:26:33 2020 ] 	Mean test loss of 258 batches: 0.887393786925678.
+[ Mon Aug 31 13:26:33 2020 ] 	Top 1: 73.82%
+[ Mon Aug 31 13:26:33 2020 ] 	Top 5: 94.13%
+[ Mon Aug 31 13:26:34 2020 ] Training epoch: 32, LR: 0.0050
+[ Mon Aug 31 13:27:30 2020 ] 	Batch(93/626) done. Acc: 0.906250 Loss: 0.2597  lr:0.005000  network_time: 0.5595
+[ Mon Aug 31 13:28:27 2020 ] 	Batch(193/626) done. Acc: 0.890625 Loss: 0.3326  lr:0.005000  network_time: 0.5454
+[ Mon Aug 31 13:29:24 2020 ] 	Batch(293/626) done. Acc: 0.843750 Loss: 0.4443  lr:0.005000  network_time: 0.5544
+[ Mon Aug 31 13:30:21 2020 ] 	Batch(393/626) done. Acc: 0.812500 Loss: 0.5038  lr:0.005000  network_time: 0.5963
+[ Mon Aug 31 13:31:18 2020 ] 	Batch(493/626) done. Acc: 0.859375 Loss: 0.5026  lr:0.005000  network_time: 0.5540
+[ Mon Aug 31 13:32:15 2020 ] 	Batch(593/626) done. Acc: 0.859375 Loss: 0.4974  lr:0.005000  network_time: 0.5480
+[ Mon Aug 31 13:32:33 2020 ] 	Mean training loss: 0.3657 (BS 64: 0.3657).
+[ Mon Aug 31 13:32:33 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:32:34 2020 ] Eval epoch: 32
+[ Mon Aug 31 13:33:29 2020 ] 	Mean test loss of 258 batches: 0.8459404084340546.
+[ Mon Aug 31 13:33:29 2020 ] 	Top 1: 75.34%
+[ Mon Aug 31 13:33:29 2020 ] 	Top 5: 94.61%
+[ Mon Aug 31 13:33:30 2020 ] Training epoch: 33, LR: 0.0050
+[ Mon Aug 31 13:34:11 2020 ] 	Batch(67/626) done. Acc: 0.890625 Loss: 0.2829  lr:0.005000  network_time: 0.5524
+[ Mon Aug 31 13:35:08 2020 ] 	Batch(167/626) done. Acc: 0.906250 Loss: 0.3174  lr:0.005000  network_time: 0.5430
+[ Mon Aug 31 13:36:05 2020 ] 	Batch(267/626) done. Acc: 0.921875 Loss: 0.2251  lr:0.005000  network_time: 0.5526
+[ Mon Aug 31 13:37:02 2020 ] 	Batch(367/626) done. Acc: 0.921875 Loss: 0.3694  lr:0.005000  network_time: 0.5546
+[ Mon Aug 31 13:37:59 2020 ] 	Batch(467/626) done. Acc: 0.890625 Loss: 0.3824  lr:0.005000  network_time: 0.6110
+[ Mon Aug 31 13:38:56 2020 ] 	Batch(567/626) done. Acc: 0.906250 Loss: 0.2598  lr:0.005000  network_time: 0.5714
+[ Mon Aug 31 13:39:29 2020 ] 	Mean training loss: 0.3400 (BS 64: 0.3400).
+[ Mon Aug 31 13:39:29 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:39:29 2020 ] Eval epoch: 33
+[ Mon Aug 31 13:40:25 2020 ] 	Mean test loss of 258 batches: 0.9241785333138104.
+[ Mon Aug 31 13:40:25 2020 ] 	Top 1: 72.94%
+[ Mon Aug 31 13:40:25 2020 ] 	Top 5: 93.78%
+[ Mon Aug 31 13:40:26 2020 ] Training epoch: 34, LR: 0.0050
+[ Mon Aug 31 13:40:52 2020 ] 	Batch(41/626) done. Acc: 0.921875 Loss: 0.3496  lr:0.005000  network_time: 0.5441
+[ Mon Aug 31 13:41:50 2020 ] 	Batch(141/626) done. Acc: 0.890625 Loss: 0.4010  lr:0.005000  network_time: 0.5528
+[ Mon Aug 31 13:42:48 2020 ] 	Batch(241/626) done. Acc: 0.953125 Loss: 0.2700  lr:0.005000  network_time: 0.6195
+[ Mon Aug 31 13:43:44 2020 ] 	Batch(341/626) done. Acc: 0.968750 Loss: 0.1765  lr:0.005000  network_time: 0.5566
+[ Mon Aug 31 13:44:42 2020 ] 	Batch(441/626) done. Acc: 0.906250 Loss: 0.3049  lr:0.005000  network_time: 0.5500
+[ Mon Aug 31 13:45:38 2020 ] 	Batch(541/626) done. Acc: 0.890625 Loss: 0.3519  lr:0.005000  network_time: 0.5519
+[ Mon Aug 31 13:46:26 2020 ] 	Mean training loss: 0.3223 (BS 64: 0.3223).
+[ Mon Aug 31 13:46:26 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:46:27 2020 ] Eval epoch: 34
+[ Mon Aug 31 13:47:22 2020 ] 	Mean test loss of 258 batches: 0.8425640922415164.
+[ Mon Aug 31 13:47:22 2020 ] 	Top 1: 75.30%
+[ Mon Aug 31 13:47:22 2020 ] 	Top 5: 94.71%
+[ Mon Aug 31 13:47:23 2020 ] Training epoch: 35, LR: 0.0050
+[ Mon Aug 31 13:47:35 2020 ] 	Batch(15/626) done. Acc: 0.859375 Loss: 0.4368  lr:0.005000  network_time: 0.5589
+[ Mon Aug 31 13:48:32 2020 ] 	Batch(115/626) done. Acc: 0.937500 Loss: 0.2973  lr:0.005000  network_time: 0.6100
+[ Mon Aug 31 13:49:28 2020 ] 	Batch(215/626) done. Acc: 0.953125 Loss: 0.2797  lr:0.005000  network_time: 0.5540
+[ Mon Aug 31 13:50:25 2020 ] 	Batch(315/626) done. Acc: 0.921875 Loss: 0.2480  lr:0.005000  network_time: 0.5461
+[ Mon Aug 31 13:51:22 2020 ] 	Batch(415/626) done. Acc: 0.906250 Loss: 0.3879  lr:0.005000  network_time: 0.5573
+[ Mon Aug 31 13:52:19 2020 ] 	Batch(515/626) done. Acc: 0.875000 Loss: 0.4062  lr:0.005000  network_time: 0.5447
+[ Mon Aug 31 13:53:16 2020 ] 	Batch(615/626) done. Acc: 0.875000 Loss: 0.3865  lr:0.005000  network_time: 0.5562
+[ Mon Aug 31 13:53:22 2020 ] 	Mean training loss: 0.3105 (BS 64: 0.3105).
+[ Mon Aug 31 13:53:22 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 13:53:22 2020 ] Eval epoch: 35
+[ Mon Aug 31 13:54:17 2020 ] 	Mean test loss of 258 batches: 0.9299669225317563.
+[ Mon Aug 31 13:54:18 2020 ] 	Top 1: 72.75%
+[ Mon Aug 31 13:54:18 2020 ] 	Top 5: 93.99%
+[ Mon Aug 31 13:54:19 2020 ] Training epoch: 36, LR: 0.0050
+[ Mon Aug 31 13:55:13 2020 ] 	Batch(89/626) done. Acc: 0.921875 Loss: 0.2349  lr:0.005000  network_time: 0.5565
+[ Mon Aug 31 13:56:10 2020 ] 	Batch(189/626) done. Acc: 0.953125 Loss: 0.1796  lr:0.005000  network_time: 0.6259
+[ Mon Aug 31 13:57:06 2020 ] 	Batch(289/626) done. Acc: 0.875000 Loss: 0.3673  lr:0.005000  network_time: 0.5578
+[ Mon Aug 31 13:58:03 2020 ] 	Batch(389/626) done. Acc: 0.875000 Loss: 0.4466  lr:0.005000  network_time: 0.5574
+[ Mon Aug 31 13:59:00 2020 ] 	Batch(489/626) done. Acc: 0.890625 Loss: 0.3221  lr:0.005000  network_time: 0.5452
+[ Mon Aug 31 13:59:57 2020 ] 	Batch(589/626) done. Acc: 0.937500 Loss: 0.2145  lr:0.005000  network_time: 0.5483
+[ Mon Aug 31 14:00:18 2020 ] 	Mean training loss: 0.2951 (BS 64: 0.2951).
+[ Mon Aug 31 14:00:18 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:00:18 2020 ] Eval epoch: 36
+[ Mon Aug 31 14:01:14 2020 ] 	Mean test loss of 258 batches: 0.8239107127915057.
+[ Mon Aug 31 14:01:14 2020 ] 	Top 1: 76.61%
+[ Mon Aug 31 14:01:14 2020 ] 	Top 5: 94.88%
+[ Mon Aug 31 14:01:15 2020 ] Training epoch: 37, LR: 0.0050
+[ Mon Aug 31 14:01:54 2020 ] 	Batch(63/626) done. Acc: 0.875000 Loss: 0.4063  lr:0.005000  network_time: 0.5566
+[ Mon Aug 31 14:02:50 2020 ] 	Batch(163/626) done. Acc: 0.875000 Loss: 0.3888  lr:0.005000  network_time: 0.5580
+[ Mon Aug 31 14:03:47 2020 ] 	Batch(263/626) done. Acc: 0.906250 Loss: 0.3324  lr:0.005000  network_time: 0.5820
+[ Mon Aug 31 14:04:44 2020 ] 	Batch(363/626) done. Acc: 0.921875 Loss: 0.2934  lr:0.005000  network_time: 0.5447
+[ Mon Aug 31 14:05:41 2020 ] 	Batch(463/626) done. Acc: 0.906250 Loss: 0.4808  lr:0.005000  network_time: 0.5467
+[ Mon Aug 31 14:06:38 2020 ] 	Batch(563/626) done. Acc: 0.937500 Loss: 0.1850  lr:0.005000  network_time: 0.5426
+[ Mon Aug 31 14:07:14 2020 ] 	Mean training loss: 0.2852 (BS 64: 0.2852).
+[ Mon Aug 31 14:07:14 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:07:14 2020 ] Eval epoch: 37
+[ Mon Aug 31 14:08:09 2020 ] 	Mean test loss of 258 batches: 0.831532958635064.
+[ Mon Aug 31 14:08:09 2020 ] 	Top 1: 76.07%
+[ Mon Aug 31 14:08:09 2020 ] 	Top 5: 94.70%
+[ Mon Aug 31 14:08:11 2020 ] Training epoch: 38, LR: 0.0050
+[ Mon Aug 31 14:08:34 2020 ] 	Batch(37/626) done. Acc: 0.968750 Loss: 0.2084  lr:0.005000  network_time: 0.5566
+[ Mon Aug 31 14:09:31 2020 ] 	Batch(137/626) done. Acc: 0.906250 Loss: 0.3257  lr:0.005000  network_time: 0.5559
+[ Mon Aug 31 14:10:28 2020 ] 	Batch(237/626) done. Acc: 0.953125 Loss: 0.1971  lr:0.005000  network_time: 0.5616
+[ Mon Aug 31 14:11:25 2020 ] 	Batch(337/626) done. Acc: 0.937500 Loss: 0.2043  lr:0.005000  network_time: 0.5541
+[ Mon Aug 31 14:12:22 2020 ] 	Batch(437/626) done. Acc: 0.921875 Loss: 0.2987  lr:0.005000  network_time: 0.5493
+[ Mon Aug 31 14:13:19 2020 ] 	Batch(537/626) done. Acc: 0.984375 Loss: 0.1492  lr:0.005000  network_time: 0.5591
+[ Mon Aug 31 14:14:10 2020 ] 	Mean training loss: 0.2693 (BS 64: 0.2693).
+[ Mon Aug 31 14:14:10 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:14:10 2020 ] Eval epoch: 38
+[ Mon Aug 31 14:15:06 2020 ] 	Mean test loss of 258 batches: 0.8502123381278311.
+[ Mon Aug 31 14:15:06 2020 ] 	Top 1: 75.44%
+[ Mon Aug 31 14:15:06 2020 ] 	Top 5: 94.67%
+[ Mon Aug 31 14:15:08 2020 ] Training epoch: 39, LR: 0.0050
+[ Mon Aug 31 14:15:17 2020 ] 	Batch(11/626) done. Acc: 0.937500 Loss: 0.2627  lr:0.005000  network_time: 0.5518
+[ Mon Aug 31 14:16:14 2020 ] 	Batch(111/626) done. Acc: 0.984375 Loss: 0.1681  lr:0.005000  network_time: 0.6080
+[ Mon Aug 31 14:17:11 2020 ] 	Batch(211/626) done. Acc: 0.906250 Loss: 0.2347  lr:0.005000  network_time: 0.5493
+[ Mon Aug 31 14:18:08 2020 ] 	Batch(311/626) done. Acc: 0.906250 Loss: 0.2647  lr:0.005000  network_time: 0.5535
+[ Mon Aug 31 14:19:04 2020 ] 	Batch(411/626) done. Acc: 0.953125 Loss: 0.2255  lr:0.005000  network_time: 0.5436
+[ Mon Aug 31 14:20:01 2020 ] 	Batch(511/626) done. Acc: 0.890625 Loss: 0.3778  lr:0.005000  network_time: 0.5544
+[ Mon Aug 31 14:20:59 2020 ] 	Batch(611/626) done. Acc: 0.843750 Loss: 0.4228  lr:0.005000  network_time: 0.5587
+[ Mon Aug 31 14:21:07 2020 ] 	Mean training loss: 0.2635 (BS 64: 0.2635).
+[ Mon Aug 31 14:21:07 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:21:07 2020 ] Eval epoch: 39
+[ Mon Aug 31 14:22:03 2020 ] 	Mean test loss of 258 batches: 0.8965074148520019.
+[ Mon Aug 31 14:22:03 2020 ] 	Top 1: 74.22%
+[ Mon Aug 31 14:22:03 2020 ] 	Top 5: 94.21%
+[ Mon Aug 31 14:22:04 2020 ] Training epoch: 40, LR: 0.0050
+[ Mon Aug 31 14:22:56 2020 ] 	Batch(85/626) done. Acc: 0.937500 Loss: 0.1881  lr:0.005000  network_time: 0.5574
+[ Mon Aug 31 14:23:52 2020 ] 	Batch(185/626) done. Acc: 0.937500 Loss: 0.1758  lr:0.005000  network_time: 0.5587
+[ Mon Aug 31 14:24:49 2020 ] 	Batch(285/626) done. Acc: 1.000000 Loss: 0.1366  lr:0.005000  network_time: 0.5519
+[ Mon Aug 31 14:25:46 2020 ] 	Batch(385/626) done. Acc: 0.953125 Loss: 0.2910  lr:0.005000  network_time: 0.5587
+[ Mon Aug 31 14:26:43 2020 ] 	Batch(485/626) done. Acc: 0.968750 Loss: 0.1413  lr:0.005000  network_time: 0.5438
+[ Mon Aug 31 14:27:40 2020 ] 	Batch(585/626) done. Acc: 0.906250 Loss: 0.2651  lr:0.005000  network_time: 0.5535
+[ Mon Aug 31 14:28:03 2020 ] 	Mean training loss: 0.2549 (BS 64: 0.2549).
+[ Mon Aug 31 14:28:03 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:28:03 2020 ] Eval epoch: 40
+[ Mon Aug 31 14:29:00 2020 ] 	Mean test loss of 258 batches: 0.986607823145482.
+[ Mon Aug 31 14:29:00 2020 ] 	Top 1: 71.21%
+[ Mon Aug 31 14:29:00 2020 ] 	Top 5: 93.66%
+[ Mon Aug 31 14:29:01 2020 ] Training epoch: 41, LR: 0.0005
+[ Mon Aug 31 14:29:38 2020 ] 	Batch(59/626) done. Acc: 0.890625 Loss: 0.3376  lr:0.000500  network_time: 0.5425
+[ Mon Aug 31 14:30:35 2020 ] 	Batch(159/626) done. Acc: 0.937500 Loss: 0.1987  lr:0.000500  network_time: 0.6338
+[ Mon Aug 31 14:31:31 2020 ] 	Batch(259/626) done. Acc: 0.937500 Loss: 0.2295  lr:0.000500  network_time: 0.5491
+[ Mon Aug 31 14:32:29 2020 ] 	Batch(359/626) done. Acc: 0.937500 Loss: 0.1526  lr:0.000500  network_time: 0.5514
+[ Mon Aug 31 14:33:25 2020 ] 	Batch(459/626) done. Acc: 0.968750 Loss: 0.1378  lr:0.000500  network_time: 0.6095
+[ Mon Aug 31 14:34:22 2020 ] 	Batch(559/626) done. Acc: 0.953125 Loss: 0.1654  lr:0.000500  network_time: 0.5533
+[ Mon Aug 31 14:35:00 2020 ] 	Mean training loss: 0.2256 (BS 64: 0.2256).
+[ Mon Aug 31 14:35:00 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:35:00 2020 ] Eval epoch: 41
+[ Mon Aug 31 14:35:55 2020 ] 	Mean test loss of 258 batches: 0.8385584541531497.
+[ Mon Aug 31 14:35:55 2020 ] 	Top 1: 76.12%
+[ Mon Aug 31 14:35:55 2020 ] 	Top 5: 94.74%
+[ Mon Aug 31 14:35:57 2020 ] Training epoch: 42, LR: 0.0005
+[ Mon Aug 31 14:36:18 2020 ] 	Batch(33/626) done. Acc: 0.984375 Loss: 0.1515  lr:0.000500  network_time: 0.5537
+[ Mon Aug 31 14:37:15 2020 ] 	Batch(133/626) done. Acc: 0.953125 Loss: 0.2477  lr:0.000500  network_time: 0.5452
+[ Mon Aug 31 14:38:12 2020 ] 	Batch(233/626) done. Acc: 0.953125 Loss: 0.2292  lr:0.000500  network_time: 0.5457
+[ Mon Aug 31 14:39:09 2020 ] 	Batch(333/626) done. Acc: 0.984375 Loss: 0.1459  lr:0.000500  network_time: 0.5546
+[ Mon Aug 31 14:40:07 2020 ] 	Batch(433/626) done. Acc: 0.984375 Loss: 0.1079  lr:0.000500  network_time: 0.5544
+[ Mon Aug 31 14:41:04 2020 ] 	Batch(533/626) done. Acc: 0.937500 Loss: 0.3143  lr:0.000500  network_time: 0.6046
+[ Mon Aug 31 14:41:57 2020 ] 	Mean training loss: 0.2204 (BS 64: 0.2204).
+[ Mon Aug 31 14:41:57 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:41:57 2020 ] Eval epoch: 42
+[ Mon Aug 31 14:42:52 2020 ] 	Mean test loss of 258 batches: 0.8696720823068027.
+[ Mon Aug 31 14:42:52 2020 ] 	Top 1: 75.06%
+[ Mon Aug 31 14:42:52 2020 ] 	Top 5: 94.57%
+[ Mon Aug 31 14:42:54 2020 ] Training epoch: 43, LR: 0.0005
+[ Mon Aug 31 14:43:01 2020 ] 	Batch(7/626) done. Acc: 0.953125 Loss: 0.1364  lr:0.000500  network_time: 0.5513
+[ Mon Aug 31 14:43:58 2020 ] 	Batch(107/626) done. Acc: 1.000000 Loss: 0.1135  lr:0.000500  network_time: 0.5533
+[ Mon Aug 31 14:44:57 2020 ] 	Batch(207/626) done. Acc: 0.921875 Loss: 0.2464  lr:0.000500  network_time: 0.5534
+[ Mon Aug 31 14:45:54 2020 ] 	Batch(307/626) done. Acc: 0.984375 Loss: 0.1315  lr:0.000500  network_time: 0.6063
+[ Mon Aug 31 14:46:53 2020 ] 	Batch(407/626) done. Acc: 0.984375 Loss: 0.1812  lr:0.000500  network_time: 0.5548
+[ Mon Aug 31 14:47:51 2020 ] 	Batch(507/626) done. Acc: 0.921875 Loss: 0.3567  lr:0.000500  network_time: 0.5524
+[ Mon Aug 31 14:48:49 2020 ] 	Batch(607/626) done. Acc: 0.875000 Loss: 0.3160  lr:0.000500  network_time: 0.5627
+[ Mon Aug 31 14:49:00 2020 ] 	Mean training loss: 0.2178 (BS 64: 0.2178).
+[ Mon Aug 31 14:49:00 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:49:00 2020 ] Eval epoch: 43
+[ Mon Aug 31 14:49:55 2020 ] 	Mean test loss of 258 batches: 0.8641085144161254.
+[ Mon Aug 31 14:49:56 2020 ] 	Top 1: 75.28%
+[ Mon Aug 31 14:49:56 2020 ] 	Top 5: 94.49%
+[ Mon Aug 31 14:49:57 2020 ] Training epoch: 44, LR: 0.0005
+[ Mon Aug 31 14:50:46 2020 ] 	Batch(81/626) done. Acc: 0.921875 Loss: 0.2476  lr:0.000500  network_time: 0.5557
+[ Mon Aug 31 14:51:43 2020 ] 	Batch(181/626) done. Acc: 0.921875 Loss: 0.2609  lr:0.000500  network_time: 0.6079
+[ Mon Aug 31 14:52:40 2020 ] 	Batch(281/626) done. Acc: 0.953125 Loss: 0.1922  lr:0.000500  network_time: 0.5573
+[ Mon Aug 31 14:53:37 2020 ] 	Batch(381/626) done. Acc: 0.968750 Loss: 0.2004  lr:0.000500  network_time: 0.5480
+[ Mon Aug 31 14:54:34 2020 ] 	Batch(481/626) done. Acc: 0.953125 Loss: 0.2292  lr:0.000500  network_time: 0.5569
+[ Mon Aug 31 14:55:31 2020 ] 	Batch(581/626) done. Acc: 0.984375 Loss: 0.1344  lr:0.000500  network_time: 0.5443
+[ Mon Aug 31 14:55:56 2020 ] 	Mean training loss: 0.2166 (BS 64: 0.2166).
+[ Mon Aug 31 14:55:56 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 14:55:56 2020 ] Eval epoch: 44
+[ Mon Aug 31 14:56:52 2020 ] 	Mean test loss of 258 batches: 0.9328827105982359.
+[ Mon Aug 31 14:56:52 2020 ] 	Top 1: 72.94%
+[ Mon Aug 31 14:56:52 2020 ] 	Top 5: 94.12%
+[ Mon Aug 31 14:56:54 2020 ] Training epoch: 45, LR: 0.0005
+[ Mon Aug 31 14:57:28 2020 ] 	Batch(55/626) done. Acc: 0.890625 Loss: 0.3893  lr:0.000500  network_time: 0.5567
+[ Mon Aug 31 14:58:25 2020 ] 	Batch(155/626) done. Acc: 0.968750 Loss: 0.1974  lr:0.000500  network_time: 0.5571
+[ Mon Aug 31 14:59:22 2020 ] 	Batch(255/626) done. Acc: 0.968750 Loss: 0.1552  lr:0.000500  network_time: 0.5488
+[ Mon Aug 31 15:00:19 2020 ] 	Batch(355/626) done. Acc: 0.921875 Loss: 0.2688  lr:0.000500  network_time: 0.6100
+[ Mon Aug 31 15:01:16 2020 ] 	Batch(455/626) done. Acc: 0.906250 Loss: 0.4072  lr:0.000500  network_time: 0.5440
+[ Mon Aug 31 15:02:13 2020 ] 	Batch(555/626) done. Acc: 0.953125 Loss: 0.1914  lr:0.000500  network_time: 0.5540
+[ Mon Aug 31 15:02:53 2020 ] 	Mean training loss: 0.2133 (BS 64: 0.2133).
+[ Mon Aug 31 15:02:53 2020 ] 	Time consumption: [Data]01%, [Network]96%
+[ Mon Aug 31 15:02:53 2020 ] Eval epoch: 45
+[ Mon Aug 31 15:03:53 2020 ] 	Mean test loss of 258 batches: 0.8540722362754881.
+[ Mon Aug 31 15:03:53 2020 ] 	Top 1: 75.59%
+[ Mon Aug 31 15:03:53 2020 ] 	Top 5: 94.72%
+[ Mon Aug 31 15:03:55 2020 ] Training epoch: 46, LR: 0.0005
+[ Mon Aug 31 15:04:16 2020 ] 	Batch(29/626) done. Acc: 0.921875 Loss: 0.2673  lr:0.000500  network_time: 0.6083
+[ Mon Aug 31 15:05:18 2020 ] 	Batch(129/626) done. Acc: 0.953125 Loss: 0.2013  lr:0.000500  network_time: 0.6564
+[ Mon Aug 31 15:06:22 2020 ] 	Batch(229/626) done. Acc: 0.984375 Loss: 0.1691  lr:0.000500  network_time: 0.6123
+[ Mon Aug 31 15:07:26 2020 ] 	Batch(329/626) done. Acc: 0.984375 Loss: 0.1256  lr:0.000500  network_time: 0.6218
+[ Mon Aug 31 15:08:30 2020 ] 	Batch(429/626) done. Acc: 0.984375 Loss: 0.1955  lr:0.000500  network_time: 0.6302
+[ Mon Aug 31 15:09:35 2020 ] 	Batch(529/626) done. Acc: 0.953125 Loss: 0.2251  lr:0.000500  network_time: 0.6393
+[ Mon Aug 31 15:10:37 2020 ] 	Mean training loss: 0.2129 (BS 64: 0.2129).
+[ Mon Aug 31 15:10:37 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:10:37 2020 ] Eval epoch: 46
+[ Mon Aug 31 15:11:39 2020 ] 	Mean test loss of 258 batches: 0.8767784545125887.
+[ Mon Aug 31 15:11:39 2020 ] 	Top 1: 74.85%
+[ Mon Aug 31 15:11:39 2020 ] 	Top 5: 94.55%
+[ Mon Aug 31 15:11:41 2020 ] Training epoch: 47, LR: 0.0005
+[ Mon Aug 31 15:11:45 2020 ] 	Batch(3/626) done. Acc: 0.953125 Loss: 0.2084  lr:0.000500  network_time: 0.6377
+[ Mon Aug 31 15:12:50 2020 ] 	Batch(103/626) done. Acc: 0.937500 Loss: 0.2911  lr:0.000500  network_time: 0.6098
+[ Mon Aug 31 15:13:55 2020 ] 	Batch(203/626) done. Acc: 0.968750 Loss: 0.2265  lr:0.000500  network_time: 0.6759
+[ Mon Aug 31 15:14:59 2020 ] 	Batch(303/626) done. Acc: 1.000000 Loss: 0.0853  lr:0.000500  network_time: 0.6236
+[ Mon Aug 31 15:16:04 2020 ] 	Batch(403/626) done. Acc: 0.937500 Loss: 0.2588  lr:0.000500  network_time: 0.6079
+[ Mon Aug 31 15:17:08 2020 ] 	Batch(503/626) done. Acc: 0.968750 Loss: 0.1452  lr:0.000500  network_time: 0.6301
+[ Mon Aug 31 15:18:13 2020 ] 	Batch(603/626) done. Acc: 0.953125 Loss: 0.2521  lr:0.000500  network_time: 0.6367
+[ Mon Aug 31 15:18:27 2020 ] 	Mean training loss: 0.2126 (BS 64: 0.2126).
+[ Mon Aug 31 15:18:27 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:18:27 2020 ] Eval epoch: 47
+[ Mon Aug 31 15:19:30 2020 ] 	Mean test loss of 258 batches: 0.8505576500134875.
+[ Mon Aug 31 15:19:30 2020 ] 	Top 1: 76.28%
+[ Mon Aug 31 15:19:30 2020 ] 	Top 5: 94.98%
+[ Mon Aug 31 15:19:31 2020 ] Training epoch: 48, LR: 0.0005
+[ Mon Aug 31 15:20:24 2020 ] 	Batch(77/626) done. Acc: 0.937500 Loss: 0.3464  lr:0.000500  network_time: 0.6043
+[ Mon Aug 31 15:21:28 2020 ] 	Batch(177/626) done. Acc: 0.937500 Loss: 0.2186  lr:0.000500  network_time: 0.6183
+[ Mon Aug 31 15:22:33 2020 ] 	Batch(277/626) done. Acc: 0.984375 Loss: 0.1214  lr:0.000500  network_time: 0.6369
+[ Mon Aug 31 15:23:37 2020 ] 	Batch(377/626) done. Acc: 0.921875 Loss: 0.2669  lr:0.000500  network_time: 0.6127
+[ Mon Aug 31 15:24:41 2020 ] 	Batch(477/626) done. Acc: 0.968750 Loss: 0.1540  lr:0.000500  network_time: 0.6304
+[ Mon Aug 31 15:25:46 2020 ] 	Batch(577/626) done. Acc: 0.937500 Loss: 0.1745  lr:0.000500  network_time: 0.6197
+[ Mon Aug 31 15:26:17 2020 ] 	Mean training loss: 0.2104 (BS 64: 0.2104).
+[ Mon Aug 31 15:26:17 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:26:17 2020 ] Eval epoch: 48
+[ Mon Aug 31 15:27:19 2020 ] 	Mean test loss of 258 batches: 1.0670686270608458.
+[ Mon Aug 31 15:27:19 2020 ] 	Top 1: 69.02%
+[ Mon Aug 31 15:27:19 2020 ] 	Top 5: 92.88%
+[ Mon Aug 31 15:27:21 2020 ] Training epoch: 49, LR: 0.0005
+[ Mon Aug 31 15:27:56 2020 ] 	Batch(51/626) done. Acc: 0.921875 Loss: 0.2184  lr:0.000500  network_time: 0.6959
+[ Mon Aug 31 15:29:01 2020 ] 	Batch(151/626) done. Acc: 0.984375 Loss: 0.1187  lr:0.000500  network_time: 0.6320
+[ Mon Aug 31 15:30:06 2020 ] 	Batch(251/626) done. Acc: 0.953125 Loss: 0.1739  lr:0.000500  network_time: 0.6394
+[ Mon Aug 31 15:31:10 2020 ] 	Batch(351/626) done. Acc: 0.968750 Loss: 0.1176  lr:0.000500  network_time: 0.6177
+[ Mon Aug 31 15:32:15 2020 ] 	Batch(451/626) done. Acc: 0.937500 Loss: 0.2719  lr:0.000500  network_time: 0.6371
+[ Mon Aug 31 15:33:20 2020 ] 	Batch(551/626) done. Acc: 1.000000 Loss: 0.1176  lr:0.000500  network_time: 0.6297
+[ Mon Aug 31 15:34:08 2020 ] 	Mean training loss: 0.2068 (BS 64: 0.2068).
+[ Mon Aug 31 15:34:08 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:34:08 2020 ] Eval epoch: 49
+[ Mon Aug 31 15:35:10 2020 ] 	Mean test loss of 258 batches: 0.8663061861844026.
+[ Mon Aug 31 15:35:10 2020 ] 	Top 1: 75.17%
+[ Mon Aug 31 15:35:10 2020 ] 	Top 5: 94.64%
+[ Mon Aug 31 15:35:11 2020 ] Training epoch: 50, LR: 0.0005
+[ Mon Aug 31 15:35:31 2020 ] 	Batch(25/626) done. Acc: 0.968750 Loss: 0.1616  lr:0.000500  network_time: 0.6346
+[ Mon Aug 31 15:36:35 2020 ] 	Batch(125/626) done. Acc: 0.984375 Loss: 0.1053  lr:0.000500  network_time: 0.6332
+[ Mon Aug 31 15:37:40 2020 ] 	Batch(225/626) done. Acc: 0.968750 Loss: 0.1833  lr:0.000500  network_time: 0.6206
+[ Mon Aug 31 15:38:44 2020 ] 	Batch(325/626) done. Acc: 0.937500 Loss: 0.2387  lr:0.000500  network_time: 0.6170
+[ Mon Aug 31 15:39:49 2020 ] 	Batch(425/626) done. Acc: 0.921875 Loss: 0.2518  lr:0.000500  network_time: 0.6920
+[ Mon Aug 31 15:40:54 2020 ] 	Batch(525/626) done. Acc: 0.953125 Loss: 0.2802  lr:0.000500  network_time: 0.6385
+[ Mon Aug 31 15:41:58 2020 ] 	Batch(625/626) done. Acc: 0.937500 Loss: 0.2421  lr:0.000500  network_time: 0.6248
+[ Mon Aug 31 15:41:58 2020 ] 	Mean training loss: 0.2060 (BS 64: 0.2060).
+[ Mon Aug 31 15:41:58 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:41:58 2020 ] Eval epoch: 50
+[ Mon Aug 31 15:43:01 2020 ] 	Mean test loss of 258 batches: 1.117245200761529.
+[ Mon Aug 31 15:43:01 2020 ] 	Top 1: 67.70%
+[ Mon Aug 31 15:43:01 2020 ] 	Top 5: 92.24%
+[ Mon Aug 31 15:43:02 2020 ] Training epoch: 51, LR: 0.0005
+[ Mon Aug 31 15:44:09 2020 ] 	Batch(99/626) done. Acc: 0.953125 Loss: 0.1671  lr:0.000500  network_time: 0.6403
+[ Mon Aug 31 15:45:14 2020 ] 	Batch(199/626) done. Acc: 0.937500 Loss: 0.1793  lr:0.000500  network_time: 0.7062
+[ Mon Aug 31 15:46:18 2020 ] 	Batch(299/626) done. Acc: 0.906250 Loss: 0.2918  lr:0.000500  network_time: 0.6551
+[ Mon Aug 31 15:47:23 2020 ] 	Batch(399/626) done. Acc: 0.968750 Loss: 0.1780  lr:0.000500  network_time: 0.6253
+[ Mon Aug 31 15:48:28 2020 ] 	Batch(499/626) done. Acc: 0.953125 Loss: 0.1531  lr:0.000500  network_time: 0.6253
+[ Mon Aug 31 15:49:33 2020 ] 	Batch(599/626) done. Acc: 0.968750 Loss: 0.1544  lr:0.000500  network_time: 0.6382
+[ Mon Aug 31 15:49:50 2020 ] 	Mean training loss: 0.2061 (BS 64: 0.2061).
+[ Mon Aug 31 15:49:50 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:49:50 2020 ] Eval epoch: 51
+[ Mon Aug 31 15:50:52 2020 ] 	Mean test loss of 258 batches: 0.8721478642650353.
+[ Mon Aug 31 15:50:52 2020 ] 	Top 1: 75.13%
+[ Mon Aug 31 15:50:52 2020 ] 	Top 5: 94.72%
+[ Mon Aug 31 15:50:54 2020 ] Training epoch: 52, LR: 0.0005
+[ Mon Aug 31 15:51:44 2020 ] 	Batch(73/626) done. Acc: 0.968750 Loss: 0.1894  lr:0.000500  network_time: 0.6215
+[ Mon Aug 31 15:52:48 2020 ] 	Batch(173/626) done. Acc: 0.937500 Loss: 0.3079  lr:0.000500  network_time: 0.6145
+[ Mon Aug 31 15:53:53 2020 ] 	Batch(273/626) done. Acc: 0.875000 Loss: 0.2982  lr:0.000500  network_time: 0.6096
+[ Mon Aug 31 15:54:57 2020 ] 	Batch(373/626) done. Acc: 0.921875 Loss: 0.1947  lr:0.000500  network_time: 0.6214
+[ Mon Aug 31 15:56:01 2020 ] 	Batch(473/626) done. Acc: 0.937500 Loss: 0.2075  lr:0.000500  network_time: 0.6283
+[ Mon Aug 31 15:57:06 2020 ] 	Batch(573/626) done. Acc: 0.890625 Loss: 0.2547  lr:0.000500  network_time: 0.6382
+[ Mon Aug 31 15:57:40 2020 ] 	Mean training loss: 0.2044 (BS 64: 0.2044).
+[ Mon Aug 31 15:57:40 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 15:57:40 2020 ] Eval epoch: 52
+[ Mon Aug 31 15:58:42 2020 ] 	Mean test loss of 258 batches: 0.8871373596579529.
+[ Mon Aug 31 15:58:43 2020 ] 	Top 1: 74.64%
+[ Mon Aug 31 15:58:43 2020 ] 	Top 5: 94.44%
+[ Mon Aug 31 15:58:44 2020 ] Training epoch: 53, LR: 0.0005
+[ Mon Aug 31 15:59:18 2020 ] 	Batch(47/626) done. Acc: 0.937500 Loss: 0.2522  lr:0.000500  network_time: 0.6250
+[ Mon Aug 31 16:00:22 2020 ] 	Batch(147/626) done. Acc: 0.921875 Loss: 0.2331  lr:0.000500  network_time: 0.6358
+[ Mon Aug 31 16:01:27 2020 ] 	Batch(247/626) done. Acc: 0.984375 Loss: 0.1726  lr:0.000500  network_time: 0.6124
+[ Mon Aug 31 16:02:31 2020 ] 	Batch(347/626) done. Acc: 0.953125 Loss: 0.2013  lr:0.000500  network_time: 0.6690
+[ Mon Aug 31 16:03:36 2020 ] 	Batch(447/626) done. Acc: 0.968750 Loss: 0.1441  lr:0.000500  network_time: 0.6421
+[ Mon Aug 31 16:04:40 2020 ] 	Batch(547/626) done. Acc: 0.921875 Loss: 0.2714  lr:0.000500  network_time: 0.6173
+[ Mon Aug 31 16:05:31 2020 ] 	Mean training loss: 0.2020 (BS 64: 0.2020).
+[ Mon Aug 31 16:05:31 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:05:31 2020 ] Eval epoch: 53
+[ Mon Aug 31 16:06:33 2020 ] 	Mean test loss of 258 batches: 0.8871781707041023.
+[ Mon Aug 31 16:06:33 2020 ] 	Top 1: 74.51%
+[ Mon Aug 31 16:06:33 2020 ] 	Top 5: 94.60%
+[ Mon Aug 31 16:06:34 2020 ] Training epoch: 54, LR: 0.0005
+[ Mon Aug 31 16:06:51 2020 ] 	Batch(21/626) done. Acc: 0.968750 Loss: 0.1667  lr:0.000500  network_time: 0.6220
+[ Mon Aug 31 16:07:55 2020 ] 	Batch(121/626) done. Acc: 0.921875 Loss: 0.2370  lr:0.000500  network_time: 0.6357
+[ Mon Aug 31 16:09:00 2020 ] 	Batch(221/626) done. Acc: 0.953125 Loss: 0.2186  lr:0.000500  network_time: 0.7199
+[ Mon Aug 31 16:10:05 2020 ] 	Batch(321/626) done. Acc: 0.968750 Loss: 0.1831  lr:0.000500  network_time: 0.6467
+[ Mon Aug 31 16:11:10 2020 ] 	Batch(421/626) done. Acc: 0.953125 Loss: 0.2216  lr:0.000500  network_time: 0.6417
+[ Mon Aug 31 16:12:14 2020 ] 	Batch(521/626) done. Acc: 0.984375 Loss: 0.0966  lr:0.000500  network_time: 0.6307
+[ Mon Aug 31 16:13:19 2020 ] 	Batch(621/626) done. Acc: 0.953125 Loss: 0.1869  lr:0.000500  network_time: 0.6554
+[ Mon Aug 31 16:13:22 2020 ] 	Mean training loss: 0.2011 (BS 64: 0.2011).
+[ Mon Aug 31 16:13:22 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:13:22 2020 ] Eval epoch: 54
+[ Mon Aug 31 16:14:24 2020 ] 	Mean test loss of 258 batches: 0.8948673002941664.
+[ Mon Aug 31 16:14:24 2020 ] 	Top 1: 74.05%
+[ Mon Aug 31 16:14:25 2020 ] 	Top 5: 94.34%
+[ Mon Aug 31 16:14:26 2020 ] Training epoch: 55, LR: 0.0005
+[ Mon Aug 31 16:15:30 2020 ] 	Batch(95/626) done. Acc: 0.968750 Loss: 0.1782  lr:0.000500  network_time: 0.7000
+[ Mon Aug 31 16:16:35 2020 ] 	Batch(195/626) done. Acc: 0.984375 Loss: 0.0971  lr:0.000500  network_time: 0.6131
+[ Mon Aug 31 16:17:40 2020 ] 	Batch(295/626) done. Acc: 0.984375 Loss: 0.1412  lr:0.000500  network_time: 0.6319
+[ Mon Aug 31 16:18:44 2020 ] 	Batch(395/626) done. Acc: 0.875000 Loss: 0.2983  lr:0.000500  network_time: 0.6512
+[ Mon Aug 31 16:19:48 2020 ] 	Batch(495/626) done. Acc: 0.937500 Loss: 0.2408  lr:0.000500  network_time: 0.6285
+[ Mon Aug 31 16:20:53 2020 ] 	Batch(595/626) done. Acc: 0.968750 Loss: 0.1743  lr:0.000500  network_time: 0.6423
+[ Mon Aug 31 16:21:13 2020 ] 	Mean training loss: 0.1992 (BS 64: 0.1992).
+[ Mon Aug 31 16:21:13 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:21:13 2020 ] Eval epoch: 55
+[ Mon Aug 31 16:22:15 2020 ] 	Mean test loss of 258 batches: 0.8602505334356959.
+[ Mon Aug 31 16:22:16 2020 ] 	Top 1: 75.44%
+[ Mon Aug 31 16:22:16 2020 ] 	Top 5: 94.68%
+[ Mon Aug 31 16:22:17 2020 ] Training epoch: 56, LR: 0.0005
+[ Mon Aug 31 16:23:05 2020 ] 	Batch(69/626) done. Acc: 1.000000 Loss: 0.0759  lr:0.000500  network_time: 0.6360
+[ Mon Aug 31 16:24:09 2020 ] 	Batch(169/626) done. Acc: 0.953125 Loss: 0.1813  lr:0.000500  network_time: 0.6234
+[ Mon Aug 31 16:25:13 2020 ] 	Batch(269/626) done. Acc: 0.953125 Loss: 0.1850  lr:0.000500  network_time: 0.6334
+[ Mon Aug 31 16:26:17 2020 ] 	Batch(369/626) done. Acc: 0.968750 Loss: 0.1599  lr:0.000500  network_time: 0.6153
+[ Mon Aug 31 16:27:21 2020 ] 	Batch(469/626) done. Acc: 0.968750 Loss: 0.1803  lr:0.000500  network_time: 0.6863
+[ Mon Aug 31 16:28:25 2020 ] 	Batch(569/626) done. Acc: 0.937500 Loss: 0.2532  lr:0.000500  network_time: 0.6356
+[ Mon Aug 31 16:29:02 2020 ] 	Mean training loss: 0.1989 (BS 64: 0.1989).
+[ Mon Aug 31 16:29:02 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:29:02 2020 ] Eval epoch: 56
+[ Mon Aug 31 16:30:03 2020 ] 	Mean test loss of 258 batches: 0.8957104560478714.
+[ Mon Aug 31 16:30:03 2020 ] 	Top 1: 74.43%
+[ Mon Aug 31 16:30:03 2020 ] 	Top 5: 94.38%
+[ Mon Aug 31 16:30:05 2020 ] Training epoch: 57, LR: 0.0005
+[ Mon Aug 31 16:30:35 2020 ] 	Batch(43/626) done. Acc: 0.953125 Loss: 0.1484  lr:0.000500  network_time: 0.6275
+[ Mon Aug 31 16:31:40 2020 ] 	Batch(143/626) done. Acc: 0.968750 Loss: 0.1585  lr:0.000500  network_time: 0.6194
+[ Mon Aug 31 16:32:44 2020 ] 	Batch(243/626) done. Acc: 0.953125 Loss: 0.1151  lr:0.000500  network_time: 0.6122
+[ Mon Aug 31 16:33:48 2020 ] 	Batch(343/626) done. Acc: 0.953125 Loss: 0.1953  lr:0.000500  network_time: 0.6089
+[ Mon Aug 31 16:34:52 2020 ] 	Batch(443/626) done. Acc: 0.953125 Loss: 0.1818  lr:0.000500  network_time: 0.6164
+[ Mon Aug 31 16:35:57 2020 ] 	Batch(543/626) done. Acc: 0.937500 Loss: 0.1979  lr:0.000500  network_time: 0.6237
+[ Mon Aug 31 16:36:50 2020 ] 	Mean training loss: 0.1975 (BS 64: 0.1975).
+[ Mon Aug 31 16:36:50 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:36:50 2020 ] Eval epoch: 57
+[ Mon Aug 31 16:37:51 2020 ] 	Mean test loss of 258 batches: 0.9328333388927371.
+[ Mon Aug 31 16:37:51 2020 ] 	Top 1: 73.52%
+[ Mon Aug 31 16:37:51 2020 ] 	Top 5: 94.29%
+[ Mon Aug 31 16:37:53 2020 ] Training epoch: 58, LR: 0.0005
+[ Mon Aug 31 16:38:07 2020 ] 	Batch(17/626) done. Acc: 0.984375 Loss: 0.2202  lr:0.000500  network_time: 0.6320
+[ Mon Aug 31 16:39:11 2020 ] 	Batch(117/626) done. Acc: 0.968750 Loss: 0.1311  lr:0.000500  network_time: 0.6291
+[ Mon Aug 31 16:40:15 2020 ] 	Batch(217/626) done. Acc: 0.921875 Loss: 0.2858  lr:0.000500  network_time: 0.6953
+[ Mon Aug 31 16:41:19 2020 ] 	Batch(317/626) done. Acc: 0.937500 Loss: 0.2136  lr:0.000500  network_time: 0.6255
+[ Mon Aug 31 16:42:23 2020 ] 	Batch(417/626) done. Acc: 0.968750 Loss: 0.1548  lr:0.000500  network_time: 0.6284
+[ Mon Aug 31 16:43:28 2020 ] 	Batch(517/626) done. Acc: 0.937500 Loss: 0.2859  lr:0.000500  network_time: 0.6343
+[ Mon Aug 31 16:44:32 2020 ] 	Batch(617/626) done. Acc: 0.984375 Loss: 0.1189  lr:0.000500  network_time: 0.6355
+[ Mon Aug 31 16:44:38 2020 ] 	Mean training loss: 0.1962 (BS 64: 0.1962).
+[ Mon Aug 31 16:44:38 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:44:38 2020 ] Eval epoch: 58
+[ Mon Aug 31 16:45:39 2020 ] 	Mean test loss of 258 batches: 0.9769287394691807.
+[ Mon Aug 31 16:45:39 2020 ] 	Top 1: 71.66%
+[ Mon Aug 31 16:45:40 2020 ] 	Top 5: 93.71%
+[ Mon Aug 31 16:45:41 2020 ] Training epoch: 59, LR: 0.0005
+[ Mon Aug 31 16:46:42 2020 ] 	Batch(91/626) done. Acc: 0.937500 Loss: 0.1840  lr:0.000500  network_time: 0.6239
+[ Mon Aug 31 16:47:46 2020 ] 	Batch(191/626) done. Acc: 1.000000 Loss: 0.0858  lr:0.000500  network_time: 0.6346
+[ Mon Aug 31 16:48:50 2020 ] 	Batch(291/626) done. Acc: 0.968750 Loss: 0.1352  lr:0.000500  network_time: 0.6299
+[ Mon Aug 31 16:49:54 2020 ] 	Batch(391/626) done. Acc: 0.953125 Loss: 0.1264  lr:0.000500  network_time: 0.6263
+[ Mon Aug 31 16:50:59 2020 ] 	Batch(491/626) done. Acc: 0.968750 Loss: 0.1314  lr:0.000500  network_time: 0.6453
+[ Mon Aug 31 16:52:03 2020 ] 	Batch(591/626) done. Acc: 0.875000 Loss: 0.3659  lr:0.000500  network_time: 0.6890
+[ Mon Aug 31 16:52:26 2020 ] 	Mean training loss: 0.1951 (BS 64: 0.1951).
+[ Mon Aug 31 16:52:26 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 16:52:26 2020 ] Eval epoch: 59
+[ Mon Aug 31 16:53:27 2020 ] 	Mean test loss of 258 batches: 0.8841927761948386.
+[ Mon Aug 31 16:53:27 2020 ] 	Top 1: 74.90%
+[ Mon Aug 31 16:53:27 2020 ] 	Top 5: 94.46%
+[ Mon Aug 31 16:53:29 2020 ] Training epoch: 60, LR: 0.0005
+[ Mon Aug 31 16:54:13 2020 ] 	Batch(65/626) done. Acc: 0.968750 Loss: 0.1220  lr:0.000500  network_time: 0.6290
+[ Mon Aug 31 16:55:17 2020 ] 	Batch(165/626) done. Acc: 0.968750 Loss: 0.1809  lr:0.000500  network_time: 0.6204
+[ Mon Aug 31 16:56:21 2020 ] 	Batch(265/626) done. Acc: 0.984375 Loss: 0.1579  lr:0.000500  network_time: 0.6409
+[ Mon Aug 31 16:57:26 2020 ] 	Batch(365/626) done. Acc: 1.000000 Loss: 0.0948  lr:0.000500  network_time: 0.6233
+[ Mon Aug 31 16:58:30 2020 ] 	Batch(465/626) done. Acc: 0.953125 Loss: 0.1903  lr:0.000500  network_time: 0.6364
+[ Mon Aug 31 16:59:35 2020 ] 	Batch(565/626) done. Acc: 0.953125 Loss: 0.1500  lr:0.000500  network_time: 0.6197
+[ Mon Aug 31 17:00:14 2020 ] 	Mean training loss: 0.1941 (BS 64: 0.1941).
+[ Mon Aug 31 17:00:14 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:00:14 2020 ] Eval epoch: 60
+[ Mon Aug 31 17:01:15 2020 ] 	Mean test loss of 258 batches: 1.0335087809682817.
+[ Mon Aug 31 17:01:16 2020 ] 	Top 1: 70.10%
+[ Mon Aug 31 17:01:16 2020 ] 	Top 5: 93.15%
+[ Mon Aug 31 17:01:17 2020 ] Training epoch: 61, LR: 0.0005
+[ Mon Aug 31 17:01:45 2020 ] 	Batch(39/626) done. Acc: 0.890625 Loss: 0.2797  lr:0.000500  network_time: 0.6240
+[ Mon Aug 31 17:02:49 2020 ] 	Batch(139/626) done. Acc: 0.953125 Loss: 0.2077  lr:0.000500  network_time: 0.6233
+[ Mon Aug 31 17:03:53 2020 ] 	Batch(239/626) done. Acc: 0.953125 Loss: 0.2163  lr:0.000500  network_time: 0.6143
+[ Mon Aug 31 17:04:58 2020 ] 	Batch(339/626) done. Acc: 0.968750 Loss: 0.2687  lr:0.000500  network_time: 0.6367
+[ Mon Aug 31 17:06:03 2020 ] 	Batch(439/626) done. Acc: 0.953125 Loss: 0.1552  lr:0.000500  network_time: 0.6218
+[ Mon Aug 31 17:07:07 2020 ] 	Batch(539/626) done. Acc: 0.953125 Loss: 0.1743  lr:0.000500  network_time: 0.6744
+[ Mon Aug 31 17:08:03 2020 ] 	Mean training loss: 0.1926 (BS 64: 0.1926).
+[ Mon Aug 31 17:08:03 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:08:03 2020 ] Eval epoch: 61
+[ Mon Aug 31 17:09:04 2020 ] 	Mean test loss of 258 batches: 0.9213060518336851.
+[ Mon Aug 31 17:09:04 2020 ] 	Top 1: 73.42%
+[ Mon Aug 31 17:09:04 2020 ] 	Top 5: 94.32%
+[ Mon Aug 31 17:09:06 2020 ] Training epoch: 62, LR: 0.0005
+[ Mon Aug 31 17:09:17 2020 ] 	Batch(13/626) done. Acc: 0.937500 Loss: 0.2066  lr:0.000500  network_time: 0.6127
+[ Mon Aug 31 17:10:21 2020 ] 	Batch(113/626) done. Acc: 0.953125 Loss: 0.2137  lr:0.000500  network_time: 0.6357
+[ Mon Aug 31 17:11:25 2020 ] 	Batch(213/626) done. Acc: 0.968750 Loss: 0.1664  lr:0.000500  network_time: 0.6387
+[ Mon Aug 31 17:12:29 2020 ] 	Batch(313/626) done. Acc: 1.000000 Loss: 0.1639  lr:0.000500  network_time: 0.6795
+[ Mon Aug 31 17:13:34 2020 ] 	Batch(413/626) done. Acc: 0.968750 Loss: 0.1678  lr:0.000500  network_time: 0.6268
+[ Mon Aug 31 17:14:38 2020 ] 	Batch(513/626) done. Acc: 1.000000 Loss: 0.0696  lr:0.000500  network_time: 0.6331
+[ Mon Aug 31 17:15:43 2020 ] 	Batch(613/626) done. Acc: 0.968750 Loss: 0.2077  lr:0.000500  network_time: 0.6240
+[ Mon Aug 31 17:15:51 2020 ] 	Mean training loss: 0.1928 (BS 64: 0.1928).
+[ Mon Aug 31 17:15:51 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:15:51 2020 ] Eval epoch: 62
+[ Mon Aug 31 17:16:54 2020 ] 	Mean test loss of 258 batches: 0.9330543510673582.
+[ Mon Aug 31 17:16:54 2020 ] 	Top 1: 72.95%
+[ Mon Aug 31 17:16:54 2020 ] 	Top 5: 94.01%
+[ Mon Aug 31 17:16:56 2020 ] Training epoch: 63, LR: 0.0005
+[ Mon Aug 31 17:17:55 2020 ] 	Batch(87/626) done. Acc: 0.937500 Loss: 0.1857  lr:0.000500  network_time: 0.6285
+[ Mon Aug 31 17:18:59 2020 ] 	Batch(187/626) done. Acc: 0.984375 Loss: 0.1084  lr:0.000500  network_time: 0.6290
+[ Mon Aug 31 17:20:04 2020 ] 	Batch(287/626) done. Acc: 0.937500 Loss: 0.1994  lr:0.000500  network_time: 0.6193
+[ Mon Aug 31 17:21:08 2020 ] 	Batch(387/626) done. Acc: 0.968750 Loss: 0.2265  lr:0.000500  network_time: 0.6867
+[ Mon Aug 31 17:22:13 2020 ] 	Batch(487/626) done. Acc: 0.921875 Loss: 0.1741  lr:0.000500  network_time: 0.6347
+[ Mon Aug 31 17:23:17 2020 ] 	Batch(587/626) done. Acc: 0.968750 Loss: 0.2135  lr:0.000500  network_time: 0.6119
+[ Mon Aug 31 17:23:42 2020 ] 	Mean training loss: 0.1915 (BS 64: 0.1915).
+[ Mon Aug 31 17:23:42 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:23:42 2020 ] Eval epoch: 63
+[ Mon Aug 31 17:24:43 2020 ] 	Mean test loss of 258 batches: 1.026192919228428.
+[ Mon Aug 31 17:24:43 2020 ] 	Top 1: 70.41%
+[ Mon Aug 31 17:24:43 2020 ] 	Top 5: 93.25%
+[ Mon Aug 31 17:24:45 2020 ] Training epoch: 64, LR: 0.0005
+[ Mon Aug 31 17:25:27 2020 ] 	Batch(61/626) done. Acc: 0.984375 Loss: 0.1271  lr:0.000500  network_time: 0.6171
+[ Mon Aug 31 17:26:33 2020 ] 	Batch(161/626) done. Acc: 0.953125 Loss: 0.1746  lr:0.000500  network_time: 0.6669
+[ Mon Aug 31 17:27:37 2020 ] 	Batch(261/626) done. Acc: 1.000000 Loss: 0.0627  lr:0.000500  network_time: 0.6288
+[ Mon Aug 31 17:28:44 2020 ] 	Batch(361/626) done. Acc: 0.937500 Loss: 0.1668  lr:0.000500  network_time: 0.6297
+[ Mon Aug 31 17:29:49 2020 ] 	Batch(461/626) done. Acc: 0.968750 Loss: 0.1020  lr:0.000500  network_time: 0.6158
+[ Mon Aug 31 17:30:54 2020 ] 	Batch(561/626) done. Acc: 0.953125 Loss: 0.2073  lr:0.000500  network_time: 0.6138
+[ Mon Aug 31 17:31:36 2020 ] 	Mean training loss: 0.1893 (BS 64: 0.1893).
+[ Mon Aug 31 17:31:36 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:31:36 2020 ] Eval epoch: 64
+[ Mon Aug 31 17:32:37 2020 ] 	Mean test loss of 258 batches: 1.2731967868731005.
+[ Mon Aug 31 17:32:38 2020 ] 	Top 1: 63.92%
+[ Mon Aug 31 17:32:38 2020 ] 	Top 5: 90.85%
+[ Mon Aug 31 17:32:39 2020 ] Training epoch: 65, LR: 0.0005
+[ Mon Aug 31 17:33:04 2020 ] 	Batch(35/626) done. Acc: 1.000000 Loss: 0.1169  lr:0.000500  network_time: 0.6249
+[ Mon Aug 31 17:34:09 2020 ] 	Batch(135/626) done. Acc: 0.937500 Loss: 0.2485  lr:0.000500  network_time: 0.6206
+[ Mon Aug 31 17:35:14 2020 ] 	Batch(235/626) done. Acc: 0.890625 Loss: 0.2939  lr:0.000500  network_time: 0.6314
+[ Mon Aug 31 17:36:18 2020 ] 	Batch(335/626) done. Acc: 0.984375 Loss: 0.1184  lr:0.000500  network_time: 0.6160
+[ Mon Aug 31 17:37:23 2020 ] 	Batch(435/626) done. Acc: 0.968750 Loss: 0.1969  lr:0.000500  network_time: 0.6156
+[ Mon Aug 31 17:38:28 2020 ] 	Batch(535/626) done. Acc: 0.937500 Loss: 0.1791  lr:0.000500  network_time: 0.6253
+[ Mon Aug 31 17:39:26 2020 ] 	Mean training loss: 0.1856 (BS 64: 0.1856).
+[ Mon Aug 31 17:39:26 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:39:26 2020 ] Eval epoch: 65
+[ Mon Aug 31 17:40:30 2020 ] 	Mean test loss of 258 batches: 0.9124136162820713.
+[ Mon Aug 31 17:40:30 2020 ] 	Top 1: 73.83%
+[ Mon Aug 31 17:40:30 2020 ] 	Top 5: 94.30%
+[ Mon Aug 31 17:40:32 2020 ] Training epoch: 66, LR: 0.0005
+[ Mon Aug 31 17:40:40 2020 ] 	Batch(9/626) done. Acc: 0.953125 Loss: 0.1719  lr:0.000500  network_time: 0.6270
+[ Mon Aug 31 17:41:45 2020 ] 	Batch(109/626) done. Acc: 0.937500 Loss: 0.3027  lr:0.000500  network_time: 0.6190
+[ Mon Aug 31 17:42:51 2020 ] 	Batch(209/626) done. Acc: 0.968750 Loss: 0.1414  lr:0.000500  network_time: 0.7057
+[ Mon Aug 31 17:43:56 2020 ] 	Batch(309/626) done. Acc: 0.937500 Loss: 0.1744  lr:0.000500  network_time: 0.6309
+[ Mon Aug 31 17:45:01 2020 ] 	Batch(409/626) done. Acc: 0.968750 Loss: 0.1810  lr:0.000500  network_time: 0.6317
+[ Mon Aug 31 17:46:05 2020 ] 	Batch(509/626) done. Acc: 0.906250 Loss: 0.1897  lr:0.000500  network_time: 0.6317
+[ Mon Aug 31 17:47:10 2020 ] 	Batch(609/626) done. Acc: 0.921875 Loss: 0.2391  lr:0.000500  network_time: 0.6488
+[ Mon Aug 31 17:47:22 2020 ] 	Mean training loss: 0.1885 (BS 64: 0.1885).
+[ Mon Aug 31 17:47:22 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:47:22 2020 ] Eval epoch: 66
+[ Mon Aug 31 17:48:23 2020 ] 	Mean test loss of 258 batches: 0.9289038686096206.
+[ Mon Aug 31 17:48:23 2020 ] 	Top 1: 73.37%
+[ Mon Aug 31 17:48:23 2020 ] 	Top 5: 94.11%
+[ Mon Aug 31 17:48:24 2020 ] Training epoch: 67, LR: 0.0005
+[ Mon Aug 31 17:49:22 2020 ] 	Batch(83/626) done. Acc: 0.953125 Loss: 0.1691  lr:0.000500  network_time: 0.6521
+[ Mon Aug 31 17:50:27 2020 ] 	Batch(183/626) done. Acc: 0.953125 Loss: 0.2248  lr:0.000500  network_time: 0.6398
+[ Mon Aug 31 17:51:32 2020 ] 	Batch(283/626) done. Acc: 0.984375 Loss: 0.1101  lr:0.000500  network_time: 0.6223
+[ Mon Aug 31 17:52:36 2020 ] 	Batch(383/626) done. Acc: 0.953125 Loss: 0.1413  lr:0.000500  network_time: 0.6345
+[ Mon Aug 31 17:53:40 2020 ] 	Batch(483/626) done. Acc: 0.953125 Loss: 0.2657  lr:0.000500  network_time: 0.6087
+[ Mon Aug 31 17:54:45 2020 ] 	Batch(583/626) done. Acc: 1.000000 Loss: 0.1550  lr:0.000500  network_time: 0.6245
+[ Mon Aug 31 17:55:12 2020 ] 	Mean training loss: 0.1834 (BS 64: 0.1834).
+[ Mon Aug 31 17:55:12 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 17:55:12 2020 ] Eval epoch: 67
+[ Mon Aug 31 17:56:16 2020 ] 	Mean test loss of 258 batches: 0.9433770369189655.
+[ Mon Aug 31 17:56:16 2020 ] 	Top 1: 72.57%
+[ Mon Aug 31 17:56:16 2020 ] 	Top 5: 93.95%
+[ Mon Aug 31 17:56:18 2020 ] Training epoch: 68, LR: 0.0005
+[ Mon Aug 31 17:56:58 2020 ] 	Batch(57/626) done. Acc: 0.953125 Loss: 0.1894  lr:0.000500  network_time: 0.6130
+[ Mon Aug 31 17:58:02 2020 ] 	Batch(157/626) done. Acc: 0.953125 Loss: 0.2119  lr:0.000500  network_time: 0.6277
+[ Mon Aug 31 17:59:05 2020 ] 	Batch(257/626) done. Acc: 0.968750 Loss: 0.1635  lr:0.000500  network_time: 0.6225
+[ Mon Aug 31 18:00:09 2020 ] 	Batch(357/626) done. Acc: 0.921875 Loss: 0.2085  lr:0.000500  network_time: 0.6263
+[ Mon Aug 31 18:01:14 2020 ] 	Batch(457/626) done. Acc: 1.000000 Loss: 0.1295  lr:0.000500  network_time: 0.6365
+[ Mon Aug 31 18:02:22 2020 ] 	Batch(557/626) done. Acc: 0.937500 Loss: 0.2494  lr:0.000500  network_time: 0.6341
+[ Mon Aug 31 18:03:07 2020 ] 	Mean training loss: 0.1845 (BS 64: 0.1845).
+[ Mon Aug 31 18:03:07 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 18:03:07 2020 ] Eval epoch: 68
+[ Mon Aug 31 18:04:13 2020 ] 	Mean test loss of 258 batches: 0.8554262130759483.
+[ Mon Aug 31 18:04:14 2020 ] 	Top 1: 76.08%
+[ Mon Aug 31 18:04:14 2020 ] 	Top 5: 94.76%
+[ Mon Aug 31 18:04:15 2020 ] Training epoch: 69, LR: 0.0005
+[ Mon Aug 31 18:04:40 2020 ] 	Batch(31/626) done. Acc: 0.953125 Loss: 0.2702  lr:0.000500  network_time: 0.6722
+[ Mon Aug 31 18:05:47 2020 ] 	Batch(131/626) done. Acc: 0.984375 Loss: 0.1141  lr:0.000500  network_time: 0.6341
+[ Mon Aug 31 18:06:53 2020 ] 	Batch(231/626) done. Acc: 0.953125 Loss: 0.1651  lr:0.000500  network_time: 0.6401
+[ Mon Aug 31 18:07:59 2020 ] 	Batch(331/626) done. Acc: 0.984375 Loss: 0.1818  lr:0.000500  network_time: 0.6249
+[ Mon Aug 31 18:09:06 2020 ] 	Batch(431/626) done. Acc: 0.953125 Loss: 0.1635  lr:0.000500  network_time: 0.6367
+[ Mon Aug 31 18:10:16 2020 ] 	Batch(531/626) done. Acc: 0.968750 Loss: 0.1659  lr:0.000500  network_time: 0.6780
+[ Mon Aug 31 18:11:26 2020 ] 	Mean training loss: 0.1836 (BS 64: 0.1836).
+[ Mon Aug 31 18:11:26 2020 ] 	Time consumption: [Data]02%, [Network]96%
+[ Mon Aug 31 18:11:26 2020 ] Eval epoch: 69
+[ Mon Aug 31 18:12:54 2020 ] 	Mean test loss of 258 batches: 2.1681446597095606.
+[ Mon Aug 31 18:12:54 2020 ] 	Top 1: 47.46%
+[ Mon Aug 31 18:12:54 2020 ] 	Top 5: 82.41%
+[ Mon Aug 31 18:12:57 2020 ] Training epoch: 70, LR: 0.0005
+[ Mon Aug 31 18:13:04 2020 ] 	Batch(5/626) done. Acc: 1.000000 Loss: 0.0957  lr:0.000500  network_time: 0.6842
+[ Mon Aug 31 18:14:23 2020 ] 	Batch(105/626) done. Acc: 0.906250 Loss: 0.1856  lr:0.000500  network_time: 0.6722
+[ Mon Aug 31 18:15:37 2020 ] 	Batch(205/626) done. Acc: 1.000000 Loss: 0.1103  lr:0.000500  network_time: 0.7421
+[ Mon Aug 31 18:16:52 2020 ] 	Batch(305/626) done. Acc: 0.968750 Loss: 0.1491  lr:0.000500  network_time: 0.7796
+[ Mon Aug 31 18:18:07 2020 ] 	Batch(405/626) done. Acc: 0.937500 Loss: 0.2321  lr:0.000500  network_time: 0.6943
+[ Mon Aug 31 18:19:21 2020 ] 	Batch(505/626) done. Acc: 0.968750 Loss: 0.1366  lr:0.000500  network_time: 0.7591
+[ Mon Aug 31 18:20:42 2020 ] 	Batch(605/626) done. Acc: 0.937500 Loss: 0.1916  lr:0.000500  network_time: 0.8016
+[ Mon Aug 31 18:20:59 2020 ] 	Mean training loss: 0.1807 (BS 64: 0.1807).
+[ Mon Aug 31 18:20:59 2020 ] 	Time consumption: [Data]03%, [Network]95%
+[ Mon Aug 31 18:20:59 2020 ] Eval epoch: 70
+[ Mon Aug 31 18:22:25 2020 ] 	Mean test loss of 258 batches: 0.8582101529536321.
+[ Mon Aug 31 18:22:25 2020 ] 	Top 1: 75.90%
+[ Mon Aug 31 18:22:25 2020 ] 	Top 5: 94.66%
+[ Mon Aug 31 18:22:28 2020 ] Training epoch: 71, LR: 0.0005
+[ Mon Aug 31 18:23:34 2020 ] 	Batch(79/626) done. Acc: 0.937500 Loss: 0.2460  lr:0.000500  network_time: 0.6866
+[ Mon Aug 31 18:24:49 2020 ] 	Batch(179/626) done. Acc: 0.984375 Loss: 0.1323  lr:0.000500  network_time: 0.6845
+[ Mon Aug 31 18:26:02 2020 ] 	Batch(279/626) done. Acc: 0.968750 Loss: 0.1576  lr:0.000500  network_time: 0.7237
+[ Mon Aug 31 18:27:14 2020 ] 	Batch(379/626) done. Acc: 0.984375 Loss: 0.0905  lr:0.000500  network_time: 0.6866
+[ Mon Aug 31 18:28:24 2020 ] 	Batch(479/626) done. Acc: 0.937500 Loss: 0.2194  lr:0.000500  network_time: 0.6805
+[ Mon Aug 31 18:29:34 2020 ] 	Batch(579/626) done. Acc: 0.875000 Loss: 0.2869  lr:0.000500  network_time: 0.6727
+[ Mon Aug 31 18:30:08 2020 ] 	Mean training loss: 0.1815 (BS 64: 0.1815).
+[ Mon Aug 31 18:30:08 2020 ] 	Time consumption: [Data]03%, [Network]95%
+[ Mon Aug 31 18:30:08 2020 ] Eval epoch: 71
+[ Mon Aug 31 18:31:22 2020 ] 	Mean test loss of 258 batches: 0.873335050289021.
+[ Mon Aug 31 18:31:22 2020 ] 	Top 1: 75.49%
+[ Mon Aug 31 18:31:22 2020 ] 	Top 5: 94.49%
+[ Mon Aug 31 18:31:24 2020 ] Training epoch: 72, LR: 0.0005
+[ Mon Aug 31 18:32:06 2020 ] 	Batch(53/626) done. Acc: 0.968750 Loss: 0.1373  lr:0.000500  network_time: 0.6713
+[ Mon Aug 31 18:33:16 2020 ] 	Batch(153/626) done. Acc: 0.984375 Loss: 0.2321  lr:0.000500  network_time: 0.6705
+[ Mon Aug 31 18:34:27 2020 ] 	Batch(253/626) done. Acc: 0.984375 Loss: 0.1678  lr:0.000500  network_time: 0.6789
+[ Mon Aug 31 18:35:37 2020 ] 	Batch(353/626) done. Acc: 0.984375 Loss: 0.1637  lr:0.000500  network_time: 0.6855
+[ Mon Aug 31 18:36:47 2020 ] 	Batch(453/626) done. Acc: 1.000000 Loss: 0.0907  lr:0.000500  network_time: 0.6610
+[ Mon Aug 31 18:37:57 2020 ] 	Batch(553/626) done. Acc: 0.953125 Loss: 0.2074  lr:0.000500  network_time: 0.6556
+[ Mon Aug 31 18:38:47 2020 ] 	Mean training loss: 0.1811 (BS 64: 0.1811).
+[ Mon Aug 31 18:38:47 2020 ] 	Time consumption: [Data]02%, [Network]96%
+[ Mon Aug 31 18:38:47 2020 ] Eval epoch: 72
+[ Mon Aug 31 18:39:56 2020 ] 	Mean test loss of 258 batches: 0.9878100574940674.
+[ Mon Aug 31 18:39:56 2020 ] 	Top 1: 71.78%
+[ Mon Aug 31 18:39:56 2020 ] 	Top 5: 93.59%
+[ Mon Aug 31 18:39:58 2020 ] Training epoch: 73, LR: 0.0005
+[ Mon Aug 31 18:40:19 2020 ] 	Batch(27/626) done. Acc: 0.968750 Loss: 0.0978  lr:0.000500  network_time: 0.6438
+[ Mon Aug 31 18:41:29 2020 ] 	Batch(127/626) done. Acc: 0.937500 Loss: 0.2237  lr:0.000500  network_time: 0.6474
+[ Mon Aug 31 18:42:37 2020 ] 	Batch(227/626) done. Acc: 0.937500 Loss: 0.1502  lr:0.000500  network_time: 0.6562
+[ Mon Aug 31 18:43:44 2020 ] 	Batch(327/626) done. Acc: 1.000000 Loss: 0.1297  lr:0.000500  network_time: 0.6704
+[ Mon Aug 31 18:44:53 2020 ] 	Batch(427/626) done. Acc: 0.968750 Loss: 0.1733  lr:0.000500  network_time: 0.6447
+[ Mon Aug 31 18:46:01 2020 ] 	Batch(527/626) done. Acc: 0.968750 Loss: 0.1338  lr:0.000500  network_time: 0.6736
+[ Mon Aug 31 18:47:10 2020 ] 	Mean training loss: 0.1789 (BS 64: 0.1789).
+[ Mon Aug 31 18:47:10 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 18:47:10 2020 ] Eval epoch: 73
+[ Mon Aug 31 18:48:21 2020 ] 	Mean test loss of 258 batches: 0.9682186213574668.
+[ Mon Aug 31 18:48:21 2020 ] 	Top 1: 72.12%
+[ Mon Aug 31 18:48:21 2020 ] 	Top 5: 93.97%
+[ Mon Aug 31 18:48:23 2020 ] Training epoch: 74, LR: 0.0005
+[ Mon Aug 31 18:48:27 2020 ] 	Batch(1/626) done. Acc: 0.968750 Loss: 0.1367  lr:0.000500  network_time: 0.7564
+[ Mon Aug 31 18:49:36 2020 ] 	Batch(101/626) done. Acc: 0.968750 Loss: 0.1529  lr:0.000500  network_time: 0.6758
+[ Mon Aug 31 18:50:44 2020 ] 	Batch(201/626) done. Acc: 0.968750 Loss: 0.1389  lr:0.000500  network_time: 0.6593
+[ Mon Aug 31 18:51:52 2020 ] 	Batch(301/626) done. Acc: 0.921875 Loss: 0.2669  lr:0.000500  network_time: 0.6533
+[ Mon Aug 31 18:52:59 2020 ] 	Batch(401/626) done. Acc: 0.984375 Loss: 0.1321  lr:0.000500  network_time: 0.6347
+[ Mon Aug 31 18:54:08 2020 ] 	Batch(501/626) done. Acc: 0.968750 Loss: 0.1760  lr:0.000500  network_time: 0.6626
+[ Mon Aug 31 18:55:18 2020 ] 	Batch(601/626) done. Acc: 0.984375 Loss: 0.1703  lr:0.000500  network_time: 0.6676
+[ Mon Aug 31 18:55:35 2020 ] 	Mean training loss: 0.1753 (BS 64: 0.1753).
+[ Mon Aug 31 18:55:35 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 18:55:35 2020 ] Eval epoch: 74
+[ Mon Aug 31 18:56:46 2020 ] 	Mean test loss of 258 batches: 0.8582468660071839.
+[ Mon Aug 31 18:56:46 2020 ] 	Top 1: 75.90%
+[ Mon Aug 31 18:56:46 2020 ] 	Top 5: 94.85%
+[ Mon Aug 31 18:56:48 2020 ] Training epoch: 75, LR: 0.0005
+[ Mon Aug 31 18:57:42 2020 ] 	Batch(75/626) done. Acc: 0.953125 Loss: 0.2042  lr:0.000500  network_time: 0.6742
+[ Mon Aug 31 18:58:51 2020 ] 	Batch(175/626) done. Acc: 0.906250 Loss: 0.3012  lr:0.000500  network_time: 0.6560
+[ Mon Aug 31 19:00:00 2020 ] 	Batch(275/626) done. Acc: 0.953125 Loss: 0.1707  lr:0.000500  network_time: 0.6924
+[ Mon Aug 31 19:01:10 2020 ] 	Batch(375/626) done. Acc: 0.984375 Loss: 0.1241  lr:0.000500  network_time: 0.7008
+[ Mon Aug 31 19:02:20 2020 ] 	Batch(475/626) done. Acc: 0.937500 Loss: 0.2057  lr:0.000500  network_time: 0.6614
+[ Mon Aug 31 19:03:28 2020 ] 	Batch(575/626) done. Acc: 0.984375 Loss: 0.1033  lr:0.000500  network_time: 0.6460
+[ Mon Aug 31 19:04:03 2020 ] 	Mean training loss: 0.1774 (BS 64: 0.1774).
+[ Mon Aug 31 19:04:03 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:04:03 2020 ] Eval epoch: 75
+[ Mon Aug 31 19:05:13 2020 ] 	Mean test loss of 258 batches: 0.8655509022894756.
+[ Mon Aug 31 19:05:13 2020 ] 	Top 1: 75.92%
+[ Mon Aug 31 19:05:14 2020 ] 	Top 5: 94.70%
+[ Mon Aug 31 19:05:15 2020 ] Training epoch: 76, LR: 0.0005
+[ Mon Aug 31 19:05:52 2020 ] 	Batch(49/626) done. Acc: 0.953125 Loss: 0.2042  lr:0.000500  network_time: 0.6922
+[ Mon Aug 31 19:07:01 2020 ] 	Batch(149/626) done. Acc: 0.937500 Loss: 0.1754  lr:0.000500  network_time: 0.6587
+[ Mon Aug 31 19:08:11 2020 ] 	Batch(249/626) done. Acc: 0.968750 Loss: 0.2163  lr:0.000500  network_time: 0.6853
+[ Mon Aug 31 19:09:20 2020 ] 	Batch(349/626) done. Acc: 0.953125 Loss: 0.1924  lr:0.000500  network_time: 0.7000
+[ Mon Aug 31 19:10:29 2020 ] 	Batch(449/626) done. Acc: 0.968750 Loss: 0.1748  lr:0.000500  network_time: 0.6575
+[ Mon Aug 31 19:11:37 2020 ] 	Batch(549/626) done. Acc: 0.968750 Loss: 0.1372  lr:0.000500  network_time: 0.6874
+[ Mon Aug 31 19:12:29 2020 ] 	Mean training loss: 0.1755 (BS 64: 0.1755).
+[ Mon Aug 31 19:12:29 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:12:29 2020 ] Eval epoch: 76
+[ Mon Aug 31 19:13:38 2020 ] 	Mean test loss of 258 batches: 0.9517771768015485.
+[ Mon Aug 31 19:13:38 2020 ] 	Top 1: 72.80%
+[ Mon Aug 31 19:13:38 2020 ] 	Top 5: 93.98%
+[ Mon Aug 31 19:13:40 2020 ] Training epoch: 77, LR: 0.0005
+[ Mon Aug 31 19:14:00 2020 ] 	Batch(23/626) done. Acc: 0.968750 Loss: 0.1350  lr:0.000500  network_time: 0.7464
+[ Mon Aug 31 19:15:09 2020 ] 	Batch(123/626) done. Acc: 0.953125 Loss: 0.2444  lr:0.000500  network_time: 0.6723
+[ Mon Aug 31 19:16:18 2020 ] 	Batch(223/626) done. Acc: 0.968750 Loss: 0.2053  lr:0.000500  network_time: 0.6793
+[ Mon Aug 31 19:17:26 2020 ] 	Batch(323/626) done. Acc: 0.890625 Loss: 0.2857  lr:0.000500  network_time: 0.6573
+[ Mon Aug 31 19:18:33 2020 ] 	Batch(423/626) done. Acc: 0.968750 Loss: 0.1196  lr:0.000500  network_time: 0.6327
+[ Mon Aug 31 19:19:42 2020 ] 	Batch(523/626) done. Acc: 0.968750 Loss: 0.1738  lr:0.000500  network_time: 0.6646
+[ Mon Aug 31 19:20:51 2020 ] 	Batch(623/626) done. Acc: 0.937500 Loss: 0.2430  lr:0.000500  network_time: 0.6865
+[ Mon Aug 31 19:20:54 2020 ] 	Mean training loss: 0.1730 (BS 64: 0.1730).
+[ Mon Aug 31 19:20:54 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:20:54 2020 ] Eval epoch: 77
+[ Mon Aug 31 19:22:05 2020 ] 	Mean test loss of 258 batches: 0.890727640353432.
+[ Mon Aug 31 19:22:05 2020 ] 	Top 1: 74.96%
+[ Mon Aug 31 19:22:05 2020 ] 	Top 5: 94.52%
+[ Mon Aug 31 19:22:06 2020 ] Training epoch: 78, LR: 0.0005
+[ Mon Aug 31 19:23:16 2020 ] 	Batch(97/626) done. Acc: 0.953125 Loss: 0.1832  lr:0.000500  network_time: 0.6731
+[ Mon Aug 31 19:24:25 2020 ] 	Batch(197/626) done. Acc: 0.921875 Loss: 0.1803  lr:0.000500  network_time: 0.6757
+[ Mon Aug 31 19:25:32 2020 ] 	Batch(297/626) done. Acc: 0.953125 Loss: 0.1638  lr:0.000500  network_time: 0.6406
+[ Mon Aug 31 19:26:40 2020 ] 	Batch(397/626) done. Acc: 0.984375 Loss: 0.1059  lr:0.000500  network_time: 0.6322
+[ Mon Aug 31 19:27:49 2020 ] 	Batch(497/626) done. Acc: 0.984375 Loss: 0.1733  lr:0.000500  network_time: 0.6742
+[ Mon Aug 31 19:28:58 2020 ] 	Batch(597/626) done. Acc: 0.921875 Loss: 0.1943  lr:0.000500  network_time: 0.6752
+[ Mon Aug 31 19:29:18 2020 ] 	Mean training loss: 0.1732 (BS 64: 0.1732).
+[ Mon Aug 31 19:29:18 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:29:18 2020 ] Eval epoch: 78
+[ Mon Aug 31 19:30:27 2020 ] 	Mean test loss of 258 batches: 0.9062697380319122.
+[ Mon Aug 31 19:30:27 2020 ] 	Top 1: 74.39%
+[ Mon Aug 31 19:30:27 2020 ] 	Top 5: 94.36%
+[ Mon Aug 31 19:30:29 2020 ] Training epoch: 79, LR: 0.0005
+[ Mon Aug 31 19:31:21 2020 ] 	Batch(71/626) done. Acc: 0.984375 Loss: 0.1071  lr:0.000500  network_time: 0.6656
+[ Mon Aug 31 19:32:30 2020 ] 	Batch(171/626) done. Acc: 0.937500 Loss: 0.2078  lr:0.000500  network_time: 0.6932
+[ Mon Aug 31 19:33:39 2020 ] 	Batch(271/626) done. Acc: 0.968750 Loss: 0.1315  lr:0.000500  network_time: 0.6714
+[ Mon Aug 31 19:34:48 2020 ] 	Batch(371/626) done. Acc: 0.953125 Loss: 0.1875  lr:0.000500  network_time: 0.7346
+[ Mon Aug 31 19:35:56 2020 ] 	Batch(471/626) done. Acc: 0.984375 Loss: 0.1307  lr:0.000500  network_time: 0.6605
+[ Mon Aug 31 19:37:05 2020 ] 	Batch(571/626) done. Acc: 1.000000 Loss: 0.1350  lr:0.000500  network_time: 0.6528
+[ Mon Aug 31 19:37:43 2020 ] 	Mean training loss: 0.1726 (BS 64: 0.1726).
+[ Mon Aug 31 19:37:43 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:37:43 2020 ] Eval epoch: 79
+[ Mon Aug 31 19:38:53 2020 ] 	Mean test loss of 258 batches: 0.8923353086146273.
+[ Mon Aug 31 19:38:53 2020 ] 	Top 1: 74.81%
+[ Mon Aug 31 19:38:53 2020 ] 	Top 5: 94.47%
+[ Mon Aug 31 19:38:55 2020 ] Training epoch: 80, LR: 0.0005
+[ Mon Aug 31 19:39:29 2020 ] 	Batch(45/626) done. Acc: 0.984375 Loss: 0.1234  lr:0.000500  network_time: 0.6709
+[ Mon Aug 31 19:40:37 2020 ] 	Batch(145/626) done. Acc: 0.968750 Loss: 0.1678  lr:0.000500  network_time: 0.6835
+[ Mon Aug 31 19:41:47 2020 ] 	Batch(245/626) done. Acc: 0.953125 Loss: 0.2210  lr:0.000500  network_time: 0.6520
+[ Mon Aug 31 19:42:55 2020 ] 	Batch(345/626) done. Acc: 0.984375 Loss: 0.0750  lr:0.000500  network_time: 0.6581
+[ Mon Aug 31 19:44:03 2020 ] 	Batch(445/626) done. Acc: 0.968750 Loss: 0.1331  lr:0.000500  network_time: 0.6534
+[ Mon Aug 31 19:45:11 2020 ] 	Batch(545/626) done. Acc: 0.937500 Loss: 0.2013  lr:0.000500  network_time: 0.6749
+[ Mon Aug 31 19:46:08 2020 ] 	Mean training loss: 0.1693 (BS 64: 0.1693).
+[ Mon Aug 31 19:46:08 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:46:08 2020 ] Eval epoch: 80
+[ Mon Aug 31 19:47:20 2020 ] 	Mean test loss of 258 batches: 0.9328339856493381.
+[ Mon Aug 31 19:47:20 2020 ] 	Top 1: 73.55%
+[ Mon Aug 31 19:47:20 2020 ] 	Top 5: 94.11%
+[ Mon Aug 31 19:47:22 2020 ] Training epoch: 81, LR: 0.0005
+[ Mon Aug 31 19:47:39 2020 ] 	Batch(19/626) done. Acc: 0.984375 Loss: 0.1019  lr:0.000500  network_time: 0.6792
+[ Mon Aug 31 19:48:48 2020 ] 	Batch(119/626) done. Acc: 0.984375 Loss: 0.1214  lr:0.000500  network_time: 0.6536
+[ Mon Aug 31 19:49:57 2020 ] 	Batch(219/626) done. Acc: 0.968750 Loss: 0.1631  lr:0.000500  network_time: 0.6540
+[ Mon Aug 31 19:51:06 2020 ] 	Batch(319/626) done. Acc: 0.968750 Loss: 0.1381  lr:0.000500  network_time: 0.6871
+[ Mon Aug 31 19:52:14 2020 ] 	Batch(419/626) done. Acc: 0.937500 Loss: 0.2279  lr:0.000500  network_time: 0.6759
+[ Mon Aug 31 19:53:22 2020 ] 	Batch(519/626) done. Acc: 0.890625 Loss: 0.2660  lr:0.000500  network_time: 0.6774
+[ Mon Aug 31 19:54:30 2020 ] 	Batch(619/626) done. Acc: 0.906250 Loss: 0.2083  lr:0.000500  network_time: 0.6223
+[ Mon Aug 31 19:54:35 2020 ] 	Mean training loss: 0.1716 (BS 64: 0.1716).
+[ Mon Aug 31 19:54:35 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 19:54:35 2020 ] Eval epoch: 81
+[ Mon Aug 31 19:55:46 2020 ] 	Mean test loss of 258 batches: 0.988588461118151.
+[ Mon Aug 31 19:55:46 2020 ] 	Top 1: 71.78%
+[ Mon Aug 31 19:55:46 2020 ] 	Top 5: 93.65%
+[ Mon Aug 31 19:55:48 2020 ] Training epoch: 82, LR: 0.0005
+[ Mon Aug 31 19:56:55 2020 ] 	Batch(93/626) done. Acc: 0.937500 Loss: 0.2737  lr:0.000500  network_time: 0.6669
+[ Mon Aug 31 19:58:03 2020 ] 	Batch(193/626) done. Acc: 0.906250 Loss: 0.2308  lr:0.000500  network_time: 0.6420
+[ Mon Aug 31 19:59:12 2020 ] 	Batch(293/626) done. Acc: 0.968750 Loss: 0.1615  lr:0.000500  network_time: 0.6844
+[ Mon Aug 31 20:00:21 2020 ] 	Batch(393/626) done. Acc: 0.968750 Loss: 0.1175  lr:0.000500  network_time: 0.6891
+[ Mon Aug 31 20:01:30 2020 ] 	Batch(493/626) done. Acc: 0.937500 Loss: 0.2057  lr:0.000500  network_time: 0.7129
+[ Mon Aug 31 20:02:38 2020 ] 	Batch(593/626) done. Acc: 0.953125 Loss: 0.1947  lr:0.000500  network_time: 0.6592
+[ Mon Aug 31 20:03:00 2020 ] 	Mean training loss: 0.1672 (BS 64: 0.1672).
+[ Mon Aug 31 20:03:00 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:03:00 2020 ] Eval epoch: 82
+[ Mon Aug 31 20:04:11 2020 ] 	Mean test loss of 258 batches: 1.062217684794766.
+[ Mon Aug 31 20:04:12 2020 ] 	Top 1: 69.46%
+[ Mon Aug 31 20:04:12 2020 ] 	Top 5: 93.01%
+[ Mon Aug 31 20:04:14 2020 ] Training epoch: 83, LR: 0.0005
+[ Mon Aug 31 20:05:04 2020 ] 	Batch(67/626) done. Acc: 0.984375 Loss: 0.1517  lr:0.000500  network_time: 0.6717
+[ Mon Aug 31 20:06:11 2020 ] 	Batch(167/626) done. Acc: 0.984375 Loss: 0.1640  lr:0.000500  network_time: 0.6432
+[ Mon Aug 31 20:07:20 2020 ] 	Batch(267/626) done. Acc: 0.984375 Loss: 0.1122  lr:0.000500  network_time: 0.6605
+[ Mon Aug 31 20:08:27 2020 ] 	Batch(367/626) done. Acc: 0.921875 Loss: 0.2816  lr:0.000500  network_time: 0.6643
+[ Mon Aug 31 20:09:36 2020 ] 	Batch(467/626) done. Acc: 0.984375 Loss: 0.1201  lr:0.000500  network_time: 0.7349
+[ Mon Aug 31 20:10:44 2020 ] 	Batch(567/626) done. Acc: 0.968750 Loss: 0.1900  lr:0.000500  network_time: 0.6862
+[ Mon Aug 31 20:11:25 2020 ] 	Mean training loss: 0.1652 (BS 64: 0.1652).
+[ Mon Aug 31 20:11:25 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:11:25 2020 ] Eval epoch: 83
+[ Mon Aug 31 20:12:32 2020 ] 	Mean test loss of 258 batches: 0.8797049485435782.
+[ Mon Aug 31 20:12:32 2020 ] 	Top 1: 75.39%
+[ Mon Aug 31 20:12:32 2020 ] 	Top 5: 94.59%
+[ Mon Aug 31 20:12:34 2020 ] Training epoch: 84, LR: 0.0005
+[ Mon Aug 31 20:13:04 2020 ] 	Batch(41/626) done. Acc: 0.953125 Loss: 0.1468  lr:0.000500  network_time: 0.6437
+[ Mon Aug 31 20:14:12 2020 ] 	Batch(141/626) done. Acc: 0.937500 Loss: 0.2536  lr:0.000500  network_time: 0.6593
+[ Mon Aug 31 20:15:20 2020 ] 	Batch(241/626) done. Acc: 0.968750 Loss: 0.1556  lr:0.000500  network_time: 0.6462
+[ Mon Aug 31 20:16:27 2020 ] 	Batch(341/626) done. Acc: 1.000000 Loss: 0.1013  lr:0.000500  network_time: 0.6962
+[ Mon Aug 31 20:17:35 2020 ] 	Batch(441/626) done. Acc: 0.937500 Loss: 0.1936  lr:0.000500  network_time: 0.6724
+[ Mon Aug 31 20:18:43 2020 ] 	Batch(541/626) done. Acc: 0.937500 Loss: 0.1641  lr:0.000500  network_time: 0.6528
+[ Mon Aug 31 20:19:38 2020 ] 	Mean training loss: 0.1660 (BS 64: 0.1660).
+[ Mon Aug 31 20:19:38 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:19:38 2020 ] Eval epoch: 84
+[ Mon Aug 31 20:20:47 2020 ] 	Mean test loss of 258 batches: 1.0104999072098917.
+[ Mon Aug 31 20:20:47 2020 ] 	Top 1: 70.89%
+[ Mon Aug 31 20:20:47 2020 ] 	Top 5: 93.49%
+[ Mon Aug 31 20:20:49 2020 ] Training epoch: 85, LR: 0.0005
+[ Mon Aug 31 20:21:03 2020 ] 	Batch(15/626) done. Acc: 0.984375 Loss: 0.1366  lr:0.000500  network_time: 0.6625
+[ Mon Aug 31 20:22:09 2020 ] 	Batch(115/626) done. Acc: 0.968750 Loss: 0.1810  lr:0.000500  network_time: 0.6486
+[ Mon Aug 31 20:23:14 2020 ] 	Batch(215/626) done. Acc: 0.921875 Loss: 0.2323  lr:0.000500  network_time: 0.6942
+[ Mon Aug 31 20:24:19 2020 ] 	Batch(315/626) done. Acc: 0.937500 Loss: 0.1853  lr:0.000500  network_time: 0.6260
+[ Mon Aug 31 20:25:24 2020 ] 	Batch(415/626) done. Acc: 1.000000 Loss: 0.1132  lr:0.000500  network_time: 0.6189
+[ Mon Aug 31 20:26:31 2020 ] 	Batch(515/626) done. Acc: 0.968750 Loss: 0.1412  lr:0.000500  network_time: 0.6709
+[ Mon Aug 31 20:27:36 2020 ] 	Batch(615/626) done. Acc: 0.968750 Loss: 0.1181  lr:0.000500  network_time: 0.6368
+[ Mon Aug 31 20:27:43 2020 ] 	Mean training loss: 0.1637 (BS 64: 0.1637).
+[ Mon Aug 31 20:27:43 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:27:43 2020 ] Eval epoch: 85
+[ Mon Aug 31 20:28:47 2020 ] 	Mean test loss of 258 batches: 0.8573079227592594.
+[ Mon Aug 31 20:28:47 2020 ] 	Top 1: 76.14%
+[ Mon Aug 31 20:28:47 2020 ] 	Top 5: 94.76%
+[ Mon Aug 31 20:28:49 2020 ] Training epoch: 86, LR: 0.0005
+[ Mon Aug 31 20:29:53 2020 ] 	Batch(89/626) done. Acc: 0.937500 Loss: 0.1932  lr:0.000500  network_time: 0.6859
+[ Mon Aug 31 20:30:59 2020 ] 	Batch(189/626) done. Acc: 0.937500 Loss: 0.1746  lr:0.000500  network_time: 0.6505
+[ Mon Aug 31 20:32:03 2020 ] 	Batch(289/626) done. Acc: 1.000000 Loss: 0.1119  lr:0.000500  network_time: 0.6776
+[ Mon Aug 31 20:33:06 2020 ] 	Batch(389/626) done. Acc: 0.953125 Loss: 0.2038  lr:0.000500  network_time: 0.6138
+[ Mon Aug 31 20:34:10 2020 ] 	Batch(489/626) done. Acc: 0.953125 Loss: 0.2390  lr:0.000500  network_time: 0.6237
+[ Mon Aug 31 20:35:16 2020 ] 	Batch(589/626) done. Acc: 0.953125 Loss: 0.1425  lr:0.000500  network_time: 0.6549
+[ Mon Aug 31 20:35:41 2020 ] 	Mean training loss: 0.1644 (BS 64: 0.1644).
+[ Mon Aug 31 20:35:41 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:35:41 2020 ] Eval epoch: 86
+[ Mon Aug 31 20:36:43 2020 ] 	Mean test loss of 258 batches: 0.9113289207913154.
+[ Mon Aug 31 20:36:44 2020 ] 	Top 1: 74.29%
+[ Mon Aug 31 20:36:44 2020 ] 	Top 5: 94.30%
+[ Mon Aug 31 20:36:45 2020 ] Training epoch: 87, LR: 0.0005
+[ Mon Aug 31 20:37:30 2020 ] 	Batch(63/626) done. Acc: 0.968750 Loss: 0.1381  lr:0.000500  network_time: 0.6750
+[ Mon Aug 31 20:38:37 2020 ] 	Batch(163/626) done. Acc: 0.937500 Loss: 0.1849  lr:0.000500  network_time: 0.7084
+[ Mon Aug 31 20:39:43 2020 ] 	Batch(263/626) done. Acc: 0.937500 Loss: 0.2471  lr:0.000500  network_time: 0.6423
+[ Mon Aug 31 20:40:48 2020 ] 	Batch(363/626) done. Acc: 1.000000 Loss: 0.1087  lr:0.000500  network_time: 0.6511
+[ Mon Aug 31 20:41:54 2020 ] 	Batch(463/626) done. Acc: 0.984375 Loss: 0.1148  lr:0.000500  network_time: 0.6173
+[ Mon Aug 31 20:43:00 2020 ] 	Batch(563/626) done. Acc: 0.984375 Loss: 0.1319  lr:0.000500  network_time: 0.6273
+[ Mon Aug 31 20:43:41 2020 ] 	Mean training loss: 0.1628 (BS 64: 0.1628).
+[ Mon Aug 31 20:43:41 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:43:41 2020 ] Eval epoch: 87
+[ Mon Aug 31 20:44:47 2020 ] 	Mean test loss of 258 batches: 1.0520836064057757.
+[ Mon Aug 31 20:44:47 2020 ] 	Top 1: 70.16%
+[ Mon Aug 31 20:44:47 2020 ] 	Top 5: 93.16%
+[ Mon Aug 31 20:44:49 2020 ] Training epoch: 88, LR: 0.0005
+[ Mon Aug 31 20:45:16 2020 ] 	Batch(37/626) done. Acc: 0.953125 Loss: 0.1691  lr:0.000500  network_time: 0.6585
+[ Mon Aug 31 20:46:22 2020 ] 	Batch(137/626) done. Acc: 0.968750 Loss: 0.1649  lr:0.000500  network_time: 0.6406
+[ Mon Aug 31 20:47:29 2020 ] 	Batch(237/626) done. Acc: 0.953125 Loss: 0.1529  lr:0.000500  network_time: 0.6696
+[ Mon Aug 31 20:48:36 2020 ] 	Batch(337/626) done. Acc: 0.984375 Loss: 0.1223  lr:0.000500  network_time: 0.7354
+[ Mon Aug 31 20:49:41 2020 ] 	Batch(437/626) done. Acc: 0.937500 Loss: 0.2695  lr:0.000500  network_time: 0.6175
+[ Mon Aug 31 20:50:46 2020 ] 	Batch(537/626) done. Acc: 0.984375 Loss: 0.0847  lr:0.000500  network_time: 0.6764
+[ Mon Aug 31 20:51:44 2020 ] 	Mean training loss: 0.1587 (BS 64: 0.1587).
+[ Mon Aug 31 20:51:44 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:51:44 2020 ] Eval epoch: 88
+[ Mon Aug 31 20:52:46 2020 ] 	Mean test loss of 258 batches: 0.9156329351109128.
+[ Mon Aug 31 20:52:46 2020 ] 	Top 1: 74.37%
+[ Mon Aug 31 20:52:47 2020 ] 	Top 5: 94.34%
+[ Mon Aug 31 20:52:48 2020 ] Training epoch: 89, LR: 0.0005
+[ Mon Aug 31 20:52:58 2020 ] 	Batch(11/626) done. Acc: 0.937500 Loss: 0.2502  lr:0.000500  network_time: 0.6324
+[ Mon Aug 31 20:54:06 2020 ] 	Batch(111/626) done. Acc: 0.953125 Loss: 0.2019  lr:0.000500  network_time: 0.6596
+[ Mon Aug 31 20:55:11 2020 ] 	Batch(211/626) done. Acc: 0.953125 Loss: 0.2236  lr:0.000500  network_time: 0.6395
+[ Mon Aug 31 20:56:17 2020 ] 	Batch(311/626) done. Acc: 0.984375 Loss: 0.1144  lr:0.000500  network_time: 0.6742
+[ Mon Aug 31 20:57:24 2020 ] 	Batch(411/626) done. Acc: 0.937500 Loss: 0.2795  lr:0.000500  network_time: 0.6401
+[ Mon Aug 31 20:58:29 2020 ] 	Batch(511/626) done. Acc: 0.968750 Loss: 0.1387  lr:0.000500  network_time: 0.6986
+[ Mon Aug 31 20:59:36 2020 ] 	Batch(611/626) done. Acc: 0.953125 Loss: 0.1982  lr:0.000500  network_time: 0.6423
+[ Mon Aug 31 20:59:45 2020 ] 	Mean training loss: 0.1595 (BS 64: 0.1595).
+[ Mon Aug 31 20:59:45 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 20:59:45 2020 ] Eval epoch: 89
+[ Mon Aug 31 21:00:48 2020 ] 	Mean test loss of 258 batches: 0.8804030235885649.
+[ Mon Aug 31 21:00:48 2020 ] 	Top 1: 75.36%
+[ Mon Aug 31 21:00:48 2020 ] 	Top 5: 94.57%
+[ Mon Aug 31 21:00:50 2020 ] Training epoch: 90, LR: 0.0005
+[ Mon Aug 31 21:01:50 2020 ] 	Batch(85/626) done. Acc: 0.984375 Loss: 0.0920  lr:0.000500  network_time: 0.6677
+[ Mon Aug 31 21:02:57 2020 ] 	Batch(185/626) done. Acc: 0.968750 Loss: 0.1768  lr:0.000500  network_time: 0.6276
+[ Mon Aug 31 21:04:03 2020 ] 	Batch(285/626) done. Acc: 0.984375 Loss: 0.1450  lr:0.000500  network_time: 0.6247
+[ Mon Aug 31 21:05:09 2020 ] 	Batch(385/626) done. Acc: 0.984375 Loss: 0.1305  lr:0.000500  network_time: 0.6996
+[ Mon Aug 31 21:06:16 2020 ] 	Batch(485/626) done. Acc: 0.937500 Loss: 0.2538  lr:0.000500  network_time: 0.6317
+[ Mon Aug 31 21:07:22 2020 ] 	Batch(585/626) done. Acc: 0.984375 Loss: 0.1425  lr:0.000500  network_time: 0.6810
+[ Mon Aug 31 21:07:49 2020 ] 	Mean training loss: 0.1590 (BS 64: 0.1590).
+[ Mon Aug 31 21:07:49 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:07:49 2020 ] Eval epoch: 90
+[ Mon Aug 31 21:08:52 2020 ] 	Mean test loss of 258 batches: 1.0104469043570896.
+[ Mon Aug 31 21:08:52 2020 ] 	Top 1: 71.06%
+[ Mon Aug 31 21:08:52 2020 ] 	Top 5: 93.43%
+[ Mon Aug 31 21:08:54 2020 ] Training epoch: 91, LR: 0.0005
+[ Mon Aug 31 21:09:35 2020 ] 	Batch(59/626) done. Acc: 0.937500 Loss: 0.2722  lr:0.000500  network_time: 0.6713
+[ Mon Aug 31 21:10:43 2020 ] 	Batch(159/626) done. Acc: 0.968750 Loss: 0.1514  lr:0.000500  network_time: 0.6819
+[ Mon Aug 31 21:11:49 2020 ] 	Batch(259/626) done. Acc: 0.968750 Loss: 0.1449  lr:0.000500  network_time: 0.6211
+[ Mon Aug 31 21:12:54 2020 ] 	Batch(359/626) done. Acc: 0.953125 Loss: 0.2062  lr:0.000500  network_time: 0.6609
+[ Mon Aug 31 21:14:00 2020 ] 	Batch(459/626) done. Acc: 0.968750 Loss: 0.1159  lr:0.000500  network_time: 0.6904
+[ Mon Aug 31 21:15:08 2020 ] 	Batch(559/626) done. Acc: 1.000000 Loss: 0.0747  lr:0.000500  network_time: 0.6349
+[ Mon Aug 31 21:15:52 2020 ] 	Mean training loss: 0.1583 (BS 64: 0.1583).
+[ Mon Aug 31 21:15:52 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:15:52 2020 ] Eval epoch: 91
+[ Mon Aug 31 21:16:55 2020 ] 	Mean test loss of 258 batches: 0.9661367602588594.
+[ Mon Aug 31 21:16:55 2020 ] 	Top 1: 72.73%
+[ Mon Aug 31 21:16:55 2020 ] 	Top 5: 93.84%
+[ Mon Aug 31 21:16:56 2020 ] Training epoch: 92, LR: 0.0005
+[ Mon Aug 31 21:17:21 2020 ] 	Batch(33/626) done. Acc: 0.984375 Loss: 0.1198  lr:0.000500  network_time: 0.6404
+[ Mon Aug 31 21:18:28 2020 ] 	Batch(133/626) done. Acc: 0.984375 Loss: 0.1684  lr:0.000500  network_time: 0.6783
+[ Mon Aug 31 21:19:33 2020 ] 	Batch(233/626) done. Acc: 1.000000 Loss: 0.0650  lr:0.000500  network_time: 0.6397
+[ Mon Aug 31 21:20:40 2020 ] 	Batch(333/626) done. Acc: 0.968750 Loss: 0.1460  lr:0.000500  network_time: 0.6360
+[ Mon Aug 31 21:21:45 2020 ] 	Batch(433/626) done. Acc: 0.968750 Loss: 0.1387  lr:0.000500  network_time: 0.6475
+[ Mon Aug 31 21:22:51 2020 ] 	Batch(533/626) done. Acc: 0.984375 Loss: 0.1126  lr:0.000500  network_time: 0.6912
+[ Mon Aug 31 21:23:53 2020 ] 	Mean training loss: 0.1551 (BS 64: 0.1551).
+[ Mon Aug 31 21:23:53 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:23:53 2020 ] Eval epoch: 92
+[ Mon Aug 31 21:24:57 2020 ] 	Mean test loss of 258 batches: 0.9309721120106157.
+[ Mon Aug 31 21:24:57 2020 ] 	Top 1: 74.11%
+[ Mon Aug 31 21:24:57 2020 ] 	Top 5: 94.24%
+[ Mon Aug 31 21:24:59 2020 ] Training epoch: 93, LR: 0.0005
+[ Mon Aug 31 21:25:06 2020 ] 	Batch(7/626) done. Acc: 0.984375 Loss: 0.1586  lr:0.000500  network_time: 0.7219
+[ Mon Aug 31 21:26:12 2020 ] 	Batch(107/626) done. Acc: 0.968750 Loss: 0.1385  lr:0.000500  network_time: 0.6701
+[ Mon Aug 31 21:27:19 2020 ] 	Batch(207/626) done. Acc: 0.968750 Loss: 0.1452  lr:0.000500  network_time: 0.6409
+[ Mon Aug 31 21:28:24 2020 ] 	Batch(307/626) done. Acc: 0.968750 Loss: 0.1497  lr:0.000500  network_time: 0.6372
+[ Mon Aug 31 21:29:31 2020 ] 	Batch(407/626) done. Acc: 0.953125 Loss: 0.2262  lr:0.000500  network_time: 0.6375
+[ Mon Aug 31 21:30:35 2020 ] 	Batch(507/626) done. Acc: 0.953125 Loss: 0.1983  lr:0.000500  network_time: 0.6902
+[ Mon Aug 31 21:31:41 2020 ] 	Batch(607/626) done. Acc: 0.968750 Loss: 0.1134  lr:0.000500  network_time: 0.6457
+[ Mon Aug 31 21:31:54 2020 ] 	Mean training loss: 0.1560 (BS 64: 0.1560).
+[ Mon Aug 31 21:31:54 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:31:54 2020 ] Eval epoch: 93
+[ Mon Aug 31 21:33:01 2020 ] 	Mean test loss of 258 batches: 0.8715707945038181.
+[ Mon Aug 31 21:33:02 2020 ] 	Top 1: 76.28%
+[ Mon Aug 31 21:33:02 2020 ] 	Top 5: 94.70%
+[ Mon Aug 31 21:33:03 2020 ] Training epoch: 94, LR: 0.0005
+[ Mon Aug 31 21:33:58 2020 ] 	Batch(81/626) done. Acc: 0.937500 Loss: 0.1820  lr:0.000500  network_time: 0.6328
+[ Mon Aug 31 21:35:06 2020 ] 	Batch(181/626) done. Acc: 0.984375 Loss: 0.1600  lr:0.000500  network_time: 0.6582
+[ Mon Aug 31 21:36:11 2020 ] 	Batch(281/626) done. Acc: 0.968750 Loss: 0.1418  lr:0.000500  network_time: 0.6434
+[ Mon Aug 31 21:37:17 2020 ] 	Batch(381/626) done. Acc: 0.968750 Loss: 0.1507  lr:0.000500  network_time: 0.6253
+[ Mon Aug 31 21:38:23 2020 ] 	Batch(481/626) done. Acc: 1.000000 Loss: 0.1261  lr:0.000500  network_time: 0.6410
+[ Mon Aug 31 21:39:28 2020 ] 	Batch(581/626) done. Acc: 0.984375 Loss: 0.0976  lr:0.000500  network_time: 0.6380
+[ Mon Aug 31 21:39:58 2020 ] 	Mean training loss: 0.1531 (BS 64: 0.1531).
+[ Mon Aug 31 21:39:58 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:39:58 2020 ] Eval epoch: 94
+[ Mon Aug 31 21:41:08 2020 ] 	Mean test loss of 258 batches: 0.9467424193555994.
+[ Mon Aug 31 21:41:08 2020 ] 	Top 1: 73.63%
+[ Mon Aug 31 21:41:08 2020 ] 	Top 5: 94.19%
+[ Mon Aug 31 21:41:09 2020 ] Training epoch: 95, LR: 0.0005
+[ Mon Aug 31 21:41:48 2020 ] 	Batch(55/626) done. Acc: 0.984375 Loss: 0.1266  lr:0.000500  network_time: 0.6380
+[ Mon Aug 31 21:42:54 2020 ] 	Batch(155/626) done. Acc: 0.968750 Loss: 0.1548  lr:0.000500  network_time: 0.6682
+[ Mon Aug 31 21:44:01 2020 ] 	Batch(255/626) done. Acc: 0.953125 Loss: 0.1521  lr:0.000500  network_time: 0.6352
+[ Mon Aug 31 21:45:06 2020 ] 	Batch(355/626) done. Acc: 0.984375 Loss: 0.1359  lr:0.000500  network_time: 0.6255
+[ Mon Aug 31 21:46:11 2020 ] 	Batch(455/626) done. Acc: 0.953125 Loss: 0.1447  lr:0.000500  network_time: 0.6988
+[ Mon Aug 31 21:47:18 2020 ] 	Batch(555/626) done. Acc: 0.968750 Loss: 0.1525  lr:0.000500  network_time: 0.6333
+[ Mon Aug 31 21:48:04 2020 ] 	Mean training loss: 0.1513 (BS 64: 0.1513).
+[ Mon Aug 31 21:48:04 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:48:04 2020 ] Eval epoch: 95
+[ Mon Aug 31 21:49:10 2020 ] 	Mean test loss of 258 batches: 0.9327064575844033.
+[ Mon Aug 31 21:49:10 2020 ] 	Top 1: 73.71%
+[ Mon Aug 31 21:49:10 2020 ] 	Top 5: 94.33%
+[ Mon Aug 31 21:49:12 2020 ] Training epoch: 96, LR: 0.0005
+[ Mon Aug 31 21:49:35 2020 ] 	Batch(29/626) done. Acc: 0.921875 Loss: 0.2355  lr:0.000500  network_time: 0.6282
+[ Mon Aug 31 21:50:40 2020 ] 	Batch(129/626) done. Acc: 0.968750 Loss: 0.1664  lr:0.000500  network_time: 0.6345
+[ Mon Aug 31 21:51:48 2020 ] 	Batch(229/626) done. Acc: 0.953125 Loss: 0.1102  lr:0.000500  network_time: 0.6943
+[ Mon Aug 31 21:52:53 2020 ] 	Batch(329/626) done. Acc: 1.000000 Loss: 0.0819  lr:0.000500  network_time: 0.6306
+[ Mon Aug 31 21:53:58 2020 ] 	Batch(429/626) done. Acc: 0.984375 Loss: 0.1234  lr:0.000500  network_time: 0.6308
+[ Mon Aug 31 21:55:03 2020 ] 	Batch(529/626) done. Acc: 0.953125 Loss: 0.2201  lr:0.000500  network_time: 0.6311
+[ Mon Aug 31 21:56:08 2020 ] 	Mean training loss: 0.1537 (BS 64: 0.1537).
+[ Mon Aug 31 21:56:08 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 21:56:08 2020 ] Eval epoch: 96
+[ Mon Aug 31 21:57:14 2020 ] 	Mean test loss of 258 batches: 0.8965797850558924.
+[ Mon Aug 31 21:57:14 2020 ] 	Top 1: 74.92%
+[ Mon Aug 31 21:57:14 2020 ] 	Top 5: 94.53%
+[ Mon Aug 31 21:57:15 2020 ] Training epoch: 97, LR: 0.0005
+[ Mon Aug 31 21:57:20 2020 ] 	Batch(3/626) done. Acc: 0.984375 Loss: 0.0909  lr:0.000500  network_time: 0.6463
+[ Mon Aug 31 21:58:26 2020 ] 	Batch(103/626) done. Acc: 0.937500 Loss: 0.2319  lr:0.000500  network_time: 0.6645
+[ Mon Aug 31 21:59:34 2020 ] 	Batch(203/626) done. Acc: 0.968750 Loss: 0.1635  lr:0.000500  network_time: 0.6673
+[ Mon Aug 31 22:00:41 2020 ] 	Batch(303/626) done. Acc: 0.968750 Loss: 0.2010  lr:0.000500  network_time: 0.6322
+[ Mon Aug 31 22:01:45 2020 ] 	Batch(403/626) done. Acc: 0.937500 Loss: 0.2525  lr:0.000500  network_time: 0.6148
+[ Mon Aug 31 22:02:50 2020 ] 	Batch(503/626) done. Acc: 0.984375 Loss: 0.1641  lr:0.000500  network_time: 0.6424
+[ Mon Aug 31 22:03:55 2020 ] 	Batch(603/626) done. Acc: 1.000000 Loss: 0.1197  lr:0.000500  network_time: 0.6904
+[ Mon Aug 31 22:04:11 2020 ] 	Mean training loss: 0.1530 (BS 64: 0.1530).
+[ Mon Aug 31 22:04:11 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 22:04:11 2020 ] Eval epoch: 97
+[ Mon Aug 31 22:05:18 2020 ] 	Mean test loss of 258 batches: 0.9910345011672308.
+[ Mon Aug 31 22:05:18 2020 ] 	Top 1: 71.90%
+[ Mon Aug 31 22:05:19 2020 ] 	Top 5: 93.76%
+[ Mon Aug 31 22:05:20 2020 ] Training epoch: 98, LR: 0.0005
+[ Mon Aug 31 22:06:13 2020 ] 	Batch(77/626) done. Acc: 0.937500 Loss: 0.1772  lr:0.000500  network_time: 0.6346
+[ Mon Aug 31 22:07:19 2020 ] 	Batch(177/626) done. Acc: 0.984375 Loss: 0.1533  lr:0.000500  network_time: 0.6928
+[ Mon Aug 31 22:08:27 2020 ] 	Batch(277/626) done. Acc: 0.968750 Loss: 0.1607  lr:0.000500  network_time: 0.6738
+[ Mon Aug 31 22:09:33 2020 ] 	Batch(377/626) done. Acc: 0.906250 Loss: 0.2321  lr:0.000500  network_time: 0.6396
+[ Mon Aug 31 22:10:38 2020 ] 	Batch(477/626) done. Acc: 0.984375 Loss: 0.0843  lr:0.000500  network_time: 0.6167
+[ Mon Aug 31 22:11:43 2020 ] 	Batch(577/626) done. Acc: 0.937500 Loss: 0.1879  lr:0.000500  network_time: 0.6219
+[ Mon Aug 31 22:12:14 2020 ] 	Mean training loss: 0.1537 (BS 64: 0.1537).
+[ Mon Aug 31 22:12:14 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 22:12:14 2020 ] Eval epoch: 98
+[ Mon Aug 31 22:13:21 2020 ] 	Mean test loss of 258 batches: 0.9527360325635865.
+[ Mon Aug 31 22:13:21 2020 ] 	Top 1: 73.05%
+[ Mon Aug 31 22:13:21 2020 ] 	Top 5: 93.97%
+[ Mon Aug 31 22:13:23 2020 ] Training epoch: 99, LR: 0.0005
+[ Mon Aug 31 22:14:00 2020 ] 	Batch(51/626) done. Acc: 0.953125 Loss: 0.1405  lr:0.000500  network_time: 0.6222
+[ Mon Aug 31 22:15:05 2020 ] 	Batch(151/626) done. Acc: 0.953125 Loss: 0.1325  lr:0.000500  network_time: 0.6261
+[ Mon Aug 31 22:16:13 2020 ] 	Batch(251/626) done. Acc: 0.968750 Loss: 0.1093  lr:0.000500  network_time: 0.6797
+[ Mon Aug 31 22:17:20 2020 ] 	Batch(351/626) done. Acc: 1.000000 Loss: 0.1237  lr:0.000500  network_time: 0.6581
+[ Mon Aug 31 22:18:26 2020 ] 	Batch(451/626) done. Acc: 0.968750 Loss: 0.1248  lr:0.000500  network_time: 0.6354
+[ Mon Aug 31 22:19:31 2020 ] 	Batch(551/626) done. Acc: 0.953125 Loss: 0.1667  lr:0.000500  network_time: 0.6267
+[ Mon Aug 31 22:20:19 2020 ] 	Mean training loss: 0.1499 (BS 64: 0.1499).
+[ Mon Aug 31 22:20:19 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 22:20:19 2020 ] Eval epoch: 99
+[ Mon Aug 31 22:21:22 2020 ] 	Mean test loss of 258 batches: 0.8760021872991739.
+[ Mon Aug 31 22:21:23 2020 ] 	Top 1: 76.19%
+[ Mon Aug 31 22:21:23 2020 ] 	Top 5: 94.73%
+[ Mon Aug 31 22:21:24 2020 ] Training epoch: 100, LR: 0.0005
+[ Mon Aug 31 22:21:45 2020 ] 	Batch(25/626) done. Acc: 0.984375 Loss: 0.1099  lr:0.000500  network_time: 0.7235
+[ Mon Aug 31 22:22:51 2020 ] 	Batch(125/626) done. Acc: 0.984375 Loss: 0.1433  lr:0.000500  network_time: 0.6304
+[ Mon Aug 31 22:23:56 2020 ] 	Batch(225/626) done. Acc: 0.984375 Loss: 0.1013  lr:0.000500  network_time: 0.6512
+[ Mon Aug 31 22:25:04 2020 ] 	Batch(325/626) done. Acc: 0.921875 Loss: 0.2573  lr:0.000500  network_time: 0.6220
+[ Mon Aug 31 22:26:11 2020 ] 	Batch(425/626) done. Acc: 0.984375 Loss: 0.0765  lr:0.000500  network_time: 0.6404
+[ Mon Aug 31 22:27:16 2020 ] 	Batch(525/626) done. Acc: 0.968750 Loss: 0.1344  lr:0.000500  network_time: 0.6359
+[ Mon Aug 31 22:28:21 2020 ] 	Batch(625/626) done. Acc: 0.921875 Loss: 0.2121  lr:0.000500  network_time: 0.6177
+[ Mon Aug 31 22:28:22 2020 ] 	Mean training loss: 0.1475 (BS 64: 0.1475).
+[ Mon Aug 31 22:28:22 2020 ] 	Time consumption: [Data]01%, [Network]97%
+[ Mon Aug 31 22:28:22 2020 ] Eval epoch: 100
+[ Mon Aug 31 22:29:25 2020 ] 	Mean test loss of 258 batches: 0.8746066318117371.
+[ Mon Aug 31 22:29:25 2020 ] 	Top 1: 75.98%
+[ Mon Aug 31 22:29:25 2020 ] 	Top 5: 94.83%
+[ Mon Aug 31 22:29:27 2020 ] Best accuracy: 0.766118760235337
+[ Mon Aug 31 22:29:27 2020 ] Epoch number: 36
+[ Mon Aug 31 22:29:27 2020 ] Model name: ./work_dir/ntu/xsub/upper/joint_motion/
+[ Mon Aug 31 22:29:27 2020 ] Model total number of params: 1515532
+[ Mon Aug 31 22:29:27 2020 ] Weight decay: 0.0005
+[ Mon Aug 31 22:29:27 2020 ] Base LR: 0.05
+[ Mon Aug 31 22:29:27 2020 ] Batch Size: 64
+[ Mon Aug 31 22:29:27 2020 ] Forward Batch Size: 64
+[ Mon Aug 31 22:29:27 2020 ] Test Batch Size: 64
