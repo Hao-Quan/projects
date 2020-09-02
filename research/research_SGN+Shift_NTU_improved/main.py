@@ -358,6 +358,19 @@ class Processor():
         self.record_time()
         return split_time
 
+    def adjust_learning_rate(self, epoch):
+        if self.arg.optimizer == 'SGD' or self.arg.optimizer == 'Adam':
+            if epoch < self.arg.warm_up_epoch:
+                lr = self.arg.base_lr * (epoch + 1) / self.arg.warm_up_epoch
+            else:
+                lr = self.arg.base_lr * (
+                        0.1 ** np.sum(epoch >= np.array(self.arg.step)))
+            for param_group in self.optimizer.param_groups:
+                param_group['lr'] = lr
+            return lr
+        else:
+            raise ValueError()
+
     def load_model(self):
         output_device = self.arg.device[0] if type(self.arg.device) is list else self.arg.device
         self.output_device = output_device
@@ -492,14 +505,14 @@ class Processor():
 
     def train(self, epoch, save_model=False):
         self.model.train()
+        current_lr = self.optimizer.param_groups[0]['lr']
+        self.print_log(f'Training epoch: {epoch + 1}, LR: {current_lr:.4f}')
         loader = self.data_loader['train']
+        self.adjust_learning_rate(epoch)
         loss_values = []
         self.train_writer.add_scalar('epoch', epoch + 1, self.global_step)
         self.record_time()
         timer = dict(dataloader=0.001, model=0.001, statistics=0.001)
-
-        current_lr = self.optimizer.param_groups[0]['lr']
-        self.print_log(f'Training epoch: {epoch + 1}, LR: {current_lr:.4f}')
 
         process = tqdm(loader, dynamic_ncols=True)
         for batch_idx, (data, label, index) in enumerate(process):
