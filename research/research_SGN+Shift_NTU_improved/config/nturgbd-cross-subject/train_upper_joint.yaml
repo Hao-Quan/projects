@@ -8,12 +8,12 @@ checkpoint: null
 feeder: feeders.feeder.Feeder
 train_feeder_args:
   # Original data path
-  data_path: ./data/ntu/xsub/train_data_joint_upper_middle.npy
-  label_path: ./data/ntu/xsub/train_label.pkl
+#  data_path: ./data/ntu/xsub/train_data_joint_upper_middle.npy
+#  label_path: ./data/ntu/xsub/train_label.pkl
 
   # Lightweight data path
-#  data_path: ./data/ntu_light/xsub/train_data_joint_upper_middle.npy
-#  label_path: ./data/ntu_light/xsub/train_label.pkl
+  data_path: ./data/ntu_light/xsub/train_data_joint_upper_middle.npy
+  label_path: ./data/ntu_light/xsub/train_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/train_data_joint_upper_middle.npy
@@ -28,12 +28,12 @@ train_feeder_args:
 
 test_feeder_args:
   # Original data path
-  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
-  label_path: ./data/ntu/xsub/val_label.pkl
+#  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
+#  label_path: ./data/ntu/xsub/val_label.pkl
 
   # Lightweight data path
-# data_path: ./data/ntu_light/xsub/val_data_joint_upper_middle.npy
-# label_path: ./data/ntu_light/xsub/val_label.pkl
+ data_path: ./data/ntu_light/xsub/val_data_joint_upper_middle.npy
+ label_path: ./data/ntu_light/xsub/val_label.pkl
 
   # Westworld data path
 #  data_path: /data/ntu/xsub/val_data_joint_upper_middle.npy
@@ -56,12 +56,12 @@ model_args:
 # optim
 weight_decay: 0.0005
 base_lr: 0.1
-step: [60, 80, 100]
+step: [0, 1, 2]
 
 # training
 num_epoch: 1
 device: [0]
-batch_size: 2
+batch_size: 1
 forward_batch_size: 1
 test_batch_size: 1
 nesterov: True

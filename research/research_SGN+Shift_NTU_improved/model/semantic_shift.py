@@ -173,16 +173,16 @@ class Model(nn.Module):
         self.part = args.part
 
         # number for Joint
-        # if self.part == 'upper':
-        #     num_joint = 19
-        # else:
-        #     num_joint = 13
+        if self.part == 'upper':
+            num_joint = 19
+        else:
+            num_joint = 13
 
         # number for Bone
-        if self.part == 'upper':
-            num_joint = 18
-        else:
-            num_joint = 12
+        # if self.part == 'upper':
+        #     num_joint = 18
+        # else:
+        #     num_joint = 12
 
         bs = args.batch_size
         # # spa: spatial; tem: temporal
@@ -368,16 +368,16 @@ class gcn_spa_shift_semantic(nn.Module):
         #     self.shift_size = 9
 
         # # NTU data part shift number - Joint
-        # if part == 'upper':
-        #     self.shift_size = 19
-        # else:
-        #     self.shift_size = 13
+        if part == 'upper':
+            self.shift_size = 19
+        else:
+            self.shift_size = 13
 
         # NTU data part shift number - Bone
-        if part == 'upper':
-            self.shift_size = 18
-        else:
-            self.shift_size = 12
+        # if part == 'upper':
+        #     self.shift_size = 18
+        # else:
+        #     self.shift_size = 12
 
         self.Linear_weight = nn.Parameter(torch.zeros(in_channels, out_channels, requires_grad=True, device='cuda'),
                                           requires_grad=True)

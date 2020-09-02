@@ -59,3 +59,234 @@
 
 [ Wed Sep  2 12:16:54 2020 ] Model total number of params: 1512413
 [ Wed Sep  2 12:16:58 2020 ] Training epoch: 1, LR: 0.0500
+[ Wed Sep  2 22:44:49 2020 ] Parameters:
+{'assume_yes': False,
+ 'base_lr': 0.1,
+ 'batch_size': 1,
+ 'case': 0,
+ 'checkpoint': None,
+ 'config': './config/nturgbd-cross-subject/train_upper_bone.yaml',
+ 'dataset': 'ntu_light',
+ 'debug': False,
+ 'device': [0],
+ 'eval_interval': 5,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 1,
+ 'graph': 'calo',
+ 'ignore_weights': [],
+ 'log_interval': 100,
+ 'model': 'model.semantic_shift.Model',
+ 'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
+                'graph_args': {'labeling_mode': 'spatial'},
+                'num_class': 60,
+                'num_person': 2,
+                'num_point': 25,
+                'seg': 1},
+ 'model_saved_name': '',
+ 'monitor': 'acc_val',
+ 'nesterov': True,
+ 'num_epoch': 1,
+ 'num_worker': 8,
+ 'only_train_epoch': 0,
+ 'only_train_part': False,
+ 'optimizer': 'SGD',
+ 'part': 'upper',
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 2,
+ 'save_score': True,
+ 'seed': 1,
+ 'seg': 1,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [1, 2, 3],
+ 'test_batch_size': 1,
+ 'test_feeder_args': {'data_path': './data/ntu_light/xsub/val_data_bone_upper_middle.npy',
+                      'label_path': './data/ntu_light/xsub/val_label.pkl'},
+ 'train': 1,
+ 'train_feeder_args': {'data_path': './data/ntu_light/xsub/train_data_bone_upper_middle.npy',
+                       'debug': False,
+                       'label_path': './data/ntu_light/xsub/train_label.pkl',
+                       'normalization': False,
+                       'random_choose': False,
+                       'random_move': False,
+                       'random_shift': False,
+                       'window_size': -1},
+ 'warm_up_epoch': 0,
+ 'weight_decay': 0.0005,
+ 'weights': None,
+ 'work_dir': './work_dir/ntu/xsub/upper',
+ 'workers': 0}
+
+[ Wed Sep  2 22:44:49 2020 ] Model total number of params: 1512413
+[ Wed Sep  2 22:44:49 2020 ] Training epoch: 1, LR: 0.1000
+[ Wed Sep  2 22:45:11 2020 ] Parameters:
+{'assume_yes': False,
+ 'base_lr': 0.1,
+ 'batch_size': 1,
+ 'case': 0,
+ 'checkpoint': None,
+ 'config': './config/nturgbd-cross-subject/train_upper_bone.yaml',
+ 'dataset': 'ntu_light',
+ 'debug': False,
+ 'device': [0],
+ 'eval_interval': 5,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 1,
+ 'graph': 'calo',
+ 'ignore_weights': [],
+ 'log_interval': 100,
+ 'model': 'model.semantic_shift.Model',
+ 'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
+                'graph_args': {'labeling_mode': 'spatial'},
+                'num_class': 60,
+                'num_person': 2,
+                'num_point': 25,
+                'seg': 1},
+ 'model_saved_name': '',
+ 'monitor': 'acc_val',
+ 'nesterov': True,
+ 'num_epoch': 1,
+ 'num_worker': 8,
+ 'only_train_epoch': 0,
+ 'only_train_part': False,
+ 'optimizer': 'SGD',
+ 'part': 'upper',
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 2,
+ 'save_score': True,
+ 'seed': 1,
+ 'seg': 1,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [1, 2, 3],
+ 'test_batch_size': 1,
+ 'test_feeder_args': {'data_path': './data/ntu_light/xsub/val_data_bone_upper_middle.npy',
+                      'label_path': './data/ntu_light/xsub/val_label.pkl'},
+ 'train': 1,
+ 'train_feeder_args': {'data_path': './data/ntu_light/xsub/train_data_bone_upper_middle.npy',
+                       'debug': False,
+                       'label_path': './data/ntu_light/xsub/train_label.pkl',
+                       'normalization': False,
+                       'random_choose': False,
+                       'random_move': False,
+                       'random_shift': False,
+                       'window_size': -1},
+ 'warm_up_epoch': 0,
+ 'weight_decay': 0.0005,
+ 'weights': None,
+ 'work_dir': './work_dir/ntu/xsub/upper',
+ 'workers': 0}
+
+[ Wed Sep  2 22:45:11 2020 ] Model total number of params: 1512413
+[ Wed Sep  2 22:45:11 2020 ] Training epoch: 1, LR: 0.1000
+[ Wed Sep  2 22:46:05 2020 ] 	Batch(99/100) done. Acc: 0.000000 Loss: 5.0889  lr:0.100000  network_time: 0.5266
+[ Wed Sep  2 22:46:05 2020 ] 	Mean training loss: 5.1038 (BS 1: 5.1038).
+[ Wed Sep  2 22:46:05 2020 ] 	Time consumption: [Data]01%, [Network]98%
+[ Wed Sep  2 22:46:05 2020 ] Eval epoch: 1
+[ Wed Sep  2 22:46:08 2020 ] 	Mean test loss of 20 batches: 59.81733614206314.
+[ Wed Sep  2 22:46:08 2020 ] 	Top 1: 0.00%
+[ Wed Sep  2 22:46:08 2020 ] 	Top 5: 0.00%
+[ Wed Sep  2 22:46:08 2020 ] Best accuracy: 0
+[ Wed Sep  2 22:46:08 2020 ] Epoch number: 0
+[ Wed Sep  2 22:46:08 2020 ] Model name: ./work_dir/ntu/xsub/upper
+[ Wed Sep  2 22:46:08 2020 ] Model total number of params: 1512413
+[ Wed Sep  2 22:46:08 2020 ] Weight decay: 0.0005
+[ Wed Sep  2 22:46:08 2020 ] Base LR: 0.1
+[ Wed Sep  2 22:46:08 2020 ] Batch Size: 1
+[ Wed Sep  2 22:46:08 2020 ] Forward Batch Size: 1
+[ Wed Sep  2 22:46:08 2020 ] Test Batch Size: 1
+[ Wed Sep  2 22:46:50 2020 ] Parameters:
+{'assume_yes': False,
+ 'base_lr': 0.1,
+ 'batch_size': 1,
+ 'case': 0,
+ 'checkpoint': None,
+ 'config': './config/nturgbd-cross-subject/train_upper_bone.yaml',
+ 'dataset': 'ntu_light',
+ 'debug': False,
+ 'device': [0],
+ 'eval_interval': 5,
+ 'feeder': 'feeders.feeder.Feeder',
+ 'forward_batch_size': 1,
+ 'graph': 'calo',
+ 'ignore_weights': [],
+ 'log_interval': 100,
+ 'model': 'model.semantic_shift.Model',
+ 'model_args': {'graph': 'graph.ntu_rgb_d.Graph',
+                'graph_args': {'labeling_mode': 'spatial'},
+                'num_class': 60,
+                'num_person': 2,
+                'num_point': 25,
+                'seg': 1},
+ 'model_saved_name': '',
+ 'monitor': 'acc_val',
+ 'nesterov': True,
+ 'num_epoch': 10,
+ 'num_worker': 8,
+ 'only_train_epoch': 0,
+ 'only_train_part': False,
+ 'optimizer': 'SGD',
+ 'part': 'upper',
+ 'phase': 'train',
+ 'print_log': True,
+ 'save_interval': 2,
+ 'save_score': True,
+ 'seed': 1,
+ 'seg': 1,
+ 'show_topk': [1, 5],
+ 'start_epoch': 0,
+ 'step': [1, 2, 4, 7],
+ 'test_batch_size': 1,
+ 'test_feeder_args': {'data_path': './data/ntu_light/xsub/val_data_bone_upper_middle.npy',
+                      'label_path': './data/ntu_light/xsub/val_label.pkl'},
+ 'train': 1,
+ 'train_feeder_args': {'data_path': './data/ntu_light/xsub/train_data_bone_upper_middle.npy',
+                       'debug': False,
+                       'label_path': './data/ntu_light/xsub/train_label.pkl',
+                       'normalization': False,
+                       'random_choose': False,
+                       'random_move': False,
+                       'random_shift': False,
+                       'window_size': -1},
+ 'warm_up_epoch': 0,
+ 'weight_decay': 0.0005,
+ 'weights': None,
+ 'work_dir': './work_dir/ntu/xsub/upper',
+ 'workers': 0}
+
+[ Wed Sep  2 22:46:50 2020 ] Model total number of params: 1512413
+[ Wed Sep  2 22:46:50 2020 ] Training epoch: 1, LR: 0.1000
+[ Wed Sep  2 22:47:44 2020 ] 	Batch(99/100) done. Acc: 0.000000 Loss: 4.2386  lr:0.100000  network_time: 0.5276
+[ Wed Sep  2 22:47:44 2020 ] 	Mean training loss: 5.0312 (BS 1: 5.0312).
+[ Wed Sep  2 22:47:44 2020 ] 	Time consumption: [Data]01%, [Network]98%
+[ Wed Sep  2 22:47:44 2020 ] Eval epoch: 1
+[ Wed Sep  2 22:47:47 2020 ] 	Mean test loss of 20 batches: 4.623275935649872.
+[ Wed Sep  2 22:47:47 2020 ] 	Top 1: 0.00%
+[ Wed Sep  2 22:47:47 2020 ] 	Top 5: 15.00%
+[ Wed Sep  2 22:47:47 2020 ] Training epoch: 2, LR: 0.0100
+[ Wed Sep  2 22:48:41 2020 ] 	Batch(99/100) done. Acc: 0.000000 Loss: 4.4689  lr:0.010000  network_time: 0.5361
+[ Wed Sep  2 22:48:41 2020 ] 	Mean training loss: 4.1524 (BS 1: 4.1524).
+[ Wed Sep  2 22:48:41 2020 ] 	Time consumption: [Data]01%, [Network]98%
+[ Wed Sep  2 22:48:41 2020 ] Eval epoch: 2
+[ Wed Sep  2 22:48:44 2020 ] 	Mean test loss of 20 batches: 6.133686077594757.
+[ Wed Sep  2 22:48:44 2020 ] 	Top 1: 0.00%
+[ Wed Sep  2 22:48:44 2020 ] 	Top 5: 10.00%
+[ Wed Sep  2 22:48:44 2020 ] Training epoch: 3, LR: 0.0010
+[ Wed Sep  2 22:49:40 2020 ] 	Batch(99/100) done. Acc: 0.000000 Loss: 4.3767  lr:0.001000  network_time: 0.5546
+[ Wed Sep  2 22:49:40 2020 ] 	Mean training loss: 4.1060 (BS 1: 4.1060).
+[ Wed Sep  2 22:49:40 2020 ] 	Time consumption: [Data]01%, [Network]98%
+[ Wed Sep  2 22:49:40 2020 ] Eval epoch: 3
+[ Wed Sep  2 22:49:43 2020 ] 	Mean test loss of 20 batches: 5.869726347923279.
+[ Wed Sep  2 22:49:43 2020 ] 	Top 1: 0.00%
+[ Wed Sep  2 22:49:43 2020 ] 	Top 5: 10.00%
+[ Wed Sep  2 22:49:44 2020 ] Training epoch: 4, LR: 0.0010
+[ Wed Sep  2 22:50:42 2020 ] 	Batch(99/100) done. Acc: 0.000000 Loss: 4.9776  lr:0.001000  network_time: 0.5454
+[ Wed Sep  2 22:50:42 2020 ] 	Mean training loss: 4.1046 (BS 1: 4.1046).
+[ Wed Sep  2 22:50:42 2020 ] 	Time consumption: [Data]01%, [Network]98%
+[ Wed Sep  2 22:50:42 2020 ] Eval epoch: 4
+[ Wed Sep  2 22:50:46 2020 ] 	Mean test loss of 20 batches: 7.508494973182678.
+[ Wed Sep  2 22:50:46 2020 ] 	Top 1: 0.00%
+[ Wed Sep  2 22:50:46 2020 ] 	Top 5: 15.00%
+[ Wed Sep  2 22:50:46 2020 ] Training epoch: 5, LR: 0.0001

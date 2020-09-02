@@ -21,12 +21,18 @@
   <component name="ChangeListManager">
     <list default="true" id="5ac7fa47-8d66-4b55-b78b-9cee223ee36a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../2s-AGCN-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../2s-AGCN-master/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../2s-AGCN-master/work_dir/ntu/xsub/agcn_joint/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../2s-AGCN-master/work_dir/ntu/xsub/agcn_joint/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2s-AGCN-master/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1599039127.hao-TP" beforeDir="false" afterPath="$PROJECT_DIR$/../2s-AGCN-master/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1599039127.hao-TP" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../2s-AGCN-master/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1599039128.hao-TP" beforeDir="false" afterPath="$PROJECT_DIR$/../2s-AGCN-master/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1599039128.hao-TP" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_lower_bone_motion_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_lower_bone_motion_westworld.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_bone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_bone.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint_westworld.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-view/train_upper_joint_motion_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-view/train_upper_joint_motion_westworld.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/model/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/model/semantic_shift.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/bone_motion/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/bone_motion/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1599041801.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1599041801.hao-TP" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/upper_config.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +53,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MS-G3D-master" />
     <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
   </component>
   <component name="PyDebuggerOptionsProvider">
@@ -119,7 +125,7 @@
       <updated>1597784263455</updated>
       <workItem from="1597784264470" duration="1000000" />
       <workItem from="1598279705706" duration="933000" />
-      <workItem from="1599033743847" duration="3646000" />
+      <workItem from="1599033743847" duration="8139000" />
     </task>
     <servers />
   </component>
@@ -147,10 +153,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="451" y="210" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1853.1053@67.27.1853.1053" timestamp="1597784501040" />
-    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl" timestamp="1598280194311">
+    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl" timestamp="1599053058093">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1598280194311" />
+    <state x="732" y="312" width="424" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599053058093" />
     <state width="903" height="344" key="GridCell.Tab.0.bottom" timestamp="1597785264042">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
@@ -187,10 +193,10 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="438" y="189" key="SettingsEditor/67.27.1853.1053@67.27.1853.1053" timestamp="1597784980761" />
-    <state x="683" y="291" width="620" height="522" key="find.popup" timestamp="1599051561381">
+    <state x="683" y="291" width="620" height="522" key="find.popup" timestamp="1599057401273">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state x="683" y="291" width="620" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1599051561381" />
+    <state x="683" y="291" width="620" height="522" key="find.popup/67.27.1853.1053@67.27.1853.1053" timestamp="1599057401273" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Shift_GCN_master$main.coverage" NAME="main Coverage Results" MODIFIED="1597784688819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

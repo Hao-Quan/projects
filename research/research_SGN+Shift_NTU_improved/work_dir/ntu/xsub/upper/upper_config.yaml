@@ -1,9 +1,9 @@
 assume_yes: false
-base_lr: 0.05
-batch_size: 2
+base_lr: 0.1
+batch_size: 1
 case: 0
 checkpoint: null
-config: ./config/nturgbd-cross-subject/train_upper_joint.yaml
+config: ./config/nturgbd-cross-subject/train_upper_bone.yaml
 dataset: ntu_light
 debug: false
 device:
@@ -26,7 +26,7 @@ model_args:
 model_saved_name: ''
 monitor: acc_val
 nesterov: true
-num_epoch: 1
+num_epoch: 10
 num_worker: 8
 only_train_epoch: 0
 only_train_part: false
@@ -43,17 +43,19 @@ show_topk:
 - 5
 start_epoch: 0
 step:
-- 30
-- 40
+- 1
+- 2
+- 4
+- 7
 test_batch_size: 1
 test_feeder_args:
-  data_path: ./data/ntu/xsub/val_data_joint_upper_middle.npy
-  label_path: ./data/ntu/xsub/val_label.pkl
+  data_path: ./data/ntu_light/xsub/val_data_bone_upper_middle.npy
+  label_path: ./data/ntu_light/xsub/val_label.pkl
 train: 1
 train_feeder_args:
-  data_path: ./data/ntu/xsub/train_data_joint_upper_middle.npy
+  data_path: ./data/ntu_light/xsub/train_data_bone_upper_middle.npy
   debug: false
-  label_path: ./data/ntu/xsub/train_label.pkl
+  label_path: ./data/ntu_light/xsub/train_label.pkl
   normalization: false
   random_choose: false
   random_move: false
