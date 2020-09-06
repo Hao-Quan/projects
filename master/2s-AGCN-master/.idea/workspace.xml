@@ -19,21 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1599039127.hao-TP" beforeDir="false" afterPath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/train/events.out.tfevents.1599039127.hao-TP" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1599039128.hao-TP" beforeDir="false" afterPath="$PROJECT_DIR$/runs/ntu_cs_agcn_joint/val/events.out.tfevents.1599039128.hao-TP" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Shift-GCN-master/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Shift-GCN-master/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_bone.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_bone.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-subject/train_upper_joint.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-view/train_upper_joint_motion_westworld.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/config/nturgbd-cross-view/train_upper_joint_motion_westworld.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/model/semantic_shift.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/model/semantic_shift.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/bone_motion/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/lower/bone_motion/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/trainlogs/train/events.out.tfevents.1599041801.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/trainlogs/val/events.out.tfevents.1599041801.hao-TP" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/upper_config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../../research/research_SGN+Shift_NTU_improved/work_dir/ntu/xsub/upper/upper_config.yaml" afterDir="false" />
-    </list>
+    <list default="true" id="9a753e8b-695c-4d3f-8326-54c2035794bc" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -157,38 +143,38 @@
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
     <state x="776" y="310" width="713" height="484" key="FileChooserDialogImpl/67.27.1853.1053@67.27.1853.1053" timestamp="1599033737194" />
-    <state width="1807" height="280" key="GridCell.Tab.0.bottom" timestamp="1599039125295">
+    <state width="1807" height="280" key="GridCell.Tab.0.bottom" timestamp="1599082179574">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1599039125295" />
-    <state width="1807" height="280" key="GridCell.Tab.0.center" timestamp="1599039125294">
+    <state width="1807" height="280" key="GridCell.Tab.0.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179574" />
+    <state width="1807" height="280" key="GridCell.Tab.0.center" timestamp="1599082179572">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1599039125294" />
-    <state width="1807" height="280" key="GridCell.Tab.0.left" timestamp="1599039125294">
+    <state width="1807" height="280" key="GridCell.Tab.0.center/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179572" />
+    <state width="1807" height="280" key="GridCell.Tab.0.left" timestamp="1599082179572">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1599039125294" />
-    <state width="1807" height="280" key="GridCell.Tab.0.right" timestamp="1599039125295">
+    <state width="1807" height="280" key="GridCell.Tab.0.left/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179572" />
+    <state width="1807" height="280" key="GridCell.Tab.0.right" timestamp="1599082179573">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1599039125295" />
-    <state width="1807" height="280" key="GridCell.Tab.1.bottom" timestamp="1599039128482">
+    <state width="1807" height="280" key="GridCell.Tab.0.right/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179573" />
+    <state width="1807" height="280" key="GridCell.Tab.1.bottom" timestamp="1599082179577">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1599039128482" />
-    <state width="1807" height="280" key="GridCell.Tab.1.center" timestamp="1599039128482">
+    <state width="1807" height="280" key="GridCell.Tab.1.bottom/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179577" />
+    <state width="1807" height="280" key="GridCell.Tab.1.center" timestamp="1599082179576">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1599039128482" />
-    <state width="1807" height="280" key="GridCell.Tab.1.left" timestamp="1599039128482">
+    <state width="1807" height="280" key="GridCell.Tab.1.center/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179576" />
+    <state width="1807" height="280" key="GridCell.Tab.1.left" timestamp="1599082179575">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1599039128482" />
-    <state width="1807" height="280" key="GridCell.Tab.1.right" timestamp="1599039128482">
+    <state width="1807" height="280" key="GridCell.Tab.1.left/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179575" />
+    <state width="1807" height="280" key="GridCell.Tab.1.right" timestamp="1599082179576">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
-    <state width="1807" height="280" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1599039128482" />
+    <state width="1807" height="280" key="GridCell.Tab.1.right/67.27.1853.1053@67.27.1853.1053" timestamp="1599082179576" />
     <state x="482" y="187" key="SettingsEditor" timestamp="1596889081370">
       <screen x="67" y="27" width="1853" height="1053" />
     </state>
