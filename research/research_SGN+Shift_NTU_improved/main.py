@@ -570,22 +570,6 @@ class Processor():
             # torch.nn.utils.clip_grad_norm_(self.model.parameters(), 2)
             self.optimizer.step()
             network_time = time.time() - start
-            # # forward
-            # start = time.time()
-            # output = self.model(data)
-            # network_time = time.time() - start
-            #
-            # loss = self.loss(output, label)
-            #
-            # # backward
-            # self.optimizer.zero_grad()
-            # loss.backward()
-            # self.optimizer.step()
-            # loss_values.append(loss.data)
-            # timer['model'] += self.split_time()
-            #
-            # value, predict_label = torch.max(output.data, 1)
-            # acc = torch.mean((predict_label == label.data).float())
 
             # statistics
             self.lr = self.optimizer.param_groups[0]['lr']

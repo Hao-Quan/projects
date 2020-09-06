@@ -1,0 +1,1 @@
+[ Sun Sep  6 13:09:53 2020 ] Load weights from ./pretrained_models/weights-16-20032.pt.

@@ -4,6 +4,11 @@ import os
 import numpy as np
 from tqdm import tqdm
 
+# plot confusion matrix
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
@@ -66,6 +71,10 @@ if __name__ == "__main__":
         r8 = pickle.load(r8)
 
     right_num = total_num = right_num_5 = 0
+
+    # for Confusion Matrix
+    list_pred = []
+
     for i in tqdm(range(len(label[0]))):
         _, l = label[:, i]
 
@@ -94,58 +103,74 @@ if __name__ == "__main__":
         r = np.argmax(r)
         right_num += int(r == int(l))
         total_num += 1
+
+        # append predict label in list for Confusion matrix
+        list_pred.append(r)
+
     acc = right_num / total_num
     acc5 = right_num_5 / total_num
     print('Top1 Acc: {:.4f}%'.format(acc * 100))
     print('Top5 Acc: {:.4f}%'.format(acc5 * 100))
 
-    # right_num = total_num = right_num_5 = 0
-    # for i in tqdm(range(len(label))):
-    #     l = label[i]
-    #     r11 = r1[i]
-    #     r22 = r2[i]
-    #     r = r11 + r22 * arg.alpha
-    #     rank_5 = r.argsort()[-5:]
-    #     right_num_5 += int(int(l) in rank_5)
-    #     r = np.argmax(r)
-    #     right_num += int(r == int(l))
-    #     total_num += 1
-    # acc = right_num / total_num
-    # acc5 = right_num_5 / total_num
-    #
-    # print('Top1 Acc: {:.4f}%'.format(acc * 100))
-    # print('Top5 Acc: {:.4f}%'.format(acc5 * 100))
+    with open('./xsub/xsub_predict_label.npy', 'wb') as f:
+        print("save ./xsub/xsub_predict_label.npy")
+        np.save(f, list_pred)
 
-# import argparse
-# import pickle
+    #train_X = np.load('ntu_light/xsub/train_data_joint_motion.npy', mmap_mode='r')
 
-# import numpy as np
-# from tqdm import tqdm
-#
-# parser = argparse.ArgumentParser()
-# parser.add_argument('--datasets', default='calo', choices={'calo', 'kinetics', 'ntu/xsub', 'ntu/xsub'},
-#                     help='the work folder for storing results')
-# parser.add_argument('--alpha', default=1, help='weighted summation')
-# arg = parser.parse_args()
-#
-# dataset = arg.datasets
-# label = open('./data/' + dataset + '/val_label.pkl', 'rb')
-# label = np.array(pickle.load(label))
-# r1 = open('./work_dir/' + dataset + '/agcn_test_joint/epoch1_test_score.pkl', 'rb')
-# r1 = list(pickle.load(r1).items())
-# r2 = open('./work_dir/' + dataset + '/agcn_test_bone/epoch1_test_score.pkl', 'rb')
-# r2 = list(pickle.load(r2).items())
-# right_num = total_num = right_num_5 = 0
-# for i in tqdm(range(len(label[0]))):
-#     _, l = label[:, i]
-#     _, r11 = r1[i]
-#     _, r22 = r2[i]
-#     r = r11 + r22 * arg.alpha
-#     rank_5 = r.argsort()[-5:]
-#     right_num_5 += int(int(l) in rank_5)
-#     r = np.argmax(r)
-#     right_num += int(r == int(l))
-#     total_num += 1
-# acc = right_num / total_num
-# acc5 = right_num_5 / total_num
-# print(acc, acc5)
+
+def plot_confusion_matrix(target, prediction):
+    x_axis_labels = ["sitting", "walking_slow", "walking_fast", "standing", "standing_phone_talking", "window_shopping", "walking_phone", "wandering", "walking_phone_talking", "walking_cart", "sitting_phone_talking"]
+
+    y_axis_labels = ["sitting", "walking_slow", "walking_fast", "standing", "standing_phone_talking", "window_shopping", "walking_phone", "wandering", "walking_phone_talking", "walking_cart", "sitting_phone_talking"]
+
+    sns.set(font_scale=1.7)
+
+    # Plot without normalization"
+
+    con_mat = confusion_matrix(target, prediction)
+
+    plt.figure(figsize=(30, 25))
+    plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
+
+    for item in plotted_img.get_xticklabels():
+        item.set_rotation(45)
+        item.set_size(20)
+
+    plt.title("Confusion matrix without normalization")
+
+    plt.savefig("images/test_confusion_matrix_without_normalization.png")
+
+    # Plot normalized with "target (row)"
+
+    con_mat = confusion_matrix(target, prediction, normalize='true')
+
+    plt.figure(figsize=(30, 25))
+    plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
+
+    for item in plotted_img.get_xticklabels():
+        item.set_rotation(45)
+        item.set_size(20)
+
+    plt.title("Confusion matrix normalized by row (target)")
+
+    plt.savefig("images/test_confusion_matrix_target.png")
+
+    # Plot normalized with "pred (column)"
+
+    con_mat = confusion_matrix(target, prediction, normalize='pred')
+
+    plt.figure(figsize=(30, 25))
+    plotted_img = sns.heatmap(con_mat, annot=True, cmap="YlGnBu", xticklabels=x_axis_labels, yticklabels=y_axis_labels)
+
+    for item in plotted_img.get_xticklabels():
+        item.set_rotation(45)
+        item.set_size(20)
+
+    plt.title("Confusion matrix normalized by column (predict)")
+
+    plt.savefig("images/test_confusion_matrix_pred.png")
+
+
+# with open('./{}/{}_data_bone_{}.npy'.format(dataset, set, part), 'wb') as f:
+#     np.save(f, store_data)
