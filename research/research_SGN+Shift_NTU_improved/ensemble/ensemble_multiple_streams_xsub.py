@@ -66,7 +66,7 @@ if __name__ == "__main__":
     #with open(os.path.join(arg.upper_dir, 'upper_test_score.pkl'), 'rb') as r1:
         r7 = pickle.load(r7)
 
-    with open(os.path.join(arg.lower_dir, 'xsub/joint_motion', 'lower_test_score.pkl'), 'rb') as r8:
+    with open(os.path.join(arg.lower_dir, 'xsub/bone_motion', 'lower_test_score.pkl'), 'rb') as r8:
     #with open(os.path.join(arg.lower_dir, 'lower_test_score.pkl'), 'rb') as r2:
         r8 = pickle.load(r8)
 

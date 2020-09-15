@@ -6,6 +6,11 @@ dataset/ntu/xview/train_data_joint_lower_middle.npy
 dataset/ntu/xview/val_data_joint.npy
 dataset/ntu/xview/val_data_joint_lower_middle.npy
 dataset/ntu/xview/train_data_joint.npy
+master/mega.pytorch/R_101.pth
+master/tensorflow/models/workspace/training_demo/data/models/efficientdet_d7_coco17_tpu-32/saved_model/variables/variables.data-00000-of-00001
+master/tensorflow/models/workspace/training_demo/data/models/efficientdet_d7_coco17_tpu-32/checkpoint/ckpt-0.data-00000-of-00001
+master/tensorflow/models/workspace/training_demo/data/models/ssd_resnet101_v1_fpn_640x640_coco17_tpu-8/saved_model/variables/variables.data-00000-of-00001
+master/tensorflow/models/workspace/training_demo/data/models/ssd_resnet101_v1_fpn_640x640_coco17_tpu-8/checkpoint/ckpt-0.data-00000-of-00001
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/val_data_joint_upper_middle.npy
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/train_data_joint.npy
 research/research_SGN+Shift_NTU_multiple_layers_semantics_padding_300/data/ntu/xsub/train_data_joint_upper_middle.npy

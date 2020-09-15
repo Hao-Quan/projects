@@ -29,11 +29,11 @@ if __name__ == "__main__":
 
     # with open(os.path.join(arg.upper_dir, 'xview/bone', 'upper_test_score.pkl'), 'rb') as r1:
     #with open(os.path.join(arg.upper_dir, 'upper_test_score.pkl'), 'rb') as r1:
-    with open(os.path.join(arg.upper_dir, 'xview/joint_motion', 'upper_test_score.pkl'), 'rb') as r1:
+    with open(os.path.join(arg.upper_dir, 'xview/bone_motion', 'upper_test_score.pkl'), 'rb') as r1:
         r1 = pickle.load(r1)
 
     # with open(os.path.join(arg.lower_dir, 'xview/bone', 'lower_test_score.pkl'), 'rb') as r2:
-    with open(os.path.join(arg.lower_dir, 'xview/joint_motion', 'lower_test_score.pkl'), 'rb') as r2:
+    with open(os.path.join(arg.lower_dir, 'xview/bone_motion', 'lower_test_score.pkl'), 'rb') as r2:
     #with open(os.path.join(arg.lower_dir, 'lower_test_score.pkl'), 'rb') as r2:
         r2 = pickle.load(r2)
 
